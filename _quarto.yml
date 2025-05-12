@@ -20,10 +20,10 @@ format:
       - brand
   pdf:
     documentclass: scrreprt
-    include-in-header: tex/preamble.tex
-    include-before-body: tex/frontpage.tex
+    include-in-header: template/tex/preamble.tex
+    include-before-body: template/tex/frontpage.tex
   epub:
-    cover-image: img/iStock-162426493.jpg
+    cover-image: template/img/iStock-162426493.jpg
 
 
 
