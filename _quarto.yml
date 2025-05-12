@@ -23,7 +23,7 @@ format:
     include-in-header: tex/preamble.tex
     include-before-body: tex/frontpage.tex
   epub:
-    cover-image: img/cover_page_scriberia.png
+    cover-image: img/iStock-162426493.jpg
 
 
 
