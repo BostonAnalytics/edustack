@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "Building Reproducible and Interactive Analytics Courses",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "text": "1 Overview\nDesigning an effective online course starts not with technology, but with intention. The goal is to align instructional strategies with learning outcomes, supported by scalable and reproducible tools. This chapter walks you through establishing a reproducible, cloud-friendly online course infrastructure.",
     "crumbs": [
-      "Preface"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Designing an Online Course: Where Do I Start?</span>"
     ]
   },
   {
@@ -37,6 +37,16 @@
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "index.html#organize-your-repository",
+    "href": "index.html#organize-your-repository",
+    "title": "Building Reproducible and Interactive Analytics Courses",
+    "section": "4.1 4. Organize Your Repository",
+    "text": "4.1 4. Organize Your Repository\nStructure a course repo like so:\nmycourse/\n├── index.qmd\n├── syllabus.qmd\n├── assignments/\n│   └── hw01.qmd\n├── modules/\n│   ├── module01.qmd\n│   └── module02.qmd\n└── _quarto.yml\nTips:\n\nUse GitHub Issues for class Q&A and announcements.\nHave students submit via pull requests.\nUse GitHub Actions for automated feedback, grading, or rendering.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Designing an Online Course: Where Do I Start?</span>"
     ]
   }
 ]

@@ -6,8 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Nakul R Padalkar">
-<meta name="dcterms.date" content="2025-05-11">
 
 <title>Building Reproducible and Interactive Analytics Courses</title>
 <style>
@@ -21,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -83,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Designing an Online Course: Where Do I Start?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -111,19 +144,25 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Designing an Online Course: Where Do I Start?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/01_designing-online-course.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">01_designing-online-course.html</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,7 +181,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
+  <li><a href="#define-learning-outcomes" id="toc-define-learning-outcomes" class="nav-link" data-scroll-target="#define-learning-outcomes"><span class="header-section-number">2</span> Define Learning Outcomes</a></li>
+  <li><a href="#choose-your-infrastructure" id="toc-choose-your-infrastructure" class="nav-link" data-scroll-target="#choose-your-infrastructure"><span class="header-section-number">3</span> Choose Your Infrastructure</a></li>
+  <li><a href="#use-quarto-to-unify-content" id="toc-use-quarto-to-unify-content" class="nav-link" data-scroll-target="#use-quarto-to-unify-content"><span class="header-section-number">4</span> Use Quarto to Unify Content</a>
+  <ul class="collapse">
+  <li><a href="#organize-your-repository" id="toc-organize-your-repository" class="nav-link" data-scroll-target="#organize-your-repository"><span class="header-section-number">4.1</span> 4. Organize Your Repository</a></li>
+  </ul></li>
+  <li><a href="#plan-for-iteration" id="toc-plan-for-iteration" class="nav-link" data-scroll-target="#plan-for-iteration"><span class="header-section-number">5</span> Plan for Iteration</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -158,19 +205,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Nakul R Padalkar </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 11, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -180,10 +215,97 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<section id="overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Overview</h1>
+<p>Designing an effective online course starts not with technology, but with intention. The goal is to align instructional strategies with learning outcomes, supported by scalable and reproducible tools. This chapter walks you through establishing a reproducible, cloud-friendly online course infrastructure.</p>
+</section>
+<section id="define-learning-outcomes" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Define Learning Outcomes</h1>
+<p>Start with the end in mind. Ask yourself: - What should students be able to <em>do</em> by the end of the course? - How will you know they’ve learned it? - What evidence of learning will students produce?</p>
+<p>Use <strong>Bloom’s Taxonomy</strong> to scaffold outcomes across cognitive levels, from remembering to creating.</p>
+</section>
+<section id="choose-your-infrastructure" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Choose Your Infrastructure</h1>
+<p>Pick your teaching stack based on your audience, goals, and support capacity:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 37%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>Use Case</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GitHub Classroom</td>
+<td>Code-driven assignment workflows</td>
+<td>Version control, autograding, feedback</td>
+</tr>
+<tr class="even">
+<td>Posit Cloud</td>
+<td>R/Python course projects</td>
+<td>No install, team projects, reproducibility</td>
+</tr>
+<tr class="odd">
+<td>AWS Academy</td>
+<td>Cloud labs and AI/ML workflows</td>
+<td>SageMaker, EC2, real-world industry tooling</td>
+</tr>
+<tr class="even">
+<td>VSCode.dev / Codespaces</td>
+<td>Lightweight online IDE</td>
+<td>GitHub native integration, no setup required</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="use-quarto-to-unify-content" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Use Quarto to Unify Content</h1>
+<p>Create reproducible lecture notes, websites, assignments, and slides with <a href="https://quarto.org">Quarto</a>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> create-project mycourse <span class="at">--type</span> website</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then add:</p>
+<ul>
+<li><code>index.qmd</code> for homepage/overview</li>
+<li><code>syllabus.qmd</code>, <code>assignments/</code>, <code>modules/</code> for modular content</li>
+</ul>
+<section id="organize-your-repository" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="organize-your-repository"><span class="header-section-number">4.1</span> 4. Organize Your Repository</h2>
+<p>Structure a course repo like so:</p>
+<pre><code>mycourse/
+├── index.qmd
+├── syllabus.qmd
+├── assignments/
+│   └── hw01.qmd
+├── modules/
+│   ├── module01.qmd
+│   └── module02.qmd
+└── _quarto.yml</code></pre>
+<p>Tips:</p>
+<ul>
+<li>Use <strong>GitHub Issues</strong> for class Q&amp;A and announcements.</li>
+<li>Have students submit via <strong>pull requests</strong>.</li>
+<li>Use <strong>GitHub Actions</strong> for automated feedback, grading, or rendering.</li>
+</ul>
+</section>
+</section>
+<section id="plan-for-iteration" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Plan for Iteration</h1>
+<p>Your first version won’t be perfect. Plan to revise:</p>
+<ul>
+<li>Module sequencing or timing</li>
+<li>Tooling constraints (e.g., firewall, browser compatibility)</li>
+<li>Based on student feedback and usage analytics</li>
+</ul>
+<p>Use a <code>CHANGELOG.md</code> and commit messages to document changes over time.</p>
+</section>
+<section id="summary" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Summary</h1>
+<p>Start with outcomes. Choose infrastructure intentionally. Use Quarto and GitHub to scaffold your course reproducibly. Keep it flexible, open, and iterative. You’re not just teaching content—you’re modeling professional workflows.</p>
 
 
 </section>
@@ -593,7 +715,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

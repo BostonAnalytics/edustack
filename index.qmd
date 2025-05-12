@@ -1,5 +1,76 @@
-# Preface {.unnumbered}
+---
+title: "Designing an Online Course: Where Do I Start?"
+---
 
-This is a Quarto book.
+# Overview
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+Designing an effective online course starts not with technology, but with intention. The goal is to align instructional strategies with learning outcomes, supported by scalable and reproducible tools. This chapter walks you through establishing a reproducible, cloud-friendly online course infrastructure.
+
+# Define Learning Outcomes
+
+Start with the end in mind. Ask yourself:
+- What should students be able to *do* by the end of the course?
+- How will you know they’ve learned it?
+- What evidence of learning will students produce?
+
+Use **Bloom’s Taxonomy** to scaffold outcomes across cognitive levels, from remembering to creating.
+
+# Choose Your Infrastructure
+
+Pick your teaching stack based on your audience, goals, and support capacity:
+
+| Tool              | Use Case                              | Features                                      |
+|-------------------|----------------------------------------|-----------------------------------------------|
+| GitHub Classroom  | Code-driven assignment workflows       | Version control, autograding, feedback        |
+| Posit Cloud       | R/Python course projects               | No install, team projects, reproducibility     |
+| AWS Academy       | Cloud labs and AI/ML workflows         | SageMaker, EC2, real-world industry tooling    |
+| VSCode.dev / Codespaces | Lightweight online IDE         | GitHub native integration, no setup required   |
+
+# Use Quarto to Unify Content
+
+Create reproducible lecture notes, websites, assignments, and slides with [Quarto](https://quarto.org):
+
+```bash
+quarto create-project mycourse --type website
+```
+
+Then add:
+
+- `index.qmd` for homepage/overview
+- `syllabus.qmd`, `assignments/`, `modules/` for modular content
+
+## 4. Organize Your Repository
+
+Structure a course repo like so:
+
+```
+mycourse/
+├── index.qmd
+├── syllabus.qmd
+├── assignments/
+│   └── hw01.qmd
+├── modules/
+│   ├── module01.qmd
+│   └── module02.qmd
+└── _quarto.yml
+```
+
+Tips:
+
+* Use **GitHub Issues** for class Q\&A and announcements.
+* Have students submit via **pull requests**.
+* Use **GitHub Actions** for automated feedback, grading, or rendering.
+
+# Plan for Iteration
+
+Your first version won’t be perfect. Plan to revise:
+
+* Module sequencing or timing
+* Tooling constraints (e.g., firewall, browser compatibility)
+* Based on student feedback and usage analytics
+
+Use a `CHANGELOG.md` and commit messages to document changes over time.
+
+# Summary
+
+Start with outcomes. Choose infrastructure intentionally. Use Quarto and GitHub to scaffold your course reproducibly. Keep it flexible, open, and iterative. You’re not just teaching content—you’re modeling professional workflows.

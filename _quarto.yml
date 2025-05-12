@@ -3,11 +3,10 @@ project:
 
 book:
   title: "Building Reproducible and Interactive Analytics Courses"
-  author: "Nakul R Padalkar"
-  date: "5/11/2025"
   chapters:
     - index.qmd
     - intro.qmd
+    - chapters/01_designing-online-course.qmd
     - summary.qmd
     - references.qmd
 
