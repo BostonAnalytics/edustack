@@ -1,0 +1,29 @@
+project:
+  type: book
+
+book:
+  title: "Building Reproducible and Interactive Analytics Courses"
+  author: "Nakul R Padalkar"
+  date: "5/11/2025"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+    include-in-header: tex/preamble.tex
+    include-before-body: tex/frontpage.tex
+  epub:
+    cover-image: img/cover_page_scriberia.png
+
+
+
