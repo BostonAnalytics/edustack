@@ -1,0 +1,185 @@
+---
+title: "Introduction to Git and GitHub"
+---
+
+# Overview
+
+In the realm of modern education, especially within data-centric disciplines, the ability to manage and collaborate on code is paramount. Git and GitHub serve as foundational tools that facilitate version control, collaborative development, and reproducible research. This chapter aims to introduce these tools, providing educators with the skills necessary to integrate them into their teaching workflows.
+
+# Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+* Understand the concepts of version control and its significance in educational contexts.
+* Differentiate between Git and GitHub and comprehend their respective roles.
+* Install and configure Git on your local machine.
+* Create a GitHub account and set up your user profile.
+* Perform basic Git operations: initializing a repository, committing changes, and pushing to GitHub [@github_quickstart_repo].
+
+# Understanding Version Control
+
+## What is Version Control?
+
+Version control is a system that records changes to a file or set of files over time, enabling you to recall specific versions later. In educational settings, this allows instructors to:([arxiv.org][2])
+
+* Track the evolution of course materials.
+* Collaborate with colleagues on curriculum development.
+* Revert to previous versions of teaching resources when necessary.([docs.github.com][3])
+
+## Git: A Distributed Version Control System
+
+Git is a distributed version control system that allows multiple contributors to work on a project simultaneously without interfering with each other's work. Each contributor has a complete copy of the repository, including its history, on their local machine. This setup enhances collaboration and ensures data integrity.([docs.github.com][4])
+
+> For more information, refer to the official Git documentation: [About Git](https://docs.github.com/en/get-started/using-git/about-git).([docs.github.com][4])
+
+## GitHub: A Platform for Collaboration
+
+GitHub is a cloud-based platform that hosts Git repositories, providing tools for collaboration, code review, and project management. In an educational context, GitHub can be used to:
+
+* Distribute assignments and course materials.
+* Facilitate student collaboration on projects.
+* Manage feedback and revisions efficiently.([docs.github.com][5], [en.wikipedia.org][6])
+
+> Learn more about GitHub here: [About GitHub](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git).([docs.github.com][7])
+
+# Setting Up Git
+
+## Installing Git
+
+To begin using Git, you need to install it on your local machine.
+
+* **Windows**: Download the installer from [Git for Windows](https://git-scm.com/download/win) and follow the setup instructions.
+* **macOS**: Install Git using Homebrew:
+
+  ```bash
+  brew install git
+  ```
+
+
+
+* **Linux**: Use your distribution's package manager. For example, on Ubuntu:
+
+  ```bash
+  sudo apt-get install git
+  ```
+
+
+
+> Detailed installation instructions can be found here: [Set up Git](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git).([docs.github.com][8])
+
+## Configuring Git
+
+After installation, configure your Git username and email address. These details will be associated with your commits.
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your_email@bu.edu"
+```
+
+
+
+To verify your configuration:
+
+```bash
+git config --list
+```
+
+
+
+# Creating a GitHub Account
+
+To utilize GitHub's features, create an account:
+
+1. Navigate to [GitHub's Sign Up Page](https://github.com/join).
+2. Enter your email address, create a username and password.
+3. Follow the prompts to complete the setup process.
+
+After account creation, you can personalize your profile by adding a profile picture, bio, and other details.
+
+# Initializing a Git Repository
+
+## Creating a New Repository on GitHub
+
+1. Log in to your GitHub account.
+2. Click on the "+" icon in the top-right corner and select "New repository".
+3. Provide a repository name, e.g., `teaching-materials`.
+4. Optionally, add a description.
+5. Choose the repository's visibility (public or private).
+6. Initialize the repository with a README file.
+7. Click "Create repository".([docs.github.com][1])
+
+> For a step-by-step guide, refer to: [Quickstart for repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories).([docs.github.com][1])
+
+## Cloning the Repository Locally
+
+To work on your repository locally:
+
+1. Navigate to your repository on GitHub.
+2. Click on the "Code" button and copy the URL.
+3. Open your terminal and run:
+
+   ```bash
+   git clone https://github.com/yourusername/teaching-materials.git
+   ```
+
+
+
+4. Navigate into the cloned directory:
+
+   ```bash
+   cd teaching-materials
+   ```
+
+
+
+# Making Your First Commit
+
+Let's add a new file to your repository:
+
+1. Create a new file named `lesson1.md` and add some content.
+2. Stage the file for commit:
+
+   ```bash
+   git add lesson1.md
+   ```
+
+
+
+3. Commit the file with a message:
+
+   ```bash
+   git commit -m "Add Lesson 1 materials"
+   ```
+
+
+
+4. Push the changes to GitHub:
+
+   ```bash
+   git push origin main
+   ```
+
+
+
+Your new file is now part of the repository on GitHub.
+
+# Exploring GitHub's Web Interface
+
+GitHub's web interface provides various features to manage your repository:
+
+* **Code**: View and manage your files.
+* **Issues**: Track tasks, enhancements, and bugs.
+* **Pull Requests**: Propose changes and collaborate with others.
+* **Actions**: Automate workflows.
+* **Projects**: Organize and prioritize your work.
+
+> For a comprehensive overview, visit: [Hello World - GitHub Docs](https://docs.github.com/en/get-started/quickstart/hello-world).([docs.github.com][9])
+
+# Summary
+
+In this chapter, we've covered the essentials of Git and GitHub, focusing on their applications in educational settings. By setting up Git, creating a GitHub account, and performing basic operations, you're now equipped to manage and collaborate on teaching materials effectively.
+
+---
+
+*Note: For visual learners, GitHub provides illustrative guides and tutorials to further enhance understanding. It's recommended to explore these resources to reinforce the concepts covered in this chapter.*
+

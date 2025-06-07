@@ -1,0 +1,96 @@
+/*-- scss:defaults --*/
+$font-family-serif: "Merriweather", Georgia, serif;
+$font-family-sans: "Lato", "Helvetica Neue", sans-serif;
+
+$rosewood: #7A3E48;       // warm burgundy
+$buttercream: #EECD86;    // soft yellow-beige
+$tangerine: #E18942;      // light orange
+$cinnamon: #B95835;       // rich clay
+$eggplant: #3D3242;       // muted violet black
+
+$body-font-family: $font-family-serif;
+$heading-font-family: $font-family-sans;
+$font-size-base: 14px;
+$line-height-base: 1.6;
+
+/*-- scss:rules --*/
+
+body {
+  font-family: $body-font-family;
+  color: $eggplant;
+  background-color: $buttercream;
+  counter-reset: chapter;
+}
+
+h1.title {
+  font-size: 2.2rem;
+  font-family: $heading-font-family;
+  color: $rosewood;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid $tangerine;
+  padding-bottom: 0.5rem;
+}
+
+h1:not(.title) {
+  font-size: 1.6rem;
+  font-family: $heading-font-family;
+  color: $rosewood;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid $tangerine;
+  padding-bottom: 0.3em;
+  counter-increment: chapter;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-family: $heading-font-family;
+  color: $cinnamon;
+  font-weight: 600;
+  font-style: italic;
+  counter-increment: section;
+}
+
+h2::before {
+  content: counter(chapter) "." counter(section) " ";
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: $eggplant;
+  font-style: italic;
+  font-family: $heading-font-family;
+}
+
+pre, code {
+  font-family: "Fira Code", monospace;
+  background-color: #f6f2ea;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  color: $eggplant;
+}
+
+a {
+  color: $rosewood;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $tangerine;
+  text-decoration: underline;
+}
+
+.nav-sidebar {
+  background-color: #fffef9;
+  border-right: 1px solid $cinnamon;
+}
+
+.nav-sidebar a {
+  color: $eggplant;
+}
+
+.nav-sidebar a:hover {
+  color: $tangerine;
+}

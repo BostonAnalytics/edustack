@@ -2,75 +2,35 @@
 title: "Designing an Online Course: Where Do I Start?"
 ---
 
-# Overview
 
-Designing an effective online course starts not with technology, but with intention. The goal is to align instructional strategies with learning outcomes, supported by scalable and reproducible tools. This chapter walks you through establishing a reproducible, cloud-friendly online course infrastructure.
+# Introduction
 
-# Define Learning Outcomes
+As data and computation continue to reshape disciplines across the university, faculty are increasingly called upon to integrate code, collaboration, and scalable infrastructure into their teaching. Yet, despite this growing demand, instructors often lack structured guidance on how to develop and maintain reproducible instructional materials across tools, platforms, and modalities.
 
-Start with the end in mind. Ask yourself:
-- What should students be able to *do* by the end of the course?
-- How will you know they’ve learned it?
-- What evidence of learning will students produce?
+**Teach Reproducibly** is a faculty-facing resource developed by the **Metropolitan College**, in partnership with **BU ELIVE Services** and **BU Virtual**, to support instructors in building robust, version-controlled, and scalable course content for use in **Boston University’s Blackboard Ultra environment**.
 
-Use **Bloom’s Taxonomy** to scaffold outcomes across cognitive levels, from remembering to creating.
+This book provides practical guidance for instructors teaching in data-rich and computation-heavy domains — including analytics, computer science, statistics, engineering, public health, and beyond — who are committed to developing high-quality, maintainable instructional workflows.
 
-# Choose Your Infrastructure
+# What This Book Offers
 
-Pick your teaching stack based on your audience, goals, and support capacity:
+Rather than focusing solely on curriculum content, this book emphasizes **how content is developed, maintained, and shared reproducibly**. It introduces foundational tools and design principles that support instructional reuse, transparency, and collaboration, including:
 
-| Tool              | Use Case                              | Features                                      |
-|-------------------|----------------------------------------|-----------------------------------------------|
-| GitHub Classroom  | Code-driven assignment workflows       | Version control, autograding, feedback        |
-| Posit Cloud       | R/Python course projects               | No install, team projects, reproducibility     |
-| AWS Academy       | Cloud labs and AI/ML workflows         | SageMaker, EC2, real-world industry tooling    |
-| VSCode.dev / Codespaces | Lightweight online IDE         | GitHub native integration, no setup required   |
+* Literate programming environments with **Quarto**
+* Source control and team workflows using **Git and GitHub**
+* Collaborative assignments via **GitHub Classroom**
+* Cloud-based computing with **AWS Academy** and **VS Code.dev**
+* Browser-native runtime environments such as **WebR** and **Pyodide**
+* Seamless integration with **Blackboard Ultra** and BU’s LMS ecosystem
 
-# Use Quarto to Unify Content
+This resource supports faculty in developing modular instructional pipelines, enabling version-controlled teaching materials, reproducible research-in-practice demonstrations, and seamless cloud-backed student exercises. Each module aligns with BU’s pedagogical standards and technical infrastructure.
 
-Create reproducible lecture notes, websites, assignments, and slides with [Quarto](https://quarto.org):
 
-```bash
-quarto create-project mycourse --type website
-```
+## For BU Faculty Use Only
 
-Then add:
+This resource is intended for **internal instructional development and support** within Boston University. It is not licensed for external reproduction, distribution, or commercial use.
 
-- `index.qmd` for homepage/overview
-- `syllabus.qmd`, `assignments/`, `modules/` for modular content
+For inquiries, access to editable templates, or instructional support, please contact:
 
-## 4. Organize Your Repository
-
-Structure a course repo like so:
-
-```
-mycourse/
-├── index.qmd
-├── syllabus.qmd
-├── assignments/
-│   └── hw01.qmd
-├── modules/
-│   ├── module01.qmd
-│   └── module02.qmd
-└── _quarto.yml
-```
-
-Tips:
-
-* Use **GitHub Issues** for class Q\&A and announcements.
-* Have students submit via **pull requests**.
-* Use **GitHub Actions** for automated feedback, grading, or rendering.
-
-# Plan for Iteration
-
-Your first version won’t be perfect. Plan to revise:
-
-* Module sequencing or timing
-* Tooling constraints (e.g., firewall, browser compatibility)
-* Based on student feedback and usage analytics
-
-Use a `CHANGELOG.md` and commit messages to document changes over time.
-
-# Summary
-
-Start with outcomes. Choose infrastructure intentionally. Use Quarto and GitHub to scaffold your course reproducibly. Keep it flexible, open, and iterative. You’re not just teaching content—you’re modeling professional workflows.
+* **BU ELIVE Services**: [elive@bu.edu](mailto:elive@bu.edu)
+* **BU Virtual Instructional Design**: [buv@bu.edu](mailto:buv@bu.edu)
+* **Metropolitan College Academic Affairs**: [metacad@bu.edu](mailto:metacad@bu.edu)

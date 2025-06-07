@@ -1,5 +1,90 @@
-# Introduction
+---
+title: Introduction
+subtitle: "Designing an Quarto-based Course"
+---
 
-This is a book created from markdown and executable code.
+# Overview
 
-See @knuth84 for additional discussion of literate programming.
+Designing an effective online course starts not with technology, but with intention. The goal is to align instructional strategies with learning outcomes, supported by scalable and reproducible tools. This chapter walks you through establishing a reproducible, cloud-friendly online course infrastructure.
+
+# Define Learning Outcomes
+
+Start with the end in mind. Ask yourself:
+
+- What should students be able to *do* by the end of the course?
+- How will you know they’ve learned it?
+- What evidence of learning will students produce?
+
+Use **Bloom’s Taxonomy** to scaffold outcomes across cognitive levels, from remembering to creating.
+
+# Choose Your Infrastructure
+
+Pick your teaching stack based on your audience, goals, and support capacity:
+
+| Tool              | Use Case                              | Features                                      |
+|-------------------|----------------------------------------|-----------------------------------------------|
+| GitHub Classroom  | Code-driven assignment workflows       | Version control, autograding, feedback        |
+| Posit Cloud       | R/Python course projects               | No install, team projects, reproducibility     |
+| AWS Academy       | Cloud labs and AI/ML workflows         | SageMaker, EC2, real-world industry tooling    |
+| VSCode.dev / Codespaces | Lightweight online IDE         | GitHub native integration, no setup required   |
+
+# Use Quarto to Unify Content
+
+Create reproducible lecture notes, websites, assignments, and slides with [Quarto](https://quarto.org):
+
+```bash
+quarto create-project mycourse --type website
+```
+
+Then add:
+
+- `index.qmd` for homepage/overview
+- `syllabus.qmd`, `assignments/`, `modules/` for modular content
+
+## Organize Your Repository
+
+Structure a course repo like so:
+
+```
+teach-reproducibly/
+├── index.qmd               # Course overview/homepage
+├── syllabus.qmd            # Syllabus details
+├── deliverables.qmd        # Assignment & grading structure
+├── schedule.qmd            # Weekly/module timeline
+├── M1/
+│   ├── M1_LN1.qmd           # Lecture Note 1
+│   ├── M1_LN2.qmd
+│   ├── M1_P1.qmd            # Presentation 1
+│   ├── M1_P2.qmd
+│   ├── M1_T1.qmd            # Tutorial 1
+│   ├── M1_T2.qmd
+│   ├── M1_Lab1.qmd
+│   ├── M1_Lab2.qmd
+│   ├── M1_A1.qmd            # Assignment
+│   ├── M1_Proj1.qmd         # Mini project
+│   ├── M01-highlights.qmd
+│   ├── M1L01_figures/
+│   └── M1L02_figures/
+└── _quarto.yml
+
+```
+
+Tips:
+
+* Use **GitHub Issues** for class Q\&A and announcements.
+* Have students submit via **pull requests**.
+* Use **GitHub Actions** for automated feedback, grading, or rendering.
+
+# Plan for Iteration
+
+Your first version won’t be perfect. Plan to revise:
+
+* Module sequencing or timing
+* Tooling constraints (e.g., firewall, browser compatibility)
+* Based on student feedback and usage analytics
+
+Use a `CHANGELOG.md` and commit messages to document changes over time.
+
+# Summary
+
+Start with outcomes. Choose infrastructure intentionally. Use Quarto and GitHub to scaffold your course reproducibly. Keep it flexible, open, and iterative. You’re not just teaching content—you’re modeling professional workflows.
