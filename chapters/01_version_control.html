@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>designing-online-course – Building Reproducible and Interactive Analytics Courses</title>
+<title>3&nbsp; Introduction to Git and GitHub – Building Reproducible and Interactive Analytics Courses</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -38,10 +93,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-09ce80c0277fc360936e517f68e5459d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d0aac3ea6151ce0ea6cd9069f32191f3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -82,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01_designing-online-course.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">01_designing-online-course.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01_version_control.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Designing an Online Course</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -110,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Designing an Online Course: Where Do I Start?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -121,8 +176,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/01_designing-online-course.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">01_designing-online-course.html</span></span></a>
+  <a href="../chapters/01_version_control.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Designing an Online Course</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,15 +197,210 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">4</span> Overview</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">5</span> Learning Objectives</a></li>
+  <li><a href="#understanding-version-control" id="toc-understanding-version-control" class="nav-link" data-scroll-target="#understanding-version-control"><span class="header-section-number">6</span> Understanding Version Control</a>
+  <ul class="collapse">
+  <li><a href="#what-is-version-control" id="toc-what-is-version-control" class="nav-link" data-scroll-target="#what-is-version-control"><span class="header-section-number">6.1</span> What is Version Control?</a></li>
+  <li><a href="#git-a-distributed-version-control-system" id="toc-git-a-distributed-version-control-system" class="nav-link" data-scroll-target="#git-a-distributed-version-control-system"><span class="header-section-number">6.2</span> Git: A Distributed Version Control System</a></li>
+  <li><a href="#github-a-platform-for-collaboration" id="toc-github-a-platform-for-collaboration" class="nav-link" data-scroll-target="#github-a-platform-for-collaboration"><span class="header-section-number">6.3</span> GitHub: A Platform for Collaboration</a></li>
+  </ul></li>
+  <li><a href="#setting-up-git" id="toc-setting-up-git" class="nav-link" data-scroll-target="#setting-up-git"><span class="header-section-number">7</span> Setting Up Git</a>
+  <ul class="collapse">
+  <li><a href="#installing-git" id="toc-installing-git" class="nav-link" data-scroll-target="#installing-git"><span class="header-section-number">7.1</span> Installing Git</a></li>
+  <li><a href="#configuring-git" id="toc-configuring-git" class="nav-link" data-scroll-target="#configuring-git"><span class="header-section-number">7.2</span> Configuring Git</a></li>
+  </ul></li>
+  <li><a href="#creating-a-github-account" id="toc-creating-a-github-account" class="nav-link" data-scroll-target="#creating-a-github-account"><span class="header-section-number">8</span> Creating a GitHub Account</a></li>
+  <li><a href="#initializing-a-git-repository" id="toc-initializing-a-git-repository" class="nav-link" data-scroll-target="#initializing-a-git-repository"><span class="header-section-number">9</span> Initializing a Git Repository</a>
+  <ul class="collapse">
+  <li><a href="#creating-a-new-repository-on-github" id="toc-creating-a-new-repository-on-github" class="nav-link" data-scroll-target="#creating-a-new-repository-on-github"><span class="header-section-number">9.1</span> Creating a New Repository on GitHub</a></li>
+  <li><a href="#cloning-the-repository-locally" id="toc-cloning-the-repository-locally" class="nav-link" data-scroll-target="#cloning-the-repository-locally"><span class="header-section-number">9.2</span> Cloning the Repository Locally</a></li>
+  </ul></li>
+  <li><a href="#making-your-first-commit" id="toc-making-your-first-commit" class="nav-link" data-scroll-target="#making-your-first-commit"><span class="header-section-number">10</span> Making Your First Commit</a></li>
+  <li><a href="#exploring-githubs-web-interface" id="toc-exploring-githubs-web-interface" class="nav-link" data-scroll-target="#exploring-githubs-web-interface"><span class="header-section-number">11</span> Exploring GitHub’s Web Interface</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">12</span> Summary</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to Git and GitHub</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="overview" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Overview</h1>
+<p>In the realm of modern education, especially within data-centric disciplines, the ability to manage and collaborate on code is paramount. Git and GitHub serve as foundational tools that facilitate version control, collaborative development, and reproducible research. This chapter aims to introduce these tools, providing educators with the skills necessary to integrate them into their teaching workflows.</p>
+</section>
+<section id="learning-objectives" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Learning Objectives</h1>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Understand the concepts of version control and its significance in educational contexts.</li>
+<li>Differentiate between Git and GitHub and comprehend their respective roles.</li>
+<li>Install and configure Git on your local machine.</li>
+<li>Create a GitHub account and set up your user profile.</li>
+<li>Perform basic Git operations: initializing a repository, committing changes, and pushing to GitHub <span class="citation" data-cites="github_quickstart_repo">(<a href="../references.html#ref-github_quickstart_repo" role="doc-biblioref">GitHub 2024</a>)</span>.</li>
+</ul>
+</section>
+<section id="understanding-version-control" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Understanding Version Control</h1>
+<section id="what-is-version-control" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="what-is-version-control"><span class="header-section-number">6.1</span> What is Version Control?</h2>
+<p>Version control is a system that records changes to a file or set of files over time, enabling you to recall specific versions later. In educational settings, this allows instructors to:([arxiv.org][2])</p>
+<ul>
+<li>Track the evolution of course materials.</li>
+<li>Collaborate with colleagues on curriculum development.</li>
+<li>Revert to previous versions of teaching resources when necessary.([docs.github.com][3])</li>
+</ul>
+</section>
+<section id="git-a-distributed-version-control-system" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="git-a-distributed-version-control-system"><span class="header-section-number">6.2</span> Git: A Distributed Version Control System</h2>
+<p>Git is a distributed version control system that allows multiple contributors to work on a project simultaneously without interfering with each other’s work. Each contributor has a complete copy of the repository, including its history, on their local machine. This setup enhances collaboration and ensures data integrity.([docs.github.com][4])</p>
+<blockquote class="blockquote">
+<p>For more information, refer to the official Git documentation: <a href="https://docs.github.com/en/get-started/using-git/about-git">About Git</a>.([docs.github.com][4])</p>
+</blockquote>
+</section>
+<section id="github-a-platform-for-collaboration" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="github-a-platform-for-collaboration"><span class="header-section-number">6.3</span> GitHub: A Platform for Collaboration</h2>
+<p>GitHub is a cloud-based platform that hosts Git repositories, providing tools for collaboration, code review, and project management. In an educational context, GitHub can be used to:</p>
+<ul>
+<li>Distribute assignments and course materials.</li>
+<li>Facilitate student collaboration on projects.</li>
+<li>Manage feedback and revisions efficiently.([docs.github.com][5], [en.wikipedia.org][6])</li>
+</ul>
+<blockquote class="blockquote">
+<p>Learn more about GitHub here: <a href="https://docs.github.com/en/get-started/start-your-journey/about-github-and-git">About GitHub</a>.([docs.github.com][7])</p>
+</blockquote>
+</section>
+</section>
+<section id="setting-up-git" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Setting Up Git</h1>
+<section id="installing-git" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="installing-git"><span class="header-section-number">7.1</span> Installing Git</h2>
+<p>To begin using Git, you need to install it on your local machine.</p>
+<ul>
+<li><p><strong>Windows</strong>: Download the installer from <a href="https://git-scm.com/download/win">Git for Windows</a> and follow the setup instructions.</p></li>
+<li><p><strong>macOS</strong>: Install Git using Homebrew:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Linux</strong>: Use your distribution’s package manager. For example, on Ubuntu:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<blockquote class="blockquote">
+<p>Detailed installation instructions can be found here: <a href="https://docs.github.com/en/get-started/getting-started-with-git/set-up-git">Set up Git</a>.([docs.github.com][8])</p>
+</blockquote>
+</section>
+<section id="configuring-git" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="configuring-git"><span class="header-section-number">7.2</span> Configuring Git</h2>
+<p>After installation, configure your Git username and email address. These details will be associated with your commits.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your_email@bu.edu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To verify your configuration:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="creating-a-github-account" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Creating a GitHub Account</h1>
+<p>To utilize GitHub’s features, create an account:</p>
+<ol type="1">
+<li>Navigate to <a href="https://github.com/join">GitHub’s Sign Up Page</a>.</li>
+<li>Enter your email address, create a username and password.</li>
+<li>Follow the prompts to complete the setup process.</li>
+</ol>
+<p>After account creation, you can personalize your profile by adding a profile picture, bio, and other details.</p>
+</section>
+<section id="initializing-a-git-repository" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Initializing a Git Repository</h1>
+<section id="creating-a-new-repository-on-github" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="creating-a-new-repository-on-github"><span class="header-section-number">9.1</span> Creating a New Repository on GitHub</h2>
+<ol type="1">
+<li>Log in to your GitHub account.</li>
+<li>Click on the “+” icon in the top-right corner and select “New repository”.</li>
+<li>Provide a repository name, e.g., <code>teaching-materials</code>.</li>
+<li>Optionally, add a description.</li>
+<li>Choose the repository’s visibility (public or private).</li>
+<li>Initialize the repository with a README file.</li>
+<li>Click “Create repository”.([docs.github.com][1])</li>
+</ol>
+<blockquote class="blockquote">
+<p>For a step-by-step guide, refer to: <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories">Quickstart for repositories</a>.([docs.github.com][1])</p>
+</blockquote>
+</section>
+<section id="cloning-the-repository-locally" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="cloning-the-repository-locally"><span class="header-section-number">9.2</span> Cloning the Repository Locally</h2>
+<p>To work on your repository locally:</p>
+<ol type="1">
+<li><p>Navigate to your repository on GitHub.</p></li>
+<li><p>Click on the “Code” button and copy the URL.</p></li>
+<li><p>Open your terminal and run:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/yourusername/teaching-materials.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Navigate into the cloned directory:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> teaching-materials</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+</section>
+<section id="making-your-first-commit" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Making Your First Commit</h1>
+<p>Let’s add a new file to your repository:</p>
+<ol type="1">
+<li><p>Create a new file named <code>lesson1.md</code> and add some content.</p></li>
+<li><p>Stage the file for commit:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add lesson1.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Commit the file with a message:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add Lesson 1 materials"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Push the changes to GitHub:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<p>Your new file is now part of the repository on GitHub.</p>
+</section>
+<section id="exploring-githubs-web-interface" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Exploring GitHub’s Web Interface</h1>
+<p>GitHub’s web interface provides various features to manage your repository:</p>
+<ul>
+<li><strong>Code</strong>: View and manage your files.</li>
+<li><strong>Issues</strong>: Track tasks, enhancements, and bugs.</li>
+<li><strong>Pull Requests</strong>: Propose changes and collaborate with others.</li>
+<li><strong>Actions</strong>: Automate workflows.</li>
+<li><strong>Projects</strong>: Organize and prioritize your work.</li>
+</ul>
+<blockquote class="blockquote">
+<p>For a comprehensive overview, visit: <a href="https://docs.github.com/en/get-started/quickstart/hello-world">Hello World - GitHub Docs</a>.([docs.github.com][9])</p>
+</blockquote>
+</section>
+<section id="summary" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Summary</h1>
+<p>In this chapter, we’ve covered the essentials of Git and GitHub, focusing on their applications in educational settings. By setting up Git, creating a GitHub account, and performing basic operations, you’re now equipped to manage and collaborate on teaching materials effectively.</p>
+<hr>
+<p><em>Note: For visual learners, GitHub provides illustrative guides and tutorials to further enhance understanding. It’s recommended to explore these resources to reinforce the concepts covered in this chapter.</em></p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-github_quickstart_repo" class="csl-entry" role="listitem">
+GitHub. 2024. <span>“Quickstart for Repositories - GitHub Docs.”</span> <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories">https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

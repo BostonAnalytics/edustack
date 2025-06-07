@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,27 +20,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,7 +65,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapters/01_designing-online-course.html" rel="next">
+<link href="./chapters/01_version_control.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -58,10 +73,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-09ce80c0277fc360936e517f68e5459d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d0aac3ea6151ce0ea6cd9069f32191f3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -130,7 +145,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Designing an Online Course: Where Do I Start?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -141,8 +156,8 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/01_designing-online-course.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">01_designing-online-course.html</span></span></a>
+  <a href="./chapters/01_version_control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Designing an Online Course</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -162,8 +177,22 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">3</span> Overview</a></li>
+  <li><a href="#define-learning-outcomes" id="toc-define-learning-outcomes" class="nav-link" data-scroll-target="#define-learning-outcomes"><span class="header-section-number">4</span> Define Learning Outcomes</a></li>
+  <li><a href="#choose-your-infrastructure" id="toc-choose-your-infrastructure" class="nav-link" data-scroll-target="#choose-your-infrastructure"><span class="header-section-number">5</span> Choose Your Infrastructure</a></li>
+  <li><a href="#use-quarto-to-unify-content" id="toc-use-quarto-to-unify-content" class="nav-link" data-scroll-target="#use-quarto-to-unify-content"><span class="header-section-number">6</span> Use Quarto to Unify Content</a>
+  <ul class="collapse">
+  <li><a href="#organize-your-repository" id="toc-organize-your-repository" class="nav-link" data-scroll-target="#organize-your-repository"><span class="header-section-number">6.1</span> Organize Your Repository</a></li>
+  </ul></li>
+  <li><a href="#plan-for-iteration" id="toc-plan-for-iteration" class="nav-link" data-scroll-target="#plan-for-iteration"><span class="header-section-number">7</span> Plan for Iteration</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">8</span> Summary</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -171,6 +200,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<p class="subtitle lead">Designing an Quarto-based Course</p>
 </div>
 
 
@@ -187,15 +217,117 @@ div.csl-indent {
 </header>
 
 
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
+<section id="overview" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Overview</h1>
+<p>Designing an effective online course starts not with technology, but with intention. The goal is to align instructional strategies with learning outcomes, supported by scalable and reproducible tools. This chapter walks you through establishing a reproducible, cloud-friendly online course infrastructure.</p>
+</section>
+<section id="define-learning-outcomes" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Define Learning Outcomes</h1>
+<p>Start with the end in mind. Ask yourself:</p>
+<ul>
+<li>What should students be able to <em>do</em> by the end of the course?</li>
+<li>How will you know they’ve learned it?</li>
+<li>What evidence of learning will students produce?</li>
+</ul>
+<p>Use <strong>Bloom’s Taxonomy</strong> to scaffold outcomes across cognitive levels, from remembering to creating.</p>
+</section>
+<section id="choose-your-infrastructure" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Choose Your Infrastructure</h1>
+<p>Pick your teaching stack based on your audience, goals, and support capacity:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 37%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>Use Case</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GitHub Classroom</td>
+<td>Code-driven assignment workflows</td>
+<td>Version control, autograding, feedback</td>
+</tr>
+<tr class="even">
+<td>Posit Cloud</td>
+<td>R/Python course projects</td>
+<td>No install, team projects, reproducibility</td>
+</tr>
+<tr class="odd">
+<td>AWS Academy</td>
+<td>Cloud labs and AI/ML workflows</td>
+<td>SageMaker, EC2, real-world industry tooling</td>
+</tr>
+<tr class="even">
+<td>VSCode.dev / Codespaces</td>
+<td>Lightweight online IDE</td>
+<td>GitHub native integration, no setup required</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="use-quarto-to-unify-content" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Use Quarto to Unify Content</h1>
+<p>Create reproducible lecture notes, websites, assignments, and slides with <a href="https://quarto.org">Quarto</a>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> create-project mycourse <span class="at">--type</span> website</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then add:</p>
+<ul>
+<li><code>index.qmd</code> for homepage/overview</li>
+<li><code>syllabus.qmd</code>, <code>assignments/</code>, <code>modules/</code> for modular content</li>
+</ul>
+<section id="organize-your-repository" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="organize-your-repository"><span class="header-section-number">6.1</span> Organize Your Repository</h2>
+<p>Structure a course repo like so:</p>
+<pre><code>teach-reproducibly/
+├── index.qmd               # Course overview/homepage
+├── syllabus.qmd            # Syllabus details
+├── deliverables.qmd        # Assignment &amp; grading structure
+├── schedule.qmd            # Weekly/module timeline
+├── M1/
+│   ├── M1_LN1.qmd           # Lecture Note 1
+│   ├── M1_LN2.qmd
+│   ├── M1_P1.qmd            # Presentation 1
+│   ├── M1_P2.qmd
+│   ├── M1_T1.qmd            # Tutorial 1
+│   ├── M1_T2.qmd
+│   ├── M1_Lab1.qmd
+│   ├── M1_Lab2.qmd
+│   ├── M1_A1.qmd            # Assignment
+│   ├── M1_Proj1.qmd         # Mini project
+│   ├── M01-highlights.qmd
+│   ├── M1L01_figures/
+│   └── M1L02_figures/
+└── _quarto.yml
+</code></pre>
+<p>Tips:</p>
+<ul>
+<li>Use <strong>GitHub Issues</strong> for class Q&amp;A and announcements.</li>
+<li>Have students submit via <strong>pull requests</strong>.</li>
+<li>Use <strong>GitHub Actions</strong> for automated feedback, grading, or rendering.</li>
+</ul>
+</section>
+</section>
+<section id="plan-for-iteration" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Plan for Iteration</h1>
+<p>Your first version won’t be perfect. Plan to revise:</p>
+<ul>
+<li>Module sequencing or timing</li>
+<li>Tooling constraints (e.g., firewall, browser compatibility)</li>
+<li>Based on student feedback and usage analytics</li>
+</ul>
+<p>Use a <code>CHANGELOG.md</code> and commit messages to document changes over time.</p>
+</section>
+<section id="summary" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Summary</h1>
+<p>Start with outcomes. Choose infrastructure intentionally. Use Quarto and GitHub to scaffold your course reproducibly. Keep it flexible, open, and iterative. You’re not just teaching content—you’re modeling professional workflows.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
-</div>
-</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -599,13 +731,13 @@ Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Designing an Online Course: Where Do I Start?">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Designing an Online Course: Where Do I Start?</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapters/01_designing-online-course.html" class="pagination-link" aria-label="01_designing-online-course.html">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">01_designing-online-course.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapters/01_version_control.html" class="pagination-link" aria-label="Designing an Online Course">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Designing an Online Course</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

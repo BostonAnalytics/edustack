@@ -4,19 +4,19 @@
     "href": "index.html",
     "title": "Building Reproducible and Interactive Analytics Courses",
     "section": "",
-    "text": "1 Overview\nDesigning an effective online course starts not with technology, but with intention. The goal is to align instructional strategies with learning outcomes, supported by scalable and reproducible tools. This chapter walks you through establishing a reproducible, cloud-friendly online course infrastructure.",
+    "text": "1 Introduction\nAs data and computation continue to reshape disciplines across the university, faculty are increasingly called upon to integrate code, collaboration, and scalable infrastructure into their teaching. Yet, despite this growing demand, instructors often lack structured guidance on how to develop and maintain reproducible instructional materials across tools, platforms, and modalities.\nTeach Reproducibly is a faculty-facing resource developed by the Metropolitan College, in partnership with BU ELIVE Services and BU Virtual, to support instructors in building robust, version-controlled, and scalable course content for use in Boston University’s Blackboard Ultra environment.\nThis book provides practical guidance for instructors teaching in data-rich and computation-heavy domains — including analytics, computer science, statistics, engineering, public health, and beyond — who are committed to developing high-quality, maintainable instructional workflows.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Designing an Online Course: Where Do I Start?</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
-    "objectID": "index.html#organize-your-repository",
-    "href": "index.html#organize-your-repository",
+    "objectID": "index.html#for-bu-faculty-use-only",
+    "href": "index.html#for-bu-faculty-use-only",
     "title": "Building Reproducible and Interactive Analytics Courses",
-    "section": "4.1 4. Organize Your Repository",
-    "text": "4.1 4. Organize Your Repository\nStructure a course repo like so:\nmycourse/\n├── index.qmd\n├── syllabus.qmd\n├── assignments/\n│   └── hw01.qmd\n├── modules/\n│   ├── module01.qmd\n│   └── module02.qmd\n└── _quarto.yml\nTips:\n\nUse GitHub Issues for class Q&A and announcements.\nHave students submit via pull requests.\nUse GitHub Actions for automated feedback, grading, or rendering.",
+    "section": "2.1 For BU Faculty Use Only",
+    "text": "2.1 For BU Faculty Use Only\nThis resource is intended for internal instructional development and support within Boston University. It is not licensed for external reproduction, distribution, or commercial use.\nFor inquiries, access to editable templates, or instructional support, please contact:\n\nBU ELIVE Services: elive@bu.edu\nBU Virtual Instructional Design: buv@bu.edu\nMetropolitan College Academic Affairs: metacad@bu.edu",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Designing an Online Course: Where Do I Start?</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
@@ -24,9 +24,99 @@
     "href": "intro.html",
     "title": "2  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "3 Overview\nDesigning an effective online course starts not with technology, but with intention. The goal is to align instructional strategies with learning outcomes, supported by scalable and reproducible tools. This chapter walks you through establishing a reproducible, cloud-friendly online course infrastructure.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#organize-your-repository",
+    "href": "intro.html#organize-your-repository",
+    "title": "2  Introduction",
+    "section": "6.1 Organize Your Repository",
+    "text": "6.1 Organize Your Repository\nStructure a course repo like so:\nteach-reproducibly/\n├── index.qmd               # Course overview/homepage\n├── syllabus.qmd            # Syllabus details\n├── deliverables.qmd        # Assignment & grading structure\n├── schedule.qmd            # Weekly/module timeline\n├── M1/\n│   ├── M1_LN1.qmd           # Lecture Note 1\n│   ├── M1_LN2.qmd\n│   ├── M1_P1.qmd            # Presentation 1\n│   ├── M1_P2.qmd\n│   ├── M1_T1.qmd            # Tutorial 1\n│   ├── M1_T2.qmd\n│   ├── M1_Lab1.qmd\n│   ├── M1_Lab2.qmd\n│   ├── M1_A1.qmd            # Assignment\n│   ├── M1_Proj1.qmd         # Mini project\n│   ├── M01-highlights.qmd\n│   ├── M1L01_figures/\n│   └── M1L02_figures/\n└── _quarto.yml\n\nTips:\n\nUse GitHub Issues for class Q&A and announcements.\nHave students submit via pull requests.\nUse GitHub Actions for automated feedback, grading, or rendering.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01_version_control.html",
+    "href": "chapters/01_version_control.html",
+    "title": "3  Introduction to Git and GitHub",
+    "section": "",
+    "text": "4 Overview\nIn the realm of modern education, especially within data-centric disciplines, the ability to manage and collaborate on code is paramount. Git and GitHub serve as foundational tools that facilitate version control, collaborative development, and reproducible research. This chapter aims to introduce these tools, providing educators with the skills necessary to integrate them into their teaching workflows.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Designing an Online Course</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01_version_control.html#what-is-version-control",
+    "href": "chapters/01_version_control.html#what-is-version-control",
+    "title": "3  Introduction to Git and GitHub",
+    "section": "6.1 What is Version Control?",
+    "text": "6.1 What is Version Control?\nVersion control is a system that records changes to a file or set of files over time, enabling you to recall specific versions later. In educational settings, this allows instructors to:([arxiv.org][2])\n\nTrack the evolution of course materials.\nCollaborate with colleagues on curriculum development.\nRevert to previous versions of teaching resources when necessary.([docs.github.com][3])",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Designing an Online Course</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01_version_control.html#git-a-distributed-version-control-system",
+    "href": "chapters/01_version_control.html#git-a-distributed-version-control-system",
+    "title": "3  Introduction to Git and GitHub",
+    "section": "6.2 Git: A Distributed Version Control System",
+    "text": "6.2 Git: A Distributed Version Control System\nGit is a distributed version control system that allows multiple contributors to work on a project simultaneously without interfering with each other’s work. Each contributor has a complete copy of the repository, including its history, on their local machine. This setup enhances collaboration and ensures data integrity.([docs.github.com][4])\n\nFor more information, refer to the official Git documentation: About Git.([docs.github.com][4])",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Designing an Online Course</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01_version_control.html#github-a-platform-for-collaboration",
+    "href": "chapters/01_version_control.html#github-a-platform-for-collaboration",
+    "title": "3  Introduction to Git and GitHub",
+    "section": "6.3 GitHub: A Platform for Collaboration",
+    "text": "6.3 GitHub: A Platform for Collaboration\nGitHub is a cloud-based platform that hosts Git repositories, providing tools for collaboration, code review, and project management. In an educational context, GitHub can be used to:\n\nDistribute assignments and course materials.\nFacilitate student collaboration on projects.\nManage feedback and revisions efficiently.([docs.github.com][5], [en.wikipedia.org][6])\n\n\nLearn more about GitHub here: About GitHub.([docs.github.com][7])",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Designing an Online Course</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01_version_control.html#installing-git",
+    "href": "chapters/01_version_control.html#installing-git",
+    "title": "3  Introduction to Git and GitHub",
+    "section": "7.1 Installing Git",
+    "text": "7.1 Installing Git\nTo begin using Git, you need to install it on your local machine.\n\nWindows: Download the installer from Git for Windows and follow the setup instructions.\nmacOS: Install Git using Homebrew:\nbrew install git\nLinux: Use your distribution’s package manager. For example, on Ubuntu:\nsudo apt-get install git\n\n\nDetailed installation instructions can be found here: Set up Git.([docs.github.com][8])",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Designing an Online Course</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01_version_control.html#configuring-git",
+    "href": "chapters/01_version_control.html#configuring-git",
+    "title": "3  Introduction to Git and GitHub",
+    "section": "7.2 Configuring Git",
+    "text": "7.2 Configuring Git\nAfter installation, configure your Git username and email address. These details will be associated with your commits.\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your_email@bu.edu\"\nTo verify your configuration:\ngit config --list",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Designing an Online Course</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01_version_control.html#creating-a-new-repository-on-github",
+    "href": "chapters/01_version_control.html#creating-a-new-repository-on-github",
+    "title": "3  Introduction to Git and GitHub",
+    "section": "9.1 Creating a New Repository on GitHub",
+    "text": "9.1 Creating a New Repository on GitHub\n\nLog in to your GitHub account.\nClick on the “+” icon in the top-right corner and select “New repository”.\nProvide a repository name, e.g., teaching-materials.\nOptionally, add a description.\nChoose the repository’s visibility (public or private).\nInitialize the repository with a README file.\nClick “Create repository”.([docs.github.com][1])\n\n\nFor a step-by-step guide, refer to: Quickstart for repositories.([docs.github.com][1])",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Designing an Online Course</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01_version_control.html#cloning-the-repository-locally",
+    "href": "chapters/01_version_control.html#cloning-the-repository-locally",
+    "title": "3  Introduction to Git and GitHub",
+    "section": "9.2 Cloning the Repository Locally",
+    "text": "9.2 Cloning the Repository Locally\nTo work on your repository locally:\n\nNavigate to your repository on GitHub.\nClick on the “Code” button and copy the URL.\nOpen your terminal and run:\ngit clone https://github.com/yourusername/teaching-materials.git\nNavigate into the cloned directory:\ncd teaching-materials",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Designing an Online Course</span>"
     ]
   },
   {
@@ -44,7 +134,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "GitHub. 2024. “Quickstart for Repositories - GitHub Docs.”\nhttps://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories.",
     "crumbs": [
       "References"
     ]
