@@ -48,16 +48,15 @@ GitHub is a cloud-based platform that hosts Git repositories, providing tools fo
 
 To begin using Git, you need to install it on your local machine.
 
-* **Windows**: Download the installer from [Git for Windows](https://git-scm.com/download/win) and follow the setup instructions.
-* **macOS**: Install Git using Homebrew:
+- **Windows**: Download the installer from [Git for Windows](https://git-scm.com/download/win) and follow the setup instructions.
+- **macOS**: Install Git using Homebrew:
 
   ```bash
   brew install git
   ```
 
 
-
-* **Linux**: Use your distribution's package manager. For example, on Ubuntu:
+- **Linux**: Use your distribution's package manager. For example, on Ubuntu:
 
   ```bash
   sudo apt-get install git
