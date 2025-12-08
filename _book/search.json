@@ -24,7 +24,7 @@
     "href": "intro.html",
     "title": "2  Building a Quarto Microsite Structure",
     "section": "",
-    "text": "3 📘 Quarto Microsite Builder — Step-by-Step Guide for Educators\nHere is the updated educator-friendly step-by-step guide, now explicitly integrating the Quarto CLI command:\nEverything below is written as a clean instruction manual educators can follow without needing prior technical knowledge.\nA reusable workflow for creating professional, consistent course websites with modules 0–8.",
+    "text": "3 Create the Base Quarto Website\nExample:\nThis automatically ask users::\nNow open the folder in VS Code, RStudio, or any preferred editor.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Building a Quarto Microsite Structure</span>"
     ]
@@ -153,8 +153,8 @@
     "objectID": "intro.html#replace-the-default-pages-with-your-course-pages",
     "href": "intro.html#replace-the-default-pages-with-your-course-pages",
     "title": "2  Building a Quarto Microsite Structure",
-    "section": "3.2 2. Replace the Default Pages With Your Course Pages",
-    "text": "3.2 2. Replace the Default Pages With Your Course Pages\nIn the root of the project, create the standard site pages:\nindex.qmd\nsyllabus.qmd\ndeliverables.qmd\nschedule.qmd\ntodo.qmd          # Instructor-only checklist\nPurpose of Each Page\n\nindex.qmd → Course homepage\nsyllabus.qmd → Course policies\ndeliverables.qmd → Assignments & grading\nschedule.qmd → Module or weekly timeline\ntodo.qmd → Instructor checklists",
+    "section": "3.1 Replace the Default Pages With Your Course Pages",
+    "text": "3.1 Replace the Default Pages With Your Course Pages\nIn the root of the project, create the standard site pages:\nindex.qmd\nsyllabus.qmd\ndeliverables.qmd\nschedule.qmd\ntodo.qmd          # Instructor-only checklist\nPurpose of Each Page\n\nindex.qmd → Course homepage\nsyllabus.qmd → Course policies\ndeliverables.qmd → Assignments & grading\nschedule.qmd → Module or weekly timeline\ntodo.qmd → Instructor checklists",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Building a Quarto Microsite Structure</span>"
     ]
@@ -163,8 +163,8 @@
     "objectID": "intro.html#create-module-folders-m0m8",
     "href": "intro.html#create-module-folders-m0m8",
     "title": "2  Building a Quarto Microsite Structure",
-    "section": "3.3 3. Create Module Folders (M0–M8)",
-    "text": "3.3 3. Create Module Folders (M0–M8)\nIn your project folder, add:\nM0/\nM1/\nM2/\nM3/\nM4/\nM5/\nM6/\nM7/\nM8/\nNine modules total.",
+    "section": "3.2 3. Create Module Folders (M0–M8)",
+    "text": "3.2 3. Create Module Folders (M0–M8)\nIn your project folder, add:\nM0/\nM1/\nM2/\nM3/\nM4/\nM5/\nM6/\nM7/\nM8/\nNine modules total.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Building a Quarto Microsite Structure</span>"
     ]
@@ -173,8 +173,8 @@
     "objectID": "intro.html#inside-each-module-folder-add-the-standard-file-structure",
     "href": "intro.html#inside-each-module-folder-add-the-standard-file-structure",
     "title": "2  Building a Quarto Microsite Structure",
-    "section": "3.4 4. Inside Each Module Folder, Add the Standard File Structure",
-    "text": "3.4 4. Inside Each Module Folder, Add the Standard File Structure\nFor example, inside M1/ create:\nM1_LN1.qmd        # Lecture Note 1\nM1_LN2.qmd        # Lecture Note 2\nM1_P1.qmd         # Presentation 1\nM1_P2.qmd         # Presentation 2\nM1_T1.qmd         # Tutorial 1\nM1_T2.qmd         # Tutorial 2\nM1_Lab1.qmd       # Lab 1\nM1_Lab2.qmd       # Lab 2\nM1_A.qmd          # Assignment\nM1_Proj.qmd       # Project step\nM1_highlights.qmd # Summary landing page\nM1L1_figures/\nM1L2_figures/\nCopy this structure for every module from 0–8, adjusting the naming prefix.",
+    "section": "3.3 4. Inside Each Module Folder, Add the Standard File Structure",
+    "text": "3.3 4. Inside Each Module Folder, Add the Standard File Structure\nFor example, inside M1/ create:\nM1_LN1.qmd        # Lecture Note 1\nM1_LN2.qmd        # Lecture Note 2\nM1_P1.qmd         # Presentation 1\nM1_P2.qmd         # Presentation 2\nM1_T1.qmd         # Tutorial 1\nM1_T2.qmd         # Tutorial 2\nM1_Lab1.qmd       # Lab 1\nM1_Lab2.qmd       # Lab 2\nM1_A.qmd          # Assignment\nM1_Proj.qmd       # Project step\nM1_highlights.qmd # Summary landing page\nM1L1_figures/\nM1L2_figures/\nCopy this structure for every module from 0–8, adjusting the naming prefix.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Building a Quarto Microsite Structure</span>"
     ]
@@ -183,8 +183,8 @@
     "objectID": "intro.html#update-_quarto.yml-to-configure-the-microsite",
     "href": "intro.html#update-_quarto.yml-to-configure-the-microsite",
     "title": "2  Building a Quarto Microsite Structure",
-    "section": "3.5 5. Update _quarto.yml to Configure the Microsite",
-    "text": "3.5 5. Update _quarto.yml to Configure the Microsite\nReplace the default file created by Quarto CLI with a course-oriented version:\nproject:\n  type: website\n\nwebsite:\n  title: \"Course Name\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - href: syllabus.qmd\n        text: Syllabus\n      - href: deliverables.qmd\n        text: Deliverables\n      - href: schedule.qmd\n        text: Schedule\n      - text: Modules\n        menu:\n          - text: Module 0\n            href: M0/M0_highlights.qmd\n          - text: Module 1\n            href: M1/M1_highlights.qmd\n          - text: Module 2\n            href: M2/M2_highlights.qmd\n          - text: Module 3\n            href: M3/M3_highlights.qmd\n          - text: Module 4\n            href: M4/M4_highlights.qmd\n          - text: Module 5\n            href: M5/M5_highlights.qmd\n          - text: Module 6\n            href: M6/M6_highlights.qmd\n          - text: Module 7\n            href: M7/M7_highlights.qmd\n          - text: Module 8\n            href: M8/M8_highlights.qmd\n\nformat:\n  html:\n    theme: cosmo\n    toc: true\nThis creates a clean navigation system, anchored around module highlights pages.",
+    "section": "3.4 5. Update _quarto.yml to Configure the Microsite",
+    "text": "3.4 5. Update _quarto.yml to Configure the Microsite\nReplace the default file created by Quarto CLI with a course-oriented version:\nproject:\n  type: website\n\nwebsite:\n  title: \"Course Name\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - href: syllabus.qmd\n        text: Syllabus\n      - href: deliverables.qmd\n        text: Deliverables\n      - href: schedule.qmd\n        text: Schedule\n      - text: Modules\n        menu:\n          - text: Module 0\n            href: M0/M0_highlights.qmd\n          - text: Module 1\n            href: M1/M1_highlights.qmd\n          - text: Module 2\n            href: M2/M2_highlights.qmd\n          - text: Module 3\n            href: M3/M3_highlights.qmd\n          - text: Module 4\n            href: M4/M4_highlights.qmd\n          - text: Module 5\n            href: M5/M5_highlights.qmd\n          - text: Module 6\n            href: M6/M6_highlights.qmd\n          - text: Module 7\n            href: M7/M7_highlights.qmd\n          - text: Module 8\n            href: M8/M8_highlights.qmd\n\nformat:\n  html:\n    theme: cosmo\n    toc: true\nThis creates a clean navigation system, anchored around module highlights pages.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Building a Quarto Microsite Structure</span>"
     ]
@@ -193,8 +193,8 @@
     "objectID": "intro.html#recommended-templates-for-educators",
     "href": "intro.html#recommended-templates-for-educators",
     "title": "2  Building a Quarto Microsite Structure",
-    "section": "3.6 6. Recommended Templates for Educators",
-    "text": "3.6 6. Recommended Templates for Educators\nEducators can copy/paste these into any file.\n\n3.6.1 Lecture Notes Template\n---\ntitle: \"Module X – Lecture Y\"\nformat: html\n---\n\n# Learning Objectives\n\n# Content\n\n# Examples\n\n# Summary\n\n\n3.6.2 Presentation Template (Reveal.js)\n---\ntitle: \"Module X – Presentation Y\"\nformat: revealjs\n---\n\n# Slide 1\n\n---\n\n# Slide 2\n\n\n3.6.3 Tutorial Template\n---\ntitle: \"Module X – Tutorial Y\"\nformat: html\n---\n\n# Steps\n\n# Exercises\n\n\n3.6.4 Lab Template\n---\ntitle: \"Module X – Lab Y\"\nformat: html\n---\n\n# Lab Instructions\n\n# Tasks\n\n# Submission Notes\n\n\n3.6.5 Assignment Template\n---\ntitle: \"Module X – Assignment\"\nformat: html\n---\n\n# Overview\n\n# Requirements\n\n# Rubric\n\n\n3.6.6 Project Step Template\n---\ntitle: \"Module X – Project Step\"\nformat: html\n---\n\n# Goal of This Step\n\n# Required Deliverables\n\n# Integration With Final Project",
+    "section": "3.5 6. Recommended Templates for Educators",
+    "text": "3.5 6. Recommended Templates for Educators\nEducators can copy/paste these into any file.\n\n3.5.1 Lecture Notes Template\n---\ntitle: \"Module X – Lecture Y\"\nformat: html\n---\n\n# Learning Objectives\n\n# Content\n\n# Examples\n\n# Summary\n\n\n3.5.2 Presentation Template (Reveal.js)\n---\ntitle: \"Module X – Presentation Y\"\nformat: revealjs\n---\n\n# Slide 1\n\n---\n\n# Slide 2\n\n\n3.5.3 Tutorial Template\n---\ntitle: \"Module X – Tutorial Y\"\nformat: html\n---\n\n# Steps\n\n# Exercises\n\n\n3.5.4 Lab Template\n---\ntitle: \"Module X – Lab Y\"\nformat: html\n---\n\n# Lab Instructions\n\n# Tasks\n\n# Submission Notes\n\n\n3.5.5 Assignment Template\n---\ntitle: \"Module X – Assignment\"\nformat: html\n---\n\n# Overview\n\n# Requirements\n\n# Rubric\n\n\n3.5.6 Project Step Template\n---\ntitle: \"Module X – Project Step\"\nformat: html\n---\n\n# Goal of This Step\n\n# Required Deliverables\n\n# Integration With Final Project",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Building a Quarto Microsite Structure</span>"
     ]
@@ -203,8 +203,8 @@
     "objectID": "intro.html#build-an-instructor-todo-website",
     "href": "intro.html#build-an-instructor-todo-website",
     "title": "2  Building a Quarto Microsite Structure",
-    "section": "3.7 7. Build an Instructor TODO Website",
-    "text": "3.7 7. Build an Instructor TODO Website\nCreate todo.qmd:\n---\ntitle: \"Instructor TODO Checklist\"\nformat: html\n---\n\n# Course-Level Tasks\n- [ ] Update syllabus\n- [ ] Customize schedule\n- [ ] Adjust grading/deliverables\n\n# Module Tasks (Repeat for Each Module)\n## Module 1\n- [ ] Lecture Note 1\n- [ ] Lecture Note 2\n- [ ] Presentation 1\n- [ ] Presentation 2\n- [ ] Tutorial 1\n- [ ] Tutorial 2\n- [ ] Lab 1\n- [ ] Lab 2\n- [ ] Assignment\n- [ ] Project Step\n- [ ] Highlights Page\nEducators can check tasks off during development.",
+    "section": "3.6 7. Build an Instructor TODO Website",
+    "text": "3.6 7. Build an Instructor TODO Website\nCreate todo.qmd:\n---\ntitle: \"Instructor TODO Checklist\"\nformat: html\n---\n\n# Course-Level Tasks\n- [ ] Update syllabus\n- [ ] Customize schedule\n- [ ] Adjust grading/deliverables\n\n# Module Tasks (Repeat for Each Module)\n## Module 1\n- [ ] Lecture Note 1\n- [ ] Lecture Note 2\n- [ ] Presentation 1\n- [ ] Presentation 2\n- [ ] Tutorial 1\n- [ ] Tutorial 2\n- [ ] Lab 1\n- [ ] Lab 2\n- [ ] Assignment\n- [ ] Project Step\n- [ ] Highlights Page\nEducators can check tasks off during development.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Building a Quarto Microsite Structure</span>"
     ]
@@ -213,8 +213,8 @@
     "objectID": "intro.html#render-the-website",
     "href": "intro.html#render-the-website",
     "title": "2  Building a Quarto Microsite Structure",
-    "section": "3.8 8. Render the Website",
-    "text": "3.8 8. Render the Website\nOnce content is ready, educators run:\nquarto render\nOr click Render Website if using RStudio.",
+    "section": "3.7 8. Render the Website",
+    "text": "3.7 8. Render the Website\nOnce content is ready, educators run:\nquarto render\nOr click Render Website if using RStudio.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Building a Quarto Microsite Structure</span>"
     ]

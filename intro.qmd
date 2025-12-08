@@ -3,39 +3,27 @@ title: "Building a Quarto Microsite Structure"
 subtitle: "Designing an Quarto-based Course"
 ---
 
-Here is the **updated educator-friendly step-by-step guide**, now explicitly integrating the **Quarto CLI command**:
+# Create the Base Quarto Website
 
-> **`quarto create project website <name-of-project>`**
-> This ensures educators can start from the correct Quarto project scaffold immediately.
-
-Everything below is written as a clean instruction manual educators can follow without needing prior technical knowledge.
-
----
-
-# **📘 Quarto Microsite Builder — Step-by-Step Guide for Educators**
-
-*A reusable workflow for creating professional, consistent course websites with modules 0–8.*
-
----
-
-## **1. Create the Base Quarto Website Using the CLI (Recommended)**
-
-Educators should begin by using the built-in Quarto command:
+- Create a blank folder on your computer.
+- Make sure that this folder is not on a cloud sharing service if you plan to use it wit Github.
+- Open the folder in `VS Code` or `Antigravity` IDE.
+- open terminal on IDE either by selecting `Terminal` -> `New Terminal` or by using keyboard shortcut `Ctrl + ` 
+- You can create a Quarto website by running the following command:
 
 ```bash
-quarto create project website <name-of-project>
+quarto create project website .
 ```
 
-Example:
-
-```bash
-quarto create project website CloudAnalyticsCourse
-```
-
-This automatically creates:
+This automatically ask users::
 
 ```
-CloudAnalyticsCourse/
+? Title (website) » example project
+```
+
+and will generate the following structure:
+```
+name/
   ├── _quarto.yml
   ├── index.qmd
   └── styles.css   (depending on template)
@@ -43,9 +31,8 @@ CloudAnalyticsCourse/
 
 Now open the folder in VS Code, RStudio, or any preferred editor.
 
----
 
-## **2. Replace the Default Pages With Your Course Pages**
+## Replace the Default Pages With Your Course Pages
 
 In the root of the project, create the standard site pages:
 
