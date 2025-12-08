@@ -9,8 +9,9 @@ book:
   title: "Building Reproducible and Interactive Analytics Courses"
   chapters:
     - href: index.qmd
-      text: "Introduction"
-    - intro.qmd
+      text: "Overview"
+    - href: intro.qmd
+      text: "Building a Quarto Microsite Structure"
     - href: chapters/01_version_control.qmd
       text: "Designing an Online Course"
     - summary.qmd

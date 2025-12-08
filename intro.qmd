@@ -1,90 +1,303 @@
 ---
-title: Introduction
+title: "Building a Quarto Microsite Structure"
 subtitle: "Designing an Quarto-based Course"
+---
+
+Here is the **updated educator-friendly step-by-step guide**, now explicitly integrating the **Quarto CLI command**:
+
+> **`quarto create project website <name-of-project>`**
+> This ensures educators can start from the correct Quarto project scaffold immediately.
+
+Everything below is written as a clean instruction manual educators can follow without needing prior technical knowledge.
+
+---
+
+# **📘 Quarto Microsite Builder — Step-by-Step Guide for Educators**
+
+*A reusable workflow for creating professional, consistent course websites with modules 0–8.*
+
+---
+
+## **1. Create the Base Quarto Website Using the CLI (Recommended)**
+
+Educators should begin by using the built-in Quarto command:
+
+```bash
+quarto create project website <name-of-project>
+```
+
+Example:
+
+```bash
+quarto create project website CloudAnalyticsCourse
+```
+
+This automatically creates:
+
+```
+CloudAnalyticsCourse/
+  ├── _quarto.yml
+  ├── index.qmd
+  └── styles.css   (depending on template)
+```
+
+Now open the folder in VS Code, RStudio, or any preferred editor.
+
+---
+
+## **2. Replace the Default Pages With Your Course Pages**
+
+In the root of the project, create the standard site pages:
+
+```
+index.qmd
+syllabus.qmd
+deliverables.qmd
+schedule.qmd
+todo.qmd          # Instructor-only checklist
+```
+
+**Purpose of Each Page**
+
+* **index.qmd** → Course homepage
+* **syllabus.qmd** → Course policies
+* **deliverables.qmd** → Assignments & grading
+* **schedule.qmd** → Module or weekly timeline
+* **todo.qmd** → Instructor checklists
+
+---
+
+## **3. Create Module Folders (M0–M8)**
+
+In your project folder, add:
+
+```
+M0/
+M1/
+M2/
+M3/
+M4/
+M5/
+M6/
+M7/
+M8/
+```
+
+Nine modules total.
+
+---
+
+## **4. Inside Each Module Folder, Add the Standard File Structure**
+
+For example, inside **M1/** create:
+
+```
+M1_LN1.qmd        # Lecture Note 1
+M1_LN2.qmd        # Lecture Note 2
+M1_P1.qmd         # Presentation 1
+M1_P2.qmd         # Presentation 2
+M1_T1.qmd         # Tutorial 1
+M1_T2.qmd         # Tutorial 2
+M1_Lab1.qmd       # Lab 1
+M1_Lab2.qmd       # Lab 2
+M1_A.qmd          # Assignment
+M1_Proj.qmd       # Project step
+M1_highlights.qmd # Summary landing page
+M1L1_figures/
+M1L2_figures/
+```
+
+Copy this structure for **every module** from 0–8, adjusting the naming prefix.
+
+---
+
+## **5. Update `_quarto.yml` to Configure the Microsite**
+
+Replace the default file created by Quarto CLI with a course-oriented version:
+
+```yaml
+project:
+  type: website
+
+website:
+  title: "Course Name"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: syllabus.qmd
+        text: Syllabus
+      - href: deliverables.qmd
+        text: Deliverables
+      - href: schedule.qmd
+        text: Schedule
+      - text: Modules
+        menu:
+          - text: Module 0
+            href: M0/M0_highlights.qmd
+          - text: Module 1
+            href: M1/M1_highlights.qmd
+          - text: Module 2
+            href: M2/M2_highlights.qmd
+          - text: Module 3
+            href: M3/M3_highlights.qmd
+          - text: Module 4
+            href: M4/M4_highlights.qmd
+          - text: Module 5
+            href: M5/M5_highlights.qmd
+          - text: Module 6
+            href: M6/M6_highlights.qmd
+          - text: Module 7
+            href: M7/M7_highlights.qmd
+          - text: Module 8
+            href: M8/M8_highlights.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+```
+
+This creates a clean navigation system, anchored around module highlights pages.
+
+---
+
+## **6. Recommended Templates for Educators**
+
+Educators can copy/paste these into any file.
+
+### **Lecture Notes Template**
+
+```yaml
+---
+title: "Module X – Lecture Y"
+format: html
+---
+
+# Learning Objectives
+
+# Content
+
+# Examples
+
+# Summary
+```
+
+### **Presentation Template (Reveal.js)**
+
+```yaml
+---
+title: "Module X – Presentation Y"
+format: revealjs
+---
+
+# Slide 1
+
+---
+
+# Slide 2
+```
+
+### **Tutorial Template**
+
+```yaml
+---
+title: "Module X – Tutorial Y"
+format: html
+---
+
+# Steps
+
+# Exercises
+```
+
+### **Lab Template**
+
+```yaml
+---
+title: "Module X – Lab Y"
+format: html
+---
+
+# Lab Instructions
+
+# Tasks
+
+# Submission Notes
+```
+
+### **Assignment Template**
+
+```yaml
+---
+title: "Module X – Assignment"
+format: html
 ---
 
 # Overview
 
-Designing an effective online course starts not with technology, but with intention. The goal is to align instructional strategies with learning outcomes, supported by scalable and reproducible tools. This chapter walks you through establishing a reproducible, cloud-friendly online course infrastructure.
+# Requirements
 
-# Define Learning Outcomes
+# Rubric
+```
 
-Start with the end in mind. Ask yourself:
+### **Project Step Template**
 
-- What should students be able to *do* by the end of the course?
-- How will you know they’ve learned it?
-- What evidence of learning will students produce?
+```yaml
+---
+title: "Module X – Project Step"
+format: html
+---
 
-Use **Bloom’s Taxonomy** to scaffold outcomes across cognitive levels, from remembering to creating.
+# Goal of This Step
 
-# Choose Your Infrastructure
+# Required Deliverables
 
-Pick your teaching stack based on your audience, goals, and support capacity:
+# Integration With Final Project
+```
 
-| Tool              | Use Case                              | Features                                      |
-|-------------------|----------------------------------------|-----------------------------------------------|
-| GitHub Classroom  | Code-driven assignment workflows       | Version control, autograding, feedback        |
-| Posit Cloud       | R/Python course projects               | No install, team projects, reproducibility     |
-| AWS Academy       | Cloud labs and AI/ML workflows         | SageMaker, EC2, real-world industry tooling    |
-| VSCode.dev / Codespaces | Lightweight online IDE         | GitHub native integration, no setup required   |
+---
 
-# Use Quarto to Unify Content
+## **7. Build an Instructor TODO Website**
 
-Create reproducible lecture notes, websites, assignments, and slides with [Quarto](https://quarto.org):
+Create `todo.qmd`:
+
+```yaml
+---
+title: "Instructor TODO Checklist"
+format: html
+---
+
+# Course-Level Tasks
+- [ ] Update syllabus
+- [ ] Customize schedule
+- [ ] Adjust grading/deliverables
+
+# Module Tasks (Repeat for Each Module)
+## Module 1
+- [ ] Lecture Note 1
+- [ ] Lecture Note 2
+- [ ] Presentation 1
+- [ ] Presentation 2
+- [ ] Tutorial 1
+- [ ] Tutorial 2
+- [ ] Lab 1
+- [ ] Lab 2
+- [ ] Assignment
+- [ ] Project Step
+- [ ] Highlights Page
+```
+
+Educators can check tasks off during development.
+
+---
+
+## **8. Render the Website**
+
+Once content is ready, educators run:
 
 ```bash
-quarto create-project mycourse --type website
+quarto render
 ```
 
-Then add:
-
-- `index.qmd` for homepage/overview
-- `syllabus.qmd`, `assignments/`, `modules/` for modular content
-
-## Organize Your Repository
-
-Structure a course repo like so:
-
-```
-teach-reproducibly/
-├── index.qmd               # Course overview/homepage
-├── syllabus.qmd            # Syllabus details
-├── deliverables.qmd        # Assignment & grading structure
-├── schedule.qmd            # Weekly/module timeline
-├── M1/
-│   ├── M1_LN1.qmd           # Lecture Note 1
-│   ├── M1_LN2.qmd
-│   ├── M1_P1.qmd            # Presentation 1
-│   ├── M1_P2.qmd
-│   ├── M1_T1.qmd            # Tutorial 1
-│   ├── M1_T2.qmd
-│   ├── M1_Lab1.qmd
-│   ├── M1_Lab2.qmd
-│   ├── M1_A1.qmd            # Assignment
-│   ├── M1_Proj1.qmd         # Mini project
-│   ├── M01-highlights.qmd
-│   ├── M1L01_figures/
-│   └── M1L02_figures/
-└── _quarto.yml
-
-```
-
-Tips:
-
-* Use **GitHub Issues** for class Q\&A and announcements.
-* Have students submit via **pull requests**.
-* Use **GitHub Actions** for automated feedback, grading, or rendering.
-
-# Plan for Iteration
-
-Your first version won’t be perfect. Plan to revise:
-
-* Module sequencing or timing
-* Tooling constraints (e.g., firewall, browser compatibility)
-* Based on student feedback and usage analytics
-
-Use a `CHANGELOG.md` and commit messages to document changes over time.
-
-# Summary
-
-Start with outcomes. Choose infrastructure intentionally. Use Quarto and GitHub to scaffold your course reproducibly. Keep it flexible, open, and iterative. You’re not just teaching content—you’re modeling professional workflows.
+Or click **Render Website** if using RStudio.
