@@ -1,96 +1,243 @@
 /*-- scss:defaults --*/
-$font-family-serif: "Merriweather", Georgia, serif;
-$font-family-sans: "Lato", "Helvetica Neue", sans-serif;
+/* Import the Merriweather font */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
 
-$rosewood: #7A3E48;       // warm burgundy
-$buttercream: #EECD86;    // soft yellow-beige
-$tangerine: #E18942;      // light orange
-$cinnamon: #B95835;       // rich clay
-$eggplant: #3D3242;       // muted violet black
-
-$body-font-family: $font-family-serif;
-$heading-font-family: $font-family-sans;
-$font-size-base: 14px;
-$line-height-base: 1.6;
+/* Default font and general settings */
+body {
+  font-family: 'Merriweather', serif;
+  line-height: 1.25;
+  font-size: 12pt;
+  color: #343435;
+}
 
 /*-- scss:rules --*/
-
-body {
-  font-family: $body-font-family;
-  color: $eggplant;
-  background-color: $buttercream;
-  counter-reset: chapter;
+/* APA-style heading colors and formatting */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #003366 !important;
+  font-family: 'Merriweather', serif;
 }
 
-h1.title {
-  font-size: 2.2rem;
-  font-family: $heading-font-family;
-  color: $rosewood;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  border-bottom: 3px solid $tangerine;
-  padding-bottom: 0.5rem;
-}
-
-h1:not(.title) {
-  font-size: 1.6rem;
-  font-family: $heading-font-family;
-  color: $rosewood;
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid $tangerine;
-  padding-bottom: 0.3em;
-  counter-increment: chapter;
+/* Heading sizes, starting at 16pt and reducing accordingly */
+h1 {
+  font-size: 16pt !important;
+  font-weight: bold;
 }
 
 h2 {
-  font-size: 1.4rem;
-  font-family: $heading-font-family;
-  color: $cinnamon;
-  font-weight: 600;
-  font-style: italic;
-  counter-increment: section;
-}
-
-h2::before {
-  content: counter(chapter) "." counter(section) " ";
+  font-size: 15pt !important;
+  font-weight: bold;
 }
 
 h3 {
-  font-size: 1.2rem;
-  color: $eggplant;
+  font-size: 14pt !important;
+  font-weight: bold;
   font-style: italic;
-  font-family: $heading-font-family;
 }
 
-pre, code {
-  font-family: "Fira Code", monospace;
-  background-color: #f6f2ea;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
-  color: $eggplant;
+h4 {
+  font-size: 13pt !important;
+  font-style: italic;
 }
 
-a {
-  color: $rosewood;
+h5 {
+  font-size: 12pt !important;
+}
+
+h6 {
+  font-size: 11pt !important;
+}
+
+/* Styling for paragraph and list elements */
+p,
+li,
+li li,
+li li li,
+ul,
+ul ul,
+ul ul ul {
+  font-family: 'Merriweather', serif;
+  color: #343435;
+  font-size: 12pt;
+}
+
+/* APA-style blockquotes */
+blockquote {
+  font-style: italic;
+  margin-left: 40px;
+  color: #343435;
+}
+
+/* Table formatting */
+table {
+  border-collapse: collapse;
+  width: 80%;
+  font-size: 12pt;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Table header styling */
+th {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #8E0000;
+  text-align: left;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #8E0000;
+  /* Horizontal line below header */
+}
+
+/* Table cell styling */
+td {
+  padding: 8px 0;
+  border-top: 1px solid #343435;
+  /* Horizontal line between rows */
+}
+
+/* Banded table rows */
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #ECECEC;
+}
+
+/* Styling for ordered and unordered lists */
+ol,
+ul {
+  margin: 0 0 1em 40px;
+}
+
+/* APA-style figure captions */
+figcaption {
+  font-size: 12pt;
+  text-align: center;
+  font-style: italic;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  color: #343435;
+}
+
+/* Styling for the table of contents */
+.toc {
+  font-size: 12pt;
+}
+
+.toc a {
+  color: #8E0000;
   text-decoration: none;
 }
 
-a:hover {
-  color: $tangerine;
-  text-decoration: underline;
+
+/* Custom Navigation Design */
+body {
+  font-family: calibri, arial;
+  font-size: 18px;
+  margin-top: 60px;
 }
 
-.nav-sidebar {
-  background-color: #fffef9;
-  border-right: 1px solid $cinnamon;
+ul.navbar-nav {
+  text-align: center;
+
+  li.nav-item {
+    display: inline-block;
+    margin-right: 15px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+
+    &:hover {
+      .submenu {
+        height: 85px;
+      }
+
+      a.nav-link {
+        color: #3862a0 !important;
+
+        &::before {
+          visibility: visible;
+          transform: scale(1, 1);
+        }
+      }
+    }
+
+    /* Submenu styling */
+    .submenu {
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      background-color: #3862a0;
+      height: 0;
+      line-height: 40px;
+      box-sizing: border-box;
+      transition: height 0.3s ease-in-out;
+      transition-delay: 0.1s;
+
+      a.nav-link {
+        color: #fff;
+        margin-top: 20px;
+        font-size: 16px;
+
+        &:hover {
+          color: #fff;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    /* Main link hover effect */
+    a.nav-link {
+      color: #999 !important;
+      display: block;
+      padding: 0 7px;
+      margin: 0 0 10px;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s ease-in-out;
+
+      /* Adding the underline effect */
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: -10px;
+        left: 0;
+        background-color: #3862a0;
+        transition: all 0.2s ease-in-out;
+        transform: scale(0, 0);
+        visibility: hidden;
+      }
+    }
+  }
 }
 
-.nav-sidebar a {
-  color: $eggplant;
+.bloodred-bold {
+  color: #8E0000; // This sets the text color to the specified hexadecimal value
+  font-weight: bold; // This makes the text bold
 }
 
-.nav-sidebar a:hover {
-  color: $tangerine;
+.uured-bold {
+  color: #d34972; // This sets the text color to the specified hexadecimal value
+  font-weight: bold; // This makes the text bold
+}
+
+.uugreen-bold {
+  color: #669966; // This sets the text color to the specified hexadecimal value
+  font-weight: bold; // This makes the text bold
+}
+
+.uublue-bold {
+  color: #336699; // This sets the text color to the specified hexadecimal value
+  font-weight: bold; // This makes the text bold
+}
+
+.g-col-12 {
+  display: flex
 }

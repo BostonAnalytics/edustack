@@ -17,12 +17,12 @@ quarto create project website .
 
 This automatically ask users::
 
-```
+```bash
 ? Title (website) » example project
 ```
 
 and will generate the following structure:
-```
+```bash
 name/
   ├── _quarto.yml
   ├── index.qmd
@@ -36,7 +36,7 @@ Now open the folder in VS Code, RStudio, or any preferred editor.
 
 In the root of the project, create the standard site pages:
 
-```
+```bash
 index.qmd
 syllabus.qmd
 deliverables.qmd
@@ -52,33 +52,30 @@ todo.qmd          # Instructor-only checklist
 * **schedule.qmd** → Module or weekly timeline
 * **todo.qmd** → Instructor checklists
 
----
 
-## **3. Create Module Folders (M0–M8)**
+## Create Module Folders (M0–M8)
 
 In your project folder, add:
 
-```
-M0/
+```bash
+M0/ optional
 M1/
 M2/
 M3/
 M4/
 M5/
 M6/
-M7/
-M8/
+M7/ 
+M8/ optional
 ```
 
 Nine modules total.
 
----
-
-## **4. Inside Each Module Folder, Add the Standard File Structure**
+## Inside Each Module Folder, Add the Standard File Structure
 
 For example, inside **M1/** create:
 
-```
+```bash 
 M1_LN1.qmd        # Lecture Note 1
 M1_LN2.qmd        # Lecture Note 2
 M1_P1.qmd         # Presentation 1
@@ -96,9 +93,7 @@ M1L2_figures/
 
 Copy this structure for **every module** from 0–8, adjusting the naming prefix.
 
----
-
-## **5. Update `_quarto.yml` to Configure the Microsite**
+## Update `_quarto.yml` to Configure the Microsite
 
 Replace the default file created by Quarto CLI with a course-oriented version:
 
@@ -147,9 +142,8 @@ format:
 
 This creates a clean navigation system, anchored around module highlights pages.
 
----
 
-## **6. Recommended Templates for Educators**
+## Recommended Templates for Educators
 
 Educators can copy/paste these into any file.
 
@@ -243,9 +237,8 @@ format: html
 # Integration With Final Project
 ```
 
----
 
-## **7. Build an Instructor TODO Website**
+## Build an Instructor TODO Website
 
 Create `todo.qmd`:
 
@@ -277,9 +270,7 @@ format: html
 
 Educators can check tasks off during development.
 
----
-
-## **8. Render the Website**
+## Render the Website
 
 Once content is ready, educators run:
 

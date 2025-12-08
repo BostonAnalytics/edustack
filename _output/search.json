@@ -1,0 +1,303 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Designing an Online Course: Where Do I Start?",
+    "section": "",
+    "text": "As data and computation continue to reshape disciplines across the university, faculty are increasingly called upon to integrate code, collaboration, and scalable infrastructure into their teaching. Yet, despite this growing demand, instructors often lack structured guidance on how to develop and maintain reproducible instructional materials across tools, platforms, and modalities.\nTeach Reproducibly is a faculty-facing resource developed by the Metropolitan College, in partnership with BU ELIVE Services and BU Virtual, to support instructors in building robust, version-controlled, and scalable course content for use in Boston University’s Blackboard Ultra environment.\nThis book provides practical guidance for instructors teaching in data-rich and computation-heavy domains — including analytics, computer science, statistics, engineering, public health, and beyond — who are committed to developing high-quality, maintainable instructional workflows."
+  },
+  {
+    "objectID": "index.html#for-bu-faculty-use-only",
+    "href": "index.html#for-bu-faculty-use-only",
+    "title": "Designing an Online Course: Where Do I Start?",
+    "section": "For BU Faculty Use Only",
+    "text": "For BU Faculty Use Only\nThis resource is intended for internal instructional development and support within Boston University. It is not licensed for external reproduction, distribution, or commercial use.\nFor inquiries, access to editable templates, or instructional support, please contact:\n\nBU ELIVE Services: elive@bu.edu\nBU Virtual Instructional Design: buv@bu.edu\nMetropolitan College Academic Affairs: metacad@bu.edu"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Building a Quarto Microsite Structure",
+    "section": "",
+    "text": "Create a blank folder on your computer.\nMake sure that this folder is not on a cloud sharing service if you plan to use it wit Github.\nOpen the folder in VS Code or Antigravity IDE.\nopen terminal on IDE either by selecting Terminal -&gt; New Terminal or by using keyboard shortcut Ctrl +\nYou can create a Quarto website by running the following command:\n\nquarto create project website .\nThis automatically ask users::\n? Title (website) » example project\nand will generate the following structure:\nname/\n  ├── _quarto.yml\n  ├── index.qmd\n  └── styles.css   (depending on template)\nNow open the folder in VS Code, RStudio, or any preferred editor.\n\n\nIn the root of the project, create the standard site pages:\nindex.qmd\nsyllabus.qmd\ndeliverables.qmd\nschedule.qmd\ntodo.qmd          # Instructor-only checklist\nPurpose of Each Page\n\nindex.qmd → Course homepage\nsyllabus.qmd → Course policies\ndeliverables.qmd → Assignments & grading\nschedule.qmd → Module or weekly timeline\ntodo.qmd → Instructor checklists\n\n\n\n\n\nIn your project folder, add:\nM0/\nM1/\nM2/\nM3/\nM4/\nM5/\nM6/\nM7/\nM8/\nNine modules total.\n\n\n\n\nFor example, inside M1/ create:\nM1_LN1.qmd        # Lecture Note 1\nM1_LN2.qmd        # Lecture Note 2\nM1_P1.qmd         # Presentation 1\nM1_P2.qmd         # Presentation 2\nM1_T1.qmd         # Tutorial 1\nM1_T2.qmd         # Tutorial 2\nM1_Lab1.qmd       # Lab 1\nM1_Lab2.qmd       # Lab 2\nM1_A.qmd          # Assignment\nM1_Proj.qmd       # Project step\nM1_highlights.qmd # Summary landing page\nM1L1_figures/\nM1L2_figures/\nCopy this structure for every module from 0–8, adjusting the naming prefix.\n\n\n\n\nReplace the default file created by Quarto CLI with a course-oriented version:\nproject:\n  type: website\n\nwebsite:\n  title: \"Course Name\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - href: syllabus.qmd\n        text: Syllabus\n      - href: deliverables.qmd\n        text: Deliverables\n      - href: schedule.qmd\n        text: Schedule\n      - text: Modules\n        menu:\n          - text: Module 0\n            href: M0/M0_highlights.qmd\n          - text: Module 1\n            href: M1/M1_highlights.qmd\n          - text: Module 2\n            href: M2/M2_highlights.qmd\n          - text: Module 3\n            href: M3/M3_highlights.qmd\n          - text: Module 4\n            href: M4/M4_highlights.qmd\n          - text: Module 5\n            href: M5/M5_highlights.qmd\n          - text: Module 6\n            href: M6/M6_highlights.qmd\n          - text: Module 7\n            href: M7/M7_highlights.qmd\n          - text: Module 8\n            href: M8/M8_highlights.qmd\n\nformat:\n  html:\n    theme: cosmo\n    toc: true\nThis creates a clean navigation system, anchored around module highlights pages.\n\n\n\n\nEducators can copy/paste these into any file.\n\n\n---\ntitle: \"Module X – Lecture Y\"\nformat: html\n---\n\n# Learning Objectives\n\n# Content\n\n# Examples\n\n# Summary\n\n\n\n---\ntitle: \"Module X – Presentation Y\"\nformat: revealjs\n---\n\n# Slide 1\n\n---\n\n# Slide 2\n\n\n\n---\ntitle: \"Module X – Tutorial Y\"\nformat: html\n---\n\n# Steps\n\n# Exercises\n\n\n\n---\ntitle: \"Module X – Lab Y\"\nformat: html\n---\n\n# Lab Instructions\n\n# Tasks\n\n# Submission Notes\n\n\n\n---\ntitle: \"Module X – Assignment\"\nformat: html\n---\n\n# Overview\n\n# Requirements\n\n# Rubric\n\n\n\n---\ntitle: \"Module X – Project Step\"\nformat: html\n---\n\n# Goal of This Step\n\n# Required Deliverables\n\n# Integration With Final Project\n\n\n\n\n\nCreate todo.qmd:\n---\ntitle: \"Instructor TODO Checklist\"\nformat: html\n---\n\n# Course-Level Tasks\n- [ ] Update syllabus\n- [ ] Customize schedule\n- [ ] Adjust grading/deliverables\n\n# Module Tasks (Repeat for Each Module)\n## Module 1\n- [ ] Lecture Note 1\n- [ ] Lecture Note 2\n- [ ] Presentation 1\n- [ ] Presentation 2\n- [ ] Tutorial 1\n- [ ] Tutorial 2\n- [ ] Lab 1\n- [ ] Lab 2\n- [ ] Assignment\n- [ ] Project Step\n- [ ] Highlights Page\nEducators can check tasks off during development.\n\n\n\n\nOnce content is ready, educators run:\nquarto render\nOr click Render Website if using RStudio."
+  },
+  {
+    "objectID": "intro.html#replace-the-default-pages-with-your-course-pages",
+    "href": "intro.html#replace-the-default-pages-with-your-course-pages",
+    "title": "Building a Quarto Microsite Structure",
+    "section": "",
+    "text": "In the root of the project, create the standard site pages:\nindex.qmd\nsyllabus.qmd\ndeliverables.qmd\nschedule.qmd\ntodo.qmd          # Instructor-only checklist\nPurpose of Each Page\n\nindex.qmd → Course homepage\nsyllabus.qmd → Course policies\ndeliverables.qmd → Assignments & grading\nschedule.qmd → Module or weekly timeline\ntodo.qmd → Instructor checklists"
+  },
+  {
+    "objectID": "intro.html#create-module-folders-m0m8",
+    "href": "intro.html#create-module-folders-m0m8",
+    "title": "Building a Quarto Microsite Structure",
+    "section": "",
+    "text": "In your project folder, add:\nM0/\nM1/\nM2/\nM3/\nM4/\nM5/\nM6/\nM7/\nM8/\nNine modules total."
+  },
+  {
+    "objectID": "intro.html#inside-each-module-folder-add-the-standard-file-structure",
+    "href": "intro.html#inside-each-module-folder-add-the-standard-file-structure",
+    "title": "Building a Quarto Microsite Structure",
+    "section": "",
+    "text": "For example, inside M1/ create:\nM1_LN1.qmd        # Lecture Note 1\nM1_LN2.qmd        # Lecture Note 2\nM1_P1.qmd         # Presentation 1\nM1_P2.qmd         # Presentation 2\nM1_T1.qmd         # Tutorial 1\nM1_T2.qmd         # Tutorial 2\nM1_Lab1.qmd       # Lab 1\nM1_Lab2.qmd       # Lab 2\nM1_A.qmd          # Assignment\nM1_Proj.qmd       # Project step\nM1_highlights.qmd # Summary landing page\nM1L1_figures/\nM1L2_figures/\nCopy this structure for every module from 0–8, adjusting the naming prefix."
+  },
+  {
+    "objectID": "intro.html#update-_quarto.yml-to-configure-the-microsite",
+    "href": "intro.html#update-_quarto.yml-to-configure-the-microsite",
+    "title": "Building a Quarto Microsite Structure",
+    "section": "",
+    "text": "Replace the default file created by Quarto CLI with a course-oriented version:\nproject:\n  type: website\n\nwebsite:\n  title: \"Course Name\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - href: syllabus.qmd\n        text: Syllabus\n      - href: deliverables.qmd\n        text: Deliverables\n      - href: schedule.qmd\n        text: Schedule\n      - text: Modules\n        menu:\n          - text: Module 0\n            href: M0/M0_highlights.qmd\n          - text: Module 1\n            href: M1/M1_highlights.qmd\n          - text: Module 2\n            href: M2/M2_highlights.qmd\n          - text: Module 3\n            href: M3/M3_highlights.qmd\n          - text: Module 4\n            href: M4/M4_highlights.qmd\n          - text: Module 5\n            href: M5/M5_highlights.qmd\n          - text: Module 6\n            href: M6/M6_highlights.qmd\n          - text: Module 7\n            href: M7/M7_highlights.qmd\n          - text: Module 8\n            href: M8/M8_highlights.qmd\n\nformat:\n  html:\n    theme: cosmo\n    toc: true\nThis creates a clean navigation system, anchored around module highlights pages."
+  },
+  {
+    "objectID": "intro.html#recommended-templates-for-educators",
+    "href": "intro.html#recommended-templates-for-educators",
+    "title": "Building a Quarto Microsite Structure",
+    "section": "",
+    "text": "Educators can copy/paste these into any file.\n\n\n---\ntitle: \"Module X – Lecture Y\"\nformat: html\n---\n\n# Learning Objectives\n\n# Content\n\n# Examples\n\n# Summary\n\n\n\n---\ntitle: \"Module X – Presentation Y\"\nformat: revealjs\n---\n\n# Slide 1\n\n---\n\n# Slide 2\n\n\n\n---\ntitle: \"Module X – Tutorial Y\"\nformat: html\n---\n\n# Steps\n\n# Exercises\n\n\n\n---\ntitle: \"Module X – Lab Y\"\nformat: html\n---\n\n# Lab Instructions\n\n# Tasks\n\n# Submission Notes\n\n\n\n---\ntitle: \"Module X – Assignment\"\nformat: html\n---\n\n# Overview\n\n# Requirements\n\n# Rubric\n\n\n\n---\ntitle: \"Module X – Project Step\"\nformat: html\n---\n\n# Goal of This Step\n\n# Required Deliverables\n\n# Integration With Final Project"
+  },
+  {
+    "objectID": "intro.html#build-an-instructor-todo-website",
+    "href": "intro.html#build-an-instructor-todo-website",
+    "title": "Building a Quarto Microsite Structure",
+    "section": "",
+    "text": "Create todo.qmd:\n---\ntitle: \"Instructor TODO Checklist\"\nformat: html\n---\n\n# Course-Level Tasks\n- [ ] Update syllabus\n- [ ] Customize schedule\n- [ ] Adjust grading/deliverables\n\n# Module Tasks (Repeat for Each Module)\n## Module 1\n- [ ] Lecture Note 1\n- [ ] Lecture Note 2\n- [ ] Presentation 1\n- [ ] Presentation 2\n- [ ] Tutorial 1\n- [ ] Tutorial 2\n- [ ] Lab 1\n- [ ] Lab 2\n- [ ] Assignment\n- [ ] Project Step\n- [ ] Highlights Page\nEducators can check tasks off during development."
+  },
+  {
+    "objectID": "intro.html#render-the-website",
+    "href": "intro.html#render-the-website",
+    "title": "Building a Quarto Microsite Structure",
+    "section": "",
+    "text": "Once content is ready, educators run:\nquarto render\nOr click Render Website if using RStudio."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "Summary",
+    "section": "",
+    "text": "Summary\nIn summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html",
+    "href": "chapters/02-01_quarto_tool_setup.html",
+    "title": "Tool Setup",
+    "section": "",
+    "text": "Welcome to Module 0. Before beginning analytics, Quarto development, and programming workflows, students must install and configure:\n\nGit & GitHub\nAntigravity (Google’s VS Code–based IDE)\nQuarto\nPython\nR\nPandoc\nGraphviz\n\nThis module ensures every student has:\n\na working IDE\nversion control correctly configured\nenvironments set up\nthe ability to edit, preview, and publish Quarto content\na GitHub Pages site (username.github.io)\nexperience with pull → edit → commit → push workflows"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#install-git",
+    "href": "chapters/02-01_quarto_tool_setup.html#install-git",
+    "title": "Tool Setup",
+    "section": "Install Git",
+    "text": "Install Git\nGit is the version control system used throughout this course.\nMac:\nbrew install git\nWindows: Download and install: https://git-scm.com/download/win\nLinux:\nsudo apt update && sudo apt install git -y"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#install-github-cli-gh",
+    "href": "chapters/02-01_quarto_tool_setup.html#install-github-cli-gh",
+    "title": "Tool Setup",
+    "section": "Install GitHub CLI (gh)",
+    "text": "Install GitHub CLI (gh)\nThis tool connects your IDE (Antigravity) with GitHub.\nCheck installation:\ngh --version\nInstallation: https://cli.github.com/"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#install-quarto",
+    "href": "chapters/02-01_quarto_tool_setup.html#install-quarto",
+    "title": "Tool Setup",
+    "section": "Install Quarto",
+    "text": "Install Quarto\nUsed to build websites, slides, notebooks, and documents.\nDownload: https://quarto.org/docs/download/"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#install-pandoc",
+    "href": "chapters/02-01_quarto_tool_setup.html#install-pandoc",
+    "title": "Tool Setup",
+    "section": "Install Pandoc",
+    "text": "Install Pandoc\nRequired for Quarto PDF and DOCX output.\nMac:\nbrew install pandoc\nLinux:\nsudo apt install pandoc -y"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#install-graphviz",
+    "href": "chapters/02-01_quarto_tool_setup.html#install-graphviz",
+    "title": "Tool Setup",
+    "section": "Install Graphviz",
+    "text": "Install Graphviz\nRequired for diagrams, ML visualizations, and flowcharts.\nMac:\nbrew install graphviz\nLinux:\nsudo apt install graphviz -y"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#install-python-3.12",
+    "href": "chapters/02-01_quarto_tool_setup.html#install-python-3.12",
+    "title": "Tool Setup",
+    "section": "Install Python 3.12",
+    "text": "Install Python 3.12\nDownload: https://www.python.org/downloads/\nCheck: Add Python to PATH.\nLinux:\nsudo apt install python3 python3-pip -y"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#install-r",
+    "href": "chapters/02-01_quarto_tool_setup.html#install-r",
+    "title": "Tool Setup",
+    "section": "Install R",
+    "text": "Install R\nDownload: https://cran.r-project.org/"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#install-rtools-windows-only",
+    "href": "chapters/02-01_quarto_tool_setup.html#install-rtools-windows-only",
+    "title": "Tool Setup",
+    "section": "Install RTools (Windows only)",
+    "text": "Install RTools (Windows only)\nRequired to compile R packages.\nhttps://cran.r-project.org/bin/windows/Rtools/"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#download-antigravity",
+    "href": "chapters/02-01_quarto_tool_setup.html#download-antigravity",
+    "title": "Tool Setup",
+    "section": "Download Antigravity",
+    "text": "Download Antigravity\nhttps://antigravity.google/\nInstall for:\n\nmacOS\nWindows\nLinux\n\nSign into Antigravity with a Google or GitHub account."
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#install-required-antigravity-extensions",
+    "href": "chapters/02-01_quarto_tool_setup.html#install-required-antigravity-extensions",
+    "title": "Tool Setup",
+    "section": "Install Required Antigravity Extensions",
+    "text": "Install Required Antigravity Extensions\nThese extensions run inside Antigravity and enable full notebook, Quarto, Python, and remote computing functionality.\nInsert image placeholder:\n![Required Antigravity Extensions](vscode-plugins.png)\n\n\nJupyter Extensions\nThese enable notebook editing, rendering, and slideshow exports.\n\nJupyter\nJupyter Notebook Renderers\nJupyter Keymap\nJupyter Cell Tags\nJupyter PowerToys\nJupyter Slide Show\n\n\n\n\nQuarto Extensions\nRequired for writing .qmd documents, rendering, and Markdown enhancements.\n\nQuarto\nMarkdown Preview Enhanced\nMarkdown All-in-One\nQuarto Wingman\nQuarto Wizard\nMarkdown & Quarto Word Count\nMarkdown Table\nPandoc Citer\nMarkdown Code Block Runner\n\n\n\n\nPython Extensions\nThese enable Python editing, debugging, linting, and environment support.\n\nPython Extension Pack\nPython Indent\nMagicPython\nautopep8\nPython Debugger\nFlake8\nisort\nPylint\nPylance\nPython Environments\nautoDocstring\n\n\n\n\nRemote Development Extensions\nThese enable connecting to cloud servers (e.g., AWS EC2) or containers.\n\nRemote – SSH\nRemote – SSH Config\nGitHub Repositories\nRemote Explorer\nDev Containers\nRemote Repositories\nRemote – Tunnels\nWSL (Windows only)"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#set-git-username-and-email",
+    "href": "chapters/02-01_quarto_tool_setup.html#set-git-username-and-email",
+    "title": "Tool Setup",
+    "section": "Set Git Username and Email",
+    "text": "Set Git Username and Email\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\""
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#generate-ssh-key",
+    "href": "chapters/02-01_quarto_tool_setup.html#generate-ssh-key",
+    "title": "Tool Setup",
+    "section": "Generate SSH Key",
+    "text": "Generate SSH Key\nssh-keygen -t ed25519\nPress Enter to accept defaults."
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#add-public-key-to-github",
+    "href": "chapters/02-01_quarto_tool_setup.html#add-public-key-to-github",
+    "title": "Tool Setup",
+    "section": "Add Public Key to GitHub",
+    "text": "Add Public Key to GitHub\ncat ~/.ssh/id_ed25519.pub\nCopy and paste it into GitHub: https://github.com/settings/keys"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#test-ssh-authentication",
+    "href": "chapters/02-01_quarto_tool_setup.html#test-ssh-authentication",
+    "title": "Tool Setup",
+    "section": "Test SSH Authentication",
+    "text": "Test SSH Authentication\nssh -T git@github.com\nExpected output:\nHi &lt;username&gt;! You've successfully authenticated."
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#create-repository-on-github",
+    "href": "chapters/02-01_quarto_tool_setup.html#create-repository-on-github",
+    "title": "Tool Setup",
+    "section": "Create Repository on GitHub",
+    "text": "Create Repository on GitHub\nGo to: https://github.com/new\nRepository name:\nyourusername.github.io\nSelect:\n\nPublic\nAdd README\nAdd .gitignore (Python or R)"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#clone-the-repository-locally",
+    "href": "chapters/02-01_quarto_tool_setup.html#clone-the-repository-locally",
+    "title": "Tool Setup",
+    "section": "Clone the Repository Locally",
+    "text": "Clone the Repository Locally\ngit clone git@github.com:yourusername/yourusername.github.io.git\ncd yourusername.github.io"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#make-your-first-file",
+    "href": "chapters/02-01_quarto_tool_setup.html#make-your-first-file",
+    "title": "Tool Setup",
+    "section": "Make Your First File",
+    "text": "Make Your First File\necho \"Welcome to my GitHub website!\" &gt;&gt; index.md"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#commit-your-change",
+    "href": "chapters/02-01_quarto_tool_setup.html#commit-your-change",
+    "title": "Tool Setup",
+    "section": "Commit Your Change",
+    "text": "Commit Your Change\ngit add .\ngit commit -m \"Initial website content\""
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#push-to-github",
+    "href": "chapters/02-01_quarto_tool_setup.html#push-to-github",
+    "title": "Tool Setup",
+    "section": "Push to GitHub",
+    "text": "Push to GitHub\ngit push origin main"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#pull-changes-to-confirm-workflow",
+    "href": "chapters/02-01_quarto_tool_setup.html#pull-changes-to-confirm-workflow",
+    "title": "Tool Setup",
+    "section": "Pull Changes to Confirm Workflow",
+    "text": "Pull Changes to Confirm Workflow\ngit pull"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#create-python-virtual-environment",
+    "href": "chapters/02-01_quarto_tool_setup.html#create-python-virtual-environment",
+    "title": "Tool Setup",
+    "section": "Create Python Virtual Environment",
+    "text": "Create Python Virtual Environment\npython3 -m venv .venv\nActivate:\nMac/Linux:\nsource .venv/bin/activate\nWindows:\n.venv\\Scripts\\activate\nInstall common packages:\npip install numpy pandas jupyter matplotlib quarto"
+  },
+  {
+    "objectID": "chapters/02-01_quarto_tool_setup.html#initialize-r-environment",
+    "href": "chapters/02-01_quarto_tool_setup.html#initialize-r-environment",
+    "title": "Tool Setup",
+    "section": "Initialize R Environment",
+    "text": "Initialize R Environment\nOpen R and run:\ninstall.packages(\"renv\")\nrenv::init()\ninstall.packages(c(\"tidyverse\", \"knitr\", \"rmarkdown\"))\nrenv::snapshot()"
+  },
+  {
+    "objectID": "chapters/01_version_control.html",
+    "href": "chapters/01_version_control.html",
+    "title": "Introduction to Git and GitHub",
+    "section": "",
+    "text": "In the realm of modern education, especially within data-centric disciplines, the ability to manage and collaborate on code is paramount. Git and GitHub serve as foundational tools that facilitate version control, collaborative development, and reproducible research. This chapter aims to introduce these tools, providing educators with the skills necessary to integrate them into their teaching workflows."
+  },
+  {
+    "objectID": "chapters/01_version_control.html#what-is-version-control",
+    "href": "chapters/01_version_control.html#what-is-version-control",
+    "title": "Introduction to Git and GitHub",
+    "section": "What is Version Control?",
+    "text": "What is Version Control?\nVersion control is a system that records changes to a file or set of files over time, enabling you to recall specific versions later. In educational settings, this allows instructors to:([arxiv.org][2])\n\nTrack the evolution of course materials.\nCollaborate with colleagues on curriculum development.\nRevert to previous versions of teaching resources when necessary.([docs.github.com][3])"
+  },
+  {
+    "objectID": "chapters/01_version_control.html#git-a-distributed-version-control-system",
+    "href": "chapters/01_version_control.html#git-a-distributed-version-control-system",
+    "title": "Introduction to Git and GitHub",
+    "section": "Git: A Distributed Version Control System",
+    "text": "Git: A Distributed Version Control System\nGit is a distributed version control system that allows multiple contributors to work on a project simultaneously without interfering with each other’s work. Each contributor has a complete copy of the repository, including its history, on their local machine. This setup enhances collaboration and ensures data integrity.([docs.github.com][4])\n\nFor more information, refer to the official Git documentation: About Git.([docs.github.com][4])"
+  },
+  {
+    "objectID": "chapters/01_version_control.html#github-a-platform-for-collaboration",
+    "href": "chapters/01_version_control.html#github-a-platform-for-collaboration",
+    "title": "Introduction to Git and GitHub",
+    "section": "GitHub: A Platform for Collaboration",
+    "text": "GitHub: A Platform for Collaboration\nGitHub is a cloud-based platform that hosts Git repositories, providing tools for collaboration, code review, and project management. In an educational context, GitHub can be used to:\n\nDistribute assignments and course materials.\nFacilitate student collaboration on projects.\nManage feedback and revisions efficiently.([docs.github.com][5], [en.wikipedia.org][6])\n\n\nLearn more about GitHub here: About GitHub.([docs.github.com][7])"
+  },
+  {
+    "objectID": "chapters/01_version_control.html#installing-git",
+    "href": "chapters/01_version_control.html#installing-git",
+    "title": "Introduction to Git and GitHub",
+    "section": "Installing Git",
+    "text": "Installing Git\nTo begin using Git, you need to install it on your local machine.\n\nWindows: Download the installer from Git for Windows and follow the setup instructions.\nmacOS: Install Git using Homebrew:\nbrew install git\nLinux: Use your distribution’s package manager. For example, on Ubuntu:\nsudo apt-get install git\n\n\nDetailed installation instructions can be found here: Set up Git.([docs.github.com][8])"
+  },
+  {
+    "objectID": "chapters/01_version_control.html#configuring-git",
+    "href": "chapters/01_version_control.html#configuring-git",
+    "title": "Introduction to Git and GitHub",
+    "section": "Configuring Git",
+    "text": "Configuring Git\nAfter installation, configure your Git username and email address. These details will be associated with your commits.\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your_email@bu.edu\"\nTo verify your configuration:\ngit config --list"
+  },
+  {
+    "objectID": "chapters/01_version_control.html#creating-a-new-repository-on-github",
+    "href": "chapters/01_version_control.html#creating-a-new-repository-on-github",
+    "title": "Introduction to Git and GitHub",
+    "section": "Creating a New Repository on GitHub",
+    "text": "Creating a New Repository on GitHub\n\nLog in to your GitHub account.\nClick on the “+” icon in the top-right corner and select “New repository”.\nProvide a repository name, e.g., teaching-materials.\nOptionally, add a description.\nChoose the repository’s visibility (public or private).\nInitialize the repository with a README file.\nClick “Create repository”.([docs.github.com][1])\n\n\nFor a step-by-step guide, refer to: Quickstart for repositories.([docs.github.com][1])"
+  },
+  {
+    "objectID": "chapters/01_version_control.html#cloning-the-repository-locally",
+    "href": "chapters/01_version_control.html#cloning-the-repository-locally",
+    "title": "Introduction to Git and GitHub",
+    "section": "Cloning the Repository Locally",
+    "text": "Cloning the Repository Locally\nTo work on your repository locally:\n\nNavigate to your repository on GitHub.\nClick on the “Code” button and copy the URL.\nOpen your terminal and run:\ngit clone https://github.com/yourusername/teaching-materials.git\nNavigate into the cloned directory:\ncd teaching-materials"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "References"
+  }
+]
