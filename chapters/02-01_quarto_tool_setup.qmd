@@ -1,9 +1,6 @@
 ---
 title: "Tool Setup"
 subtitle: "Your Complete Course Development Tool Guide"
-number-sections: true
-date: today
-date-format: long
 ---
 
 # Introduction

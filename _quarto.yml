@@ -13,6 +13,11 @@ book:
     - href: intro.qmd
       text: "Building a Quarto Microsite Structure"
     - href: chapters/01_version_control.qmd
+      menu:
+        - text: "Version Control"
+          href: chapters/01_version_control.qmd
+        - text: "Tool Setup"
+          href: chapters/02-01_quarto_tool_setup.qmd
       text: "Designing an Online Course"
     - summary.qmd
     - references.qmd
@@ -22,7 +27,6 @@ bibliography: references.bib
 format:
   html:
     theme:
-      - cosmo
       - ./template/scss/book.scss
   pdf:
     documentclass: scrreprt

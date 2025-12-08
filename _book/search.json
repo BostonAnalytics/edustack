@@ -24,7 +24,7 @@
     "href": "intro.html",
     "title": "2  Building a Quarto Microsite Structure",
     "section": "",
-    "text": "3 Create the Base Quarto Website\nExample:\nThis automatically ask users::\nNow open the folder in VS Code, RStudio, or any preferred editor.",
+    "text": "3 Create the Base Quarto Website\nThis automatically ask users::\nand will generate the following structure:\nNow open the folder in VS Code, RStudio, or any preferred editor.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Building a Quarto Microsite Structure</span>"
     ]
