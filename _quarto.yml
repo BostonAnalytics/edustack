@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Designing a Course With Quarto"
+  author: "Norah Jones"
+  date: "12/9/2025"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+    - cosmo
+    - ./theme/book.scss
+  pdf:
+    documentclass: scrreprt
+
+
+
