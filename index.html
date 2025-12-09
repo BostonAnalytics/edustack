@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Norah Jones">
+<meta name="dcterms.date" content="2025-12-09">
 
-<title>Building Reproducible and Interactive Analytics Courses</title>
+<title>Designing a Course With Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,7 +43,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9633aabd4f9f0d48d2ede2d0e232a8e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9a5739f3ef80026ce0d0f96b84f13a27.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -82,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -97,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Building Reproducible and Interactive Analytics Courses</a> 
+      <a href="./">Designing a Course With Quarto</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -110,25 +112,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Building a Quarto Microsite Structure</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapters/01_version_control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Designing an Online Course</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -147,11 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#what-this-book-offers" id="toc-what-this-book-offers" class="nav-link" data-scroll-target="#what-this-book-offers"><span class="header-section-number">2</span> What This Book Offers</a>
-  <ul class="collapse">
-  <li><a href="#for-bu-faculty-use-only" id="toc-for-bu-faculty-use-only" class="nav-link" data-scroll-target="#for-bu-faculty-use-only"><span class="header-section-number">2.1</span> For BU Faculty Use Only</a></li>
-  </ul></li>
+  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
   </ul>
 </nav>
     </div>
@@ -160,14 +152,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Building Reproducible and Interactive Analytics Courses</h1>
+<h1 class="title">Designing a Course With Quarto</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Norah Jones </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 9, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -177,36 +181,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>As data and computation continue to reshape disciplines across the university, faculty are increasingly called upon to integrate code, collaboration, and scalable infrastructure into their teaching. Yet, despite this growing demand, instructors often lack structured guidance on how to develop and maintain reproducible instructional materials across tools, platforms, and modalities.</p>
-<p><strong>Teach Reproducibly</strong> is a faculty-facing resource developed by the <strong>Metropolitan College</strong>, in partnership with <strong>BU ELIVE Services</strong> and <strong>BU Virtual</strong>, to support instructors in building robust, version-controlled, and scalable course content for use in <strong>Boston University’s Blackboard Ultra environment</strong>.</p>
-<p>This book provides practical guidance for instructors teaching in data-rich and computation-heavy domains — including analytics, computer science, statistics, engineering, public health, and beyond — who are committed to developing high-quality, maintainable instructional workflows.</p>
-</section>
-<section id="what-this-book-offers" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> What This Book Offers</h1>
-<p>Rather than focusing solely on curriculum content, this book emphasizes <strong>how content is developed, maintained, and shared reproducibly</strong>. It introduces foundational tools and design principles that support instructional reuse, transparency, and collaboration, including:</p>
-<ul>
-<li>Literate programming environments with <strong>Quarto</strong></li>
-<li>Source control and team workflows using <strong>Git and GitHub</strong></li>
-<li>Collaborative assignments via <strong>GitHub Classroom</strong></li>
-<li>Cloud-based computing with <strong>AWS Academy</strong> and <strong>VS Code.dev</strong></li>
-<li>Browser-native runtime environments such as <strong>WebR</strong> and <strong>Pyodide</strong></li>
-<li>Seamless integration with <strong>Blackboard Ultra</strong> and BU’s LMS ecosystem</li>
-</ul>
-<p>This resource supports faculty in developing modular instructional pipelines, enabling version-controlled teaching materials, reproducible research-in-practice demonstrations, and seamless cloud-backed student exercises. Each module aligns with BU’s pedagogical standards and technical infrastructure.</p>
-<section id="for-bu-faculty-use-only" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="for-bu-faculty-use-only"><span class="header-section-number">2.1</span> For BU Faculty Use Only</h2>
-<p>This resource is intended for <strong>internal instructional development and support</strong> within Boston University. It is not licensed for external reproduction, distribution, or commercial use.</p>
-<p>For inquiries, access to editable templates, or instructional support, please contact:</p>
-<ul>
-<li><strong>BU ELIVE Services</strong>: <a href="mailto:elive@bu.edu">elive@bu.edu</a></li>
-<li><strong>BU Virtual Instructional Design</strong>: <a href="mailto:buv@bu.edu">buv@bu.edu</a></li>
-<li><strong>Metropolitan College Academic Affairs</strong>: <a href="mailto:metacad@bu.edu">metacad@bu.edu</a></li>
-</ul>
+<section id="preface" class="level1 unnumbered">
+<h1 class="unnumbered">Preface</h1>
+<p>This is a Quarto book.</p>
+<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -614,8 +594,8 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Building a Quarto Microsite Structure">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Building a Quarto Microsite Structure</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
