@@ -1,0 +1,487 @@
+# Tool Setup
+
+This chapter provides a step-by-step recipe for installing and configuring all tools required for building course materials with Quarto, managing content with GitHub, and integrating outputs into Blackboard Ultra.
+
+While GitHub is strongly recommended for version control and long-term course management, users who prefer to work entirely on local machines or cloud-synced drives (Google Drive, OneDrive, Dropbox, iCloud Drive) may skip the repository creation steps and proceed directly to **Chapter 3**.
+
+However, the GitHub-based workflow—especially when paired with Antigravity or VS Code—is highly preferred for reproducibility, collaboration, and maintaining a clean version history of your teaching materials.
+
+This recipe assumes no prior experience. Each step includes instructions, verification checks, and placeholders for screenshots.
+
+# Install Git
+
+Git is the version control system used throughout the recommended workflow. You can choose the platform from the installation on the [Git](https://git-scm.com/install) website.
+
+![Installing Git - Linux Screenshot Placeholder](images/ch01/toolsetup-git.png){width=80% fig-align="center" #fig-git}
+
+## Instructions
+
+1. Install Git using your operating system:
+
+   1. macOS:
+
+     ```bash
+     brew install git
+     ```
+   2. Windows: Download [https://git-scm.com/download/win](https://git-scm.com/download/win)
+   3. Linux:
+
+     ```bash
+     sudo apt update && sudo apt install git -y
+     ```
+
+
+## Verification
+
+```bash
+git --version
+```
+
+---
+
+# Step 2: Install GitHub CLI
+
+GitHub CLI (`gh`) enables authentication and repository operations directly from the terminal.
+
+### Instructions
+
+Download and install from: [https://cli.github.com/](https://cli.github.com/)
+
+Verify installation:
+
+```bash
+gh --version
+```
+
+### Screenshot Placeholder
+
+```
+![GitHub CLI Installation](images/toolsetup-ghcli.png)
+```
+
+---
+
+# Step 3: Create a GitHub Account
+
+A GitHub account stores repositories, manages version history, and integrates directly with Antigravity or VS Code.
+
+### Instructions
+
+1. Visit [https://github.com/signup](https://github.com/signup)
+2. Create an account
+3. Choose a professional username
+
+### Screenshot Placeholder
+
+```
+![GitHub Signup Page](images/toolsetup-github-signup.png)
+```
+
+---
+
+# Step 4: Create Your GitHub Pages Repository
+
+*(Optional for users who plan to work only on local/cloud drives)*
+
+This step creates your personal website:
+
+```
+https://yourusername.github.io
+```
+
+If you prefer to work without GitHub, skip to **Chapter 3**.
+However, the GitHub-based workflow is strongly recommended.
+
+### Instructions
+
+1. Go to [https://github.com/new](https://github.com/new)
+2. Set repository name:
+
+   ```
+   yourusername.github.io
+   ```
+3. Select Public
+4. Add README and .gitignore
+5. Create repository
+
+### Screenshot Placeholder
+
+```
+![Create GitHub Pages Repo](images/toolsetup-ghpages.png)
+```
+
+---
+
+# Step 5: Configure Git Identity and SSH Keys
+
+*(Required only if using GitHub workflow)*
+
+## 5.1 Configure identity
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
+## 5.2 Generate an SSH key
+
+```bash
+ssh-keygen -t ed25519
+```
+
+## 5.3 Add the public key to GitHub
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Add it to [https://github.com/settings/keys](https://github.com/settings/keys)
+
+## 5.4 Test authentication
+
+```bash
+ssh -T git@github.com
+```
+
+### Screenshot Placeholder
+
+```
+![SSH Key Added](images/toolsetup-sshkey.png)
+```
+
+---
+
+# Step 6: Clone Your GitHub Pages Repository
+
+*(Skip this step if not using GitHub)*
+
+### Instructions
+
+Clone repository:
+
+```bash
+git clone git@github.com:yourusername/yourusername.github.io.git
+cd yourusername.github.io
+```
+
+Create a sample file:
+
+```bash
+echo "Welcome to my GitHub Pages site." >> index.md
+```
+
+Stage and commit:
+
+```bash
+git add .
+git commit -m "Initial commit"
+```
+
+Push:
+
+```bash
+git push origin main
+```
+
+Pull:
+
+```bash
+git pull
+```
+
+### Screenshot Placeholder
+
+```
+![Local Repo Clone](images/toolsetup-clone.png)
+```
+
+---
+
+# Step 7: Install Quarto
+
+Quarto is the publishing framework used in this book.
+
+### Instructions
+
+Download from: [https://quarto.org/docs/download/](https://quarto.org/docs/download/)
+
+Verify:
+
+```bash
+quarto --version
+```
+
+### Screenshot Placeholder
+
+```
+![Quarto Installation](images/toolsetup-quarto.png)
+```
+
+---
+
+# Step 8: Install Pandoc
+
+Pandoc is required for document format conversion.
+
+### Instructions
+
+* macOS:
+
+  ```bash
+  brew install pandoc
+  ```
+* Linux:
+
+  ```bash
+  sudo apt install pandoc -y
+  ```
+
+Windows installer already includes Pandoc.
+
+### Screenshot Placeholder
+
+```
+![Pandoc Installation](images/toolsetup-pandoc.png)
+```
+
+---
+
+# Step 9: Install Graphviz
+
+Graphviz supports diagrams and visual structures.
+
+### Instructions
+
+* macOS:
+
+  ```bash
+  brew install graphviz
+  ```
+* Linux:
+
+  ```bash
+  sudo apt install graphviz -y
+  ```
+* Windows: Download [https://graphviz.org/download/](https://graphviz.org/download/)
+
+### Screenshot Placeholder
+
+```
+![Graphviz Installation](images/toolsetup-graphviz.png)
+```
+
+---
+
+# Step 10: Install Python 3.12
+
+### Instructions
+
+Download from: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
+Select “Add Python to PATH” during installation.
+
+### Verification
+
+```bash
+python3 --version
+```
+
+### Screenshot Placeholder
+
+```
+![Python Installation](images/toolsetup-python.png)
+```
+
+---
+
+# Step 11: Install R and RTools
+
+### Instructions
+
+Install R:
+[https://cran.r-project.org/](https://cran.r-project.org/)
+
+Windows users install RTools:
+[https://cran.r-project.org/bin/windows/Rtools/](https://cran.r-project.org/bin/windows/Rtools/)
+
+### Screenshot Placeholder
+
+```
+![R Installation](images/toolsetup-r.png)
+```
+
+---
+
+# Step 12: Install Antigravity IDE
+
+Antigravity is the preferred IDE for this workflow because it integrates:
+
+* GitHub
+* Jupyter
+* Python
+* Quarto
+* Remote development
+* AI agents
+* Extension ecosystem
+
+### Instructions
+
+Download:
+[https://antigravity.google/](https://antigravity.google/)
+
+Sign in with Google or GitHub.
+
+### Screenshot Placeholder
+
+```
+![Antigravity IDE Installer](images/toolsetup-antigravity.png)
+```
+
+---
+
+# Step 13: Install Required Antigravity Extensions
+
+The following extension groups must be installed:
+
+### Jupyter Extensions
+
+* Jupyter
+* Jupyter Notebook Renderers
+* Jupyter Keymap
+* Jupyter Cell Tags
+* Jupyter PowerToys
+* Jupyter Slide Show
+
+### Quarto Extensions
+
+* Quarto
+* Markdown Preview Enhanced
+* Markdown All-in-One
+* Quarto Wingman
+* Quarto Wizard
+* Markdown Code Runner
+* Pandoc Citer
+
+### Python Extensions
+
+* Python Extension Pack
+* Pylance
+* Python Debugger
+* autopep8
+* isort
+* Pylint
+* MagicPython
+
+### Remote Development Extensions
+
+* Remote – SSH
+* Remote Explorer
+* GitHub Repositories
+* Dev Containers
+* Remote Repositories
+* Remote – Tunnels
+
+### Screenshot Placeholder
+
+```
+![Antigravity Extensions Installed](images/toolsetup-extensions.png)
+```
+
+---
+
+# Step 14: Create Python and R Environments (Optional)
+
+## Python virtual environment
+
+```bash
+python3 -m venv .venv
+```
+
+Activate:
+
+macOS/Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+Windows:
+
+```powershell
+.venv\Scripts\activate
+```
+
+Install packages:
+
+```bash
+pip install numpy pandas jupyter matplotlib quarto
+```
+
+## R environment using renv
+
+```r
+install.packages("renv")
+renv::init()
+install.packages(c("tidyverse", "knitr", "rmarkdown"))
+renv::snapshot()
+```
+
+### Screenshot Placeholder
+
+```
+![Environment Setup](images/toolsetup-env.png)
+```
+
+---
+
+# Step 15: Verification Checklist
+
+Check that each core tool is installed:
+
+### Git
+
+```bash
+git --version
+```
+
+### Quarto
+
+```bash
+quarto --version
+```
+
+### SSH
+
+```bash
+ssh -T git@github.com
+```
+
+### Python
+
+```bash
+python3 --version
+```
+
+### R
+
+```r
+version
+```
+
+### Screenshot Placeholder
+
+```
+![Verification Outputs](images/toolsetup-verification.png)
+```
+
+---
+
+# Step 16: Next Steps
+
+If you chose not to create a GitHub repository, proceed directly to **Chapter 3**, where you will learn the authoring fundamentals of Markdown, LaTeX, and Quarto.
+
+If you completed the GitHub setup, you now have a fully configured development environment ready for:
+
+* Authoring (Chapter 3)
+* Building Quarto websites (Chapter 4)
+* Connecting content to Blackboard Ultra (Chapters 5–6)

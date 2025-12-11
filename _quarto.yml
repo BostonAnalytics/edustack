@@ -6,8 +6,16 @@ book:
   author: "Norah Jones"
   date: "12/9/2025"
   chapters:
-    - index.qmd
-    - intro.qmd
+    - href: index.qmd
+      text: "Introduction"
+    - href: 01_tool_setup.qmd
+      text: "Tool Setup"
+    - href: 02_version_control.qmd
+      text: "Version Control"
+    - href: 03_quarto_class_setup.qmd
+      text: "Quarto Class Setup"
+    - href: 04_blackboard_ultra.qmd
+      text: "Blackboard Ultra"
     - summary.qmd
     - references.qmd
 

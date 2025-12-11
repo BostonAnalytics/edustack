@@ -1,5 +1,108 @@
-# Preface {.unnumbered}
+# Introduction
 
-This is a Quarto book.
+This book is a practical, end-to-end guide for educators, instructional designers, and academic technologists who want to modernize how they develop, organize, and deliver course materials. It brings together version control, reproducible documents, Quarto publishing, and Blackboard Ultra integration into a unified workflow that is scalable, maintainable, and future-proof.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+The goal of this book is not only to show you *what* tools to use, but also *how* these tools work together to form a complete course-production pipeline—one that enhances instructional quality while reducing long-term maintenance effort.
+
+To achieve this, the book is organized into several core skill domains that build on one another.
+
+## Tool Setup Essentials
+
+Before creating any course materials or writing your first Quarto document, you will learn how to properly set up your development environment. This chapter guides you through installing and configuring:
+
+- Git, Git LFS, Github CLI, and GitHub
+- Antigravity IDE (Google’s VS Code–based environment with agents and extensions)
+- Quarto CLI
+- Python 3.12
+  - virtual environments
+  - pip, setuptools, wheel
+  - pandas, numpy, openpyxl, and matplotlib
+- R, RTools (Windows), and renv
+- Pandoc and Graphviz
+- Core Antigravity plugins for Jupyter, Quarto, Python, and remote development
+
+By the end of this section, you will have a fully functional authoring environment where Quarto, Git, and Blackboard workflows run reliably.
+
+This chapter ensures **every user starts with a stable, consistent toolset**, preventing configuration issues later in the course.
+
+## Understanding the Authoring Layer: Markdown, LaTeX, and Quarto Syntax
+
+Before building full websites, it is essential to understand the authoring languages that Quarto builds upon. This chapter explains:
+
+* The basics of Markdown formatting
+* Extensions used by Quarto (fenced divs, callouts, code blocks, metadata)
+* How LaTeX is used within Quarto for mathematical expressions, typesetting, and PDF output
+* How citations, cross-references, and bibliographies work
+* Code cell execution in Python, R, and other languages
+* How Quarto merges authoring, computation, and formatting
+* Differences between Markdown, Jupyter notebooks, `.Rmd`, and `.qmd`
+
+This chapter demystifies the underlying structure of Quarto and gives users confidence in writing documents that are clean, readable, and publishable.
+
+Users will come away understanding not only *syntax*, but also the *philosophy* behind reproducible authoring.
+
+## Setting Up Git, GitHub, and a Version-Controlled Workspace
+
+This chapter teaches the fundamentals of version control and how to use GitHub as your central repository for course materials. You will learn how to:
+
+* Create a GitHub account
+* Configure Git identity and SSH keys
+* Create your first repository (`username.github.io`)
+* Clone, branch, commit, push, and pull changes
+* Use GitHub as a publishing platform and collaboration space
+* Apply version control to Quarto documents, slides, and assets
+
+By the end of this chapter, users will understand how to maintain a clean, traceable version history for their course, and how to safely experiment and update materials without losing work.
+
+
+## Building a Quarto Website Structure from Scratch
+
+Once the tools and authoring skills are in place, this chapter walks through creating a complete Quarto site, including:
+
+* Initializing new projects
+* Creating navigation, pages, and assets
+* Organizing modules, slides, assignments, and labs
+* Using Reveal.js for presentations
+* Embedding media, figures, and interactive elements
+* Structuring a microsite that mirrors a course syllabus
+
+By the end of this chapter, readers will have a fully functional course website that is clean, navigable, and professional.
+
+
+## Designing a Blackboard Ultra Course Structure
+
+This chapter teaches how to translate your Quarto website into a Blackboard Ultra course shell. Users will learn how to:
+
+* Create ultra-style learning modules
+* Embed HTML content exported from Quarto
+* Add learning materials, assignments, rubrics, and media
+* Optimize Blackboard structure for student navigation
+* Use Blackboard as the delivery layer on top of your Quarto-generated content
+
+The result is a Blackboard course that mirrors your Quarto site, offering a consistent student experience across platforms.
+
+
+## Integrating Quarto Deliverables into Blackboard Ultra
+
+This final integration chapter teaches how to:
+
+* Export Quarto pages, slides, and content as HTML
+* Insert HTML into Blackboard Ultra pages
+* Embed external web content
+* Manage updates through GitHub synchronization
+* Maintain consistency between Blackboard and your Quarto repository
+
+Users finish with a fully connected system: Quarto as the authoring engine, GitHub as the repository, and Blackboard Ultra as the delivery interface.
+
+
+# What You Will Achieve by the End of This Book
+
+By progressing through the chapters, you will develop the ability to:
+
+* Build, maintain, and publish an entire course website
+* Use version control confidently and professionally
+* Write reproducible, portable instructional materials
+* Integrate your website into a university LMS
+* Maintain a clean, scalable course development workflow
+
+This book aims to transform your approach to digital course design—making your materials more organized, more professional, and significantly easier to maintain across semesters.
