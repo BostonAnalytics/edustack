@@ -30,4 +30,6 @@ format:
     documentclass: scrreprt
 
 
+execute:
+  freeze: false
 

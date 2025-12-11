@@ -114,7 +114,7 @@
     "href": "01_tool_setup.html",
     "title": "2  Tool Setup",
     "section": "",
-    "text": "3 Install Git\nThis chapter provides a step-by-step recipe for installing and configuring all tools required for building course materials with Quarto, managing content with GitHub, and integrating outputs into Blackboard Ultra.\nWhile GitHub is strongly recommended for version control and long-term course management, users who prefer to work entirely on local machines or cloud-synced drives (Google Drive, OneDrive, Dropbox, iCloud Drive) may skip the repository creation steps and proceed directly to Chapter 3.\nHowever, the GitHub-based workflow—especially when paired with Antigravity or VS Code—is highly preferred for reproducibility, collaboration, and maintaining a clean version history of your teaching materials.\nThis recipe assumes no prior experience. Each step includes instructions, verification checks, and placeholders for screenshots.\nGit is the version control system used throughout the recommended workflow. You can choose the platform from the installation on the Git website.",
+    "text": "2.1 Install Git\nThis chapter provides a step-by-step recipe for installing and configuring all tools required for building course materials with Quarto, managing content with GitHub, and integrating outputs into Blackboard Ultra.\nWhile GitHub is strongly recommended for version control and long-term course management, users who prefer to work entirely on local machines or cloud-synced drives (Google Drive, OneDrive, Dropbox, iCloud Drive) may skip the repository creation steps and proceed directly to Chapter 3.\nHowever, the GitHub-based workflow—especially when paired with Antigravity or VS Code—is highly preferred for reproducibility, collaboration, and maintaining a clean version history of your teaching materials.\nThis recipe assumes no prior experience. Each step includes instructions, verification checks, and placeholders for screenshots.\nGit is the version control system used throughout the recommended workflow. You can choose the platform from the installation on the Git website.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
     ]
@@ -124,7 +124,7 @@
     "href": "01_tool_setup.html#instructions",
     "title": "2  Tool Setup",
     "section": "3.1 Instructions",
-    "text": "3.1 Instructions\n\nInstall Git using your operating system:\n\nmacOS:\n\nbrew install git\n\nWindows: Download https://git-scm.com/download/win\nLinux:\n\nsudo apt update && sudo apt install git -y",
+    "text": "3.1 Instructions\nClone repository:\ngit clone git@github.com:yourusername/yourusername.github.io.git\ncd yourusername.github.io\nCreate a sample file:\necho \"Welcome to my GitHub Pages site.\" &gt;&gt; index.md\nStage and commit:\ngit add .\ngit commit -m \"Initial commit\"\nPush:\ngit push origin main\nPull:\ngit pull\n\n\n\n\n\n\nFigure 3.1: Local Repo Clone",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
     ]
@@ -133,8 +133,8 @@
     "objectID": "01_tool_setup.html#verification",
     "href": "01_tool_setup.html#verification",
     "title": "2  Tool Setup",
-    "section": "3.2 Verification",
-    "text": "3.2 Verification\ngit --version",
+    "section": "7.2 Verification",
+    "text": "7.2 Verification\npython3 --version\n\n\n\n\n\n\nFigure 7.1: Python Installation",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
     ]
@@ -143,8 +143,8 @@
     "objectID": "01_tool_setup.html#configure-identity",
     "href": "01_tool_setup.html#configure-identity",
     "title": "2  Tool Setup",
-    "section": "7.1 5.1 Configure identity",
-    "text": "7.1 5.1 Configure identity\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"",
+    "section": "7.1 Configure identity",
+    "text": "7.1 Configure identity\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
     ]
@@ -153,8 +153,8 @@
     "objectID": "01_tool_setup.html#generate-an-ssh-key",
     "href": "01_tool_setup.html#generate-an-ssh-key",
     "title": "2  Tool Setup",
-    "section": "7.2 5.2 Generate an SSH key",
-    "text": "7.2 5.2 Generate an SSH key\nssh-keygen -t ed25519",
+    "section": "7.2 Generate an SSH key",
+    "text": "7.2 Generate an SSH key\nssh-keygen -t ed25519",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
     ]
@@ -163,8 +163,8 @@
     "objectID": "01_tool_setup.html#add-the-public-key-to-github",
     "href": "01_tool_setup.html#add-the-public-key-to-github",
     "title": "2  Tool Setup",
-    "section": "7.3 5.3 Add the public key to GitHub",
-    "text": "7.3 5.3 Add the public key to GitHub\ncat ~/.ssh/id_ed25519.pub\nAdd it to https://github.com/settings/keys",
+    "section": "2.5 Add the public key to GitHub",
+    "text": "2.5 Add the public key to GitHub\ncat ~/.ssh/id_ed25519.pub\nAdd it to https://github.com/settings/keys",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
     ]
@@ -173,8 +173,8 @@
     "objectID": "01_tool_setup.html#test-authentication",
     "href": "01_tool_setup.html#test-authentication",
     "title": "2  Tool Setup",
-    "section": "7.4 5.4 Test authentication",
-    "text": "7.4 5.4 Test authentication\nssh -T git@github.com\n\n7.4.1 Screenshot Placeholder\n![SSH Key Added](images/toolsetup-sshkey.png)",
+    "section": "2.6 Test authentication",
+    "text": "2.6 Test authentication\nssh -T git@github.com\n\n\n\n\n\n\nFigure 2.7: SSH Key Added",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
     ]
@@ -183,8 +183,8 @@
     "objectID": "01_tool_setup.html#python-virtual-environment",
     "href": "01_tool_setup.html#python-virtual-environment",
     "title": "2  Tool Setup",
-    "section": "16.1 Python virtual environment",
-    "text": "16.1 Python virtual environment\npython3 -m venv .venv\nActivate:\nmacOS/Linux:\nsource .venv/bin/activate\nWindows:\n.venv\\Scripts\\activate\nInstall packages:\npip install numpy pandas jupyter matplotlib quarto",
+    "section": "11.1 Python virtual environment",
+    "text": "11.1 Python virtual environment\npython3 -m venv .venv\nActivate:\nmacOS/Linux:\nsource .venv/bin/activate\nWindows:\n.venv\\Scripts\\activate\nInstall packages:\npip install numpy pandas jupyter matplotlib quarto",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
     ]
@@ -193,8 +193,168 @@
     "objectID": "01_tool_setup.html#r-environment-using-renv",
     "href": "01_tool_setup.html#r-environment-using-renv",
     "title": "2  Tool Setup",
-    "section": "16.2 R environment using renv",
-    "text": "16.2 R environment using renv\ninstall.packages(\"renv\")\nrenv::init()\ninstall.packages(c(\"tidyverse\", \"knitr\", \"rmarkdown\"))\nrenv::snapshot()\n\n16.2.1 Screenshot Placeholder\n![Environment Setup](images/toolsetup-env.png)",
+    "section": "11.2 R environment using renv",
+    "text": "11.2 R environment using renv\n\ninstall.packages(\"renv\")\nrenv::init()\ninstall.packages(c(\"tidyverse\", \"knitr\", \"rmarkdown\"))\nrenv::snapshot()\n\n\n\n\n\n\n\nFigure 11.1: Environment Setup",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions-1",
+    "href": "01_tool_setup.html#instructions-1",
+    "title": "2  Tool Setup",
+    "section": "4.1 Instructions",
+    "text": "4.1 Instructions\nDownload from: https://quarto.org/docs/download/\nVerify:\nquarto --version\n\n\n\n\n\n\nFigure 4.1: Quarto Installation",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions-2",
+    "href": "01_tool_setup.html#instructions-2",
+    "title": "2  Tool Setup",
+    "section": "5.1 Instructions",
+    "text": "5.1 Instructions\n\nmacOS:\nbrew install pandoc\nLinux:\nsudo apt install pandoc -y\n\nWindows installer already includes Pandoc.\n\n\n\n\n\n\nFigure 5.1: Pandoc Installation",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions-3",
+    "href": "01_tool_setup.html#instructions-3",
+    "title": "2  Tool Setup",
+    "section": "6.1 Instructions",
+    "text": "6.1 Instructions\n\nmacOS:\nbrew install graphviz\nLinux:\nsudo apt install graphviz -y\nWindows: Download https://graphviz.org/download/\n\n\n\n\n\n\n\nFigure 6.1: Graphviz Installation",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions-4",
+    "href": "01_tool_setup.html#instructions-4",
+    "title": "2  Tool Setup",
+    "section": "7.1 Instructions",
+    "text": "7.1 Instructions\nDownload from: https://www.python.org/downloads/\nSelect “Add Python to PATH” during installation.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions-5",
+    "href": "01_tool_setup.html#instructions-5",
+    "title": "2  Tool Setup",
+    "section": "8.1 Instructions",
+    "text": "8.1 Instructions\nInstall R: https://cran.r-project.org/\nWindows users install RTools: https://cran.r-project.org/bin/windows/Rtools/\n\n\n\n\n\n\nFigure 8.1: R Installation",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions-6",
+    "href": "01_tool_setup.html#instructions-6",
+    "title": "2  Tool Setup",
+    "section": "9.1 Instructions",
+    "text": "9.1 Instructions\nDownload: https://antigravity.google/\nSign in with Google or GitHub.\n\n\n\n\n\n\nFigure 9.1: Antigravity IDE Installer",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions-7",
+    "href": "01_tool_setup.html#instructions-7",
+    "title": "2  Tool Setup",
+    "section": "9.1 Instructions",
+    "text": "9.1 Instructions\nDownload: https://antigravity.google/\nSign in with Google or GitHub.\n\n\n\n\n\n\nFigure 9.1: Antigravity IDE Installer",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions-8",
+    "href": "01_tool_setup.html#instructions-8",
+    "title": "2  Tool Setup",
+    "section": "9.1 Instructions",
+    "text": "9.1 Instructions\nDownload: https://antigravity.google/\nSign in with Google or GitHub.\n\n\n\n\n\n\nFigure 9.1: Antigravity IDE Installer",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#verification-1",
+    "href": "01_tool_setup.html#verification-1",
+    "title": "2  Tool Setup",
+    "section": "7.2 Verification",
+    "text": "7.2 Verification\npython3 --version\n\n\n\n\n\n\nFigure 7.1: Python Installation",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions-9",
+    "href": "01_tool_setup.html#instructions-9",
+    "title": "2  Tool Setup",
+    "section": "9.1 Instructions",
+    "text": "9.1 Instructions\nDownload: https://antigravity.google/\nSign in with Google or GitHub.\n\n\n\n\n\n\nFigure 9.1: Antigravity IDE Installer",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions-10",
+    "href": "01_tool_setup.html#instructions-10",
+    "title": "2  Tool Setup",
+    "section": "9.1 Instructions",
+    "text": "9.1 Instructions\nDownload: https://antigravity.google/\nSign in with Google or GitHub.\n\n\n\n\n\n\nFigure 9.1: Antigravity IDE Installer",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#install-git",
+    "href": "01_tool_setup.html#install-git",
+    "title": "2  Tool Setup",
+    "section": "",
+    "text": "Figure 2.1: Installing Git - Linux Screenshot Placeholder\n\n\n\n\nInstall Git using your operating system:\n\nmacOS:\n\nbrew install git\n\nWindows: Download\nLinux:\n\nsudo apt update && sudo apt install git -y\nVerify installation:\ngit --version",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#install-github-cli",
+    "href": "01_tool_setup.html#install-github-cli",
+    "title": "2  Tool Setup",
+    "section": "2.2 Install GitHub CLI",
+    "text": "2.2 Install GitHub CLI\nGitHub CLI (gh) enables authentication and repository operations directly from the terminal. Download and install from: GitHub CLI",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#verification-2",
+    "href": "01_tool_setup.html#verification-2",
+    "title": "2  Tool Setup",
+    "section": "7.2 Verification",
+    "text": "7.2 Verification\npython3 --version\n\n\n\n\n\n\nFigure 7.1: Python Installation",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#create-a-github-account",
+    "href": "01_tool_setup.html#create-a-github-account",
+    "title": "2  Tool Setup",
+    "section": "2.3 Create a GitHub Account",
+    "text": "2.3 Create a GitHub Account\nA GitHub account stores repositories, manages version history, and integrates directly with Antigravity or VS Code.\n\nVisit GitHub\n\n\n\n\n\n\n\nFigure 2.2: GitHub Signup Page\n\n\n\n\nCreate an account\n\n\n\n\n\n\n\nFigure 2.3: GitHub Signup Page\n\n\n\n\nChoose a professional username\n\n\n\n\n\n\n\nFigure 2.4: GitHub Signup Page",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#create-your-github-pages-repository",
+    "href": "01_tool_setup.html#create-your-github-pages-repository",
+    "title": "2  Tool Setup",
+    "section": "2.4 Create Your GitHub Pages Repository",
+    "text": "2.4 Create Your GitHub Pages Repository\n(Optional for users who plan to work only on local/cloud drives)\nThis step creates your personal website: https://yourusername.github.io\nIf you prefer to work without GitHub, skip to Chapter 3. However, the GitHub-based workflow is strongly recommended.\n\nGo to https://github.com/new, or click on the + icon in the top-right corner of your GitHub dashboard shown in Figure 2.5.\nSet repository name:\n\nyourusername.github.io creates your personal website repository\nFor a course repository, use coursenumber-coursename (e.g. AD688-big-data-and-cloud-computing)\n\nyourusername.github.io\nSelect Private, since we want this to be available for instructors only.\nAdd README and .gitignore, you can choose the template to be python or r to avoid syncing the virtual environments to the git repo.\nCreate repository\n\n\n\n\n\n\n\nFigure 2.5: Create GitHub Repo\n\n\n\n\n\n\n\n\n\nFigure 2.6: Create GitHub Repo\n\n\n\n\n2.4.1 Configure Git Identity and SSH Keys\n(Required only if using GitHub workflow)\n\n\n2.4.2 Configure identity\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"\n\n\n2.4.3 Generate an SSH key\nssh-keygen -t ed25519",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
     ]
