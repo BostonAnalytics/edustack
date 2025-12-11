@@ -4,39 +4,169 @@
     "href": "index.html",
     "title": "Designing a Course With Quarto",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "1 Introduction\nThis book is a practical, end-to-end guide for educators, instructional designers, and academic technologists who want to modernize how they develop, organize, and deliver course materials. It brings together version control, reproducible documents, Quarto publishing, and Blackboard Ultra integration into a unified workflow that is scalable, maintainable, and future-proof.\nThe goal of this book is not only to show you what tools to use, but also how these tools work together to form a complete course-production pipeline—one that enhances instructional quality while reducing long-term maintenance effort.\nTo achieve this, the book is organized into several core skill domains that build on one another.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.",
+    "objectID": "index.html#tool-setup-essentials",
+    "href": "index.html#tool-setup-essentials",
+    "title": "Designing a Course With Quarto",
+    "section": "1.1 Tool Setup Essentials",
+    "text": "1.1 Tool Setup Essentials\nBefore creating any course materials or writing your first Quarto document, you will learn how to properly set up your development environment. This chapter guides you through installing and configuring:\n\nGit, Git LFS, Github CLI, and GitHub\nAntigravity IDE (Google’s VS Code–based environment with agents and extensions)\nQuarto CLI\nPython 3.12\n\nvirtual environments\npip, setuptools, wheel\npandas, numpy, openpyxl, and matplotlib\n\nR, RTools (Windows), and renv\nPandoc and Graphviz\nCore Antigravity plugins for Jupyter, Quarto, Python, and remote development\n\nBy the end of this section, you will have a fully functional authoring environment where Quarto, Git, and Blackboard workflows run reliably.\nThis chapter ensures every user starts with a stable, consistent toolset, preventing configuration issues later in the course.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "objectID": "index.html#understanding-the-authoring-layer-markdown-latex-and-quarto-syntax",
+    "href": "index.html#understanding-the-authoring-layer-markdown-latex-and-quarto-syntax",
+    "title": "Designing a Course With Quarto",
+    "section": "1.2 Understanding the Authoring Layer: Markdown, LaTeX, and Quarto Syntax",
+    "text": "1.2 Understanding the Authoring Layer: Markdown, LaTeX, and Quarto Syntax\nBefore building full websites, it is essential to understand the authoring languages that Quarto builds upon. This chapter explains:\n\nThe basics of Markdown formatting\nExtensions used by Quarto (fenced divs, callouts, code blocks, metadata)\nHow LaTeX is used within Quarto for mathematical expressions, typesetting, and PDF output\nHow citations, cross-references, and bibliographies work\nCode cell execution in Python, R, and other languages\nHow Quarto merges authoring, computation, and formatting\nDifferences between Markdown, Jupyter notebooks, .Rmd, and .qmd\n\nThis chapter demystifies the underlying structure of Quarto and gives users confidence in writing documents that are clean, readable, and publishable.\nUsers will come away understanding not only syntax, but also the philosophy behind reproducible authoring.",
     "crumbs": [
-      "References"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#setting-up-git-github-and-a-version-controlled-workspace",
+    "href": "index.html#setting-up-git-github-and-a-version-controlled-workspace",
+    "title": "Designing a Course With Quarto",
+    "section": "1.3 Setting Up Git, GitHub, and a Version-Controlled Workspace",
+    "text": "1.3 Setting Up Git, GitHub, and a Version-Controlled Workspace\nThis chapter teaches the fundamentals of version control and how to use GitHub as your central repository for course materials. You will learn how to:\n\nCreate a GitHub account\nConfigure Git identity and SSH keys\nCreate your first repository (username.github.io)\nClone, branch, commit, push, and pull changes\nUse GitHub as a publishing platform and collaboration space\nApply version control to Quarto documents, slides, and assets\n\nBy the end of this chapter, users will understand how to maintain a clean, traceable version history for their course, and how to safely experiment and update materials without losing work.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#building-a-quarto-website-structure-from-scratch",
+    "href": "index.html#building-a-quarto-website-structure-from-scratch",
+    "title": "Designing a Course With Quarto",
+    "section": "1.4 Building a Quarto Website Structure from Scratch",
+    "text": "1.4 Building a Quarto Website Structure from Scratch\nOnce the tools and authoring skills are in place, this chapter walks through creating a complete Quarto site, including:\n\nInitializing new projects\nCreating navigation, pages, and assets\nOrganizing modules, slides, assignments, and labs\nUsing Reveal.js for presentations\nEmbedding media, figures, and interactive elements\nStructuring a microsite that mirrors a course syllabus\n\nBy the end of this chapter, readers will have a fully functional course website that is clean, navigable, and professional.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#designing-a-blackboard-ultra-course-structure",
+    "href": "index.html#designing-a-blackboard-ultra-course-structure",
+    "title": "Designing a Course With Quarto",
+    "section": "1.5 Designing a Blackboard Ultra Course Structure",
+    "text": "1.5 Designing a Blackboard Ultra Course Structure\nThis chapter teaches how to translate your Quarto website into a Blackboard Ultra course shell. Users will learn how to:\n\nCreate ultra-style learning modules\nEmbed HTML content exported from Quarto\nAdd learning materials, assignments, rubrics, and media\nOptimize Blackboard structure for student navigation\nUse Blackboard as the delivery layer on top of your Quarto-generated content\n\nThe result is a Blackboard course that mirrors your Quarto site, offering a consistent student experience across platforms.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#integrating-quarto-deliverables-into-blackboard-ultra",
+    "href": "index.html#integrating-quarto-deliverables-into-blackboard-ultra",
+    "title": "Designing a Course With Quarto",
+    "section": "1.6 Integrating Quarto Deliverables into Blackboard Ultra",
+    "text": "1.6 Integrating Quarto Deliverables into Blackboard Ultra\nThis final integration chapter teaches how to:\n\nExport Quarto pages, slides, and content as HTML\nInsert HTML into Blackboard Ultra pages\nEmbed external web content\nManage updates through GitHub synchronization\nMaintain consistency between Blackboard and your Quarto repository\n\nUsers finish with a fully connected system: Quarto as the authoring engine, GitHub as the repository, and Blackboard Ultra as the delivery interface.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html",
+    "href": "01_tool_setup.html",
+    "title": "2  Tool Setup",
+    "section": "",
+    "text": "3 Install Git\nThis chapter provides a step-by-step recipe for installing and configuring all tools required for building course materials with Quarto, managing content with GitHub, and integrating outputs into Blackboard Ultra.\nWhile GitHub is strongly recommended for version control and long-term course management, users who prefer to work entirely on local machines or cloud-synced drives (Google Drive, OneDrive, Dropbox, iCloud Drive) may skip the repository creation steps and proceed directly to Chapter 3.\nHowever, the GitHub-based workflow—especially when paired with Antigravity or VS Code—is highly preferred for reproducibility, collaboration, and maintaining a clean version history of your teaching materials.\nThis recipe assumes no prior experience. Each step includes instructions, verification checks, and placeholders for screenshots.\nGit is the version control system used throughout the recommended workflow. You can choose the platform from the installation on the Git website.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#instructions",
+    "href": "01_tool_setup.html#instructions",
+    "title": "2  Tool Setup",
+    "section": "3.1 Instructions",
+    "text": "3.1 Instructions\n\nInstall Git using your operating system:\n\nmacOS:\n\nbrew install git\n\nWindows: Download https://git-scm.com/download/win\nLinux:\n\nsudo apt update && sudo apt install git -y",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#verification",
+    "href": "01_tool_setup.html#verification",
+    "title": "2  Tool Setup",
+    "section": "3.2 Verification",
+    "text": "3.2 Verification\ngit --version",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#configure-identity",
+    "href": "01_tool_setup.html#configure-identity",
+    "title": "2  Tool Setup",
+    "section": "7.1 5.1 Configure identity",
+    "text": "7.1 5.1 Configure identity\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#generate-an-ssh-key",
+    "href": "01_tool_setup.html#generate-an-ssh-key",
+    "title": "2  Tool Setup",
+    "section": "7.2 5.2 Generate an SSH key",
+    "text": "7.2 5.2 Generate an SSH key\nssh-keygen -t ed25519",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#add-the-public-key-to-github",
+    "href": "01_tool_setup.html#add-the-public-key-to-github",
+    "title": "2  Tool Setup",
+    "section": "7.3 5.3 Add the public key to GitHub",
+    "text": "7.3 5.3 Add the public key to GitHub\ncat ~/.ssh/id_ed25519.pub\nAdd it to https://github.com/settings/keys",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#test-authentication",
+    "href": "01_tool_setup.html#test-authentication",
+    "title": "2  Tool Setup",
+    "section": "7.4 5.4 Test authentication",
+    "text": "7.4 5.4 Test authentication\nssh -T git@github.com\n\n7.4.1 Screenshot Placeholder\n![SSH Key Added](images/toolsetup-sshkey.png)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#python-virtual-environment",
+    "href": "01_tool_setup.html#python-virtual-environment",
+    "title": "2  Tool Setup",
+    "section": "16.1 Python virtual environment",
+    "text": "16.1 Python virtual environment\npython3 -m venv .venv\nActivate:\nmacOS/Linux:\nsource .venv/bin/activate\nWindows:\n.venv\\Scripts\\activate\nInstall packages:\npip install numpy pandas jupyter matplotlib quarto",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01_tool_setup.html#r-environment-using-renv",
+    "href": "01_tool_setup.html#r-environment-using-renv",
+    "title": "2  Tool Setup",
+    "section": "16.2 R environment using renv",
+    "text": "16.2 R environment using renv\ninstall.packages(\"renv\")\nrenv::init()\ninstall.packages(c(\"tidyverse\", \"knitr\", \"rmarkdown\"))\nrenv::snapshot()\n\n16.2.1 Screenshot Placeholder\n![Environment Setup](images/toolsetup-env.png)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "6  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Summary</span>"
     ]
   }
 ]

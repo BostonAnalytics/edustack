@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Tool Setup – Designing a Course With Quarto</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02_version_control.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8251641f42e4c898417d05435a4e63f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_tool_setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tool Setup</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Designing a Course With Quarto</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_tool_setup.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tool Setup</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_version_control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Version Control</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_quarto_class_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Quarto Class Setup</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_blackboard_ultra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#install-git" id="toc-install-git" class="nav-link active" data-scroll-target="#install-git"><span class="header-section-number">3</span> Install Git</a>
+  <ul class="collapse">
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">3.1</span> Instructions</a></li>
+  <li><a href="#verification" id="toc-verification" class="nav-link" data-scroll-target="#verification"><span class="header-section-number">3.2</span> Verification</a></li>
+  </ul></li>
+  <li><a href="#step-2-install-github-cli" id="toc-step-2-install-github-cli" class="nav-link" data-scroll-target="#step-2-install-github-cli"><span class="header-section-number">4</span> Step 2: Install GitHub CLI</a>
+  <ul class="collapse">
+  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1"><span class="header-section-number">4.0.1</span> Instructions</a></li>
+  <li><a href="#screenshot-placeholder" id="toc-screenshot-placeholder" class="nav-link" data-scroll-target="#screenshot-placeholder"><span class="header-section-number">4.0.2</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-3-create-a-github-account" id="toc-step-3-create-a-github-account" class="nav-link" data-scroll-target="#step-3-create-a-github-account"><span class="header-section-number">5</span> Step 3: Create a GitHub Account</a>
+  <ul class="collapse">
+  <li><a href="#instructions-2" id="toc-instructions-2" class="nav-link" data-scroll-target="#instructions-2"><span class="header-section-number">5.0.1</span> Instructions</a></li>
+  <li><a href="#screenshot-placeholder-1" id="toc-screenshot-placeholder-1" class="nav-link" data-scroll-target="#screenshot-placeholder-1"><span class="header-section-number">5.0.2</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-4-create-your-github-pages-repository" id="toc-step-4-create-your-github-pages-repository" class="nav-link" data-scroll-target="#step-4-create-your-github-pages-repository"><span class="header-section-number">6</span> Step 4: Create Your GitHub Pages Repository</a>
+  <ul class="collapse">
+  <li><a href="#instructions-3" id="toc-instructions-3" class="nav-link" data-scroll-target="#instructions-3"><span class="header-section-number">6.0.1</span> Instructions</a></li>
+  <li><a href="#screenshot-placeholder-2" id="toc-screenshot-placeholder-2" class="nav-link" data-scroll-target="#screenshot-placeholder-2"><span class="header-section-number">6.0.2</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-5-configure-git-identity-and-ssh-keys" id="toc-step-5-configure-git-identity-and-ssh-keys" class="nav-link" data-scroll-target="#step-5-configure-git-identity-and-ssh-keys"><span class="header-section-number">7</span> Step 5: Configure Git Identity and SSH Keys</a>
+  <ul class="collapse">
+  <li><a href="#configure-identity" id="toc-configure-identity" class="nav-link" data-scroll-target="#configure-identity"><span class="header-section-number">7.1</span> 5.1 Configure identity</a></li>
+  <li><a href="#generate-an-ssh-key" id="toc-generate-an-ssh-key" class="nav-link" data-scroll-target="#generate-an-ssh-key"><span class="header-section-number">7.2</span> 5.2 Generate an SSH key</a></li>
+  <li><a href="#add-the-public-key-to-github" id="toc-add-the-public-key-to-github" class="nav-link" data-scroll-target="#add-the-public-key-to-github"><span class="header-section-number">7.3</span> 5.3 Add the public key to GitHub</a></li>
+  <li><a href="#test-authentication" id="toc-test-authentication" class="nav-link" data-scroll-target="#test-authentication"><span class="header-section-number">7.4</span> 5.4 Test authentication</a>
+  <ul class="collapse">
+  <li><a href="#screenshot-placeholder-3" id="toc-screenshot-placeholder-3" class="nav-link" data-scroll-target="#screenshot-placeholder-3"><span class="header-section-number">7.4.1</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#step-6-clone-your-github-pages-repository" id="toc-step-6-clone-your-github-pages-repository" class="nav-link" data-scroll-target="#step-6-clone-your-github-pages-repository"><span class="header-section-number">8</span> Step 6: Clone Your GitHub Pages Repository</a>
+  <ul class="collapse">
+  <li><a href="#instructions-4" id="toc-instructions-4" class="nav-link" data-scroll-target="#instructions-4"><span class="header-section-number">8.0.1</span> Instructions</a></li>
+  <li><a href="#screenshot-placeholder-4" id="toc-screenshot-placeholder-4" class="nav-link" data-scroll-target="#screenshot-placeholder-4"><span class="header-section-number">8.0.2</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-7-install-quarto" id="toc-step-7-install-quarto" class="nav-link" data-scroll-target="#step-7-install-quarto"><span class="header-section-number">9</span> Step 7: Install Quarto</a>
+  <ul class="collapse">
+  <li><a href="#instructions-5" id="toc-instructions-5" class="nav-link" data-scroll-target="#instructions-5"><span class="header-section-number">9.0.1</span> Instructions</a></li>
+  <li><a href="#screenshot-placeholder-5" id="toc-screenshot-placeholder-5" class="nav-link" data-scroll-target="#screenshot-placeholder-5"><span class="header-section-number">9.0.2</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-8-install-pandoc" id="toc-step-8-install-pandoc" class="nav-link" data-scroll-target="#step-8-install-pandoc"><span class="header-section-number">10</span> Step 8: Install Pandoc</a>
+  <ul class="collapse">
+  <li><a href="#instructions-6" id="toc-instructions-6" class="nav-link" data-scroll-target="#instructions-6"><span class="header-section-number">10.0.1</span> Instructions</a></li>
+  <li><a href="#screenshot-placeholder-6" id="toc-screenshot-placeholder-6" class="nav-link" data-scroll-target="#screenshot-placeholder-6"><span class="header-section-number">10.0.2</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-9-install-graphviz" id="toc-step-9-install-graphviz" class="nav-link" data-scroll-target="#step-9-install-graphviz"><span class="header-section-number">11</span> Step 9: Install Graphviz</a>
+  <ul class="collapse">
+  <li><a href="#instructions-7" id="toc-instructions-7" class="nav-link" data-scroll-target="#instructions-7"><span class="header-section-number">11.0.1</span> Instructions</a></li>
+  <li><a href="#screenshot-placeholder-7" id="toc-screenshot-placeholder-7" class="nav-link" data-scroll-target="#screenshot-placeholder-7"><span class="header-section-number">11.0.2</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-10-install-python-3.12" id="toc-step-10-install-python-3.12" class="nav-link" data-scroll-target="#step-10-install-python-3.12"><span class="header-section-number">12</span> Step 10: Install Python 3.12</a>
+  <ul class="collapse">
+  <li><a href="#instructions-8" id="toc-instructions-8" class="nav-link" data-scroll-target="#instructions-8"><span class="header-section-number">12.0.1</span> Instructions</a></li>
+  <li><a href="#verification-1" id="toc-verification-1" class="nav-link" data-scroll-target="#verification-1"><span class="header-section-number">12.0.2</span> Verification</a></li>
+  <li><a href="#screenshot-placeholder-8" id="toc-screenshot-placeholder-8" class="nav-link" data-scroll-target="#screenshot-placeholder-8"><span class="header-section-number">12.0.3</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-11-install-r-and-rtools" id="toc-step-11-install-r-and-rtools" class="nav-link" data-scroll-target="#step-11-install-r-and-rtools"><span class="header-section-number">13</span> Step 11: Install R and RTools</a>
+  <ul class="collapse">
+  <li><a href="#instructions-9" id="toc-instructions-9" class="nav-link" data-scroll-target="#instructions-9"><span class="header-section-number">13.0.1</span> Instructions</a></li>
+  <li><a href="#screenshot-placeholder-9" id="toc-screenshot-placeholder-9" class="nav-link" data-scroll-target="#screenshot-placeholder-9"><span class="header-section-number">13.0.2</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-12-install-antigravity-ide" id="toc-step-12-install-antigravity-ide" class="nav-link" data-scroll-target="#step-12-install-antigravity-ide"><span class="header-section-number">14</span> Step 12: Install Antigravity IDE</a>
+  <ul class="collapse">
+  <li><a href="#instructions-10" id="toc-instructions-10" class="nav-link" data-scroll-target="#instructions-10"><span class="header-section-number">14.0.1</span> Instructions</a></li>
+  <li><a href="#screenshot-placeholder-10" id="toc-screenshot-placeholder-10" class="nav-link" data-scroll-target="#screenshot-placeholder-10"><span class="header-section-number">14.0.2</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-13-install-required-antigravity-extensions" id="toc-step-13-install-required-antigravity-extensions" class="nav-link" data-scroll-target="#step-13-install-required-antigravity-extensions"><span class="header-section-number">15</span> Step 13: Install Required Antigravity Extensions</a>
+  <ul class="collapse">
+  <li><a href="#jupyter-extensions" id="toc-jupyter-extensions" class="nav-link" data-scroll-target="#jupyter-extensions"><span class="header-section-number">15.0.1</span> Jupyter Extensions</a></li>
+  <li><a href="#quarto-extensions" id="toc-quarto-extensions" class="nav-link" data-scroll-target="#quarto-extensions"><span class="header-section-number">15.0.2</span> Quarto Extensions</a></li>
+  <li><a href="#python-extensions" id="toc-python-extensions" class="nav-link" data-scroll-target="#python-extensions"><span class="header-section-number">15.0.3</span> Python Extensions</a></li>
+  <li><a href="#remote-development-extensions" id="toc-remote-development-extensions" class="nav-link" data-scroll-target="#remote-development-extensions"><span class="header-section-number">15.0.4</span> Remote Development Extensions</a></li>
+  <li><a href="#screenshot-placeholder-11" id="toc-screenshot-placeholder-11" class="nav-link" data-scroll-target="#screenshot-placeholder-11"><span class="header-section-number">15.0.5</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-14-create-python-and-r-environments-optional" id="toc-step-14-create-python-and-r-environments-optional" class="nav-link" data-scroll-target="#step-14-create-python-and-r-environments-optional"><span class="header-section-number">16</span> Step 14: Create Python and R Environments (Optional)</a>
+  <ul class="collapse">
+  <li><a href="#python-virtual-environment" id="toc-python-virtual-environment" class="nav-link" data-scroll-target="#python-virtual-environment"><span class="header-section-number">16.1</span> Python virtual environment</a></li>
+  <li><a href="#r-environment-using-renv" id="toc-r-environment-using-renv" class="nav-link" data-scroll-target="#r-environment-using-renv"><span class="header-section-number">16.2</span> R environment using renv</a>
+  <ul class="collapse">
+  <li><a href="#screenshot-placeholder-12" id="toc-screenshot-placeholder-12" class="nav-link" data-scroll-target="#screenshot-placeholder-12"><span class="header-section-number">16.2.1</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#step-15-verification-checklist" id="toc-step-15-verification-checklist" class="nav-link" data-scroll-target="#step-15-verification-checklist"><span class="header-section-number">17</span> Step 15: Verification Checklist</a>
+  <ul class="collapse">
+  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git"><span class="header-section-number">17.0.1</span> Git</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">17.0.2</span> Quarto</a></li>
+  <li><a href="#ssh" id="toc-ssh" class="nav-link" data-scroll-target="#ssh"><span class="header-section-number">17.0.3</span> SSH</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">17.0.4</span> Python</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="header-section-number">17.0.5</span> R</a></li>
+  <li><a href="#screenshot-placeholder-13" id="toc-screenshot-placeholder-13" class="nav-link" data-scroll-target="#screenshot-placeholder-13"><span class="header-section-number">17.0.6</span> Screenshot Placeholder</a></li>
+  </ul></li>
+  <li><a href="#step-16-next-steps" id="toc-step-16-next-steps" class="nav-link" data-scroll-target="#step-16-next-steps"><span class="header-section-number">18</span> Step 16: Next Steps</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tool Setup</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This chapter provides a step-by-step recipe for installing and configuring all tools required for building course materials with Quarto, managing content with GitHub, and integrating outputs into Blackboard Ultra.</p>
+<p>While GitHub is strongly recommended for version control and long-term course management, users who prefer to work entirely on local machines or cloud-synced drives (Google Drive, OneDrive, Dropbox, iCloud Drive) may skip the repository creation steps and proceed directly to <strong>Chapter 3</strong>.</p>
+<p>However, the GitHub-based workflow—especially when paired with Antigravity or VS Code—is highly preferred for reproducibility, collaboration, and maintaining a clean version history of your teaching materials.</p>
+<p>This recipe assumes no prior experience. Each step includes instructions, verification checks, and placeholders for screenshots.</p>
+<section id="install-git" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Install Git</h1>
+<p>Git is the version control system used throughout the recommended workflow. You can choose the platform from the installation on the <a href="https://git-scm.com/install">Git</a> website.</p>
+<div id="fig-git" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-git-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ch01/toolsetup-git.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-git-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Installing Git - Linux Screenshot Placeholder
+</figcaption>
+</figure>
+</div>
+<section id="instructions" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">3.1</span> Instructions</h2>
+<ol type="1">
+<li><p>Install Git using your operating system:</p>
+<ol type="1">
+<li>macOS:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="1">
+<li>Windows: Download <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></li>
+<li>Linux:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt install git <span class="at">-y</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
+</section>
+<section id="verification" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="verification"><span class="header-section-number">3.2</span> Verification</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="step-2-install-github-cli" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Step 2: Install GitHub CLI</h1>
+<p>GitHub CLI (<code>gh</code>) enables authentication and repository operations directly from the terminal.</p>
+<section id="instructions-1" class="level3" data-number="4.0.1">
+<h3 data-number="4.0.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">4.0.1</span> Instructions</h3>
+<p>Download and install from: <a href="https://cli.github.com/">https://cli.github.com/</a></p>
+<p>Verify installation:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="screenshot-placeholder" class="level3" data-number="4.0.2">
+<h3 data-number="4.0.2" class="anchored" data-anchor-id="screenshot-placeholder"><span class="header-section-number">4.0.2</span> Screenshot Placeholder</h3>
+<pre><code>![GitHub CLI Installation](images/toolsetup-ghcli.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-3-create-a-github-account" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Step 3: Create a GitHub Account</h1>
+<p>A GitHub account stores repositories, manages version history, and integrates directly with Antigravity or VS Code.</p>
+<section id="instructions-2" class="level3" data-number="5.0.1">
+<h3 data-number="5.0.1" class="anchored" data-anchor-id="instructions-2"><span class="header-section-number">5.0.1</span> Instructions</h3>
+<ol type="1">
+<li>Visit <a href="https://github.com/signup">https://github.com/signup</a></li>
+<li>Create an account</li>
+<li>Choose a professional username</li>
+</ol>
+</section>
+<section id="screenshot-placeholder-1" class="level3" data-number="5.0.2">
+<h3 data-number="5.0.2" class="anchored" data-anchor-id="screenshot-placeholder-1"><span class="header-section-number">5.0.2</span> Screenshot Placeholder</h3>
+<pre><code>![GitHub Signup Page](images/toolsetup-github-signup.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-4-create-your-github-pages-repository" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Step 4: Create Your GitHub Pages Repository</h1>
+<p><em>(Optional for users who plan to work only on local/cloud drives)</em></p>
+<p>This step creates your personal website:</p>
+<pre><code>https://yourusername.github.io</code></pre>
+<p>If you prefer to work without GitHub, skip to <strong>Chapter 3</strong>. However, the GitHub-based workflow is strongly recommended.</p>
+<section id="instructions-3" class="level3" data-number="6.0.1">
+<h3 data-number="6.0.1" class="anchored" data-anchor-id="instructions-3"><span class="header-section-number">6.0.1</span> Instructions</h3>
+<ol type="1">
+<li><p>Go to <a href="https://github.com/new">https://github.com/new</a></p></li>
+<li><p>Set repository name:</p>
+<pre><code>yourusername.github.io</code></pre></li>
+<li><p>Select Public</p></li>
+<li><p>Add README and .gitignore</p></li>
+<li><p>Create repository</p></li>
+</ol>
+</section>
+<section id="screenshot-placeholder-2" class="level3" data-number="6.0.2">
+<h3 data-number="6.0.2" class="anchored" data-anchor-id="screenshot-placeholder-2"><span class="header-section-number">6.0.2</span> Screenshot Placeholder</h3>
+<pre><code>![Create GitHub Pages Repo](images/toolsetup-ghpages.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-5-configure-git-identity-and-ssh-keys" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Step 5: Configure Git Identity and SSH Keys</h1>
+<p><em>(Required only if using GitHub workflow)</em></p>
+<section id="configure-identity" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="configure-identity"><span class="header-section-number">7.1</span> 5.1 Configure identity</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"you@example.com"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="generate-an-ssh-key" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="generate-an-ssh-key"><span class="header-section-number">7.2</span> 5.2 Generate an SSH key</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="add-the-public-key-to-github" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="add-the-public-key-to-github"><span class="header-section-number">7.3</span> 5.3 Add the public key to GitHub</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add it to <a href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
+</section>
+<section id="test-authentication" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="test-authentication"><span class="header-section-number">7.4</span> 5.4 Test authentication</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="screenshot-placeholder-3" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="screenshot-placeholder-3"><span class="header-section-number">7.4.1</span> Screenshot Placeholder</h3>
+<pre><code>![SSH Key Added](images/toolsetup-sshkey.png)</code></pre>
+<hr>
+</section>
+</section>
+</section>
+<section id="step-6-clone-your-github-pages-repository" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Step 6: Clone Your GitHub Pages Repository</h1>
+<p><em>(Skip this step if not using GitHub)</em></p>
+<section id="instructions-4" class="level3" data-number="8.0.1">
+<h3 data-number="8.0.1" class="anchored" data-anchor-id="instructions-4"><span class="header-section-number">8.0.1</span> Instructions</h3>
+<p>Clone repository:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:yourusername/yourusername.github.io.git</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> yourusername.github.io</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Create a sample file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Welcome to my GitHub Pages site."</span> <span class="op">&gt;&gt;</span> index.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Stage and commit:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Push:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Pull:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="screenshot-placeholder-4" class="level3" data-number="8.0.2">
+<h3 data-number="8.0.2" class="anchored" data-anchor-id="screenshot-placeholder-4"><span class="header-section-number">8.0.2</span> Screenshot Placeholder</h3>
+<pre><code>![Local Repo Clone](images/toolsetup-clone.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-7-install-quarto" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Step 7: Install Quarto</h1>
+<p>Quarto is the publishing framework used in this book.</p>
+<section id="instructions-5" class="level3" data-number="9.0.1">
+<h3 data-number="9.0.1" class="anchored" data-anchor-id="instructions-5"><span class="header-section-number">9.0.1</span> Instructions</h3>
+<p>Download from: <a href="https://quarto.org/docs/download/">https://quarto.org/docs/download/</a></p>
+<p>Verify:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="screenshot-placeholder-5" class="level3" data-number="9.0.2">
+<h3 data-number="9.0.2" class="anchored" data-anchor-id="screenshot-placeholder-5"><span class="header-section-number">9.0.2</span> Screenshot Placeholder</h3>
+<pre><code>![Quarto Installation](images/toolsetup-quarto.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-8-install-pandoc" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Step 8: Install Pandoc</h1>
+<p>Pandoc is required for document format conversion.</p>
+<section id="instructions-6" class="level3" data-number="10.0.1">
+<h3 data-number="10.0.1" class="anchored" data-anchor-id="instructions-6"><span class="header-section-number">10.0.1</span> Instructions</h3>
+<ul>
+<li><p>macOS:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pandoc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Linux:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install pandoc <span class="at">-y</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ul>
+<p>Windows installer already includes Pandoc.</p>
+</section>
+<section id="screenshot-placeholder-6" class="level3" data-number="10.0.2">
+<h3 data-number="10.0.2" class="anchored" data-anchor-id="screenshot-placeholder-6"><span class="header-section-number">10.0.2</span> Screenshot Placeholder</h3>
+<pre><code>![Pandoc Installation](images/toolsetup-pandoc.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-9-install-graphviz" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Step 9: Install Graphviz</h1>
+<p>Graphviz supports diagrams and visual structures.</p>
+<section id="instructions-7" class="level3" data-number="11.0.1">
+<h3 data-number="11.0.1" class="anchored" data-anchor-id="instructions-7"><span class="header-section-number">11.0.1</span> Instructions</h3>
+<ul>
+<li><p>macOS:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install graphviz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Linux:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install graphviz <span class="at">-y</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Windows: Download <a href="https://graphviz.org/download/">https://graphviz.org/download/</a></p></li>
+</ul>
+</section>
+<section id="screenshot-placeholder-7" class="level3" data-number="11.0.2">
+<h3 data-number="11.0.2" class="anchored" data-anchor-id="screenshot-placeholder-7"><span class="header-section-number">11.0.2</span> Screenshot Placeholder</h3>
+<pre><code>![Graphviz Installation](images/toolsetup-graphviz.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-10-install-python-3.12" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Step 10: Install Python 3.12</h1>
+<section id="instructions-8" class="level3" data-number="12.0.1">
+<h3 data-number="12.0.1" class="anchored" data-anchor-id="instructions-8"><span class="header-section-number">12.0.1</span> Instructions</h3>
+<p>Download from: <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
+<p>Select “Add Python to PATH” during installation.</p>
+</section>
+<section id="verification-1" class="level3" data-number="12.0.2">
+<h3 data-number="12.0.2" class="anchored" data-anchor-id="verification-1"><span class="header-section-number">12.0.2</span> Verification</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="screenshot-placeholder-8" class="level3" data-number="12.0.3">
+<h3 data-number="12.0.3" class="anchored" data-anchor-id="screenshot-placeholder-8"><span class="header-section-number">12.0.3</span> Screenshot Placeholder</h3>
+<pre><code>![Python Installation](images/toolsetup-python.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-11-install-r-and-rtools" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Step 11: Install R and RTools</h1>
+<section id="instructions-9" class="level3" data-number="13.0.1">
+<h3 data-number="13.0.1" class="anchored" data-anchor-id="instructions-9"><span class="header-section-number">13.0.1</span> Instructions</h3>
+<p>Install R: <a href="https://cran.r-project.org/">https://cran.r-project.org/</a></p>
+<p>Windows users install RTools: <a href="https://cran.r-project.org/bin/windows/Rtools/">https://cran.r-project.org/bin/windows/Rtools/</a></p>
+</section>
+<section id="screenshot-placeholder-9" class="level3" data-number="13.0.2">
+<h3 data-number="13.0.2" class="anchored" data-anchor-id="screenshot-placeholder-9"><span class="header-section-number">13.0.2</span> Screenshot Placeholder</h3>
+<pre><code>![R Installation](images/toolsetup-r.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-12-install-antigravity-ide" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Step 12: Install Antigravity IDE</h1>
+<p>Antigravity is the preferred IDE for this workflow because it integrates:</p>
+<ul>
+<li>GitHub</li>
+<li>Jupyter</li>
+<li>Python</li>
+<li>Quarto</li>
+<li>Remote development</li>
+<li>AI agents</li>
+<li>Extension ecosystem</li>
+</ul>
+<section id="instructions-10" class="level3" data-number="14.0.1">
+<h3 data-number="14.0.1" class="anchored" data-anchor-id="instructions-10"><span class="header-section-number">14.0.1</span> Instructions</h3>
+<p>Download: <a href="https://antigravity.google/">https://antigravity.google/</a></p>
+<p>Sign in with Google or GitHub.</p>
+</section>
+<section id="screenshot-placeholder-10" class="level3" data-number="14.0.2">
+<h3 data-number="14.0.2" class="anchored" data-anchor-id="screenshot-placeholder-10"><span class="header-section-number">14.0.2</span> Screenshot Placeholder</h3>
+<pre><code>![Antigravity IDE Installer](images/toolsetup-antigravity.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-13-install-required-antigravity-extensions" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Step 13: Install Required Antigravity Extensions</h1>
+<p>The following extension groups must be installed:</p>
+<section id="jupyter-extensions" class="level3" data-number="15.0.1">
+<h3 data-number="15.0.1" class="anchored" data-anchor-id="jupyter-extensions"><span class="header-section-number">15.0.1</span> Jupyter Extensions</h3>
+<ul>
+<li>Jupyter</li>
+<li>Jupyter Notebook Renderers</li>
+<li>Jupyter Keymap</li>
+<li>Jupyter Cell Tags</li>
+<li>Jupyter PowerToys</li>
+<li>Jupyter Slide Show</li>
+</ul>
+</section>
+<section id="quarto-extensions" class="level3" data-number="15.0.2">
+<h3 data-number="15.0.2" class="anchored" data-anchor-id="quarto-extensions"><span class="header-section-number">15.0.2</span> Quarto Extensions</h3>
+<ul>
+<li>Quarto</li>
+<li>Markdown Preview Enhanced</li>
+<li>Markdown All-in-One</li>
+<li>Quarto Wingman</li>
+<li>Quarto Wizard</li>
+<li>Markdown Code Runner</li>
+<li>Pandoc Citer</li>
+</ul>
+</section>
+<section id="python-extensions" class="level3" data-number="15.0.3">
+<h3 data-number="15.0.3" class="anchored" data-anchor-id="python-extensions"><span class="header-section-number">15.0.3</span> Python Extensions</h3>
+<ul>
+<li>Python Extension Pack</li>
+<li>Pylance</li>
+<li>Python Debugger</li>
+<li>autopep8</li>
+<li>isort</li>
+<li>Pylint</li>
+<li>MagicPython</li>
+</ul>
+</section>
+<section id="remote-development-extensions" class="level3" data-number="15.0.4">
+<h3 data-number="15.0.4" class="anchored" data-anchor-id="remote-development-extensions"><span class="header-section-number">15.0.4</span> Remote Development Extensions</h3>
+<ul>
+<li>Remote – SSH</li>
+<li>Remote Explorer</li>
+<li>GitHub Repositories</li>
+<li>Dev Containers</li>
+<li>Remote Repositories</li>
+<li>Remote – Tunnels</li>
+</ul>
+</section>
+<section id="screenshot-placeholder-11" class="level3" data-number="15.0.5">
+<h3 data-number="15.0.5" class="anchored" data-anchor-id="screenshot-placeholder-11"><span class="header-section-number">15.0.5</span> Screenshot Placeholder</h3>
+<pre><code>![Antigravity Extensions Installed](images/toolsetup-extensions.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-14-create-python-and-r-environments-optional" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Step 14: Create Python and R Environments (Optional)</h1>
+<section id="python-virtual-environment" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="python-virtual-environment"><span class="header-section-number">16.1</span> Python virtual environment</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Activate:</p>
+<p>macOS/Linux:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Windows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">venv</span>\Scripts\activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Install packages:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install numpy pandas jupyter matplotlib quarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="r-environment-using-renv" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="r-environment-using-renv"><span class="header-section-number">16.2</span> R environment using renv</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"knitr"</span>, <span class="st">"rmarkdown"</span>))</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="screenshot-placeholder-12" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="screenshot-placeholder-12"><span class="header-section-number">16.2.1</span> Screenshot Placeholder</h3>
+<pre><code>![Environment Setup](images/toolsetup-env.png)</code></pre>
+<hr>
+</section>
+</section>
+</section>
+<section id="step-15-verification-checklist" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Step 15: Verification Checklist</h1>
+<p>Check that each core tool is installed:</p>
+<section id="git" class="level3" data-number="17.0.1">
+<h3 data-number="17.0.1" class="anchored" data-anchor-id="git"><span class="header-section-number">17.0.1</span> Git</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="quarto" class="level3" data-number="17.0.2">
+<h3 data-number="17.0.2" class="anchored" data-anchor-id="quarto"><span class="header-section-number">17.0.2</span> Quarto</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="ssh" class="level3" data-number="17.0.3">
+<h3 data-number="17.0.3" class="anchored" data-anchor-id="ssh"><span class="header-section-number">17.0.3</span> SSH</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="python" class="level3" data-number="17.0.4">
+<h3 data-number="17.0.4" class="anchored" data-anchor-id="python"><span class="header-section-number">17.0.4</span> Python</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="r" class="level3" data-number="17.0.5">
+<h3 data-number="17.0.5" class="anchored" data-anchor-id="r"><span class="header-section-number">17.0.5</span> R</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="screenshot-placeholder-13" class="level3" data-number="17.0.6">
+<h3 data-number="17.0.6" class="anchored" data-anchor-id="screenshot-placeholder-13"><span class="header-section-number">17.0.6</span> Screenshot Placeholder</h3>
+<pre><code>![Verification Outputs](images/toolsetup-verification.png)</code></pre>
+<hr>
+</section>
+</section>
+<section id="step-16-next-steps" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> Step 16: Next Steps</h1>
+<p>If you chose not to create a GitHub repository, proceed directly to <strong>Chapter 3</strong>, where you will learn the authoring fundamentals of Markdown, LaTeX, and Quarto.</p>
+<p>If you completed the GitHub setup, you now have a fully configured development environment ready for:</p>
+<ul>
+<li>Authoring (Chapter 3)</li>
+<li>Building Quarto websites (Chapter 4)</li>
+<li>Connecting content to Blackboard Ultra (Chapters 5–6)</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02_version_control.html" class="pagination-link" aria-label="Version Control">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Version Control</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
