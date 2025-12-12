@@ -175,12 +175,12 @@ Pandoc is required for document format conversion.
 
 ## Instructions
 
-* macOS:
+- macOS:
 
   ```bash
   brew install pandoc
   ```
-* Linux:
+- Linux:
 
   ```bash
   sudo apt install pandoc -y
@@ -197,17 +197,17 @@ Graphviz supports diagrams and visual structures.
 
 ## Instructions
 
-* macOS:    
+- macOS:    
 
   ```bash
   brew install graphviz
   ```
-* Linux:
+- Linux:
 
   ```bash
   sudo apt install graphviz -y
   ```
-* Windows: Download [https://graphviz.org/download/](https://graphviz.org/download/)
+- Windows: Download [https://graphviz.org/download/](https://graphviz.org/download/)
 
 ![Graphviz Installation](images/toolsetup-graphviz.png){width=80% fig-align="center" #fig-graphviz}
 
@@ -302,7 +302,7 @@ pip install numpy pandas jupyter matplotlib quarto
 
 ## R environment using renv
 
-```{r}
+```r
 #| eval: false
 #| echo: true
 install.packages("renv")
