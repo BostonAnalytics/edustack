@@ -17,7 +17,9 @@ book:
       text: "Version Control"
     - href: 03_quarto_class_setup.qmd
       text: "Quarto Class Setup"
-    - href: 04_blackboard_ultra.qmd
+    - href: 04_working_with_quarto.qmd
+      text: "Working with Quarto"
+    - href: 05_blackboard_ultra.qmd
       text: "Blackboard Ultra"
     - summary.qmd
     - references.qmd
