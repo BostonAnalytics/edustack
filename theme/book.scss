@@ -142,25 +142,32 @@ ol {
     margin: 1rem 0;
     padding-left: 1.5rem;
     font-family: $body-font-family;
-    line-height: 1.5;
+    line-height: 1.05;
 }
 
 // Ordered list styles
 ol {
-    list-style-type: decimal; // default numbers
+    list-style-type: decimal;
     color: #2c3e50;
 
-    li {
+    // First-level items
+    >li {
+        font-weight: bold; // bold
         margin-bottom: 0.5rem;
 
-        // Nested unordered list inside ordered list
-        ul {
-            list-style-type: circle;
-            margin-top: 0.3rem;
-            color: #16a085;
+        // Second-level items
+        >ol>li,
+        >ul>li {
+            font-weight: bold;
+            font-style: italic; // bold italic
+            margin-bottom: 0.3rem;
 
-            li {
-                margin-bottom: 0.3rem;
+            // Third-level items
+            >ol>li,
+            >ul>li {
+                font-weight: normal;
+                font-style: italic; // italic only
+                margin-bottom: 0.2rem;
             }
         }
     }
@@ -171,18 +178,33 @@ ul {
     list-style-type: disc;
     color: #34495e;
 
-    li {
+    // First-level items
+    >li {
+        font-weight: bold; // bold
         margin-bottom: 0.5rem;
 
-        // Nested ordered list inside unordered list
-        ol {
-            list-style-type: lower-alpha; // a, b, c...
-            margin-top: 0.3rem;
-            color: #8e44ad;
+        // Second-level items
+        >ul>li,
+        >ol>li {
+            font-weight: bold;
+            font-style: italic; // bold italic
+            margin-bottom: 0.3rem;
 
-            li {
-                margin-bottom: 0.3rem;
+            // Third-level items
+            >ul>li,
+            >ol>li {
+                font-weight: normal;
+                font-style: italic; // italic only
+                margin-bottom: 0.2rem;
             }
         }
     }
+}
+
+/* Force code wrapping inside <pre><code> blocks */
+pre code {
+    white-space: pre-wrap; // allow wrapping
+    word-wrap: break-word; // break long words if needed
+    overflow-x: auto; // keep scroll if absolutely necessary
+    max-width: 65ch; // wrap at ~65 characters (ch = width of "0")
 }

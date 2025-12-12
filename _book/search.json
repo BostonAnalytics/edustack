@@ -194,7 +194,7 @@
     "href": "01_tool_setup.html#r-environment-using-renv",
     "title": "2  Tool Setup",
     "section": "11.2 R environment using renv",
-    "text": "11.2 R environment using renv\n\ninstall.packages(\"renv\")\nrenv::init()\ninstall.packages(c(\"tidyverse\", \"knitr\", \"rmarkdown\"))\nrenv::snapshot()\n\n\n\n\n\n\n\nFigure 11.1: Environment Setup",
+    "text": "11.2 R environment using renv\n#| eval: false\n#| echo: true\ninstall.packages(\"renv\")\nrenv::init()\ninstall.packages(c(\"tidyverse\", \"knitr\", \"rmarkdown\"))\nrenv::snapshot()\n\n\n\n\n\n\nFigure 11.1: Environment Setup",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
     ]
@@ -357,6 +357,276 @@
     "text": "2.4 Create Your GitHub Pages Repository\n(Optional for users who plan to work only on local/cloud drives)\nThis step creates your personal website: https://yourusername.github.io\nIf you prefer to work without GitHub, skip to Chapter 3. However, the GitHub-based workflow is strongly recommended.\n\nGo to https://github.com/new, or click on the + icon in the top-right corner of your GitHub dashboard shown in Figure 2.5.\nSet repository name:\n\nyourusername.github.io creates your personal website repository\nFor a course repository, use coursenumber-coursename (e.g. AD688-big-data-and-cloud-computing)\n\nyourusername.github.io\nSelect Private, since we want this to be available for instructors only.\nAdd README and .gitignore, you can choose the template to be python or r to avoid syncing the virtual environments to the git repo.\nCreate repository\n\n\n\n\n\n\n\nFigure 2.5: Create GitHub Repo\n\n\n\n\n\n\n\n\n\nFigure 2.6: Create GitHub Repo\n\n\n\n\n2.4.1 Configure Git Identity and SSH Keys\n(Required only if using GitHub workflow)\n\n\n2.4.2 Configure identity\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"\n\n\n2.4.3 Generate an SSH key\nssh-keygen -t ed25519",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tool Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html",
+    "href": "03_quarto_class_setup.html",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "",
+    "text": "4.1 Keeping Your Git Repository Updated\nThis chapter walks you through creating and organizing a Quarto microsite. Before beginning, review the to-do list below. You can click on each item to jump to its section.\nIf you are using GitHub or any Git-based workflow, run a pull before starting work and a push after you finish a working session. This prevents merge conflicts, overwriting, or accidental loss of changes when building large course sites.\nPull before you begin each session:\nStage and commit your updates during work:\nPush your changes when you are done:\nYou may repeat these commands several times as you work through this chapter so that your repository accurately reflects your progress and remains synchronized across devices or collaborators.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#to-do-list-for-this-chapter",
+    "href": "03_quarto_class_setup.html#to-do-list-for-this-chapter",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "",
+    "text": "Create the microsite folder structure\nSet up the core Quarto configuration file\nCreate starter pages (home and about)\nPreview the website locally\nCreate the module structure\nAdd custom styling with SCSS\nOptional: Keep your Git repository clean and updated\nPrepare for Blackboard Ultra integration\nUse the final checklist",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#keeping-your-git-repository-updated",
+    "href": "03_quarto_class_setup.html#keeping-your-git-repository-updated",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "",
+    "text": "git pull\n\ngit add .\ngit commit -m \"Update microsite structure\"\n\ngit push",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#set-up-the-core-quarto-configuration-file",
+    "href": "03_quarto_class_setup.html#set-up-the-core-quarto-configuration-file",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.3 Set Up the Core Quarto Configuration File",
+    "text": "4.3 Set Up the Core Quarto Configuration File\nThe _quarto.yml file defines the structure and appearance of your microsite. A minimal starter configuration looks like this:\nproject:\n  type: website\n  preview:\n    port: 4300\n    browser: false\n  render:\n    - \"*.qmd\"\n    - \"!delivarables-solutions/*\"\n    - \"!classroom-organization/*\"\n    - \"!data/*\"\n    - \"Announcements/*\"\n\neditor:  \n  render-on-save: true\n  preview: true\n\nexecute:\n  freeze: auto\n  keep-ipynb: false\n  fig-align: center\n\nwebsite:\n  title: \"My Course\"\n  navbar: false\n    # search: true\n    # left:\n    #   - text: Syllabus\n    #     href: index.qmd\n    #   - text: Schedule\n    #     href: schedule.qmd\n    #   - text: Deliverables\n    #     href: deliverables.qmd\n    #   - text: \"Module 0\"\n    #     menu:\n    #       - text: \"Lecture Notes 0.1\"\n    #         href: M0/M0_lecturenotes0.1.qmd\n    #       - text: \"Presentation 0.1\"\n    #         href: M0/M0_presentation0.1.qmd\n    #       - text: \"Lecture Notes 0.2\"\n    #         href: M0/M0_lecturenotes0.2.qmd\n    #       - text: \"Presentation 0.2\"\n    #         href: M0/M0_presentation0.2.qmd\n    #       - text: \"Lecture Notes 0.3\"\n    #         href: M0/M0_lecturenotes0.3.qmd\n    #       - text: \"Presentation 0.3\"\n    #         href: M0/M0_presentation0.3.qmd\n    #   - text: \"Module 1\"\n    #     menu:\n    #       - text: \"Lecture Notes 1.1\"\n    #         href: M1/M01_lecturenotes01.qmd\n    #       - text: \"Presentation 1.1\"\n    #         href: M1/M01_presentation01.qmd\n    #       - text: \"Lab 01\"\n    #         href: M1/M01_lab01.qmd\n    #       - text: \"Lecture Notes 1.2\"\n    #         href: M1/M01_lecturenotes02.qmd\n    #       - text: \"Presentation 1.2\"\n    #         href: M1/M01_presentation02.qmd\n    #       - text: \"Lab 02\"\n    #         href: M1/M01_lab02.qmd\n    #       - text: \"Assignment 01\"\n    #         href: M1/M01_assignment01.qmd\n    #       - text: \"Project 01\"\n    #         href: M1/M01_project01.qmd\n    #   - text: \"Module 2\"\n    #     menu:\n    #       - text: \"Lecture Notes 2.1\"\n    #         href: M2/M02_lecturenotes01.qmd\n    #       - text: \"Presentation 2.1\"\n    #         href: M2/M02_presentation01.qmd\n    #       - text: \"Lab 03\"\n    #         href: M2/M02_lab01.qmd\n    #       - text: \"Lecture Notes 2.2\"\n    #         href: M2/M02_lecturenotes02.qmd\n    #       - text: \"Presentation 2.2\"\n    #         href: M2/M02_presentation02.qmd\n    #       - text: \"Lab 04\"\n    #         href: M2/M02_lab02.qmd\n      \nformat:\n  html:\n    bibliography: references.bib\n    theme: [cosmo, ./themes/mycourse.scss]\n    toc: true\n    number-sections: true\n    embed-resources: true\n    highlight-style: github\n    code-overflow: wrap\n    html-math-method: mathml\n    grid:\n      sidebar-width: 100px\n      body-width: 1100px\n      margin-width: 400px\n      gutter-width: 1.5rem\n\ncrossref:\n  fig-title: '**Figure**'\n  fig-labels: arabic\n  title-delim: \"**.**\"\n\n4.3.1 Project\n\n\n\n\n\n\n\nKey\nShort Description\n\n\n\n\ntype: website\nTreats the project as a multi-page website.\n\n\npreview.port: 4300\nRuns the local preview server on port 4300.\n\n\npreview.browser: false\nPrevents automatic browser launch.\n\n\nrender: “*.qmd”\nRenders all qmd files unless excluded.\n\n\nrender: “!deliverables-solutions/*”\nExcludes instructor-only solutions.\n\n\nrender: “!classroom-organization/*”\nExcludes internal organizational files.\n\n\nrender: “!data/*”\nExcludes data folders from rendering.\n\n\nrender: “Announcements/*”\nExplicitly includes the Announcements folder.\n\n\n\n\n\n4.3.2 Editor\n\n\n\nKey\nShort Description\n\n\n\n\nrender-on-save: true\nAutomatically renders pages on save.\n\n\npreview: true\nMaintains a live preview as you edit.\n\n\n\n\n\n4.3.3 Execute\n\n\n\nKey\nShort Description\n\n\n\n\nfreeze: auto\nReuses cached outputs unless code changes.\n\n\nkeep-ipynb: false\nPrevents generating .ipynb versions.\n\n\nfig-align: center\nCenters all figures.\n\n\n\n\n\n4.3.4 Website\n\n\n\nKey\nShort Description\n\n\n\n\ntitle: “My Course”\nSets the website title.\n\n\nnavbar: false\nDisables the navigation bar.\n\n\n\n\n\n4.3.5 Format (HTML Rendering)\n\n\n\n\n\n\n\nKey\nShort Description\n\n\n\n\nbibliography: references.bib\nEnables citation support.\n\n\ntheme: [cosmo, mycourse.scss]\nApplies Bootswatch theme and custom SCSS.\n\n\ntoc: true\nAdds a table of contents to all pages.\n\n\nnumber-sections: true\nNumbers section headings.\n\n\nembed-resources: true\nInlines assets for Blackboard compatibility.\n\n\nhighlight-style: github\nUses GitHub-style code highlighting.\n\n\ncode-overflow: wrap\nWraps long code lines.\n\n\nhtml-math-method: mathml\nRenders math via MathML.\n\n\n\n\n\n4.3.6 Format → Grid Layout\n\n\n\nKey\nShort Description\n\n\n\n\nsidebar-width: 100px\nSets sidebar width.\n\n\nbody-width: 1100px\nSets main body width.\n\n\nmargin-width: 400px\nSets margin column width.\n\n\ngutter-width: 1.5rem\nSets spacing between layout columns.\n\n\n\n\n\n4.3.7 Crossref\n\n\n\nKey\nShort Description\n\n\n\n\nfig-title: “Figure”\nPrefix used for figure labels.\n\n\nfig-labels: arabic\nUses Arabic numerals for figures.\n\n\ntitle-delim: “.”\nInserts a period between label and title.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#create-starter-pages",
+    "href": "03_quarto_class_setup.html#create-starter-pages",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.5 Create Starter Pages",
+    "text": "4.5 Create Starter Pages\nThe quarto create command will create a index.qmd file in the root directory. This will be your syllabus file.\n\n4.5.1 References and csl\n\nDownload the Econometrica CSL File (or any other csl file based on your discipline)\nThe Econometrica citation style can be downloaded from: Econometrica CSL GitHub Link\n\nAdd econometrica.csl to Your Quarto Project\n\nNavigate to your Quarto project folder.\n\nCreate a new directory named csl/ (optional, but recommended).\n\nMove the econometrica.csl file into the csl/ folder.\n\n\n\n\n4.5.2 index.qmd\ntitle: \"AD 688 Cloud Analytics for Business\" \nsubtitle: \"Syllabus\"\nnumber-sections: true\nformat:\n    html: default\nbibliography: references.bib\ncsl: csl/econometrica.csl\nhtml-table-processing: none\n---\n\n# Welcome\n\nThis microsite introduces the workflow for building course content and integrating Quarto HTML into Blackboard Ultra.\n\n\n4.5.3 about.qmd\ntitle: \"About This Microsite\"\n---\n\n# About This Project\n\nThis site is part of the training pathway for developing professional course materials with Quarto.\nScreenshot placeholder: index.qmd open in editor",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#section-d",
+    "href": "03_quarto_class_setup.html#section-d",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "5.3 Section D",
+    "text": "5.3 Section D",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#preview-the-website-locally",
+    "href": "03_quarto_class_setup.html#preview-the-website-locally",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.6 Preview the Website Locally",
+    "text": "4.6 Preview the Website Locally\nRun the preview server:\nquarto preview\nYour browser will automatically refresh as you edit pages.\nScreenshot placeholder: Local preview in browser",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#create-the-module-structure",
+    "href": "03_quarto_class_setup.html#create-the-module-structure",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.7 Create the Module Structure",
+    "text": "4.7 Create the Module Structure\nAdd a folder for the first module:\nmkdir module1\nInside it, create:\nmodule1/module1_overview.qmd\ntitle: \"Module 1 Overview\"\n---\n\n# Module 1 Overview\n\nThis page introduces the module structure and learning goals.\nUpdate _quarto.yml navigation:\nwebsite:\n  title: \"Course Microsite\"\n  navbar:\n    left:\n      - text: Home\n        href: index.qmd\n      - text: About\n        href: about.qmd\n      - text: Module 1\n        href: module1/module1_overview.qmd\nScreenshot placeholder: Folder tree with module1 folder",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#add-custom-styling-with-scss",
+    "href": "03_quarto_class_setup.html#add-custom-styling-with-scss",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.8 Add Custom Styling with SCSS",
+    "text": "4.8 Add Custom Styling with SCSS\nCreate a styles folder:\nmkdir styles\nAdd:\nstyles/custom.scss\n/* Placeholder for custom rules */\nReference it:\nformat:\n  html:\n    theme: cosmo\n    toc: true\n    css: styles/custom.scss\nScreenshot placeholder: custom.scss in editor\nActual styling will be introduced later once the structure is stable.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#optional-git-workflow-throughout-the-chapter",
+    "href": "03_quarto_class_setup.html#optional-git-workflow-throughout-the-chapter",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.9 Optional Git Workflow Throughout the Chapter",
+    "text": "4.9 Optional Git Workflow Throughout the Chapter\nYou may run these commands after each major step.\nPull updates before continuing:\ngit pull\nSave your work:\ngit add .\ngit commit -m \"Progress on microsite\"\nPush updates:\ngit push\nThis ensures your repository captures every structural change without waiting until the end.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#preparing-for-blackboard-ultra-integration",
+    "href": "03_quarto_class_setup.html#preparing-for-blackboard-ultra-integration",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.10 Preparing for Blackboard Ultra Integration",
+    "text": "4.10 Preparing for Blackboard Ultra Integration\nBlackboard Ultra does not host Quarto sites directly. In upcoming chapters, you will export rendered HTML files and map them to the Blackboard course structure. For now, ensure that:\n\nFile paths are clean\nNavigation is easy to follow\nPages render correctly without external dependencies\nThe microsite structure mirrors the eventual Blackboard module layout",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#final-checklist",
+    "href": "03_quarto_class_setup.html#final-checklist",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.11 Final Checklist",
+    "text": "4.11 Final Checklist\nYour microsite is ready for content development if you have:\n\nA working folder structure\n\nindex.qmd and about.qmd rendering without error\nModule folders initialized\nA functional _quarto.yml\nLocal preview running\nBasic SCSS scaffolding\nOptional Git workflow active and consistent",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#create-the-microsite-folder-structure",
+    "href": "03_quarto_class_setup.html#create-the-microsite-folder-structure",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.2 Create the Microsite Folder Structure",
+    "text": "4.2 Create the Microsite Folder Structure\nYou may complete this step on a local drive or within a cloud-synced folder. If you choose not to use GitHub, you can start here and skip the optional Git workflows.\n\nCreate a new folder for your microsite, name it based on your course name with a hyphen for spaces.\nUse terminal or command prompt and navigate to the folder.\nquarto create project website . (including .) to create the project. This step requires python, r, quarto.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#project",
+    "href": "03_quarto_class_setup.html#project",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "5.1 project",
+    "text": "5.1 project\nDefines the overall behavior of your Quarto project.\n\n5.1.1 type: website\nTells Quarto to treat the project as a website rather than a document or book. Enables navigation, site rendering, theming, and multi-page output.\n\n\n5.1.2 preview\nControls how the local preview server behaves.\n\nport: 4300 The preview website will run on port 4300 instead of Quarto’s default port. Useful when running multiple Quarto sites simultaneously.\nbrowser: false Prevents the preview from automatically opening a browser tab. Users can manually navigate to http://localhost:4300.\n\n\n\n5.1.3 render\nControls which files Quarto will render when building the site.\n\n“*.qmd” Render all qmd files in the root and subfolders.\n“!deliverables-solutions/*” Exclude instructor-only answer keys.\n“!classroom-organization/*” Exclude any teaching material not intended for students.\n“!data/*” Prevent automatic rendering of data folders.\n“Announcements/*” Explicitly include the Announcements folder.\n\nThis combination ensures clean output for student-facing material while still allowing internal organizational files to live in the repo.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#editor",
+    "href": "03_quarto_class_setup.html#editor",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "5.2 editor",
+    "text": "5.2 editor\nControls how the editor triggers rendering.\n\nrender-on-save: true Whenever the user saves a qmd file, Quarto will automatically re-render it.\npreview: true Ensures an updated preview window is maintained during editing.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#execute",
+    "href": "03_quarto_class_setup.html#execute",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "5.3 execute",
+    "text": "5.3 execute\nDefines runtime behavior for code execution in qmd files.\n\n5.3.1 freeze: auto\nQuarto reuses cached output unless input code or data changes. Useful for long-running notebooks.\n\n\n5.3.2 keep-ipynb: false\nPrevents Quarto from saving .ipynb versions of executed qmd files.\n\n\n5.3.3 fig-align: center\nAll figures will be horizontally centered by default.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#website",
+    "href": "03_quarto_class_setup.html#website",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "5.4 website",
+    "text": "5.4 website\nDefines metadata, navigation, and global settings for the website.\n\n5.4.1 title: “My Course”\nWebsite title displayed in browser tabs and headers.\n\n\n5.4.2 navbar: false\nRemoves or disables the default navigation bar. You commented out a navigation menu that can later be activated if desired.\nThe commented structure under navbar shows how to build dropdown menus for Multi-Module courses, including lecture notes, presentations, labs, assignments, and projects.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#format",
+    "href": "03_quarto_class_setup.html#format",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "5.5 format",
+    "text": "5.5 format\nControls the HTML output styling.\n\n5.5.1 bibliography: references.bib\nEnables citation rendering using this BibTeX file.\n\n\n5.5.2 theme: [cosmo, ./themes/mycourse.scss]\nUses the Cosmo Bootswatch theme and applies your custom SCSS file.\n\n\n5.5.3 toc: true\nAdds a right-hand table of contents to every page.\n\n\n5.5.4 number-sections: true\nAutomatically numbers all headers.\n\n\n5.5.5 embed-resources: true\nInlines CSS, JS, and images into the final HTML. Important for Blackboard Ultra because Blackboard sometimes strips linked assets.\n\n\n5.5.6 highlight-style: github\nApplies GitHub-style syntax highlighting for code blocks.\n\n\n5.5.7 code-overflow: wrap\nLong code lines will wrap rather than overflow.\n\n\n5.5.8 html-math-method: mathml\nUses MathML for rendering mathematical expressions.\n\n\n5.5.9 grid\nControls layout sizing: sidebar, body, margins, and spacing.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#crossref",
+    "href": "03_quarto_class_setup.html#crossref",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "5.6 crossref",
+    "text": "5.6 crossref\nDefines how figures, tables, and references will be labeled.\n\n5.6.1 fig-title: ‘Figure’\nSets the text displayed before figure numbers.\n\n\n5.6.2 fig-labels: arabic\nFigure numbers formatted as standard numbers rather than roman numerals.\n\n\n5.6.3 title-delim: “.”\nDivider inserted between figure label and title.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#course-folder-structure",
+    "href": "03_quarto_class_setup.html#course-folder-structure",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.4 Course Folder Structure",
+    "text": "4.4 Course Folder Structure\nCreate the top-level folders. BU Virtual likes to see the modules as separate folders for better organization. M followed by single digit is the module number. Module 0 is a prerequisite module and can be omitted. Module 7 is an extra module that can be omitted as well.\nInside each module folder, create the same baseline structure. Each module (M0–M7) should follow a consistent pattern. Please create files with the specific names regardless of them being used in the course or not. The files are placeholders and can be empty and turned off at blackboard level.\n\n\nM0/\nM1/\nM2/\nM3/\nM4/\nM5/\nM6/\nM7/\n\nM1/\n  M1_lecture01_figures/\n  M1_lecture02_figures/\n  M1_presentation02_files/\n\n  M1_P1_files/\n  M1_P2_files/\n\n- M##_A.qmd               (Assignment)\n- M##_highlights.qmd      (Module Highlights)\n- M##_Lab1.qmd            (Lab 1, if applicable)\n- M##_Lab2.qmd            (Lab 2, if applicable)\n- M##_LN1.qmd             (Lecture Notes 1)\n- M##_LN2.qmd             (Lecture Notes 2)\n- M##_P1.qmd              (Presentation for Lecture 1)\n- M##_P2.qmd              (Presentation for Lecture 2)\n- M##_Proj.qmd            (Standalone or Sequential Project, if applicable)\n- M##_Wrapup.qmd          (Module Wrapup)\n\n4.4.1 Figures and Attachments Folders\n\n\n\n\n\n\n\nFolder Name\nShort Description\n\n\n\n\nM##_lecture01_figures\nImages and diagrams for Lecture Notes 1.\n\n\nM##_lecture02_figures\nImages and diagrams for Lecture Notes 2.\n\n\nM##_presentation02_files\nAssets used by Presentation 2; often generated automatically by Reveal.js.\n\n\nM##_P1_files\nAttachments or figures used in Project Part 1.\n\n\nM##_P2_files\nAttachments or figures used in Project Part 2.\n\n\n\nThese folders keep images and assets organized and prevent broken paths when exporting to Blackboard Ultra.\n\n4.4.2 Core Module Files (.qmd)\n\n\n\n\n\n\n\nFile Name\nShort Description\n\n\n\n\nM##_A.qmd\nAssignment file for the module; may include multi-part tasks.\n\n\nM##_highlights.qmd\nKey takeaways and summary notes for quick review.\n\n\nM##_Lab1.qmd\nFirst lab introducing the applied technique from Lecture 1.\n\n\nM##_Lab2.qmd\nSecond lab building on concepts toward the assignment or project.\n\n\nM##_LN1.qmd\nLecture Notes for the first subtopic; includes theory and examples.\n\n\nM##_LN2.qmd\nLecture Notes for the second subtopic.\n\n\nM##_P1.qmd\nProject Part 1; typically data analysis or modeling tasks.\n\n\nM##_P2.qmd\nProject Part 2; deeper or extended work based on Part 1.\n\n\nM##_Proj.qmd\nFull module project (if the module includes one standalone).\n\n\nM##_Wrapup.qmd\nEnd-of-module summary highlighting major insights and next steps.\n\n\n\n\n4.5 Create Starter Pages\nThe quarto create command will create a index.qmd file in the root directory. This will be your syllabus file.\n\n4.5.1 References and csl\n\nDownload the Econometrica CSL File (or any other csl file based on your discipline)\nThe Econometrica citation style can be downloaded from: Econometrica CSL GitHub Link\n\nAdd econometrica.csl to Your Quarto Project\n\nNavigate to your Quarto project folder.\n\nCreate a new directory named csl/ (optional, but recommended).\n\nMove the econometrica.csl file into the csl/ folder.\n\n\n\n\n4.5.2 index.qmd\ntitle: \"AD 688 Cloud Analytics for Business\" \nsubtitle: \"Syllabus\"\nnumber-sections: true\nformat:\n    html: default\nbibliography: references.bib\ncsl: csl/econometrica.csl\nhtml-table-processing: none\n---\n\n# Welcome\n\nThis microsite introduces the workflow for building course content and integrating Quarto HTML into Blackboard Ultra.\n\n\n4.5.3 about.qmd\ntitle: \"About This Microsite\"\n---\n\n# About This Project\n\nThis site is part of the training pathway for developing professional course materials with Quarto.\nScreenshot placeholder: index.qmd open in editor\n\n\n4.6 Preview the Website Locally\nRun the preview server:\nquarto preview\nYour browser will automatically refresh as you edit pages.\nScreenshot placeholder: Local preview in browser\n\n4.7 Create the Module Structure\nAdd a folder for the first module:\nmkdir module1\nInside it, create:\nmodule1/module1_overview.qmd\ntitle: \"Module 1 Overview\"\n---\n\n# Module 1 Overview\n\nThis page introduces the module structure and learning goals.\nUpdate _quarto.yml navigation:\nwebsite:\n  title: \"Course Microsite\"\n  navbar:\n    left:\n      - text: Home\n        href: index.qmd\n      - text: About\n        href: about.qmd\n      - text: Module 1\n        href: module1/module1_overview.qmd\nScreenshot placeholder: Folder tree with module1 folder\n\n4.8 Add Custom Styling with SCSS\nCreate a styles folder:\nmkdir styles\nAdd:\nstyles/custom.scss\n/* Placeholder for custom rules */\nReference it:\nformat:\n  html:\n    theme: cosmo\n    toc: true\n    css: styles/custom.scss\nScreenshot placeholder: custom.scss in editor\nActual styling will be introduced later once the structure is stable.\n\n4.9 Optional Git Workflow Throughout the Chapter\nYou may run these commands after each major step.\nPull updates before continuing:\ngit pull\nSave your work:\ngit add .\ngit commit -m \"Progress on microsite\"\nPush updates:\ngit push\nThis ensures your repository captures every structural change without waiting until the end.\n\n4.10 Preparing for Blackboard Ultra Integration\nBlackboard Ultra does not host Quarto sites directly. In upcoming chapters, you will export rendered HTML files and map them to the Blackboard course structure. For now, ensure that:\n\nFile paths are clean\nNavigation is easy to follow\nPages render correctly without external dependencies\nThe microsite structure mirrors the eventual Blackboard module layout\n\n\n4.11 Final Checklist\nYour microsite is ready for content development if you have:\n\nA working folder structure\n\nindex.qmd and about.qmd rendering without error\nModule folders initialized\nA functional _quarto.yml\nLocal preview running\nBasic SCSS scaffolding\nOptional Git workflow active and consistent",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#figures-and-attachments-folders",
+    "href": "03_quarto_class_setup.html#figures-and-attachments-folders",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.5 Figures and Attachments Folders",
+    "text": "4.5 Figures and Attachments Folders\nThese folders store images or assets for specific lectures, presentations, and projects.\n\nM##_lecture01_figures\n\nImages, diagrams, and charts for Lecture Notes 1.\n\nM##_lecture02_figures\n\nImages, diagrams, and charts for Lecture Notes 2.\n\nM##_presentation02_files\n\nAssets needed by Presentation 2.\nReveal.js presentations often generate companion folders automatically.\n\nM##_P1_files\n\nAttachments or figures rendered from Presentation 1.\n\nM##_P2_files\n\nAttachments or figures rendered from Presentation 2.\n\n\nThese directories ensure all images remain stable and do not break inside Blackboard Ultra.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#core-module-files-qmd",
+    "href": "03_quarto_class_setup.html#core-module-files-qmd",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.6 Core Module Files (qmd)",
+    "text": "4.6 Core Module Files (qmd)\nThese are the authored files students see.\n\nM##_A.qmd\n\nAssignment file for the module.\nMay include multi-part questions or applied tasks.\n\nM##_highlights.qmd\n\nA short summary of what the learner should remember.\nUseful as a quick study sheet.\n\nM##_Lab1.qmd\n\nFirst lab. Introduces the applied technique taught in Lecture 1.\n\nM##_Lab2.qmd\n\nSecond lab. Often builds toward the assignment or project.\n\nM##_LN1.qmd\n\nLecture Notes for the first subtopic in the module.\nTypically includes theory, examples, and diagrams.\n\nM##_LN2.qmd\n\nLecture Notes for the second subtopic.\n\nM##_P1.qmd\n\nProject Part 1.\nOften tied to data-analysis, modeling, or code-writing components.\n\nM##_P2.qmd\n\nProject Part 2.\nDeeper or extended analysis building on Part 1.\n\nM##_Proj.qmd\n\nFull module project (if the module has a standalone project).\n\nM##_Wrapup.qmd\n\nEnd-of-module summary that recaps techniques, insights, and next steps.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#title-welcome",
+    "href": "03_quarto_class_setup.html#title-welcome",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.8 title: “Welcome”",
+    "text": "4.8 title: “Welcome”",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#title-about-this-microsite",
+    "href": "03_quarto_class_setup.html#title-about-this-microsite",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "5.1 title: “About This Microsite”",
+    "text": "5.1 title: “About This Microsite”",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#title-module-1-overview",
+    "href": "03_quarto_class_setup.html#title-module-1-overview",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "6.1 title: “Module 1 Overview”",
+    "text": "6.1 title: “Module 1 Overview”",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#core-module-files-.qmd",
+    "href": "03_quarto_class_setup.html#core-module-files-.qmd",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.6 Core Module Files (.qmd)",
+    "text": "4.6 Core Module Files (.qmd)\nThese are the authored files students see.\n\nM##_A.qmd\n\nAssignment file for the module.\nMay include multi-part questions or applied tasks.\n\nM##_highlights.qmd\n\nA short summary of what the learner should remember.\nUseful as a quick study sheet.\n\nM##_Lab1.qmd\n\nFirst lab. Introduces the applied technique taught in Lecture 1.\n\nM##_Lab2.qmd\n\nSecond lab. Often builds toward the assignment or project.\n\nM##_LN1.qmd\n\nLecture Notes for the first subtopic in the module.\nTypically includes theory, examples, and diagrams.\n\nM##_LN2.qmd\n\nLecture Notes for the second subtopic.\n\nM##_P1.qmd\n\nProject Part 1.\nOften tied to data-analysis, modeling, or code-writing components.\n\nM##_P2.qmd\n\nProject Part 2.\nDeeper or extended analysis building on Part 1.\n\nM##_Proj.qmd\n\nFull module project (if the module has a standalone project).\n\nM##_Wrapup.qmd\n\nEnd-of-module summary that recaps techniques, insights, and next steps.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
+    ]
+  },
+  {
+    "objectID": "03_quarto_class_setup.html#recommended-module-recipe-for-chapter-3",
+    "href": "03_quarto_class_setup.html#recommended-module-recipe-for-chapter-3",
+    "title": "4  Building Your First Quarto Microsite",
+    "section": "4.7 Recommended Module Recipe for Chapter 3",
+    "text": "4.7 Recommended Module Recipe for Chapter 3\nBelow is a template suitable for your book. Students can copy and paste it into their workspace for all modules.\nCreate image and attachment folders:\n\nM##_lecture01_figures\nM##_lecture02_figures\nM##_presentation02_files\nM##_P1_files\nM##_P2_files\n\nCreate module qmd files:\n\nM##_A.qmd (Assignment)\nM##_highlights.qmd (Key concepts summary)\nM##_Lab1.qmd (Lab 1)\nM##_Lab2.qmd (Lab 2)\nM##_LN1.qmd (Lecture Notes 1)\nM##_LN2.qmd (Lecture Notes 2)\nM##_P1.qmd (Project Part 1)\nM##_P2.qmd (Project Part 2)\nM##_Proj.qmd (Standalone Project, if applicable)\nM##_Wrapup.qmd (Module conclusion)\n\n\n### Description of each file type\n\nLecture notes\nPrimary written learning material for each subtopic in the module.\nContains examples, explanations, formulas, diagrams, and links to readings.\n\nPresentations\nSlides or revealjs format versions of the lecture notes.\nUsed for class presentation and Blackboard embedding.\n\nLabs\nHands-on coding or analysis tasks.\nEach lab focuses on one or two techniques demonstrated in the lecture notes.\n\nAssignments\nGraded take-home or in-class exercises.\nThese typically build on the labs but require independent application.\n\nProjects\nModule-level project submissions.\nIn many courses, assignments 1–5 eventually combine into a full project.\n\nmodule_images\nA folder for all figures, diagrams, or screenshots used in the module.\nKeeping images inside the module prevents broken paths when exporting to HTML or LMS.\n\n### Apply this structure to all modules (0–7)\n\nBelow is the template you can copy for each module folder.\n\nMX/ MX_lecturenotes01.qmd MX_lecturenotes02.qmd MX_presentation01.qmd MX_presentation02.qmd MX_lab01.qmd MX_lab02.qmd MX_assignment01.qmd MX_project01.qmd module_images/\n\nWhere X represents module number (0 through 7).\n\n# Optional Notes on Naming\n\n- For consistency, always use two-digit formatting for numbering (01, 02).\n- This structure ensures that when imported into Blackboard Ultra, each module maps cleanly to a folder.\n- The pattern supports automated build scripts later in the book.\n\n\n\nYou will expand this file as modules, labs, presentations, and CSS customizations are added in future chapters.\n\n## Create Starter Pages\n\n### index.qmd",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quarto Class Setup</span>"
     ]
   }
 ]

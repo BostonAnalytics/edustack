@@ -1,5 +1,8 @@
 project:
   type: book
+  preview:
+    port: 4400
+    browser: true
 
 book:
   title: "Designing a Course With Quarto"
@@ -26,7 +29,9 @@ format:
     theme:
     - cosmo
     - ./theme/book.scss
+    code-overflow: wrap
 
 execute:
   freeze: false
+  cache: false
 
