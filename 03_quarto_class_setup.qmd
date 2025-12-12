@@ -219,7 +219,7 @@ Inside each module folder, create the same baseline structure. Each module (M0â€
 flowchart TD
 
 %% Group: Module Structure
-subgraph ModuleStructure["Module Structure"]
+subgraph ModuleStructure["**Module Structure**"]
         direction TB
         B1[M1_lecture01_figures]
         B2[M1_lecture02_figures]
@@ -244,7 +244,7 @@ subgraph CoreFiles["**Core Authoring Files**"]
     direction LR
 
     %% Column 1
-    subgraph Col1["Lecture Notes and Labs"]
+    subgraph Col1["***Lecture Notes and Labs***"]
         direction TB
         C1[M1_LN1.qmd]
         C2[M1_LN2.qmd]
@@ -253,7 +253,7 @@ subgraph CoreFiles["**Core Authoring Files**"]
     end
 
     %% Column 2
-    subgraph Col2["Assignments and Project Parts"]
+    subgraph Col2["***Assignments and Project Parts***"]
         direction TB
         C5[M1_Assignment.qmd]
         C6[M1_P1.qmd]
@@ -261,7 +261,7 @@ subgraph CoreFiles["**Core Authoring Files**"]
     end
 
     %% Column 3
-    subgraph Col3["Full Project and Wrapup"]
+    subgraph Col3["***Full Project and Wrapup***"]
         direction TB
         C8[M1_Proj.qmd]
         C9[M1_Highlights.qmd]
@@ -278,47 +278,6 @@ class CoreFiles,Col1,Col2,Col3 group
 class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10 node
 ```
 
-:::{.columns}
-:::{.column width="15%"}
-```
-M0/
-M1/
-M2/
-M3/
-M4/
-M5/
-M6/
-M7/
-```
-
-:::
-
-:::{.column width="80%"}
-
-```
-M1/
-  M1_lecture01_figures/
-  M1_lecture02_figures/
-  M1_presentation02_files/
-
-  M1_P1_files/
-  M1_P2_files/
-
-- M##_A.qmd               (Assignment)
-- M##_highlights.qmd      (Module Highlights)
-- M##_Lab1.qmd            (Lab 1, if applicable)
-- M##_Lab2.qmd            (Lab 2, if applicable)
-- M##_LN1.qmd             (Lecture Notes 1)
-- M##_LN2.qmd             (Lecture Notes 2)
-- M##_P1.qmd              (Presentation for Lecture 1)
-- M##_P2.qmd              (Presentation for Lecture 2)
-- M##_Proj.qmd            (Standalone or Sequential Project, if applicable)
-- M##_Wrapup.qmd          (Module Wrapup)
-```
-:::
-:::
-
-
 ### Figures and Attachments Folders
 
 | Folder Name              | Short Description                                                          |
@@ -330,7 +289,6 @@ M1/
 | M##_P2_files             | Attachments or figures used in Project Part 2.                             |
 
 These folders keep images and assets organized and prevent broken paths when exporting to Blackboard Ultra.
-
 
 ### Core Module Files (.qmd)
 
