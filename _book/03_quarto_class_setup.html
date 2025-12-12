@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2e0b4708489a94d7cf3aaa82802539fe.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b24d7d44e0b15019e8ec191b30a04fa0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d20da0aa7a8193bb27d12b4396ca7777.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,6 +70,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -174,7 +177,23 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#format-grid-layout" id="toc-format-grid-layout" class="nav-link" data-scroll-target="#format-grid-layout"><span class="header-section-number">4.3.6</span> Format → Grid Layout</a></li>
   <li><a href="#crossref" id="toc-crossref" class="nav-link" data-scroll-target="#crossref"><span class="header-section-number">4.3.7</span> Crossref</a></li>
   </ul></li>
-  <li><a href="#course-folder-structure" id="toc-course-folder-structure" class="nav-link" data-scroll-target="#course-folder-structure"><span class="header-section-number">4.4</span> Course Folder Structure</a></li>
+  <li><a href="#course-folder-structure" id="toc-course-folder-structure" class="nav-link" data-scroll-target="#course-folder-structure"><span class="header-section-number">4.4</span> Course Folder Structure</a>
+  <ul class="collapse">
+  <li><a href="#figures-and-attachments-folders" id="toc-figures-and-attachments-folders" class="nav-link" data-scroll-target="#figures-and-attachments-folders"><span class="header-section-number">4.4.1</span> Figures and Attachments Folders</a></li>
+  <li><a href="#core-module-files-.qmd" id="toc-core-module-files-.qmd" class="nav-link" data-scroll-target="#core-module-files-.qmd"><span class="header-section-number">4.4.2</span> Core Module Files (.qmd)</a></li>
+  </ul></li>
+  <li><a href="#create-starter-pages" id="toc-create-starter-pages" class="nav-link" data-scroll-target="#create-starter-pages"><span class="header-section-number">4.5</span> Create Starter Pages</a>
+  <ul class="collapse">
+  <li><a href="#references-and-csl" id="toc-references-and-csl" class="nav-link" data-scroll-target="#references-and-csl"><span class="header-section-number">4.5.1</span> References and csl</a></li>
+  <li><a href="#index.qmd" id="toc-index.qmd" class="nav-link" data-scroll-target="#index.qmd"><span class="header-section-number">4.5.2</span> index.qmd</a></li>
+  <li><a href="#about.qmd" id="toc-about.qmd" class="nav-link" data-scroll-target="#about.qmd"><span class="header-section-number">4.5.3</span> about.qmd</a></li>
+  </ul></li>
+  <li><a href="#preview-the-website-locally" id="toc-preview-the-website-locally" class="nav-link" data-scroll-target="#preview-the-website-locally"><span class="header-section-number">4.6</span> Preview the Website Locally</a></li>
+  <li><a href="#create-the-module-structure" id="toc-create-the-module-structure" class="nav-link" data-scroll-target="#create-the-module-structure"><span class="header-section-number">4.7</span> Create the Module Structure</a></li>
+  <li><a href="#add-custom-styling-with-scss" id="toc-add-custom-styling-with-scss" class="nav-link" data-scroll-target="#add-custom-styling-with-scss"><span class="header-section-number">4.8</span> Add Custom Styling with SCSS</a></li>
+  <li><a href="#optional-git-workflow-throughout-the-chapter" id="toc-optional-git-workflow-throughout-the-chapter" class="nav-link" data-scroll-target="#optional-git-workflow-throughout-the-chapter"><span class="header-section-number">4.9</span> Optional Git Workflow Throughout the Chapter</a></li>
+  <li><a href="#preparing-for-blackboard-ultra-integration" id="toc-preparing-for-blackboard-ultra-integration" class="nav-link" data-scroll-target="#preparing-for-blackboard-ultra-integration"><span class="header-section-number">4.10</span> Preparing for Blackboard Ultra Integration</a></li>
+  <li><a href="#final-checklist" id="toc-final-checklist" class="nav-link" data-scroll-target="#final-checklist"><span class="header-section-number">4.11</span> Final Checklist</a></li>
   </ul>
 </nav>
     </div>
@@ -548,6 +567,85 @@ crossref:
 <h2 data-number="4.4" class="anchored" data-anchor-id="course-folder-structure"><span class="header-section-number">4.4</span> Course Folder Structure</h2>
 <p>Create the top-level folders. BU Virtual likes to see the modules as separate folders for better organization. M followed by single digit is the module number. Module 0 is a prerequisite module and can be omitted. Module 7 is an extra module that can be omitted as well.</p>
 <p>Inside each module folder, create the same baseline structure. Each module (M0–M7) should follow a consistent pattern. Please create files with the specific names regardless of them being used in the course or not. The files are placeholders and can be empty and turned off at blackboard level.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+%% Group: Module Structure
+subgraph ModuleStructure["Module Structure"]
+        direction TB
+        B1[M1_lecture01_figures]
+        B2[M1_lecture02_figures]
+        B3[M1_presentation01_files]
+        B4[M1_presentation02_files]
+    end
+
+%% Coloring
+classDef lightGroup fill:#f8f3e8,stroke:#d4c7a1,color:#333
+classDef lightNode fill:#fdfbf7,stroke:#d4c7a1,color:#333
+
+class ModuleStructure lightGroup
+class Subfolders lightGroup
+class B1,B2,B3,B4 lightNode
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+subgraph CoreFiles["Core Authoring Files"]
+    direction LR
+
+    %% Column 1
+    subgraph Col1["Lecture Notes and Labs"]
+        direction TB
+        C1[M1_LN1.qmd]
+        C2[M1_LN2.qmd]
+        C3[M1_Lab1.qmd]
+        C4[M1_Lab2.qmd]
+    end
+
+    %% Column 2
+    subgraph Col2["Assignments and Project Parts"]
+        direction TB
+        C5[M1_Assignment.qmd]
+        C6[M1_P1.qmd]
+        C7[M1_P2.qmd]
+    end
+
+    %% Column 3
+    subgraph Col3["Full Project and Wrapup"]
+        direction TB
+        C8[M1_Proj.qmd]
+        C9[M1_Highlights.qmd]
+        C10[M1_Wrapup.qmd]
+    end
+
+end
+
+%% Styling
+classDef group fill:#e9f4f9,stroke:#9ac3d1,color:#1a1a1a
+classDef node fill:#f7fcfe,stroke:#9ac3d1,color:#1a1a1a
+
+class CoreFiles,Col1,Col2,Col3 group
+class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10 node
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <div class="columns">
 <div class="column" style="width:15%;">
 <pre><code>M0/
@@ -577,7 +675,9 @@ M7/</code></pre>
 - M##_P2.qmd              (Presentation for Lecture 2)
 - M##_Proj.qmd            (Standalone or Sequential Project, if applicable)
 - M##_Wrapup.qmd          (Module Wrapup)</code></pre>
-</div><section id="figures-and-attachments-folders" class="level3" data-number="4.4.1">
+</div>
+</div>
+<section id="figures-and-attachments-folders" class="level3" data-number="4.4.1">
 <h3 data-number="4.4.1" class="anchored" data-anchor-id="figures-and-attachments-folders"><span class="header-section-number">4.4.1</span> Figures and Attachments Folders</h3>
 <table class="caption-top table">
 <colgroup>
@@ -614,7 +714,8 @@ M7/</code></pre>
 </tbody>
 </table>
 <p>These folders keep images and assets organized and prevent broken paths when exporting to Blackboard Ultra.</p>
-</section><section id="core-module-files-.qmd" class="level3" data-number="4.4.2">
+</section>
+<section id="core-module-files-.qmd" class="level3" data-number="4.4.2">
 <h3 data-number="4.4.2" class="anchored" data-anchor-id="core-module-files-.qmd"><span class="header-section-number">4.4.2</span> Core Module Files (.qmd)</h3>
 <table class="caption-top table">
 <colgroup>
@@ -670,7 +771,9 @@ M7/</code></pre>
 </tr>
 </tbody>
 </table>
-</section><section id="create-starter-pages" class="level2" data-number="4.5">
+</section>
+</section>
+<section id="create-starter-pages" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="create-starter-pages"><span class="header-section-number">4.5</span> Create Starter Pages</h2>
 <p>The quarto create command will create a <code>index.qmd</code> file in the root directory. This will be your syllabus file.</p>
 <section id="references-and-csl" class="level3" data-number="4.5.1">
@@ -715,52 +818,95 @@ This microsite introduces the workflow for building course content and integrati
 This site is part of the training pathway for developing professional course materials with Quarto.</code></pre>
 <p>Screenshot placeholder: index.qmd open in editor</p>
 </section>
-</section><section id="preview-the-website-locally" class="level2" data-number="4.6">
+</section>
+<section id="preview-the-website-locally" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="preview-the-website-locally"><span class="header-section-number">4.6</span> Preview the Website Locally</h2>
-<p>Run the preview server:</p>
-<pre><code>quarto preview</code></pre>
-<p>Your browser will automatically refresh as you edit pages.</p>
-<p>Screenshot placeholder: Local preview in browser</p>
-</section><section id="create-the-module-structure" class="level2" data-number="4.7">
+<ul>
+<li>Run the preview bu clicking the newspaper icon in the VScode editor</li>
+<li>VScode will open a local preview server in your default browser.</li>
+</ul>
+<div id="fig-vsc-quarto-preview" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vsc-quarto-preview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/ch03/quarto-classsetup-render.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vsc-quarto-preview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: VScode preview screenshot
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="create-the-module-structure" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="create-the-module-structure"><span class="header-section-number">4.7</span> Create the Module Structure</h2>
-<p>Add a folder for the first module:</p>
-<pre><code>mkdir module1</code></pre>
-<p>Inside it, create:</p>
-<p><code>module1/module1_overview.qmd</code></p>
-<pre><code>title: "Module 1 Overview"
+<ul>
+<li>Add a folder for the first module (M1):</li>
+<li>Inside it, create: <code>module1/M##_highlights.qmd</code></li>
+<li>Add content to the highlights file (example from AD 688 Cloud Analytics for Business):</li>
+</ul>
+<pre><code>---
+title: "Module 1: Highlights"
+subtitle: "Cloud Foundations and Big Data Pipelines"
+number-sections: true
+date: "2024-11-21"
+date-modified: today
+date-format: long
+categories: ["Cloud Computing", "Big Data", "AWS Academy", "APIs", "Data Engineering", "Cloud Storage"]
 ---
 
-# Module 1 Overview
 
-This page introduces the module structure and learning goals.</code></pre>
-<p>Update <code>_quarto.yml</code> navigation:</p>
-<pre><code>website:
-  title: "Course Microsite"
-  navbar:
-    left:
-      - text: Home
-        href: index.qmd
-      - text: About
-        href: about.qmd
-      - text: Module 1
-        href: module1/module1_overview.qmd</code></pre>
-<p>Screenshot placeholder: Folder tree with module1 folder</p>
-</section><section id="add-custom-styling-with-scss" class="level2" data-number="4.8">
+# Lecture 01: Introduction to Big Data and Cloud
+
+## Highlights
+
+* Understand the landscape of **Big Data**: volume, velocity, variety, veracity, and value.
+* Overview of course logistics, expectations, and deliverables.
+* Familiarization with key **terminology** in cloud and data engineering.
+* Setup instructions for development environments, including VS Code and browser-native notebooks.
+* Introduction to **AWS Academy Learner Labs** and access setup.
+
+## Learning Objectives
+
+By the end of this lecture, students will be able to:
+
+* Explain the characteristics and challenges of working with big data.
+* Set up their local and cloud-based development environments.
+* Navigate the AWS Academy interface and launch cloud instances.
+* Describe the roles of data engineers, cloud architects, and analysts in cloud ecosystems.
+
+
+# Lecture 02: Data Pipelines with APIs and Cloud Services
+
+## Highlights
+
+* Introduction to **cloud-native data architecture** and the flow of data in modern systems.
+* Understand **data pipelines** and their components: ingestion, transformation, storage, and access.
+* Compare and contrast storage and data management options:
+
+  * AWS S3 (object storage)
+  * Azure Blob Storage
+  * Google BigQuery (serverless, warehouse)
+* Introduction to using **APIs for data ingestion** and service orchestration.
+
+## Learning Objectives
+
+By the end of this lecture, students will be able to:
+
+* Explain the structure and function of data pipelines.
+* Identify key differences between cloud storage solutions across major providers.
+* Describe how APIs integrate with cloud services for real-time and batch processing.
+* Connect cloud theory with practical workflow design in analytics projects.
+</code></pre>
+</section>
+<section id="add-custom-styling-with-scss" class="level2" data-number="4.8">
 <h2 data-number="4.8" class="anchored" data-anchor-id="add-custom-styling-with-scss"><span class="header-section-number">4.8</span> Add Custom Styling with SCSS</h2>
-<p>Create a styles folder:</p>
-<pre><code>mkdir styles</code></pre>
-<p>Add:</p>
-<p><code>styles/custom.scss</code></p>
-<pre><code>/* Placeholder for custom rules */</code></pre>
-<p>Reference it:</p>
-<pre><code>format:
-  html:
-    theme: cosmo
-    toc: true
-    css: styles/custom.scss</code></pre>
-<p>Screenshot placeholder: custom.scss in editor</p>
-<p>Actual styling will be introduced later once the structure is stable.</p>
-</section><section id="optional-git-workflow-throughout-the-chapter" class="level2" data-number="4.9">
+<ul>
+<li>Create a <code>theme/styles</code> folder:</li>
+<li>Add <code>scss/mycourse.scss</code></li>
+<li>Sample scss is available <a href="https://github.com/BostonAnalytics/AD688-Web-Analytics/blob/main/analytics_themes/web-analytics.scss">AD688-Web-Analytics/themes</a>.</li>
+<li>Make sure this theme is referenced in the <code>_quarto.yml</code> file under <code>theme</code>.</li>
+</ul>
+</section>
+<section id="optional-git-workflow-throughout-the-chapter" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="optional-git-workflow-throughout-the-chapter"><span class="header-section-number">4.9</span> Optional Git Workflow Throughout the Chapter</h2>
 <p>You may run these commands after each major step.</p>
 <p>Pull updates before continuing:</p>
@@ -771,7 +917,8 @@ git commit -m "Progress on microsite"</code></pre>
 <p>Push updates:</p>
 <pre><code>git push</code></pre>
 <p>This ensures your repository captures every structural change without waiting until the end.</p>
-</section><section id="preparing-for-blackboard-ultra-integration" class="level2" data-number="4.10">
+</section>
+<section id="preparing-for-blackboard-ultra-integration" class="level2" data-number="4.10">
 <h2 data-number="4.10" class="anchored" data-anchor-id="preparing-for-blackboard-ultra-integration"><span class="header-section-number">4.10</span> Preparing for Blackboard Ultra Integration</h2>
 <p>Blackboard Ultra does not host Quarto sites directly. In upcoming chapters, you will export rendered HTML files and map them to the Blackboard course structure. For now, ensure that:</p>
 <ul>
@@ -780,7 +927,8 @@ git commit -m "Progress on microsite"</code></pre>
 <li>Pages render correctly without external dependencies</li>
 <li>The microsite structure mirrors the eventual Blackboard module layout</li>
 </ul>
-</section><section id="final-checklist" class="level2" data-number="4.11">
+</section>
+<section id="final-checklist" class="level2" data-number="4.11">
 <h2 data-number="4.11" class="anchored" data-anchor-id="final-checklist"><span class="header-section-number">4.11</span> Final Checklist</h2>
 <p>Your microsite is ready for content development if you have:</p>
 <ul>
@@ -795,8 +943,6 @@ git commit -m "Progress on microsite"</code></pre>
 </ul>
 
 
-</section>
-</div>
 </section>
 
 </main> <!-- /main -->

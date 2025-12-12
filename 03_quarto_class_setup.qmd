@@ -215,6 +215,69 @@ Create the top-level folders. BU Virtual likes to see the modules as separate fo
 
 Inside each module folder, create the same baseline structure. Each module (M0–M7) should follow a consistent pattern. Please create files with the specific names regardless of them being used in the course or not. The files are placeholders and can be empty and turned off at blackboard level.
 
+```{mermaid}
+flowchart TD
+
+%% Group: Module Structure
+subgraph ModuleStructure["Module Structure"]
+        direction TB
+        B1[M1_lecture01_figures]
+        B2[M1_lecture02_figures]
+        B3[M1_presentation01_files]
+        B4[M1_presentation02_files]
+    end
+
+%% Coloring
+classDef lightGroup fill:#f8f3e8,stroke:#d4c7a1,color:#333
+classDef lightNode fill:#fdfbf7,stroke:#d4c7a1,color:#333
+
+class ModuleStructure lightGroup
+class Subfolders lightGroup
+class B1,B2,B3,B4 lightNode
+
+```
+
+```{mermaid}
+flowchart LR
+
+subgraph CoreFiles["**Core Authoring Files**"]
+    direction LR
+
+    %% Column 1
+    subgraph Col1["Lecture Notes and Labs"]
+        direction TB
+        C1[M1_LN1.qmd]
+        C2[M1_LN2.qmd]
+        C3[M1_Lab1.qmd]
+        C4[M1_Lab2.qmd]
+    end
+
+    %% Column 2
+    subgraph Col2["Assignments and Project Parts"]
+        direction TB
+        C5[M1_Assignment.qmd]
+        C6[M1_P1.qmd]
+        C7[M1_P2.qmd]
+    end
+
+    %% Column 3
+    subgraph Col3["Full Project and Wrapup"]
+        direction TB
+        C8[M1_Proj.qmd]
+        C9[M1_Highlights.qmd]
+        C10[M1_Wrapup.qmd]
+    end
+
+end
+
+%% Styling
+classDef group fill:#e9f4f9,stroke:#9ac3d1,color:#1a1a1a
+classDef node fill:#f7fcfe,stroke:#9ac3d1,color:#1a1a1a
+
+class CoreFiles,Col1,Col2,Col3 group
+class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10 node
+```
+
 :::{.columns}
 :::{.column width="15%"}
 ```
@@ -253,6 +316,8 @@ M1/
 - M##_Wrapup.qmd          (Module Wrapup)
 ```
 :::
+:::
+
 
 ### Figures and Attachments Folders
 
@@ -330,84 +395,80 @@ Screenshot placeholder: index.qmd open in editor
 
 ## Preview the Website Locally
 
-Run the preview server:
+- Run the preview bu clicking the newspaper icon in the VScode editor
+- VScode will open a local preview server in your default browser.
 
-```
-quarto preview
-```
-
-Your browser will automatically refresh as you edit pages.
-
-Screenshot placeholder: Local preview in browser
+![VScode preview screenshot](./images/ch03/quarto-classsetup-render.png){width="80%" fig-align="center" #fig-vsc-quarto-preview}
 
 ## Create the Module Structure
 
-Add a folder for the first module:
+- Add a folder for the first module (M1):
+- Inside it, create: `module1/M##_highlights.qmd`
+- Add content to the highlights file (example from AD 688 Cloud Analytics for Business):
+
 
 ```
-mkdir module1
-```
-
-Inside it, create:
-
-`module1/module1_overview.qmd`
-
-```
-title: "Module 1 Overview"
+---
+title: "Module 1: Highlights"
+subtitle: "Cloud Foundations and Big Data Pipelines"
+number-sections: true
+date: "2024-11-21"
+date-modified: today
+date-format: long
+categories: ["Cloud Computing", "Big Data", "AWS Academy", "APIs", "Data Engineering", "Cloud Storage"]
 ---
 
-# Module 1 Overview
 
-This page introduces the module structure and learning goals.
+# Lecture 01: Introduction to Big Data and Cloud
+
+## Highlights
+
+* Understand the landscape of **Big Data**: volume, velocity, variety, veracity, and value.
+* Overview of course logistics, expectations, and deliverables.
+* Familiarization with key **terminology** in cloud and data engineering.
+* Setup instructions for development environments, including VS Code and browser-native notebooks.
+* Introduction to **AWS Academy Learner Labs** and access setup.
+
+## Learning Objectives
+
+By the end of this lecture, students will be able to:
+
+* Explain the characteristics and challenges of working with big data.
+* Set up their local and cloud-based development environments.
+* Navigate the AWS Academy interface and launch cloud instances.
+* Describe the roles of data engineers, cloud architects, and analysts in cloud ecosystems.
+
+
+# Lecture 02: Data Pipelines with APIs and Cloud Services
+
+## Highlights
+
+* Introduction to **cloud-native data architecture** and the flow of data in modern systems.
+* Understand **data pipelines** and their components: ingestion, transformation, storage, and access.
+* Compare and contrast storage and data management options:
+
+  * AWS S3 (object storage)
+  * Azure Blob Storage
+  * Google BigQuery (serverless, warehouse)
+* Introduction to using **APIs for data ingestion** and service orchestration.
+
+## Learning Objectives
+
+By the end of this lecture, students will be able to:
+
+* Explain the structure and function of data pipelines.
+* Identify key differences between cloud storage solutions across major providers.
+* Describe how APIs integrate with cloud services for real-time and batch processing.
+* Connect cloud theory with practical workflow design in analytics projects.
+
 ```
-
-Update `_quarto.yml` navigation:
-
-```
-website:
-  title: "Course Microsite"
-  navbar:
-    left:
-      - text: Home
-        href: index.qmd
-      - text: About
-        href: about.qmd
-      - text: Module 1
-        href: module1/module1_overview.qmd
-```
-
-Screenshot placeholder: Folder tree with module1 folder
 
 ## Add Custom Styling with SCSS
 
-Create a styles folder:
-
-```
-mkdir styles
-```
-
-Add:
-
-`styles/custom.scss`
-
-```
-/* Placeholder for custom rules */
-```
-
-Reference it:
-
-```
-format:
-  html:
-    theme: cosmo
-    toc: true
-    css: styles/custom.scss
-```
-
-Screenshot placeholder: custom.scss in editor
-
-Actual styling will be introduced later once the structure is stable.
-
+- Create a `theme/styles` folder:
+- Add `scss/mycourse.scss`
+- Sample scss is available [AD688-Web-Analytics/themes](https://github.com/BostonAnalytics/AD688-Web-Analytics/blob/main/analytics_themes/web-analytics.scss).
+- Make sure this theme is referenced in the `_quarto.yml` file under `theme`.
 
 ## Optional Git Workflow Throughout the Chapter
 
