@@ -26,9 +26,6 @@ format:
     theme:
     - cosmo
     - ./theme/book.scss
-  pdf:
-    documentclass: scrreprt
-
 
 execute:
   freeze: false
