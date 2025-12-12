@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto_class_setup – Designing a Course With Quarto</title>
+<title>4&nbsp; Building Your First Quarto Microsite – Designing a Course With Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-270eb22823cb820ade5f042ed36b8925.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-458c9bd1cc3c3e2caa29f9bfc34d67c8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -155,15 +155,647 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#keeping-your-git-repository-updated" id="toc-keeping-your-git-repository-updated" class="nav-link active" data-scroll-target="#keeping-your-git-repository-updated"><span class="header-section-number">4.1</span> Keeping Your Git Repository Updated</a></li>
+  <li><a href="#create-the-microsite-folder-structure" id="toc-create-the-microsite-folder-structure" class="nav-link" data-scroll-target="#create-the-microsite-folder-structure"><span class="header-section-number">4.2</span> Create the Microsite Folder Structure</a></li>
+  <li><a href="#set-up-the-core-quarto-configuration-file" id="toc-set-up-the-core-quarto-configuration-file" class="nav-link" data-scroll-target="#set-up-the-core-quarto-configuration-file"><span class="header-section-number">4.3</span> Set Up the Core Quarto Configuration File</a>
+  <ul class="collapse">
+  <li><a href="#project" id="toc-project" class="nav-link" data-scroll-target="#project"><span class="header-section-number">4.3.1</span> Project</a></li>
+  <li><a href="#editor" id="toc-editor" class="nav-link" data-scroll-target="#editor"><span class="header-section-number">4.3.2</span> Editor</a></li>
+  <li><a href="#execute" id="toc-execute" class="nav-link" data-scroll-target="#execute"><span class="header-section-number">4.3.3</span> Execute</a></li>
+  <li><a href="#website" id="toc-website" class="nav-link" data-scroll-target="#website"><span class="header-section-number">4.3.4</span> Website</a></li>
+  <li><a href="#format-html-rendering" id="toc-format-html-rendering" class="nav-link" data-scroll-target="#format-html-rendering"><span class="header-section-number">4.3.5</span> Format (HTML Rendering)</a></li>
+  <li><a href="#format-grid-layout" id="toc-format-grid-layout" class="nav-link" data-scroll-target="#format-grid-layout"><span class="header-section-number">4.3.6</span> Format → Grid Layout</a></li>
+  <li><a href="#crossref" id="toc-crossref" class="nav-link" data-scroll-target="#crossref"><span class="header-section-number">4.3.7</span> Crossref</a></li>
+  </ul></li>
+  <li><a href="#course-folder-structure" id="toc-course-folder-structure" class="nav-link" data-scroll-target="#course-folder-structure"><span class="header-section-number">4.4</span> Course Folder Structure</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Building Your First Quarto Microsite</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<p>This chapter walks you through creating and organizing a Quarto microsite. Before beginning, review the to-do list below. You can click on each item to jump to its section.</p>
+<section id="keeping-your-git-repository-updated" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="keeping-your-git-repository-updated"><span class="header-section-number">4.1</span> Keeping Your Git Repository Updated</h2>
+<p>If you are using GitHub or any Git-based workflow, run a pull before starting work and a push after you finish a working session. This prevents merge conflicts, overwriting, or accidental loss of changes when building large course sites.</p>
+<p>Pull before you begin each session:</p>
+<pre><code>git pull</code></pre>
+<p>Stage and commit your updates during work:</p>
+<pre><code>git add .
+git commit -m "Update microsite structure"</code></pre>
+<p>Push your changes when you are done:</p>
+<pre><code>git push</code></pre>
+<p>You may repeat these commands several times as you work through this chapter so that your repository accurately reflects your progress and remains synchronized across devices or collaborators.</p>
+</section>
+<section id="create-the-microsite-folder-structure" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="create-the-microsite-folder-structure"><span class="header-section-number">4.2</span> Create the Microsite Folder Structure</h2>
+<p>You may complete this step on a local drive or within a cloud-synced folder. If you choose not to use GitHub, you can start here and skip the optional Git workflows.</p>
+<ul>
+<li>Create a new folder for your microsite, name it based on your course name with a hyphen for spaces.</li>
+<li>Use terminal or command prompt and navigate to the folder.</li>
+<li><code>quarto create project website .</code> (including <code>.</code>) to create the project. This step requires python, r, quarto.</li>
+</ul>
+</section>
+<section id="set-up-the-core-quarto-configuration-file" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="set-up-the-core-quarto-configuration-file"><span class="header-section-number">4.3</span> Set Up the Core Quarto Configuration File</h2>
+<p>The <code>_quarto.yml</code> file defines the structure and appearance of your microsite. A minimal starter configuration looks like this:</p>
+<pre><code>project:
+  type: website
+  preview:
+    port: 4300
+    browser: false
+  render:
+    - "*.qmd"
+    - "!delivarables-solutions/*"
+    - "!classroom-organization/*"
+    - "!data/*"
+    - "Announcements/*"
+
+editor:  
+  render-on-save: true
+  preview: true
+
+execute:
+  freeze: auto
+  keep-ipynb: false
+  fig-align: center
+
+website:
+  title: "My Course"
+  navbar: false
+    # search: true
+    # left:
+    #   - text: Syllabus
+    #     href: index.qmd
+    #   - text: Schedule
+    #     href: schedule.qmd
+    #   - text: Deliverables
+    #     href: deliverables.qmd
+    #   - text: "Module 0"
+    #     menu:
+    #       - text: "Lecture Notes 0.1"
+    #         href: M0/M0_lecturenotes0.1.qmd
+    #       - text: "Presentation 0.1"
+    #         href: M0/M0_presentation0.1.qmd
+    #       - text: "Lecture Notes 0.2"
+    #         href: M0/M0_lecturenotes0.2.qmd
+    #       - text: "Presentation 0.2"
+    #         href: M0/M0_presentation0.2.qmd
+    #       - text: "Lecture Notes 0.3"
+    #         href: M0/M0_lecturenotes0.3.qmd
+    #       - text: "Presentation 0.3"
+    #         href: M0/M0_presentation0.3.qmd
+    #   - text: "Module 1"
+    #     menu:
+    #       - text: "Lecture Notes 1.1"
+    #         href: M1/M01_lecturenotes01.qmd
+    #       - text: "Presentation 1.1"
+    #         href: M1/M01_presentation01.qmd
+    #       - text: "Lab 01"
+    #         href: M1/M01_lab01.qmd
+    #       - text: "Lecture Notes 1.2"
+    #         href: M1/M01_lecturenotes02.qmd
+    #       - text: "Presentation 1.2"
+    #         href: M1/M01_presentation02.qmd
+    #       - text: "Lab 02"
+    #         href: M1/M01_lab02.qmd
+    #       - text: "Assignment 01"
+    #         href: M1/M01_assignment01.qmd
+    #       - text: "Project 01"
+    #         href: M1/M01_project01.qmd
+    #   - text: "Module 2"
+    #     menu:
+    #       - text: "Lecture Notes 2.1"
+    #         href: M2/M02_lecturenotes01.qmd
+    #       - text: "Presentation 2.1"
+    #         href: M2/M02_presentation01.qmd
+    #       - text: "Lab 03"
+    #         href: M2/M02_lab01.qmd
+    #       - text: "Lecture Notes 2.2"
+    #         href: M2/M02_lecturenotes02.qmd
+    #       - text: "Presentation 2.2"
+    #         href: M2/M02_presentation02.qmd
+    #       - text: "Lab 04"
+    #         href: M2/M02_lab02.qmd
+      
+format:
+  html:
+    bibliography: references.bib
+    theme: [cosmo, ./themes/mycourse.scss]
+    toc: true
+    number-sections: true
+    embed-resources: true
+    highlight-style: github
+    code-overflow: wrap
+    html-math-method: mathml
+    grid:
+      sidebar-width: 100px
+      body-width: 1100px
+      margin-width: 400px
+      gutter-width: 1.5rem
+
+crossref:
+  fig-title: '**Figure**'
+  fig-labels: arabic
+  title-delim: "**.**"</code></pre>
+<section id="project" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="project"><span class="header-section-number">4.3.1</span> Project</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Short Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>type: website</td>
+<td>Treats the project as a multi-page website.</td>
+</tr>
+<tr class="even">
+<td>preview.port: 4300</td>
+<td>Runs the local preview server on port 4300.</td>
+</tr>
+<tr class="odd">
+<td>preview.browser: false</td>
+<td>Prevents automatic browser launch.</td>
+</tr>
+<tr class="even">
+<td>render: “*.qmd”</td>
+<td>Renders all qmd files unless excluded.</td>
+</tr>
+<tr class="odd">
+<td>render: “!deliverables-solutions/*”</td>
+<td>Excludes instructor-only solutions.</td>
+</tr>
+<tr class="even">
+<td>render: “!classroom-organization/*”</td>
+<td>Excludes internal organizational files.</td>
+</tr>
+<tr class="odd">
+<td>render: “!data/*”</td>
+<td>Excludes data folders from rendering.</td>
+</tr>
+<tr class="even">
+<td>render: “Announcements/*”</td>
+<td>Explicitly includes the Announcements folder.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="editor" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="editor"><span class="header-section-number">4.3.2</span> Editor</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Short Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>render-on-save: true</td>
+<td>Automatically renders pages on save.</td>
+</tr>
+<tr class="even">
+<td>preview: true</td>
+<td>Maintains a live preview as you edit.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="execute" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="execute"><span class="header-section-number">4.3.3</span> Execute</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Short Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>freeze: auto</td>
+<td>Reuses cached outputs unless code changes.</td>
+</tr>
+<tr class="even">
+<td>keep-ipynb: false</td>
+<td>Prevents generating .ipynb versions.</td>
+</tr>
+<tr class="odd">
+<td>fig-align: center</td>
+<td>Centers all figures.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="website" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="website"><span class="header-section-number">4.3.4</span> Website</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Short Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>title: “My Course”</td>
+<td>Sets the website title.</td>
+</tr>
+<tr class="even">
+<td>navbar: false</td>
+<td>Disables the navigation bar.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="format-html-rendering" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="format-html-rendering"><span class="header-section-number">4.3.5</span> Format (HTML Rendering)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Short Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bibliography: references.bib</td>
+<td>Enables citation support.</td>
+</tr>
+<tr class="even">
+<td>theme: [cosmo, mycourse.scss]</td>
+<td>Applies Bootswatch theme and custom SCSS.</td>
+</tr>
+<tr class="odd">
+<td>toc: true</td>
+<td>Adds a table of contents to all pages.</td>
+</tr>
+<tr class="even">
+<td>number-sections: true</td>
+<td>Numbers section headings.</td>
+</tr>
+<tr class="odd">
+<td>embed-resources: true</td>
+<td>Inlines assets for Blackboard compatibility.</td>
+</tr>
+<tr class="even">
+<td>highlight-style: github</td>
+<td>Uses GitHub-style code highlighting.</td>
+</tr>
+<tr class="odd">
+<td>code-overflow: wrap</td>
+<td>Wraps long code lines.</td>
+</tr>
+<tr class="even">
+<td>html-math-method: mathml</td>
+<td>Renders math via MathML.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="format-grid-layout" class="level3" data-number="4.3.6">
+<h3 data-number="4.3.6" class="anchored" data-anchor-id="format-grid-layout"><span class="header-section-number">4.3.6</span> Format → Grid Layout</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Short Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>sidebar-width: 100px</td>
+<td>Sets sidebar width.</td>
+</tr>
+<tr class="even">
+<td>body-width: 1100px</td>
+<td>Sets main body width.</td>
+</tr>
+<tr class="odd">
+<td>margin-width: 400px</td>
+<td>Sets margin column width.</td>
+</tr>
+<tr class="even">
+<td>gutter-width: 1.5rem</td>
+<td>Sets spacing between layout columns.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crossref" class="level3" data-number="4.3.7">
+<h3 data-number="4.3.7" class="anchored" data-anchor-id="crossref"><span class="header-section-number">4.3.7</span> Crossref</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Short Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>fig-title: “Figure”</td>
+<td>Prefix used for figure labels.</td>
+</tr>
+<tr class="even">
+<td>fig-labels: arabic</td>
+<td>Uses Arabic numerals for figures.</td>
+</tr>
+<tr class="odd">
+<td>title-delim: “.”</td>
+<td>Inserts a period between label and title.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="course-folder-structure" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="course-folder-structure"><span class="header-section-number">4.4</span> Course Folder Structure</h2>
+<p>Create the top-level folders. BU Virtual likes to see the modules as separate folders for better organization. M followed by single digit is the module number. Module 0 is a prerequisite module and can be omitted. Module 7 is an extra module that can be omitted as well.</p>
+<p>Inside each module folder, create the same baseline structure. Each module (M0–M7) should follow a consistent pattern. Please create files with the specific names regardless of them being used in the course or not. The files are placeholders and can be empty and turned off at blackboard level.</p>
+<div class="columns">
+<div class="column" style="width:15%;">
+<pre><code>M0/
+M1/
+M2/
+M3/
+M4/
+M5/
+M6/
+M7/</code></pre>
+</div><div class="column" style="width:80%;">
+<pre><code>M1/
+  M1_lecture01_figures/
+  M1_lecture02_figures/
+  M1_presentation02_files/
+
+  M1_P1_files/
+  M1_P2_files/
+
+- M##_A.qmd               (Assignment)
+- M##_highlights.qmd      (Module Highlights)
+- M##_Lab1.qmd            (Lab 1, if applicable)
+- M##_Lab2.qmd            (Lab 2, if applicable)
+- M##_LN1.qmd             (Lecture Notes 1)
+- M##_LN2.qmd             (Lecture Notes 2)
+- M##_P1.qmd              (Presentation for Lecture 1)
+- M##_P2.qmd              (Presentation for Lecture 2)
+- M##_Proj.qmd            (Standalone or Sequential Project, if applicable)
+- M##_Wrapup.qmd          (Module Wrapup)</code></pre>
+</div><section id="figures-and-attachments-folders" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="figures-and-attachments-folders"><span class="header-section-number">4.4.1</span> Figures and Attachments Folders</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Folder Name</th>
+<th>Short Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M##_lecture01_figures</td>
+<td>Images and diagrams for Lecture Notes 1.</td>
+</tr>
+<tr class="even">
+<td>M##_lecture02_figures</td>
+<td>Images and diagrams for Lecture Notes 2.</td>
+</tr>
+<tr class="odd">
+<td>M##_presentation02_files</td>
+<td>Assets used by Presentation 2; often generated automatically by Reveal.js.</td>
+</tr>
+<tr class="even">
+<td>M##_P1_files</td>
+<td>Attachments or figures used in Project Part 1.</td>
+</tr>
+<tr class="odd">
+<td>M##_P2_files</td>
+<td>Attachments or figures used in Project Part 2.</td>
+</tr>
+</tbody>
+</table>
+<p>These folders keep images and assets organized and prevent broken paths when exporting to Blackboard Ultra.</p>
+</section><section id="core-module-files-.qmd" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="core-module-files-.qmd"><span class="header-section-number">4.4.2</span> Core Module Files (.qmd)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File Name</th>
+<th>Short Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M##_A.qmd</td>
+<td>Assignment file for the module; may include multi-part tasks.</td>
+</tr>
+<tr class="even">
+<td>M##_highlights.qmd</td>
+<td>Key takeaways and summary notes for quick review.</td>
+</tr>
+<tr class="odd">
+<td>M##_Lab1.qmd</td>
+<td>First lab introducing the applied technique from Lecture 1.</td>
+</tr>
+<tr class="even">
+<td>M##_Lab2.qmd</td>
+<td>Second lab building on concepts toward the assignment or project.</td>
+</tr>
+<tr class="odd">
+<td>M##_LN1.qmd</td>
+<td>Lecture Notes for the first subtopic; includes theory and examples.</td>
+</tr>
+<tr class="even">
+<td>M##_LN2.qmd</td>
+<td>Lecture Notes for the second subtopic.</td>
+</tr>
+<tr class="odd">
+<td>M##_P1.qmd</td>
+<td>Project Part 1; typically data analysis or modeling tasks.</td>
+</tr>
+<tr class="even">
+<td>M##_P2.qmd</td>
+<td>Project Part 2; deeper or extended work based on Part 1.</td>
+</tr>
+<tr class="odd">
+<td>M##_Proj.qmd</td>
+<td>Full module project (if the module includes one standalone).</td>
+</tr>
+<tr class="even">
+<td>M##_Wrapup.qmd</td>
+<td>End-of-module summary highlighting major insights and next steps.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="create-starter-pages" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="create-starter-pages"><span class="header-section-number">4.5</span> Create Starter Pages</h2>
+<p>The quarto create command will create a <code>index.qmd</code> file in the root directory. This will be your syllabus file.</p>
+<section id="references-and-csl" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="references-and-csl"><span class="header-section-number">4.5.1</span> References and csl</h3>
+<ul>
+<li>Download the Econometrica CSL File (or any other csl file based on your discipline)</li>
+<li>The <strong>Econometrica citation style</strong> can be downloaded from: <a href="https://github.com/citation-style-language/styles/blob/master/econometrica.csl">Econometrica CSL GitHub Link</a><br>
+</li>
+<li>Add <code>econometrica.csl</code> to Your Quarto Project
+<ul>
+<li>Navigate to your Quarto project folder.<br>
+</li>
+<li>Create a new directory named <strong><code>csl/</code></strong> (optional, but recommended).<br>
+</li>
+<li>Move the <strong><code>econometrica.csl</code></strong> file into the <code>csl/</code> folder.</li>
+</ul></li>
+</ul>
+</section>
+<section id="index.qmd" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="index.qmd"><span class="header-section-number">4.5.2</span> index.qmd</h3>
+<pre><code>title: "AD 688 Cloud Analytics for Business" 
+subtitle: "Syllabus"
+number-sections: true
+format:
+    html: default
+bibliography: references.bib
+csl: csl/econometrica.csl
+html-table-processing: none
+---
+
+# Welcome
+
+This microsite introduces the workflow for building course content and integrating Quarto HTML into Blackboard Ultra.</code></pre>
+</section>
+<section id="about.qmd" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="about.qmd"><span class="header-section-number">4.5.3</span> about.qmd</h3>
+<pre><code>title: "About This Microsite"
+---
+
+# About This Project
+
+This site is part of the training pathway for developing professional course materials with Quarto.</code></pre>
+<p>Screenshot placeholder: index.qmd open in editor</p>
+</section>
+</section><section id="preview-the-website-locally" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="preview-the-website-locally"><span class="header-section-number">4.6</span> Preview the Website Locally</h2>
+<p>Run the preview server:</p>
+<pre><code>quarto preview</code></pre>
+<p>Your browser will automatically refresh as you edit pages.</p>
+<p>Screenshot placeholder: Local preview in browser</p>
+</section><section id="create-the-module-structure" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="create-the-module-structure"><span class="header-section-number">4.7</span> Create the Module Structure</h2>
+<p>Add a folder for the first module:</p>
+<pre><code>mkdir module1</code></pre>
+<p>Inside it, create:</p>
+<p><code>module1/module1_overview.qmd</code></p>
+<pre><code>title: "Module 1 Overview"
+---
+
+# Module 1 Overview
+
+This page introduces the module structure and learning goals.</code></pre>
+<p>Update <code>_quarto.yml</code> navigation:</p>
+<pre><code>website:
+  title: "Course Microsite"
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: About
+        href: about.qmd
+      - text: Module 1
+        href: module1/module1_overview.qmd</code></pre>
+<p>Screenshot placeholder: Folder tree with module1 folder</p>
+</section><section id="add-custom-styling-with-scss" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="add-custom-styling-with-scss"><span class="header-section-number">4.8</span> Add Custom Styling with SCSS</h2>
+<p>Create a styles folder:</p>
+<pre><code>mkdir styles</code></pre>
+<p>Add:</p>
+<p><code>styles/custom.scss</code></p>
+<pre><code>/* Placeholder for custom rules */</code></pre>
+<p>Reference it:</p>
+<pre><code>format:
+  html:
+    theme: cosmo
+    toc: true
+    css: styles/custom.scss</code></pre>
+<p>Screenshot placeholder: custom.scss in editor</p>
+<p>Actual styling will be introduced later once the structure is stable.</p>
+</section><section id="optional-git-workflow-throughout-the-chapter" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="optional-git-workflow-throughout-the-chapter"><span class="header-section-number">4.9</span> Optional Git Workflow Throughout the Chapter</h2>
+<p>You may run these commands after each major step.</p>
+<p>Pull updates before continuing:</p>
+<pre><code>git pull</code></pre>
+<p>Save your work:</p>
+<pre><code>git add .
+git commit -m "Progress on microsite"</code></pre>
+<p>Push updates:</p>
+<pre><code>git push</code></pre>
+<p>This ensures your repository captures every structural change without waiting until the end.</p>
+</section><section id="preparing-for-blackboard-ultra-integration" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="preparing-for-blackboard-ultra-integration"><span class="header-section-number">4.10</span> Preparing for Blackboard Ultra Integration</h2>
+<p>Blackboard Ultra does not host Quarto sites directly. In upcoming chapters, you will export rendered HTML files and map them to the Blackboard course structure. For now, ensure that:</p>
+<ul>
+<li>File paths are clean</li>
+<li>Navigation is easy to follow</li>
+<li>Pages render correctly without external dependencies</li>
+<li>The microsite structure mirrors the eventual Blackboard module layout</li>
+</ul>
+</section><section id="final-checklist" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="final-checklist"><span class="header-section-number">4.11</span> Final Checklist</h2>
+<p>Your microsite is ready for content development if you have:</p>
+<ul>
+<li>A working folder structure<br>
+</li>
+<li>index.qmd and about.qmd rendering without error</li>
+<li>Module folders initialized</li>
+<li>A functional <code>_quarto.yml</code></li>
+<li>Local preview running</li>
+<li>Basic SCSS scaffolding</li>
+<li>Optional Git workflow active and consistent</li>
+</ul>
+
+
+</section>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
