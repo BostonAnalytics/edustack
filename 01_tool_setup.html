@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8251641f42e4c898417d05435a4e63f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-270eb22823cb820ade5f042ed36b8925.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -195,98 +195,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#install-git" id="toc-install-git" class="nav-link active" data-scroll-target="#install-git"><span class="header-section-number">3</span> Install Git</a>
+  <li><a href="#install-git" id="toc-install-git" class="nav-link active" data-scroll-target="#install-git"><span class="header-section-number">2.1</span> Install Git</a></li>
+  <li><a href="#install-github-cli" id="toc-install-github-cli" class="nav-link" data-scroll-target="#install-github-cli"><span class="header-section-number">2.2</span> Install GitHub CLI</a></li>
+  <li><a href="#create-a-github-account" id="toc-create-a-github-account" class="nav-link" data-scroll-target="#create-a-github-account"><span class="header-section-number">2.3</span> Create a GitHub Account</a></li>
+  <li><a href="#create-your-github-pages-repository" id="toc-create-your-github-pages-repository" class="nav-link" data-scroll-target="#create-your-github-pages-repository"><span class="header-section-number">2.4</span> Create Your GitHub Pages Repository</a>
+  <ul class="collapse">
+  <li><a href="#configure-git-identity-and-ssh-keys" id="toc-configure-git-identity-and-ssh-keys" class="nav-link" data-scroll-target="#configure-git-identity-and-ssh-keys"><span class="header-section-number">2.4.1</span> Configure Git Identity and SSH Keys</a></li>
+  <li><a href="#configure-identity" id="toc-configure-identity" class="nav-link" data-scroll-target="#configure-identity"><span class="header-section-number">2.4.2</span> Configure identity</a></li>
+  <li><a href="#generate-an-ssh-key" id="toc-generate-an-ssh-key" class="nav-link" data-scroll-target="#generate-an-ssh-key"><span class="header-section-number">2.4.3</span> Generate an SSH key</a></li>
+  </ul></li>
+  <li><a href="#add-the-public-key-to-github" id="toc-add-the-public-key-to-github" class="nav-link" data-scroll-target="#add-the-public-key-to-github"><span class="header-section-number">2.5</span> Add the public key to GitHub</a></li>
+  <li><a href="#test-authentication" id="toc-test-authentication" class="nav-link" data-scroll-target="#test-authentication"><span class="header-section-number">2.6</span> Test authentication</a></li>
+  <li><a href="#clone-your-github-pages-repository" id="toc-clone-your-github-pages-repository" class="nav-link" data-scroll-target="#clone-your-github-pages-repository"><span class="header-section-number">3</span> Clone Your GitHub Pages Repository</a>
   <ul class="collapse">
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">3.1</span> Instructions</a></li>
-  <li><a href="#verification" id="toc-verification" class="nav-link" data-scroll-target="#verification"><span class="header-section-number">3.2</span> Verification</a></li>
   </ul></li>
-  <li><a href="#step-2-install-github-cli" id="toc-step-2-install-github-cli" class="nav-link" data-scroll-target="#step-2-install-github-cli"><span class="header-section-number">4</span> Step 2: Install GitHub CLI</a>
+  <li><a href="#install-quarto" id="toc-install-quarto" class="nav-link" data-scroll-target="#install-quarto"><span class="header-section-number">4</span> Install Quarto</a>
   <ul class="collapse">
-  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1"><span class="header-section-number">4.0.1</span> Instructions</a></li>
-  <li><a href="#screenshot-placeholder" id="toc-screenshot-placeholder" class="nav-link" data-scroll-target="#screenshot-placeholder"><span class="header-section-number">4.0.2</span> Screenshot Placeholder</a></li>
+  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1"><span class="header-section-number">4.1</span> Instructions</a></li>
   </ul></li>
-  <li><a href="#step-3-create-a-github-account" id="toc-step-3-create-a-github-account" class="nav-link" data-scroll-target="#step-3-create-a-github-account"><span class="header-section-number">5</span> Step 3: Create a GitHub Account</a>
+  <li><a href="#install-pandoc" id="toc-install-pandoc" class="nav-link" data-scroll-target="#install-pandoc"><span class="header-section-number">5</span> Install Pandoc</a>
   <ul class="collapse">
-  <li><a href="#instructions-2" id="toc-instructions-2" class="nav-link" data-scroll-target="#instructions-2"><span class="header-section-number">5.0.1</span> Instructions</a></li>
-  <li><a href="#screenshot-placeholder-1" id="toc-screenshot-placeholder-1" class="nav-link" data-scroll-target="#screenshot-placeholder-1"><span class="header-section-number">5.0.2</span> Screenshot Placeholder</a></li>
+  <li><a href="#instructions-2" id="toc-instructions-2" class="nav-link" data-scroll-target="#instructions-2"><span class="header-section-number">5.1</span> Instructions</a></li>
   </ul></li>
-  <li><a href="#step-4-create-your-github-pages-repository" id="toc-step-4-create-your-github-pages-repository" class="nav-link" data-scroll-target="#step-4-create-your-github-pages-repository"><span class="header-section-number">6</span> Step 4: Create Your GitHub Pages Repository</a>
+  <li><a href="#install-graphviz" id="toc-install-graphviz" class="nav-link" data-scroll-target="#install-graphviz"><span class="header-section-number">6</span> Install Graphviz</a>
   <ul class="collapse">
-  <li><a href="#instructions-3" id="toc-instructions-3" class="nav-link" data-scroll-target="#instructions-3"><span class="header-section-number">6.0.1</span> Instructions</a></li>
-  <li><a href="#screenshot-placeholder-2" id="toc-screenshot-placeholder-2" class="nav-link" data-scroll-target="#screenshot-placeholder-2"><span class="header-section-number">6.0.2</span> Screenshot Placeholder</a></li>
+  <li><a href="#instructions-3" id="toc-instructions-3" class="nav-link" data-scroll-target="#instructions-3"><span class="header-section-number">6.1</span> Instructions</a></li>
   </ul></li>
-  <li><a href="#step-5-configure-git-identity-and-ssh-keys" id="toc-step-5-configure-git-identity-and-ssh-keys" class="nav-link" data-scroll-target="#step-5-configure-git-identity-and-ssh-keys"><span class="header-section-number">7</span> Step 5: Configure Git Identity and SSH Keys</a>
+  <li><a href="#install-python-3.12-or-higher" id="toc-install-python-3.12-or-higher" class="nav-link" data-scroll-target="#install-python-3.12-or-higher"><span class="header-section-number">7</span> Install Python 3.12 or higher</a>
   <ul class="collapse">
-  <li><a href="#configure-identity" id="toc-configure-identity" class="nav-link" data-scroll-target="#configure-identity"><span class="header-section-number">7.1</span> 5.1 Configure identity</a></li>
-  <li><a href="#generate-an-ssh-key" id="toc-generate-an-ssh-key" class="nav-link" data-scroll-target="#generate-an-ssh-key"><span class="header-section-number">7.2</span> 5.2 Generate an SSH key</a></li>
-  <li><a href="#add-the-public-key-to-github" id="toc-add-the-public-key-to-github" class="nav-link" data-scroll-target="#add-the-public-key-to-github"><span class="header-section-number">7.3</span> 5.3 Add the public key to GitHub</a></li>
-  <li><a href="#test-authentication" id="toc-test-authentication" class="nav-link" data-scroll-target="#test-authentication"><span class="header-section-number">7.4</span> 5.4 Test authentication</a>
+  <li><a href="#instructions-4" id="toc-instructions-4" class="nav-link" data-scroll-target="#instructions-4"><span class="header-section-number">7.1</span> Instructions</a></li>
+  <li><a href="#verification" id="toc-verification" class="nav-link" data-scroll-target="#verification"><span class="header-section-number">7.2</span> Verification</a></li>
+  </ul></li>
+  <li><a href="#install-r-and-rtools" id="toc-install-r-and-rtools" class="nav-link" data-scroll-target="#install-r-and-rtools"><span class="header-section-number">8</span> Install R and RTools</a>
   <ul class="collapse">
-  <li><a href="#screenshot-placeholder-3" id="toc-screenshot-placeholder-3" class="nav-link" data-scroll-target="#screenshot-placeholder-3"><span class="header-section-number">7.4.1</span> Screenshot Placeholder</a></li>
+  <li><a href="#instructions-5" id="toc-instructions-5" class="nav-link" data-scroll-target="#instructions-5"><span class="header-section-number">8.1</span> Instructions</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#step-6-clone-your-github-pages-repository" id="toc-step-6-clone-your-github-pages-repository" class="nav-link" data-scroll-target="#step-6-clone-your-github-pages-repository"><span class="header-section-number">8</span> Step 6: Clone Your GitHub Pages Repository</a>
+  <li><a href="#install-antigravity-or-vscode-ide" id="toc-install-antigravity-or-vscode-ide" class="nav-link" data-scroll-target="#install-antigravity-or-vscode-ide"><span class="header-section-number">9</span> Install Antigravity (or VSCode) IDE</a>
   <ul class="collapse">
-  <li><a href="#instructions-4" id="toc-instructions-4" class="nav-link" data-scroll-target="#instructions-4"><span class="header-section-number">8.0.1</span> Instructions</a></li>
-  <li><a href="#screenshot-placeholder-4" id="toc-screenshot-placeholder-4" class="nav-link" data-scroll-target="#screenshot-placeholder-4"><span class="header-section-number">8.0.2</span> Screenshot Placeholder</a></li>
+  <li><a href="#instructions-6" id="toc-instructions-6" class="nav-link" data-scroll-target="#instructions-6"><span class="header-section-number">9.1</span> Instructions</a></li>
   </ul></li>
-  <li><a href="#step-7-install-quarto" id="toc-step-7-install-quarto" class="nav-link" data-scroll-target="#step-7-install-quarto"><span class="header-section-number">9</span> Step 7: Install Quarto</a>
+  <li><a href="#install-required-antigravity-extensions" id="toc-install-required-antigravity-extensions" class="nav-link" data-scroll-target="#install-required-antigravity-extensions"><span class="header-section-number">10</span> Install Required Antigravity Extensions</a></li>
+  <li><a href="#create-python-and-r-environments-optional" id="toc-create-python-and-r-environments-optional" class="nav-link" data-scroll-target="#create-python-and-r-environments-optional"><span class="header-section-number">11</span> Create Python and R Environments (Optional)</a>
   <ul class="collapse">
-  <li><a href="#instructions-5" id="toc-instructions-5" class="nav-link" data-scroll-target="#instructions-5"><span class="header-section-number">9.0.1</span> Instructions</a></li>
-  <li><a href="#screenshot-placeholder-5" id="toc-screenshot-placeholder-5" class="nav-link" data-scroll-target="#screenshot-placeholder-5"><span class="header-section-number">9.0.2</span> Screenshot Placeholder</a></li>
+  <li><a href="#python-virtual-environment" id="toc-python-virtual-environment" class="nav-link" data-scroll-target="#python-virtual-environment"><span class="header-section-number">11.1</span> Python virtual environment</a></li>
+  <li><a href="#r-environment-using-renv" id="toc-r-environment-using-renv" class="nav-link" data-scroll-target="#r-environment-using-renv"><span class="header-section-number">11.2</span> R environment using renv</a></li>
   </ul></li>
-  <li><a href="#step-8-install-pandoc" id="toc-step-8-install-pandoc" class="nav-link" data-scroll-target="#step-8-install-pandoc"><span class="header-section-number">10</span> Step 8: Install Pandoc</a>
-  <ul class="collapse">
-  <li><a href="#instructions-6" id="toc-instructions-6" class="nav-link" data-scroll-target="#instructions-6"><span class="header-section-number">10.0.1</span> Instructions</a></li>
-  <li><a href="#screenshot-placeholder-6" id="toc-screenshot-placeholder-6" class="nav-link" data-scroll-target="#screenshot-placeholder-6"><span class="header-section-number">10.0.2</span> Screenshot Placeholder</a></li>
-  </ul></li>
-  <li><a href="#step-9-install-graphviz" id="toc-step-9-install-graphviz" class="nav-link" data-scroll-target="#step-9-install-graphviz"><span class="header-section-number">11</span> Step 9: Install Graphviz</a>
-  <ul class="collapse">
-  <li><a href="#instructions-7" id="toc-instructions-7" class="nav-link" data-scroll-target="#instructions-7"><span class="header-section-number">11.0.1</span> Instructions</a></li>
-  <li><a href="#screenshot-placeholder-7" id="toc-screenshot-placeholder-7" class="nav-link" data-scroll-target="#screenshot-placeholder-7"><span class="header-section-number">11.0.2</span> Screenshot Placeholder</a></li>
-  </ul></li>
-  <li><a href="#step-10-install-python-3.12" id="toc-step-10-install-python-3.12" class="nav-link" data-scroll-target="#step-10-install-python-3.12"><span class="header-section-number">12</span> Step 10: Install Python 3.12</a>
-  <ul class="collapse">
-  <li><a href="#instructions-8" id="toc-instructions-8" class="nav-link" data-scroll-target="#instructions-8"><span class="header-section-number">12.0.1</span> Instructions</a></li>
-  <li><a href="#verification-1" id="toc-verification-1" class="nav-link" data-scroll-target="#verification-1"><span class="header-section-number">12.0.2</span> Verification</a></li>
-  <li><a href="#screenshot-placeholder-8" id="toc-screenshot-placeholder-8" class="nav-link" data-scroll-target="#screenshot-placeholder-8"><span class="header-section-number">12.0.3</span> Screenshot Placeholder</a></li>
-  </ul></li>
-  <li><a href="#step-11-install-r-and-rtools" id="toc-step-11-install-r-and-rtools" class="nav-link" data-scroll-target="#step-11-install-r-and-rtools"><span class="header-section-number">13</span> Step 11: Install R and RTools</a>
-  <ul class="collapse">
-  <li><a href="#instructions-9" id="toc-instructions-9" class="nav-link" data-scroll-target="#instructions-9"><span class="header-section-number">13.0.1</span> Instructions</a></li>
-  <li><a href="#screenshot-placeholder-9" id="toc-screenshot-placeholder-9" class="nav-link" data-scroll-target="#screenshot-placeholder-9"><span class="header-section-number">13.0.2</span> Screenshot Placeholder</a></li>
-  </ul></li>
-  <li><a href="#step-12-install-antigravity-ide" id="toc-step-12-install-antigravity-ide" class="nav-link" data-scroll-target="#step-12-install-antigravity-ide"><span class="header-section-number">14</span> Step 12: Install Antigravity IDE</a>
-  <ul class="collapse">
-  <li><a href="#instructions-10" id="toc-instructions-10" class="nav-link" data-scroll-target="#instructions-10"><span class="header-section-number">14.0.1</span> Instructions</a></li>
-  <li><a href="#screenshot-placeholder-10" id="toc-screenshot-placeholder-10" class="nav-link" data-scroll-target="#screenshot-placeholder-10"><span class="header-section-number">14.0.2</span> Screenshot Placeholder</a></li>
-  </ul></li>
-  <li><a href="#step-13-install-required-antigravity-extensions" id="toc-step-13-install-required-antigravity-extensions" class="nav-link" data-scroll-target="#step-13-install-required-antigravity-extensions"><span class="header-section-number">15</span> Step 13: Install Required Antigravity Extensions</a>
-  <ul class="collapse">
-  <li><a href="#jupyter-extensions" id="toc-jupyter-extensions" class="nav-link" data-scroll-target="#jupyter-extensions"><span class="header-section-number">15.0.1</span> Jupyter Extensions</a></li>
-  <li><a href="#quarto-extensions" id="toc-quarto-extensions" class="nav-link" data-scroll-target="#quarto-extensions"><span class="header-section-number">15.0.2</span> Quarto Extensions</a></li>
-  <li><a href="#python-extensions" id="toc-python-extensions" class="nav-link" data-scroll-target="#python-extensions"><span class="header-section-number">15.0.3</span> Python Extensions</a></li>
-  <li><a href="#remote-development-extensions" id="toc-remote-development-extensions" class="nav-link" data-scroll-target="#remote-development-extensions"><span class="header-section-number">15.0.4</span> Remote Development Extensions</a></li>
-  <li><a href="#screenshot-placeholder-11" id="toc-screenshot-placeholder-11" class="nav-link" data-scroll-target="#screenshot-placeholder-11"><span class="header-section-number">15.0.5</span> Screenshot Placeholder</a></li>
-  </ul></li>
-  <li><a href="#step-14-create-python-and-r-environments-optional" id="toc-step-14-create-python-and-r-environments-optional" class="nav-link" data-scroll-target="#step-14-create-python-and-r-environments-optional"><span class="header-section-number">16</span> Step 14: Create Python and R Environments (Optional)</a>
-  <ul class="collapse">
-  <li><a href="#python-virtual-environment" id="toc-python-virtual-environment" class="nav-link" data-scroll-target="#python-virtual-environment"><span class="header-section-number">16.1</span> Python virtual environment</a></li>
-  <li><a href="#r-environment-using-renv" id="toc-r-environment-using-renv" class="nav-link" data-scroll-target="#r-environment-using-renv"><span class="header-section-number">16.2</span> R environment using renv</a>
-  <ul class="collapse">
-  <li><a href="#screenshot-placeholder-12" id="toc-screenshot-placeholder-12" class="nav-link" data-scroll-target="#screenshot-placeholder-12"><span class="header-section-number">16.2.1</span> Screenshot Placeholder</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#step-15-verification-checklist" id="toc-step-15-verification-checklist" class="nav-link" data-scroll-target="#step-15-verification-checklist"><span class="header-section-number">17</span> Step 15: Verification Checklist</a>
-  <ul class="collapse">
-  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git"><span class="header-section-number">17.0.1</span> Git</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">17.0.2</span> Quarto</a></li>
-  <li><a href="#ssh" id="toc-ssh" class="nav-link" data-scroll-target="#ssh"><span class="header-section-number">17.0.3</span> SSH</a></li>
-  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">17.0.4</span> Python</a></li>
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="header-section-number">17.0.5</span> R</a></li>
-  <li><a href="#screenshot-placeholder-13" id="toc-screenshot-placeholder-13" class="nav-link" data-scroll-target="#screenshot-placeholder-13"><span class="header-section-number">17.0.6</span> Screenshot Placeholder</a></li>
-  </ul></li>
-  <li><a href="#step-16-next-steps" id="toc-step-16-next-steps" class="nav-link" data-scroll-target="#step-16-next-steps"><span class="header-section-number">18</span> Step 16: Next Steps</a></li>
+  <li><a href="#verification-checklist" id="toc-verification-checklist" class="nav-link" data-scroll-target="#verification-checklist"><span class="header-section-number">12</span> Verification Checklist</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">13</span> Next Steps</a></li>
   </ul>
 </nav>
     </div>
@@ -316,8 +272,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>While GitHub is strongly recommended for version control and long-term course management, users who prefer to work entirely on local machines or cloud-synced drives (Google Drive, OneDrive, Dropbox, iCloud Drive) may skip the repository creation steps and proceed directly to <strong>Chapter 3</strong>.</p>
 <p>However, the GitHub-based workflow—especially when paired with Antigravity or VS Code—is highly preferred for reproducibility, collaboration, and maintaining a clean version history of your teaching materials.</p>
 <p>This recipe assumes no prior experience. Each step includes instructions, verification checks, and placeholders for screenshots.</p>
-<section id="install-git" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Install Git</h1>
+<section id="install-git" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="install-git"><span class="header-section-number">2.1</span> Install Git</h2>
 <p>Git is the version control system used throughout the recommended workflow. You can choose the platform from the installation on the <a href="https://git-scm.com/install">Git</a> website.</p>
 <div id="fig-git" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -325,12 +281,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="images/ch01/toolsetup-git.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-git-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.1: Installing Git - Linux Screenshot Placeholder
+Figure&nbsp;2.1: Installing Git - Linux Screenshot Placeholder
 </figcaption>
 </figure>
 </div>
-<section id="instructions" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">3.1</span> Instructions</h2>
 <ol type="1">
 <li><p>Install Git using your operating system:</p>
 <ol type="1">
@@ -338,209 +292,271 @@ Figure&nbsp;3.1: Installing Git - Linux Screenshot Placeholder
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
-<li>Windows: Download <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></li>
+<li>Windows: <a href="https://git-scm.com/download/win">Download</a></li>
 <li>Linux:</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt install git <span class="at">-y</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Verify installation:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 </section>
-<section id="verification" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="verification"><span class="header-section-number">3.2</span> Verification</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
+<section id="install-github-cli" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="install-github-cli"><span class="header-section-number">2.2</span> Install GitHub CLI</h2>
+<p>GitHub CLI (<code>gh</code>) enables authentication and repository operations directly from the terminal. Download and install from: <a href="https://cli.github.com/">GitHub CLI</a></p>
 </section>
-</section>
-<section id="step-2-install-github-cli" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Step 2: Install GitHub CLI</h1>
-<p>GitHub CLI (<code>gh</code>) enables authentication and repository operations directly from the terminal.</p>
-<section id="instructions-1" class="level3" data-number="4.0.1">
-<h3 data-number="4.0.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">4.0.1</span> Instructions</h3>
-<p>Download and install from: <a href="https://cli.github.com/">https://cli.github.com/</a></p>
-<p>Verify installation:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="screenshot-placeholder" class="level3" data-number="4.0.2">
-<h3 data-number="4.0.2" class="anchored" data-anchor-id="screenshot-placeholder"><span class="header-section-number">4.0.2</span> Screenshot Placeholder</h3>
-<pre><code>![GitHub CLI Installation](images/toolsetup-ghcli.png)</code></pre>
-<hr>
-</section>
-</section>
-<section id="step-3-create-a-github-account" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Step 3: Create a GitHub Account</h1>
+<section id="create-a-github-account" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="create-a-github-account"><span class="header-section-number">2.3</span> Create a GitHub Account</h2>
 <p>A GitHub account stores repositories, manages version history, and integrates directly with Antigravity or VS Code.</p>
-<section id="instructions-2" class="level3" data-number="5.0.1">
-<h3 data-number="5.0.1" class="anchored" data-anchor-id="instructions-2"><span class="header-section-number">5.0.1</span> Instructions</h3>
 <ol type="1">
-<li>Visit <a href="https://github.com/signup">https://github.com/signup</a></li>
+<li>Visit <a href="https://github.com/signup">GitHub</a></li>
+</ol>
+<div id="fig-github-signup" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-github-signup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ch01/welcome-sign-up-github-account.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-github-signup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: GitHub Signup Page
+</figcaption>
+</figure>
+</div>
+<ol start="2" type="1">
 <li>Create an account</li>
+</ol>
+<div id="fig-github-signup" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-github-signup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ch01/welcome-github-enter-email.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-github-signup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: GitHub Signup Page
+</figcaption>
+</figure>
+</div>
+<ol start="3" type="1">
 <li>Choose a professional username</li>
 </ol>
+<div id="fig-github-signup" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-github-signup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ch01/welcome-github-create-password-enter-username.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-github-signup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: GitHub Signup Page
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="screenshot-placeholder-1" class="level3" data-number="5.0.2">
-<h3 data-number="5.0.2" class="anchored" data-anchor-id="screenshot-placeholder-1"><span class="header-section-number">5.0.2</span> Screenshot Placeholder</h3>
-<pre><code>![GitHub Signup Page](images/toolsetup-github-signup.png)</code></pre>
-<hr>
-</section>
-</section>
-<section id="step-4-create-your-github-pages-repository" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Step 4: Create Your GitHub Pages Repository</h1>
+<section id="create-your-github-pages-repository" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="create-your-github-pages-repository"><span class="header-section-number">2.4</span> Create Your GitHub Pages Repository</h2>
 <p><em>(Optional for users who plan to work only on local/cloud drives)</em></p>
-<p>This step creates your personal website:</p>
-<pre><code>https://yourusername.github.io</code></pre>
+<p>This step creates your personal website: <code>https://yourusername.github.io</code></p>
 <p>If you prefer to work without GitHub, skip to <strong>Chapter 3</strong>. However, the GitHub-based workflow is strongly recommended.</p>
-<section id="instructions-3" class="level3" data-number="6.0.1">
-<h3 data-number="6.0.1" class="anchored" data-anchor-id="instructions-3"><span class="header-section-number">6.0.1</span> Instructions</h3>
 <ol type="1">
-<li><p>Go to <a href="https://github.com/new">https://github.com/new</a></p></li>
-<li><p>Set repository name:</p>
-<pre><code>yourusername.github.io</code></pre></li>
-<li><p>Select Public</p></li>
-<li><p>Add README and .gitignore</p></li>
-<li><p>Create repository</p></li>
+<li>Go to <a href="https://github.com/new">https://github.com/new</a>, or click on the + icon in the top-right corner of your GitHub dashboard shown in <a href="#fig-ghrepo" class="quarto-xref">Figure&nbsp;<span>2.5</span></a>.</li>
+<li>Set repository name:
+<ol type="1">
+<li><code>yourusername.github.io</code> creates your personal website repository</li>
+<li>For a course repository, use <code>coursenumber-coursename</code> (e.g.&nbsp;<code>AD688-big-data-and-cloud-computing</code>)</li>
 </ol>
-</section>
-<section id="screenshot-placeholder-2" class="level3" data-number="6.0.2">
-<h3 data-number="6.0.2" class="anchored" data-anchor-id="screenshot-placeholder-2"><span class="header-section-number">6.0.2</span> Screenshot Placeholder</h3>
-<pre><code>![Create GitHub Pages Repo](images/toolsetup-ghpages.png)</code></pre>
-<hr>
-</section>
-</section>
-<section id="step-5-configure-git-identity-and-ssh-keys" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Step 5: Configure Git Identity and SSH Keys</h1>
+<pre><code>yourusername.github.io</code></pre></li>
+<li>Select <strong>Private</strong>, since we want this to be available for instructors only.</li>
+<li>Add README and <code>.gitignore</code>, you can choose the template to be <code>python</code> or <code>r</code> to avoid syncing the virtual environments to the git repo.</li>
+<li>Create repository</li>
+</ol>
+<div id="fig-ghrepo" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ghrepo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ch01/toolsetup-ghrepo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ghrepo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: Create GitHub Repo
+</figcaption>
+</figure>
+</div>
+<div id="fig-ghrepo2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ghrepo2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ch01/toolsetup-ghrepo-options.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ghrepo2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.6: Create GitHub Repo
+</figcaption>
+</figure>
+</div>
+<section id="configure-git-identity-and-ssh-keys" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="configure-git-identity-and-ssh-keys"><span class="header-section-number">2.4.1</span> Configure Git Identity and SSH Keys</h3>
 <p><em>(Required only if using GitHub workflow)</em></p>
-<section id="configure-identity" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="configure-identity"><span class="header-section-number">7.1</span> 5.1 Configure identity</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"you@example.com"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="generate-an-ssh-key" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="generate-an-ssh-key"><span class="header-section-number">7.2</span> 5.2 Generate an SSH key</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="configure-identity" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="configure-identity"><span class="header-section-number">2.4.2</span> Configure identity</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"you@example.com"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="add-the-public-key-to-github" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="add-the-public-key-to-github"><span class="header-section-number">7.3</span> 5.3 Add the public key to GitHub</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="generate-an-ssh-key" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="generate-an-ssh-key"><span class="header-section-number">2.4.3</span> Generate an SSH key</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="add-the-public-key-to-github" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="add-the-public-key-to-github"><span class="header-section-number">2.5</span> Add the public key to GitHub</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Add it to <a href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
 </section>
-<section id="test-authentication" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="test-authentication"><span class="header-section-number">7.4</span> 5.4 Test authentication</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="screenshot-placeholder-3" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="screenshot-placeholder-3"><span class="header-section-number">7.4.1</span> Screenshot Placeholder</h3>
-<pre><code>![SSH Key Added](images/toolsetup-sshkey.png)</code></pre>
+<section id="test-authentication" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="test-authentication"><span class="header-section-number">2.6</span> Test authentication</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="fig-sshkey" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sshkey-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/toolsetup-sshkey.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sshkey-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.7: SSH Key Added
+</figcaption>
+</figure>
+</div>
 <hr>
 </section>
-</section>
-</section>
-<section id="step-6-clone-your-github-pages-repository" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Step 6: Clone Your GitHub Pages Repository</h1>
+<section id="clone-your-github-pages-repository" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Clone Your GitHub Pages Repository</h1>
 <p><em>(Skip this step if not using GitHub)</em></p>
-<section id="instructions-4" class="level3" data-number="8.0.1">
-<h3 data-number="8.0.1" class="anchored" data-anchor-id="instructions-4"><span class="header-section-number">8.0.1</span> Instructions</h3>
+<section id="instructions" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">3.1</span> Instructions</h2>
 <p>Clone repository:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:yourusername/yourusername.github.io.git</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> yourusername.github.io</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:yourusername/yourusername.github.io.git</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> yourusername.github.io</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Create a sample file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Welcome to my GitHub Pages site."</span> <span class="op">&gt;&gt;</span> index.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Welcome to my GitHub Pages site."</span> <span class="op">&gt;&gt;</span> index.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Stage and commit:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Push:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Pull:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="fig-clone" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-clone-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/toolsetup-clone.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-clone-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Local Repo Clone
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="screenshot-placeholder-4" class="level3" data-number="8.0.2">
-<h3 data-number="8.0.2" class="anchored" data-anchor-id="screenshot-placeholder-4"><span class="header-section-number">8.0.2</span> Screenshot Placeholder</h3>
-<pre><code>![Local Repo Clone](images/toolsetup-clone.png)</code></pre>
-<hr>
 </section>
-</section>
-<section id="step-7-install-quarto" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Step 7: Install Quarto</h1>
+<section id="install-quarto" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Install Quarto</h1>
 <p>Quarto is the publishing framework used in this book.</p>
-<section id="instructions-5" class="level3" data-number="9.0.1">
-<h3 data-number="9.0.1" class="anchored" data-anchor-id="instructions-5"><span class="header-section-number">9.0.1</span> Instructions</h3>
+<section id="instructions-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">4.1</span> Instructions</h2>
 <p>Download from: <a href="https://quarto.org/docs/download/">https://quarto.org/docs/download/</a></p>
 <p>Verify:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="fig-quarto" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-quarto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/toolsetup-quarto.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quarto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Quarto Installation
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="screenshot-placeholder-5" class="level3" data-number="9.0.2">
-<h3 data-number="9.0.2" class="anchored" data-anchor-id="screenshot-placeholder-5"><span class="header-section-number">9.0.2</span> Screenshot Placeholder</h3>
-<pre><code>![Quarto Installation](images/toolsetup-quarto.png)</code></pre>
-<hr>
 </section>
-</section>
-<section id="step-8-install-pandoc" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Step 8: Install Pandoc</h1>
+<section id="install-pandoc" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Install Pandoc</h1>
 <p>Pandoc is required for document format conversion.</p>
-<section id="instructions-6" class="level3" data-number="10.0.1">
-<h3 data-number="10.0.1" class="anchored" data-anchor-id="instructions-6"><span class="header-section-number">10.0.1</span> Instructions</h3>
+<section id="instructions-2" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="instructions-2"><span class="header-section-number">5.1</span> Instructions</h2>
 <ul>
 <li><p>macOS:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pandoc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pandoc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Linux:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install pandoc <span class="at">-y</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install pandoc <span class="at">-y</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
 <p>Windows installer already includes Pandoc.</p>
+<div id="fig-pandoc" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pandoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/toolsetup-pandoc.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pandoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Pandoc Installation
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="screenshot-placeholder-6" class="level3" data-number="10.0.2">
-<h3 data-number="10.0.2" class="anchored" data-anchor-id="screenshot-placeholder-6"><span class="header-section-number">10.0.2</span> Screenshot Placeholder</h3>
-<pre><code>![Pandoc Installation](images/toolsetup-pandoc.png)</code></pre>
-<hr>
 </section>
-</section>
-<section id="step-9-install-graphviz" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Step 9: Install Graphviz</h1>
+<section id="install-graphviz" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Install Graphviz</h1>
 <p>Graphviz supports diagrams and visual structures.</p>
-<section id="instructions-7" class="level3" data-number="11.0.1">
-<h3 data-number="11.0.1" class="anchored" data-anchor-id="instructions-7"><span class="header-section-number">11.0.1</span> Instructions</h3>
+<section id="instructions-3" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="instructions-3"><span class="header-section-number">6.1</span> Instructions</h2>
 <ul>
 <li><p>macOS:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install graphviz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install graphviz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Linux:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install graphviz <span class="at">-y</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install graphviz <span class="at">-y</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Windows: Download <a href="https://graphviz.org/download/">https://graphviz.org/download/</a></p></li>
 </ul>
+<div id="fig-graphviz" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-graphviz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/toolsetup-graphviz.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graphviz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Graphviz Installation
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="screenshot-placeholder-7" class="level3" data-number="11.0.2">
-<h3 data-number="11.0.2" class="anchored" data-anchor-id="screenshot-placeholder-7"><span class="header-section-number">11.0.2</span> Screenshot Placeholder</h3>
-<pre><code>![Graphviz Installation](images/toolsetup-graphviz.png)</code></pre>
-<hr>
 </section>
-</section>
-<section id="step-10-install-python-3.12" class="level1" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> Step 10: Install Python 3.12</h1>
-<section id="instructions-8" class="level3" data-number="12.0.1">
-<h3 data-number="12.0.1" class="anchored" data-anchor-id="instructions-8"><span class="header-section-number">12.0.1</span> Instructions</h3>
+<section id="install-python-3.12-or-higher" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Install Python 3.12 or higher</h1>
+<section id="instructions-4" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="instructions-4"><span class="header-section-number">7.1</span> Instructions</h2>
 <p>Download from: <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
 <p>Select “Add Python to PATH” during installation.</p>
 </section>
-<section id="verification-1" class="level3" data-number="12.0.2">
-<h3 data-number="12.0.2" class="anchored" data-anchor-id="verification-1"><span class="header-section-number">12.0.2</span> Verification</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="verification" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="verification"><span class="header-section-number">7.2</span> Verification</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="fig-python" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-python-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/toolsetup-python.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-python-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Python Installation
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="screenshot-placeholder-8" class="level3" data-number="12.0.3">
-<h3 data-number="12.0.3" class="anchored" data-anchor-id="screenshot-placeholder-8"><span class="header-section-number">12.0.3</span> Screenshot Placeholder</h3>
-<pre><code>![Python Installation](images/toolsetup-python.png)</code></pre>
-<hr>
 </section>
-</section>
-<section id="step-11-install-r-and-rtools" class="level1" data-number="13">
-<h1 data-number="13"><span class="header-section-number">13</span> Step 11: Install R and RTools</h1>
-<section id="instructions-9" class="level3" data-number="13.0.1">
-<h3 data-number="13.0.1" class="anchored" data-anchor-id="instructions-9"><span class="header-section-number">13.0.1</span> Instructions</h3>
+<section id="install-r-and-rtools" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Install R and RTools</h1>
+<section id="instructions-5" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="instructions-5"><span class="header-section-number">8.1</span> Instructions</h2>
 <p>Install R: <a href="https://cran.r-project.org/">https://cran.r-project.org/</a></p>
 <p>Windows users install RTools: <a href="https://cran.r-project.org/bin/windows/Rtools/">https://cran.r-project.org/bin/windows/Rtools/</a></p>
+<div id="fig-r" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/toolsetup-r.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: R Installation
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="screenshot-placeholder-9" class="level3" data-number="13.0.2">
-<h3 data-number="13.0.2" class="anchored" data-anchor-id="screenshot-placeholder-9"><span class="header-section-number">13.0.2</span> Screenshot Placeholder</h3>
-<pre><code>![R Installation](images/toolsetup-r.png)</code></pre>
-<hr>
 </section>
-</section>
-<section id="step-12-install-antigravity-ide" class="level1" data-number="14">
-<h1 data-number="14"><span class="header-section-number">14</span> Step 12: Install Antigravity IDE</h1>
+<section id="install-antigravity-or-vscode-ide" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Install Antigravity (or VSCode) IDE</h1>
 <p>Antigravity is the preferred IDE for this workflow because it integrates:</p>
 <ul>
 <li>GitHub</li>
@@ -551,129 +567,94 @@ Figure&nbsp;3.1: Installing Git - Linux Screenshot Placeholder
 <li>AI agents</li>
 <li>Extension ecosystem</li>
 </ul>
-<section id="instructions-10" class="level3" data-number="14.0.1">
-<h3 data-number="14.0.1" class="anchored" data-anchor-id="instructions-10"><span class="header-section-number">14.0.1</span> Instructions</h3>
+<p>In case you are using local/cloud drive, you can also use any other IDE that you are comfortable with.</p>
+<section id="instructions-6" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="instructions-6"><span class="header-section-number">9.1</span> Instructions</h2>
 <p>Download: <a href="https://antigravity.google/">https://antigravity.google/</a></p>
 <p>Sign in with Google or GitHub.</p>
-</section>
-<section id="screenshot-placeholder-10" class="level3" data-number="14.0.2">
-<h3 data-number="14.0.2" class="anchored" data-anchor-id="screenshot-placeholder-10"><span class="header-section-number">14.0.2</span> Screenshot Placeholder</h3>
-<pre><code>![Antigravity IDE Installer](images/toolsetup-antigravity.png)</code></pre>
+<div id="fig-antigravity" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-antigravity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/toolsetup-antigravity.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-antigravity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: Antigravity IDE Installer
+</figcaption>
+</figure>
+</div>
 <hr>
 </section>
 </section>
-<section id="step-13-install-required-antigravity-extensions" class="level1" data-number="15">
-<h1 data-number="15"><span class="header-section-number">15</span> Step 13: Install Required Antigravity Extensions</h1>
-<p>The following extension groups must be installed:</p>
-<section id="jupyter-extensions" class="level3" data-number="15.0.1">
-<h3 data-number="15.0.1" class="anchored" data-anchor-id="jupyter-extensions"><span class="header-section-number">15.0.1</span> Jupyter Extensions</h3>
-<ul>
-<li>Jupyter</li>
-<li>Jupyter Notebook Renderers</li>
-<li>Jupyter Keymap</li>
-<li>Jupyter Cell Tags</li>
-<li>Jupyter PowerToys</li>
-<li>Jupyter Slide Show</li>
-</ul>
-</section>
-<section id="quarto-extensions" class="level3" data-number="15.0.2">
-<h3 data-number="15.0.2" class="anchored" data-anchor-id="quarto-extensions"><span class="header-section-number">15.0.2</span> Quarto Extensions</h3>
-<ul>
-<li>Quarto</li>
-<li>Markdown Preview Enhanced</li>
-<li>Markdown All-in-One</li>
-<li>Quarto Wingman</li>
-<li>Quarto Wizard</li>
-<li>Markdown Code Runner</li>
-<li>Pandoc Citer</li>
-</ul>
-</section>
-<section id="python-extensions" class="level3" data-number="15.0.3">
-<h3 data-number="15.0.3" class="anchored" data-anchor-id="python-extensions"><span class="header-section-number">15.0.3</span> Python Extensions</h3>
-<ul>
-<li>Python Extension Pack</li>
-<li>Pylance</li>
-<li>Python Debugger</li>
-<li>autopep8</li>
-<li>isort</li>
-<li>Pylint</li>
-<li>MagicPython</li>
-</ul>
-</section>
-<section id="remote-development-extensions" class="level3" data-number="15.0.4">
-<h3 data-number="15.0.4" class="anchored" data-anchor-id="remote-development-extensions"><span class="header-section-number">15.0.4</span> Remote Development Extensions</h3>
-<ul>
-<li>Remote – SSH</li>
-<li>Remote Explorer</li>
-<li>GitHub Repositories</li>
-<li>Dev Containers</li>
-<li>Remote Repositories</li>
-<li>Remote – Tunnels</li>
-</ul>
-</section>
-<section id="screenshot-placeholder-11" class="level3" data-number="15.0.5">
-<h3 data-number="15.0.5" class="anchored" data-anchor-id="screenshot-placeholder-11"><span class="header-section-number">15.0.5</span> Screenshot Placeholder</h3>
-<pre><code>![Antigravity Extensions Installed](images/toolsetup-extensions.png)</code></pre>
+<section id="install-required-antigravity-extensions" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Install Required Antigravity Extensions</h1>
+<p>The following extension groups must be installed for the quarto workflow:</p>
+<div id="fig-plugins" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plugins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ch01/toolsetup-plugins.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plugins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: VSCode/Antigravity Extensions Installed
+</figcaption>
+</figure>
+</div>
 <hr>
 </section>
-</section>
-<section id="step-14-create-python-and-r-environments-optional" class="level1" data-number="16">
-<h1 data-number="16"><span class="header-section-number">16</span> Step 14: Create Python and R Environments (Optional)</h1>
-<section id="python-virtual-environment" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="python-virtual-environment"><span class="header-section-number">16.1</span> Python virtual environment</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="create-python-and-r-environments-optional" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Create Python and R Environments (Optional)</h1>
+<section id="python-virtual-environment" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="python-virtual-environment"><span class="header-section-number">11.1</span> Python virtual environment</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Activate:</p>
 <p>macOS/Linux:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Windows:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">venv</span>\Scripts\activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">venv</span>\Scripts\activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Install packages:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install numpy pandas jupyter matplotlib quarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install numpy pandas jupyter matplotlib quarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="r-environment-using-renv" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="r-environment-using-renv"><span class="header-section-number">16.2</span> R environment using renv</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"knitr"</span>, <span class="st">"rmarkdown"</span>))</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="screenshot-placeholder-12" class="level3" data-number="16.2.1">
-<h3 data-number="16.2.1" class="anchored" data-anchor-id="screenshot-placeholder-12"><span class="header-section-number">16.2.1</span> Screenshot Placeholder</h3>
-<pre><code>![Environment Setup](images/toolsetup-env.png)</code></pre>
-<hr>
+<section id="r-environment-using-renv" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="r-environment-using-renv"><span class="header-section-number">11.2</span> R environment using renv</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"knitr"</span>, <span class="st">"rmarkdown"</span>))</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="fig-env" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-env-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ch01/toolsetup-env.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-env-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Environment Setup
+</figcaption>
+</figure>
+</div>
 </section>
 </section>
-</section>
-<section id="step-15-verification-checklist" class="level1" data-number="17">
-<h1 data-number="17"><span class="header-section-number">17</span> Step 15: Verification Checklist</h1>
+<section id="verification-checklist" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Verification Checklist</h1>
 <p>Check that each core tool is installed:</p>
-<section id="git" class="level3" data-number="17.0.1">
-<h3 data-number="17.0.1" class="anchored" data-anchor-id="git"><span class="header-section-number">17.0.1</span> Git</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="{columns}">
+<div class="column" style="width:50%;">
+<p>Lets check for the installed tools on command lines:</p>
+</div>
+<div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> <span class="at">--version</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> <span class="at">--version</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-version</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ex">scala</span> <span class="at">-version</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="ex">spark-shell</span> <span class="at">--version</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> <span class="at">--version</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 </section>
-<section id="quarto" class="level3" data-number="17.0.2">
-<h3 data-number="17.0.2" class="anchored" data-anchor-id="quarto"><span class="header-section-number">17.0.2</span> Quarto</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="ssh" class="level3" data-number="17.0.3">
-<h3 data-number="17.0.3" class="anchored" data-anchor-id="ssh"><span class="header-section-number">17.0.3</span> SSH</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="python" class="level3" data-number="17.0.4">
-<h3 data-number="17.0.4" class="anchored" data-anchor-id="python"><span class="header-section-number">17.0.4</span> Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="r" class="level3" data-number="17.0.5">
-<h3 data-number="17.0.5" class="anchored" data-anchor-id="r"><span class="header-section-number">17.0.5</span> R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="screenshot-placeholder-13" class="level3" data-number="17.0.6">
-<h3 data-number="17.0.6" class="anchored" data-anchor-id="screenshot-placeholder-13"><span class="header-section-number">17.0.6</span> Screenshot Placeholder</h3>
-<pre><code>![Verification Outputs](images/toolsetup-verification.png)</code></pre>
-<hr>
-</section>
-</section>
-<section id="step-16-next-steps" class="level1" data-number="18">
-<h1 data-number="18"><span class="header-section-number">18</span> Step 16: Next Steps</h1>
+<section id="next-steps" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Next Steps</h1>
 <p>If you chose not to create a GitHub repository, proceed directly to <strong>Chapter 3</strong>, where you will learn the authoring fundamentals of Markdown, LaTeX, and Quarto.</p>
 <p>If you completed the GitHub setup, you now have a fully configured development environment ready for:</p>
 <ul>
