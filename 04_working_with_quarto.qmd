@@ -1063,8 +1063,6 @@ You can run individual chunks in the R session
 
 ![](https://quarto.org/docs/get-started/hello/images/rstudio-inline-output.png)
 
-
-
 ## Using Quarto in RStudio
 
 You can render Quarto documents from the menu:
