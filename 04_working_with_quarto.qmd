@@ -384,7 +384,7 @@ Quarto is the next generation of RMarkdown developed by [Posit](https://www.posi
 - GUI wrapper around Python (IDE)
 - Run **blocks** of Python code (`.ipynb` **cells**)
 
-```{r}
+```r
 library(fontawesome)
 ```
 
@@ -660,15 +660,16 @@ One important thing to note here is that for Mermaid chunks, the chunk options a
 
 ## Creating figure layouts-3 {.scrollable}
 
-```{r}
+```r
 #| layout-ncol: 2
 #| fig-cap:
 #|   - Speed and Stopping Distances of Cars
 #|   - Vapor Pressure of Mercury as a Function of Temperature
-#| echo: fenced
+
 #| code-fold: false
 #| vscode: {languageId: r}
-
+#| eval: false
+#| echo: true
 
 plot(cars)
 plot(pressure)
@@ -676,18 +677,19 @@ plot(pressure)
 
 ## Code highlighting
 
-```{r}
+```r
 #| layout-ncol: 2
 #| label: fig-charts
 #| fig-cap: Charts
 #| fig-subcap:
 #|   - Speed and Stopping Distances of Cars
 #|   - Vapor Pressure of Mercury as a Function of Temperature
-#| echo: fenced
+
 #| code-fold: false
 #| code-line-numbers: '|3|4-7'
 #| vscode: {languageId: r}
-
+#| eval: false
+#| echo: true
 
 plot(cars)
 plot(pressure)
@@ -1005,11 +1007,11 @@ Code is encapsulated in _code chunks_
 ::: {.column width="50%"}
 ### R
 
-```{r}
+```r
 #| label: load-packages-r
 #| code-fold: false
-#| echo: fenced
-
+#| eval: false
+#| echo: true
 library(tidyverse)
 ```
 
@@ -1027,9 +1029,8 @@ results in
 
 ### Python
 
-```{python}
+```python
 #| label: load-packages-py
-#| echo: fenced
 #| code-fold: false
 #| eval: false
 
@@ -1071,7 +1072,7 @@ You can render Quarto documents from the menu:
 
 or from the {{< fa brands r-project >}} Console
 
-```{r}
+```r
 #| eval: false
 #| echo: true
 #install.packages("quarto")
@@ -1079,7 +1080,7 @@ quarto::quarto_render("hello.qmd")
 ```
 
 ::: {.callout-tip appearance="simple"}
-You can use the R Console regardless of whether you're running a {{< fa brands r-project >}} or {{< fa brands python >}}  Quarto document
+You can use the R Console regardless of whether you're running a {{< fa brands r-project >}} or {{< fa brands python >}} Quarto document
 
 :::
 
@@ -1141,12 +1142,12 @@ quarto render hello.ipynb --execute
 ```
   - or add to the YAML header
    
-````code
+```code
 ---
 execute:
       enabled: true
 ---
-````
+```
    
 - You can convert between a `ipynb` notebook and a text-based `qmd` file
   - You can use the [Jupytext](https://jupytext.readthedocs.io/en/latest/) package to maintain parallel synchronized version of `.qmd` and `.ipynb` files
@@ -1191,7 +1192,7 @@ You can use **both** {{< fa brands r-project >}} and {{< fa brands python >}} in
 - You should use the `knitr` engine
 - Add the following chunk as the first chunk in your document
 
-```{r}
+```r
 #| echo: true
 #| eval: false
 
@@ -1215,7 +1216,7 @@ of processing the full document or noteboook. This is called [**tangling**](#sec
 - This feature is currently not implemented in Quarto :frowning:
 - For R/`knitr`-based quarto documents, one can use `knitr::purl`
 
-```{r}
+```r
 #| echo: true
 #| eval: false
 knitr::purl("mydocument.qmd")
