@@ -332,7 +332,6 @@ This is still inspired by `Sweave`
 ::::
 
 
-
 # Quarto
 
 Quarto is the next generation of RMarkdown developed by [Posit](https://www.posit.com)
@@ -371,7 +370,7 @@ Quarto is the next generation of RMarkdown developed by [Posit](https://www.posi
 [R Language {{< fa brands r-project >}}](https://www.r-project.org/)
 
 - Programming language
-- Runs scripts via `Rscript <script>.r`
+- Runs scripts via `r <script>.r`
 :::
 :::
 
