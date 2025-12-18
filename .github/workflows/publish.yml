@@ -48,6 +48,9 @@ jobs:
       - name: install quarto tinytex
         run: quarto install tinytex
 
+      - name: install fontawesome
+        run: quarto add quarto-ext/fontawesome
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:

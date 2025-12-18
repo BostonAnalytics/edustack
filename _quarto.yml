@@ -32,6 +32,8 @@ format:
     - cosmo
     - ./theme/book.scss
     code-overflow: wrap
+    embed-resources: true
+    fontawesome: true
 
 execute:
   freeze: false
