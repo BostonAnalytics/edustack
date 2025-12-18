@@ -492,16 +492,16 @@ particular layouts
     - There are `caching` options for `.qmd` to avoid this, however, they are "messier" that just using `.ipynb`
   - **Note**: If `.qmd` has no code, then it is basically just a `Markdown` file `.md`
 
-# Using Quarto
+## Using Quarto
 Tour through various important quarto constructs 
 
-## LaTex in quarto
+### LaTex in quarto
 
 - Since Quarto is built on top of Markdown, coding in Quarto should be pretty intuitive 
 
 ::: {.columns}
 ::: {.column}
-### Quarto syntax
+#### Quarto syntax
 
 ```
 - This is an example of a bulleted list with math 
@@ -520,7 +520,7 @@ $$
 
 :::
 ::: {.column}
-### Result
+#### Result
 
 - This is an example of a bulleted list with math 
 - Here is an in-line math equation $f(x)=\frac{e^{x^2}}{2}$
@@ -537,11 +537,11 @@ $$
 :::
 :::
 
-## Layouts  
+### Layouts  
  
 - You can control basic layout options with `::: {layout-ncol=2}`
 
-### Quarto syntax
+#### Quarto syntax
 
 ````
 ::: {layout-ncol=2}
@@ -559,17 +559,17 @@ $$
 :::
 ````
 
-### Result
+#### Result
 
 :::: {.bordered}
 ::: {layout-ncol=2}
-### List One
+#### List One
 
 - Item A
 - Item B
 
 
-### List Two
+#### List Two
 
 - Item X
 - Item Y
@@ -580,7 +580,7 @@ $$
 ---
 
 
-## Diagrams
+### Diagrams
 
 Quarto has native support for embedding two popular diagram-generating tools:
 
@@ -608,9 +608,9 @@ flowchart LR
 One important thing to note here is that for Mermaid chunks, the chunk options are specified by `%%|` and not `#|` (R/Python) or `//|` (Javascript)
 ::: -->
 
-## Creating figure layouts-1
+### Creating figure layouts-1
 
-### Quarto syntax
+#### Quarto syntax
 
 ````
 ::: {layout-ncol=2}
@@ -622,7 +622,7 @@ One important thing to note here is that for Mermaid chunks, the chunk options a
 :::
 ````
 
-### Result
+#### Result
 
 
 ::: {layout-ncol=2}
@@ -633,9 +633,9 @@ One important thing to note here is that for Mermaid chunks, the chunk options a
 
 :::
 
-## Creating figure layouts-2
+### Creating figure layouts-2
 
-### Quarto syntax
+#### Quarto syntax
 
 - You can create arbitrary grid patterns for figure layouts
 
@@ -648,7 +648,7 @@ One important thing to note here is that for Mermaid chunks, the chunk options a
 :::
 ````
 
-### Result
+#### Result
 
 ::: {layout="[[1], [1], [1],[1]]"}
 ![](./images/ch04/pdf.png){width=250}
@@ -658,7 +658,7 @@ One important thing to note here is that for Mermaid chunks, the chunk options a
 :::
 
 
-## Creating figure layouts-3 {.scrollable}
+### Creating figure layouts-3 {.scrollable}
 
 ```r
 #| layout-ncol: 2
@@ -675,7 +675,7 @@ plot(cars)
 plot(pressure)
 ```
 
-## Code highlighting
+### Code highlighting
 
 ```r
 #| layout-ncol: 2
@@ -706,7 +706,7 @@ So you can use this for tables and lists, among others
 :::
  -->
 
-## Converting file types
+### Converting file types
 
 * You can switch between `.qmd` and `.ipynb` with quarto 
   * `quarto convert clustering.qmd` this will output a `.ipynb` version called `clustering.ipynb`
@@ -720,7 +720,7 @@ So you can use this for tables and lists, among others
   * `quarto render filename.qmd`
   * `quarto render filename.ipynb`
 
-## Embedding video
+### Embedding video
 
 {{{< video https://youtu.be/Z8t4k0Q8e8Y height="400" >}}}
 
@@ -728,37 +728,37 @@ So you can use this for tables and lists, among others
 
 [See [Quarto Videos](https://quarto.org/docs/authoring/videos.html) for more options and details]
 
-## Aside: YAML overview 
+### Aside: YAML overview 
 
-* `Quarto` relies heavily on the `YAML format`
-- [YAML (YAML Ain't Markup Language)]{.uured-bold}: A human-readable data serialization format.
-- [Indentation]{.uured-bold}: Uses whitespace indentation (spaces or tabs) for structure, without relying on explicit delimiters like braces or brackets.
-- [Key-Value Pairs]{.uured-bold}: Represents data as key-value pairs, e.g., `key: value`.
-- [Lists]{.uured-bold}: Represents lists using hyphens, e.g., `- item1`, `- item2`.
-- [Nested Structures]{.uured-bold}: Supports nested data structures using indentation.
-- [Comments]{.uured-bold}: Allows comments with `#`.
-- [Scalars]{.uured-bold}: Represents simple data types like strings, numbers, and booleans.
-- [Data Types]{.uured-bold}: Supports various data types including strings, numbers, booleans, null, and dates.
-- [Inclusion]{.uured-bold}: Permits the use of anchors and aliases for reusing data.
-- [Readability]{.uured-bold}: Prioritizes human readability and is often used in configuration files and data exchange between languages.
-- [No Code Execution]{.uured-bold}: YAML is not intended for executing code, making it safer than some other formats for data exchange.
+- `Quarto` relies heavily on the `YAML format`
+  - [YAML (YAML Ain't Markup Language)]{.uured-bold}: A human-readable data serialization format.
+  - [Indentation]{.uured-bold}: Uses whitespace indentation (spaces or tabs) for structure, without relying on explicit delimiters like braces or brackets.
+  - [Key-Value Pairs]{.uured-bold}: Represents data as key-value pairs, e.g., `key: value`.
+  - [Lists]{.uured-bold}: Represents lists using hyphens, e.g., `- item1`, `- item2`.
+  - [Nested Structures]{.uured-bold}: Supports nested data structures using indentation.
+  - [Comments]{.uured-bold}: Allows comments with `#`.
+  - [Scalars]{.uured-bold}: Represents simple data types like strings, numbers, and booleans.
+  - [Data Types]{.uured-bold}: Supports various data types including strings, numbers, booleans, null, and dates.
+  - [Inclusion]{.uured-bold}: Permits the use of anchors and aliases for reusing data.
+  - [Readability]{.uured-bold}: Prioritizes human readability and is often used in configuration files and data exchange between languages.
+  - [No Code Execution]{.uured-bold}: YAML is not intended for executing code, making it safer than some other formats for data exchange.
 
 
 
-## Aside: Tip for Mac users
+### Aside: Tip for Mac users
 
-* `command+control+shift+4` is very useful on a mac. 
+- `command+control+shift+4` is very useful on a mac. 
   * It takes a screenshot and saves it to the clip-board
-* Windows has a similar shortcut but you will have to google it 
-* The following VSC extension allows you to paste images from the clip-board with `alt+command+v`.    
-    ![](./images/ch04/2023-08-23-09-35-05.png){width=300}
-* `tab` is your best friend when using the command line, since it does `auto-completion` 
-* `open ./path_to_file` will open any file or directory from the command line  -->
+- Windows has a similar shortcut but you will have to google it 
+- The following VSC extension allows you to paste images from the clip-board with `alt+command+v`.    
+  ![](./images/ch04/2023-08-23-09-35-05.png){width=300}
+- `tab` is your best friend when using the command line, since it does `auto-completion` 
+- `open ./path_to_file` will open any file or directory from the command line  -->
 
-# Citations and Bibliographies
+## Citations and Bibliographies
 
 
-## Citations
+### Citations
 
 When creating documents, it is **imperative** that we properly cite and attribute sources we use in our document
 
@@ -768,7 +768,7 @@ When creating documents, it is **imperative** that we properly cite and attribut
 > Keeping track of sources and citations often ends up being a **big deal**
 
 
-## Reference management
+### Reference management
 
 There are several established reference managers available, both commercial and open-source. 
 
@@ -776,9 +776,8 @@ There are several established reference managers available, both commercial and 
 - Many have cloud storage allowing you to access your references from anywhere
 - They can insert citations and create bibliographies in documents
 
---- 
 
-## BibTeX
+### BibTeX
 
 [BibTeX]() is a tool and file format that is used to describe and process lists of references. It was developed 
 alongside LaTex. 
@@ -815,7 +814,7 @@ However, you **don't** need to write out these entries by hand
 :::
 
 
-## Reference managers
+### Reference managers
 
 Several reference manages are available that provide citations in BibTeX format, among other formats
 
@@ -834,7 +833,7 @@ Zotero is one of the [citation tools](https://library.georgetown.edu/citations) 
 To see some comparisons between these and a popular commercial reference manager, see [here](https://libguides.wustl.edu/BrownSchoolLibrary/citations)
 
 
-## Citations in Quarto
+### Citations in Quarto
 
 There are a few citation formats that can be used with Quarto, through pandoc.
 
@@ -847,17 +846,14 @@ There are a few citation formats that can be used with Quarto, through pandoc.
 | RIS | .ris |
 
 ::: {.callout-note appearance="simple" collapse="true"}
-### Note
+#### Note
 
 - The RIS format is available from many reference managers, including Endnote
 - The CSL JSON format is also an available format from many reference managers
 :::
 
 Pandoc has the ability to automatically generate citations and a bibliography from BibTeX files and 
-embedded references (much like we replace R/Python code with their output)
-
-
-## Citations in Quarto
+embedded references (much like we replace R/Python code with their output).
 
 Point to `.bib` files in the YAML header, replacing the name w/ the file-name you're using
 
@@ -879,18 +875,11 @@ csl: nature.csl
 ```
 You would need to download the `.csl` file from the repository and keep it in the same folder as your document.
 
-
-
-## Citations in Quarto
-
 You make a citation using the standard Pandoc/BibTeX syntax (`[@citation]`), where these are the citation-keys we saw before in the BibTeX entries.
 
 - You can use multiple citations at a time, separated by semi-colons
 
 ![](./images/ch04/citations.png)
-
-
-## Citations in Quarto
 
 Pandoc will generate a bibliography and place it in the document. It will be placed in a div with the id `refs` if one exists, otherwise it will be place in the end of the document
 
@@ -923,12 +912,12 @@ Depending on the CSL format, the bibliography will conform to the ordering and f
 - There is a "Insert Citation" dialog allowing you to run your searches of the bibliography file or other sources
 - You can also add citations by starting typing `[@` and you can search your document bibliography for the right reference.  -->
 
-# Supplementary material 
+## Supplementary material 
 
 [Optional content]{.uugreen-bold}: Either cover quickly or skip, students can review at their pace.
 
 
-## Using Quarto in RStudio
+### Using Quarto in RStudio
 
 Given that Quarto is developed by Posit, the company behind RStudio, Quarto works 
 quite seamlessly in RStudio
@@ -942,7 +931,6 @@ columns, callouts and tabsets. It tends to change the source code leading to pro
 
 ![](https://quarto.org/docs/get-started/hello/images/rstudio-source-visual.png){width="60%" fig-align="center"}
 
-## Using Quarto in RStudio
 
 At the top of the file, we put an (optional) YAML header to provide information about 
 document output, general formatting rules and the like.
@@ -972,8 +960,6 @@ format:
 ---
 ````
 
-## Using Quarto in RStudio
-
 - You can also specify the computational engine you want to use for the Quarto document in the YAML header (only if you're using a non-R engine via Jupyter)
 
 ````yaml
@@ -998,8 +984,6 @@ Note that YAML is a hierarchical specification with hierarchy denoted by indenta
 so your specification is clear. Note, for example, that the `jupyter` option is a top-level option, while the 
 `html` and `pdf` specifications are within the `format` specification
 :::
-
-## Using Quarto in RStudio
 
 Code is encapsulated in _code chunks_
 
@@ -1047,8 +1031,6 @@ To create "inline" code in Python use `python`
 ---
 
 
-## Using Quarto in RStudio
-
 You can add _snippets_ to the RStudio configuration. Thomas Mock provides several [useful Quarto snippets](https://gist.github.com/jthomasmock/11acebd4448f171f786e01397df34116?permalink_comment_id=4269591#file-markdown-snippets)
 
 ::: {layout-ncol=2 }
@@ -1058,13 +1040,11 @@ You can add _snippets_ to the RStudio configuration. Thomas Mock provides severa
 
 :::
 
-## Using Quarto in RStudio
 
 You can run individual chunks in the R session
 
 ![](https://quarto.org/docs/get-started/hello/images/rstudio-inline-output.png)
 
-## Using Quarto in RStudio
 
 You can render Quarto documents from the menu:
 
@@ -1094,7 +1074,7 @@ Quarto in VS Code works much like in RStudio, with some differences.
 
 ![](https://quarto.org/docs/tools/images/vscode-execute-cell.png)
 
-## Using Quarto in Visual Studio Code
+### Using Quarto in Visual Studio Code
 
 - You can also render a document using the `Preview` button at the top right of the editor
 
@@ -1131,7 +1111,7 @@ quarto preview hello.ipynb --to html
 
 ---
 
-## Using Quarto in JupyterLab {#sec-convert}
+### Using Quarto in JupyterLab {#sec-convert}
 
 - Quarto does not execute the `.ipynb` cells while render the notebook again
   - Cell outputs are cached in a Jupyter notebook, and so *you will get what you see*
@@ -1160,7 +1140,7 @@ quarto convert hello.qmd   # converts to ipynb
 
 ---
 
-## Rendering Quarto documents
+### Rendering Quarto documents
 
 ::: {.callout-important}
 This section is specific to our class setup and workflows and is applicable more generally
@@ -1183,9 +1163,7 @@ Make sure you have the right path to the `.qmd` document relative to where you'r
 :::
 
 
-
-
-## Multilingual documents
+### Multilingual documents
 
 You can use **both** {{< fa brands r-project >}} and {{< fa brands python >}} in the same document!!!
 
@@ -1208,7 +1186,7 @@ library(reticulate)
 The Jupyter engine does not allow multipe engines to run concurrently, so rendering both R and Python chunks in the same Jupyter document doesn't work
 :::
 
-## Tangling {#sec-tangle}
+### Tangling {#sec-tangle}
 
 Sometimes it is useful to extract the actual code from the Quarto document so that it can just run without the overhead 
 of processing the full document or noteboook. This is called [**tangling**](#sec-rd)
