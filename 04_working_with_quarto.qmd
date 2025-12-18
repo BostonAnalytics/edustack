@@ -370,7 +370,7 @@ Quarto is the next generation of RMarkdown developed by [Posit](https://www.posi
 [R Language {{< fa brands r-project >}}](https://www.r-project.org/)
 
 - Programming language
-- Runs scripts via `r <script>.r`
+- Runs scripts via '*r script.r*' enclosed in single backticks ().
 :::
 :::
 
@@ -389,7 +389,7 @@ Quarto is the next generation of RMarkdown developed by [Posit](https://www.posi
 [Python {{< fa brands python >}}](https://www.python.org/)
 
 - Scripting language
-- On its own, just runs scripts via `python <script>.py`
+- On its own, just runs scripts via '*python script.py*' enclosed in single backticks ()
 :::
 :::
 
