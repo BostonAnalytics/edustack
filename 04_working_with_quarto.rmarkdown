@@ -1236,3 +1236,4 @@ will result in creating `mydocument.R`, where the markdown are placed in comment
 - It is designed to be more flexible and extensible than RMarkdown
 - It can use R, Python and Jupyter kernels
 - It can create a wide variety of document types
+

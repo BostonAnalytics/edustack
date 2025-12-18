@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.5">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./03_quarto_class_setup.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2e0b4708489a94d7cf3aaa82802539fe.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-681e3dc23ead584b9cb3676099af6d72.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d20da0aa7a8193bb27d12b4396ca7777.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -122,7 +123,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -162,7 +163,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Designing a Course With Quarto</a> 
     </div>
@@ -232,109 +235,104 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#programming-languages" id="toc-programming-languages" class="nav-link active" data-scroll-target="#programming-languages"><span class="header-section-number">5.1</span> Programming languages</a></li>
-  <li><a href="#reproducible-documents-research-and-software" id="toc-reproducible-documents-research-and-software" class="nav-link" data-scroll-target="#reproducible-documents-research-and-software"><span class="header-section-number">6</span> Reproducible Documents, Research, and Software</a>
+  <li><a href="#overview-definitions" id="toc-overview-definitions" class="nav-link active" data-scroll-target="#overview-definitions"><span class="header-section-number">5.1</span> Overview &amp; definitions</a></li>
+  <li><a href="#literate-programming" id="toc-literate-programming" class="nav-link" data-scroll-target="#literate-programming"><span class="header-section-number">5.2</span> Literate programming</a></li>
+  <li><a href="#reproducible-documents" id="toc-reproducible-documents" class="nav-link" data-scroll-target="#reproducible-documents"><span class="header-section-number">5.3</span> Reproducible documents</a></li>
+  <li><a href="#tool-sets" id="toc-tool-sets" class="nav-link" data-scroll-target="#tool-sets"><span class="header-section-number">5.4</span> Tool-sets</a></li>
+  <li><a href="#programming-languages" id="toc-programming-languages" class="nav-link" data-scroll-target="#programming-languages"><span class="header-section-number">5.5</span> Programming languages</a></li>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown"><span class="header-section-number">5.6</span> Markdown</a>
   <ul class="collapse">
-  <li><a href="#overview-definitions" id="toc-overview-definitions" class="nav-link" data-scroll-target="#overview-definitions"><span class="header-section-number">6.1</span> Overview &amp; definitions</a></li>
-  <li><a href="#literate-programming" id="toc-literate-programming" class="nav-link" data-scroll-target="#literate-programming"><span class="header-section-number">6.2</span> Literate programming</a></li>
-  <li><a href="#reproducible-documents" id="toc-reproducible-documents" class="nav-link" data-scroll-target="#reproducible-documents"><span class="header-section-number">6.3</span> Reproducible documents</a></li>
-  <li><a href="#tool-sets" id="toc-tool-sets" class="nav-link" data-scroll-target="#tool-sets"><span class="header-section-number">6.4</span> Tool-sets</a></li>
+  <li><a href="#markdown-overview" id="toc-markdown-overview" class="nav-link" data-scroll-target="#markdown-overview"><span class="header-section-number">5.6.1</span> Markdown overview</a></li>
+  <li><a href="#markdown-fundamentals" id="toc-markdown-fundamentals" class="nav-link" data-scroll-target="#markdown-fundamentals"><span class="header-section-number">5.6.2</span> Markdown fundamentals</a></li>
+  <li><a href="#important-markdown-commands" id="toc-important-markdown-commands" class="nav-link" data-scroll-target="#important-markdown-commands"><span class="header-section-number">5.6.3</span> Important Markdown commands</a></li>
   </ul></li>
-  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown"><span class="header-section-number">7</span> Markdown</a>
+  <li><a href="#latex" id="toc-latex" class="nav-link" data-scroll-target="#latex"><span class="header-section-number">5.7</span> LaTex</a>
   <ul class="collapse">
-  <li><a href="#markdown-overview" id="toc-markdown-overview" class="nav-link" data-scroll-target="#markdown-overview"><span class="header-section-number">7.1</span> Markdown overview</a></li>
-  <li><a href="#markdown-fundamentals" id="toc-markdown-fundamentals" class="nav-link" data-scroll-target="#markdown-fundamentals"><span class="header-section-number">7.2</span> Markdown fundamentals</a></li>
-  <li><a href="#important-markdown-commands" id="toc-important-markdown-commands" class="nav-link" data-scroll-target="#important-markdown-commands"><span class="header-section-number">7.3</span> Important Markdown commands</a></li>
+  <li><a href="#latex-overview" id="toc-latex-overview" class="nav-link" data-scroll-target="#latex-overview"><span class="header-section-number">5.7.1</span> LaTex Overview</a></li>
+  <li><a href="#latex-motivation" id="toc-latex-motivation" class="nav-link" data-scroll-target="#latex-motivation"><span class="header-section-number">5.7.2</span> LaTex Motivation</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="header-section-number">5.7.3</span> Resources</a></li>
+  <li><a href="#latex-1" id="toc-latex-1" class="nav-link" data-scroll-target="#latex-1"><span class="header-section-number">5.7.4</span> LaTex</a></li>
+  <li><a href="#latex-basic-math-commands" id="toc-latex-basic-math-commands" class="nav-link" data-scroll-target="#latex-basic-math-commands"><span class="header-section-number">5.7.5</span> Latex: basic math commands</a></li>
+  <li><a href="#sec-latex" id="toc-sec-latex" class="nav-link" data-scroll-target="#sec-latex"><span class="header-section-number">5.7.6</span> LaTex installation</a></li>
   </ul></li>
-  <li><a href="#latex" id="toc-latex" class="nav-link" data-scroll-target="#latex"><span class="header-section-number">8</span> LaTex</a>
+  <li><a href="#mathpix-a-very-useful-tool" id="toc-mathpix-a-very-useful-tool" class="nav-link" data-scroll-target="#mathpix-a-very-useful-tool"><span class="header-section-number">5.8</span> Mathpix: A very useful tool</a></li>
+  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown"><span class="header-section-number">5.9</span> R-Markdown</a>
   <ul class="collapse">
-  <li><a href="#latex-overview" id="toc-latex-overview" class="nav-link" data-scroll-target="#latex-overview"><span class="header-section-number">8.1</span> LaTex Overview</a></li>
-  <li><a href="#latex-motivation" id="toc-latex-motivation" class="nav-link" data-scroll-target="#latex-motivation"><span class="header-section-number">8.2</span> LaTex Motivation</a>
-  <ul class="collapse">
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="header-section-number">8.2.1</span> Resources</a></li>
+  <li><a href="#rmarkdown" id="toc-rmarkdown" class="nav-link" data-scroll-target="#rmarkdown"><span class="header-section-number">5.9.1</span> RMarkdown</a></li>
+  <li><a href="#pandoc" id="toc-pandoc" class="nav-link" data-scroll-target="#pandoc"><span class="header-section-number">5.9.2</span> Pandoc</a></li>
+  <li><a href="#rmarkdown-document" id="toc-rmarkdown-document" class="nav-link" data-scroll-target="#rmarkdown-document"><span class="header-section-number">5.9.3</span> RMarkdown document</a></li>
   </ul></li>
-  <li><a href="#latex-1" id="toc-latex-1" class="nav-link" data-scroll-target="#latex-1"><span class="header-section-number">8.3</span> LaTex</a></li>
-  <li><a href="#latex-basic-math-commands" id="toc-latex-basic-math-commands" class="nav-link" data-scroll-target="#latex-basic-math-commands"><span class="header-section-number">8.4</span> Latex: basic math commands</a></li>
-  <li><a href="#sec-latex" id="toc-sec-latex" class="nav-link" data-scroll-target="#sec-latex"><span class="header-section-number">8.5</span> LaTex installation</a></li>
-  <li><a href="#mathpix-a-very-useful-tool" id="toc-mathpix-a-very-useful-tool" class="nav-link" data-scroll-target="#mathpix-a-very-useful-tool"><span class="header-section-number">8.6</span> Mathpix: A very useful tool</a></li>
-  </ul></li>
-  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown"><span class="header-section-number">9</span> R-Markdown</a>
+  <li><a href="#rmarkdown-1" id="toc-rmarkdown-1" class="nav-link" data-scroll-target="#rmarkdown-1"><span class="header-section-number">5.10</span> RMarkdown</a></li>
+  <li><a href="#jupyter" id="toc-jupyter" class="nav-link" data-scroll-target="#jupyter"><span class="header-section-number">5.11</span> Jupyter</a>
   <ul class="collapse">
-  <li><a href="#rmarkdown" id="toc-rmarkdown" class="nav-link" data-scroll-target="#rmarkdown"><span class="header-section-number">9.1</span> RMarkdown</a></li>
-  <li><a href="#pandoc" id="toc-pandoc" class="nav-link" data-scroll-target="#pandoc"><span class="header-section-number">9.2</span> Pandoc</a></li>
-  <li><a href="#rmarkdown-document" id="toc-rmarkdown-document" class="nav-link" data-scroll-target="#rmarkdown-document"><span class="header-section-number">9.3</span> RMarkdown document</a></li>
-  <li><a href="#rmarkdown-1" id="toc-rmarkdown-1" class="nav-link" data-scroll-target="#rmarkdown-1"><span class="header-section-number">9.4</span> RMarkdown</a></li>
+  <li><a href="#jupyter-lab-notebook" id="toc-jupyter-lab-notebook" class="nav-link" data-scroll-target="#jupyter-lab-notebook"><span class="header-section-number">5.11.1</span> Jupyter Lab &amp; Notebook</a></li>
+  <li><a href="#jupyter-notebooks-are-very-popular" id="toc-jupyter-notebooks-are-very-popular" class="nav-link" data-scroll-target="#jupyter-notebooks-are-very-popular"><span class="header-section-number">5.11.2</span> Jupyter notebooks are very popular</a></li>
   </ul></li>
-  <li><a href="#jupyter" id="toc-jupyter" class="nav-link" data-scroll-target="#jupyter"><span class="header-section-number">10</span> Jupyter</a>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">5.12</span> Quarto</a>
   <ul class="collapse">
-  <li><a href="#jupyter-lab-notebook" id="toc-jupyter-lab-notebook" class="nav-link" data-scroll-target="#jupyter-lab-notebook"><span class="header-section-number">10.1</span> Jupyter Lab &amp; Notebook</a></li>
-  <li><a href="#jupyter-notebooks-are-very-popular" id="toc-jupyter-notebooks-are-very-popular" class="nav-link" data-scroll-target="#jupyter-notebooks-are-very-popular"><span class="header-section-number">10.2</span> Jupyter notebooks are very popular</a></li>
+  <li><a href="#quarto-overview" id="toc-quarto-overview" class="nav-link" data-scroll-target="#quarto-overview"><span class="header-section-number">5.12.1</span> Quarto overview</a></li>
+  <li><a href="#r-vs.-rstudio-vs.-quarto" id="toc-r-vs.-rstudio-vs.-quarto" class="nav-link" data-scroll-target="#r-vs.-rstudio-vs.-quarto"><span class="header-section-number">5.12.2</span> R vs.&nbsp;RStudio vs.&nbsp;Quarto</a></li>
   </ul></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">11</span> Quarto</a>
+  <li><a href="#rmarkdown-quarto" id="toc-rmarkdown-quarto" class="nav-link" data-scroll-target="#rmarkdown-quarto"><span class="header-section-number">5.13</span> RMarkdown &amp; Quarto</a></li>
+  <li><a href="#rmarkdown-quarto-1" id="toc-rmarkdown-quarto-1" class="nav-link" data-scroll-target="#rmarkdown-quarto-1"><span class="header-section-number">5.14</span> RMarkdown &amp; Quarto</a></li>
+  <li><a href="#single-source-many-outputs" id="toc-single-source-many-outputs" class="nav-link" data-scroll-target="#single-source-many-outputs"><span class="header-section-number">5.15</span> Single source, many outputs</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation"><span class="header-section-number">5.16</span> Installation</a></li>
+  <li><a href="#so-we-like-quarto" id="toc-so-we-like-quarto" class="nav-link" data-scroll-target="#so-we-like-quarto"><span class="header-section-number">5.17</span> So we like Quarto?</a></li>
+  <li><a href="#aside-project-website-and-presentation" id="toc-aside-project-website-and-presentation" class="nav-link" data-scroll-target="#aside-project-website-and-presentation"><span class="header-section-number">5.18</span> Aside: Project website and presentation</a></li>
+  <li><a href="#using-quarto" id="toc-using-quarto" class="nav-link" data-scroll-target="#using-quarto"><span class="header-section-number">6</span> Using Quarto</a>
   <ul class="collapse">
-  <li><a href="#quarto-overview" id="toc-quarto-overview" class="nav-link" data-scroll-target="#quarto-overview"><span class="header-section-number">11.1</span> Quarto overview</a></li>
-  <li><a href="#r-vs.-rstudio-vs.-quarto" id="toc-r-vs.-rstudio-vs.-quarto" class="nav-link" data-scroll-target="#r-vs.-rstudio-vs.-quarto"><span class="header-section-number">11.2</span> R vs.&nbsp;RStudio vs.&nbsp;Quarto</a></li>
-  <li><a href="#rmarkdown-quarto" id="toc-rmarkdown-quarto" class="nav-link" data-scroll-target="#rmarkdown-quarto"><span class="header-section-number">11.3</span> RMarkdown &amp; Quarto</a></li>
-  <li><a href="#rmarkdown-quarto-1" id="toc-rmarkdown-quarto-1" class="nav-link" data-scroll-target="#rmarkdown-quarto-1"><span class="header-section-number">11.4</span> RMarkdown &amp; Quarto</a></li>
-  <li><a href="#single-source-many-outputs" id="toc-single-source-many-outputs" class="nav-link" data-scroll-target="#single-source-many-outputs"><span class="header-section-number">11.5</span> Single source, many outputs</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation"><span class="header-section-number">11.6</span> Installation</a></li>
-  <li><a href="#so-we-like-quarto" id="toc-so-we-like-quarto" class="nav-link" data-scroll-target="#so-we-like-quarto"><span class="header-section-number">11.7</span> So we like Quarto?</a></li>
-  <li><a href="#aside-project-website-and-presentation" id="toc-aside-project-website-and-presentation" class="nav-link" data-scroll-target="#aside-project-website-and-presentation"><span class="header-section-number">11.8</span> Aside: Project website and presentation</a></li>
+  <li><a href="#latex-in-quarto" id="toc-latex-in-quarto" class="nav-link" data-scroll-target="#latex-in-quarto"><span class="header-section-number">6.1</span> LaTex in quarto</a></li>
+  <li><a href="#layouts" id="toc-layouts" class="nav-link" data-scroll-target="#layouts"><span class="header-section-number">6.2</span> Layouts</a>
+  <ul class="collapse">
+  <li><a href="#quarto-syntax-1" id="toc-quarto-syntax-1" class="nav-link" data-scroll-target="#quarto-syntax-1"><span class="header-section-number">6.2.1</span> Quarto syntax</a></li>
+  <li><a href="#result-1" id="toc-result-1" class="nav-link" data-scroll-target="#result-1"><span class="header-section-number">6.2.2</span> Result</a></li>
   </ul></li>
-  <li><a href="#using-quarto" id="toc-using-quarto" class="nav-link" data-scroll-target="#using-quarto"><span class="header-section-number">12</span> Using Quarto</a>
+  <li><a href="#diagrams" id="toc-diagrams" class="nav-link" data-scroll-target="#diagrams"><span class="header-section-number">6.3</span> Diagrams</a></li>
+  <li><a href="#creating-figure-layouts-1" id="toc-creating-figure-layouts-1" class="nav-link" data-scroll-target="#creating-figure-layouts-1"><span class="header-section-number">6.4</span> Creating figure layouts-1</a>
   <ul class="collapse">
-  <li><a href="#latex-in-quarto" id="toc-latex-in-quarto" class="nav-link" data-scroll-target="#latex-in-quarto"><span class="header-section-number">12.1</span> LaTex in quarto</a></li>
-  <li><a href="#layouts" id="toc-layouts" class="nav-link" data-scroll-target="#layouts"><span class="header-section-number">12.2</span> Layouts</a>
-  <ul class="collapse">
-  <li><a href="#quarto-syntax-1" id="toc-quarto-syntax-1" class="nav-link" data-scroll-target="#quarto-syntax-1"><span class="header-section-number">12.2.1</span> Quarto syntax</a></li>
-  <li><a href="#result-1" id="toc-result-1" class="nav-link" data-scroll-target="#result-1"><span class="header-section-number">12.2.2</span> Result</a></li>
+  <li><a href="#quarto-syntax-2" id="toc-quarto-syntax-2" class="nav-link" data-scroll-target="#quarto-syntax-2"><span class="header-section-number">6.4.1</span> Quarto syntax</a></li>
+  <li><a href="#result-2" id="toc-result-2" class="nav-link" data-scroll-target="#result-2"><span class="header-section-number">6.4.2</span> Result</a></li>
   </ul></li>
-  <li><a href="#diagrams" id="toc-diagrams" class="nav-link" data-scroll-target="#diagrams"><span class="header-section-number">12.3</span> Diagrams</a></li>
-  <li><a href="#creating-figure-layouts-1" id="toc-creating-figure-layouts-1" class="nav-link" data-scroll-target="#creating-figure-layouts-1"><span class="header-section-number">12.4</span> Creating figure layouts-1</a>
+  <li><a href="#creating-figure-layouts-2" id="toc-creating-figure-layouts-2" class="nav-link" data-scroll-target="#creating-figure-layouts-2"><span class="header-section-number">6.5</span> Creating figure layouts-2</a>
   <ul class="collapse">
-  <li><a href="#quarto-syntax-2" id="toc-quarto-syntax-2" class="nav-link" data-scroll-target="#quarto-syntax-2"><span class="header-section-number">12.4.1</span> Quarto syntax</a></li>
-  <li><a href="#result-2" id="toc-result-2" class="nav-link" data-scroll-target="#result-2"><span class="header-section-number">12.4.2</span> Result</a></li>
+  <li><a href="#quarto-syntax-3" id="toc-quarto-syntax-3" class="nav-link" data-scroll-target="#quarto-syntax-3"><span class="header-section-number">6.5.1</span> Quarto syntax</a></li>
+  <li><a href="#result-3" id="toc-result-3" class="nav-link" data-scroll-target="#result-3"><span class="header-section-number">6.5.2</span> Result</a></li>
   </ul></li>
-  <li><a href="#creating-figure-layouts-2" id="toc-creating-figure-layouts-2" class="nav-link" data-scroll-target="#creating-figure-layouts-2"><span class="header-section-number">12.5</span> Creating figure layouts-2</a>
+  <li><a href="#creating-figure-layouts-3" id="toc-creating-figure-layouts-3" class="nav-link" data-scroll-target="#creating-figure-layouts-3"><span class="header-section-number">6.6</span> Creating figure layouts-3</a></li>
+  <li><a href="#code-highlighting" id="toc-code-highlighting" class="nav-link" data-scroll-target="#code-highlighting"><span class="header-section-number">6.7</span> Code highlighting</a></li>
+  <li><a href="#converting-file-types" id="toc-converting-file-types" class="nav-link" data-scroll-target="#converting-file-types"><span class="header-section-number">6.8</span> Converting file types</a></li>
+  <li><a href="#embedding-video" id="toc-embedding-video" class="nav-link" data-scroll-target="#embedding-video"><span class="header-section-number">6.9</span> Embedding video</a></li>
+  <li><a href="#aside-yaml-overview" id="toc-aside-yaml-overview" class="nav-link" data-scroll-target="#aside-yaml-overview"><span class="header-section-number">6.10</span> Aside: YAML overview</a></li>
+  <li><a href="#aside-tip-for-mac-users" id="toc-aside-tip-for-mac-users" class="nav-link" data-scroll-target="#aside-tip-for-mac-users"><span class="header-section-number">6.11</span> Aside: Tip for Mac users</a></li>
+  </ul></li>
+  <li><a href="#citations-and-bibliographies" id="toc-citations-and-bibliographies" class="nav-link" data-scroll-target="#citations-and-bibliographies"><span class="header-section-number">7</span> Citations and Bibliographies</a>
   <ul class="collapse">
-  <li><a href="#quarto-syntax-3" id="toc-quarto-syntax-3" class="nav-link" data-scroll-target="#quarto-syntax-3"><span class="header-section-number">12.5.1</span> Quarto syntax</a></li>
-  <li><a href="#result-3" id="toc-result-3" class="nav-link" data-scroll-target="#result-3"><span class="header-section-number">12.5.2</span> Result</a></li>
+  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations"><span class="header-section-number">7.1</span> Citations</a></li>
+  <li><a href="#reference-management" id="toc-reference-management" class="nav-link" data-scroll-target="#reference-management"><span class="header-section-number">7.2</span> Reference management</a></li>
+  <li><a href="#bibtex" id="toc-bibtex" class="nav-link" data-scroll-target="#bibtex"><span class="header-section-number">7.3</span> BibTeX</a></li>
+  <li><a href="#reference-managers" id="toc-reference-managers" class="nav-link" data-scroll-target="#reference-managers"><span class="header-section-number">7.4</span> Reference managers</a></li>
+  <li><a href="#citations-in-quarto" id="toc-citations-in-quarto" class="nav-link" data-scroll-target="#citations-in-quarto"><span class="header-section-number">7.5</span> Citations in Quarto</a></li>
+  <li><a href="#citations-in-quarto-1" id="toc-citations-in-quarto-1" class="nav-link" data-scroll-target="#citations-in-quarto-1"><span class="header-section-number">7.6</span> Citations in Quarto</a></li>
+  <li><a href="#citations-in-quarto-2" id="toc-citations-in-quarto-2" class="nav-link" data-scroll-target="#citations-in-quarto-2"><span class="header-section-number">7.7</span> Citations in Quarto</a></li>
+  <li><a href="#citations-in-quarto-3" id="toc-citations-in-quarto-3" class="nav-link" data-scroll-target="#citations-in-quarto-3"><span class="header-section-number">7.8</span> Citations in Quarto</a></li>
   </ul></li>
-  <li><a href="#creating-figure-layouts-3" id="toc-creating-figure-layouts-3" class="nav-link" data-scroll-target="#creating-figure-layouts-3"><span class="header-section-number">12.6</span> Creating figure layouts-3</a></li>
-  <li><a href="#code-highlighting" id="toc-code-highlighting" class="nav-link" data-scroll-target="#code-highlighting"><span class="header-section-number">12.7</span> Code highlighting</a></li>
-  <li><a href="#converting-file-types" id="toc-converting-file-types" class="nav-link" data-scroll-target="#converting-file-types"><span class="header-section-number">12.8</span> Converting file types</a></li>
-  <li><a href="#embedding-video" id="toc-embedding-video" class="nav-link" data-scroll-target="#embedding-video"><span class="header-section-number">12.9</span> Embedding video</a></li>
-  <li><a href="#aside-yaml-overview" id="toc-aside-yaml-overview" class="nav-link" data-scroll-target="#aside-yaml-overview"><span class="header-section-number">12.10</span> Aside: YAML overview</a></li>
-  <li><a href="#aside-tip-for-mac-users" id="toc-aside-tip-for-mac-users" class="nav-link" data-scroll-target="#aside-tip-for-mac-users"><span class="header-section-number">12.11</span> Aside: Tip for Mac users</a></li>
-  </ul></li>
-  <li><a href="#citations-and-bibliographies" id="toc-citations-and-bibliographies" class="nav-link" data-scroll-target="#citations-and-bibliographies"><span class="header-section-number">13</span> Citations and Bibliographies</a>
+  <li><a href="#supplementary-material" id="toc-supplementary-material" class="nav-link" data-scroll-target="#supplementary-material"><span class="header-section-number">8</span> Supplementary material</a>
   <ul class="collapse">
-  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations"><span class="header-section-number">13.1</span> Citations</a></li>
-  <li><a href="#reference-management" id="toc-reference-management" class="nav-link" data-scroll-target="#reference-management"><span class="header-section-number">13.2</span> Reference management</a></li>
-  <li><a href="#bibtex" id="toc-bibtex" class="nav-link" data-scroll-target="#bibtex"><span class="header-section-number">13.3</span> BibTeX</a></li>
-  <li><a href="#reference-managers" id="toc-reference-managers" class="nav-link" data-scroll-target="#reference-managers"><span class="header-section-number">13.4</span> Reference managers</a></li>
-  <li><a href="#citations-in-quarto" id="toc-citations-in-quarto" class="nav-link" data-scroll-target="#citations-in-quarto"><span class="header-section-number">13.5</span> Citations in Quarto</a></li>
-  <li><a href="#citations-in-quarto-1" id="toc-citations-in-quarto-1" class="nav-link" data-scroll-target="#citations-in-quarto-1"><span class="header-section-number">13.6</span> Citations in Quarto</a></li>
-  <li><a href="#citations-in-quarto-2" id="toc-citations-in-quarto-2" class="nav-link" data-scroll-target="#citations-in-quarto-2"><span class="header-section-number">13.7</span> Citations in Quarto</a></li>
-  <li><a href="#citations-in-quarto-3" id="toc-citations-in-quarto-3" class="nav-link" data-scroll-target="#citations-in-quarto-3"><span class="header-section-number">13.8</span> Citations in Quarto</a></li>
-  </ul></li>
-  <li><a href="#supplementary-material" id="toc-supplementary-material" class="nav-link" data-scroll-target="#supplementary-material"><span class="header-section-number">14</span> Supplementary material</a>
-  <ul class="collapse">
-  <li><a href="#using-quarto-in-rstudio" id="toc-using-quarto-in-rstudio" class="nav-link" data-scroll-target="#using-quarto-in-rstudio"><span class="header-section-number">14.1</span> Using Quarto in RStudio</a></li>
-  <li><a href="#using-quarto-in-rstudio-1" id="toc-using-quarto-in-rstudio-1" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-1"><span class="header-section-number">14.2</span> Using Quarto in RStudio</a></li>
-  <li><a href="#using-quarto-in-rstudio-2" id="toc-using-quarto-in-rstudio-2" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-2"><span class="header-section-number">14.3</span> Using Quarto in RStudio</a></li>
-  <li><a href="#using-quarto-in-rstudio-3" id="toc-using-quarto-in-rstudio-3" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-3"><span class="header-section-number">14.4</span> Using Quarto in RStudio</a></li>
-  <li><a href="#using-quarto-in-rstudio-4" id="toc-using-quarto-in-rstudio-4" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-4"><span class="header-section-number">14.5</span> Using Quarto in RStudio</a></li>
-  <li><a href="#using-quarto-in-rstudio-5" id="toc-using-quarto-in-rstudio-5" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-5"><span class="header-section-number">14.6</span> Using Quarto in RStudio</a></li>
-  <li><a href="#using-quarto-in-rstudio-6" id="toc-using-quarto-in-rstudio-6" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-6"><span class="header-section-number">14.7</span> Using Quarto in RStudio</a></li>
-  <li><a href="#using-quarto-in-visual-studio-code" id="toc-using-quarto-in-visual-studio-code" class="nav-link" data-scroll-target="#using-quarto-in-visual-studio-code"><span class="header-section-number">14.8</span> Using Quarto in Visual Studio Code</a></li>
-  <li><a href="#using-quarto-in-visual-studio-code-1" id="toc-using-quarto-in-visual-studio-code-1" class="nav-link" data-scroll-target="#using-quarto-in-visual-studio-code-1"><span class="header-section-number">14.9</span> Using Quarto in Visual Studio Code</a></li>
-  <li><a href="#using-quarto-in-jupyterlab" id="toc-using-quarto-in-jupyterlab" class="nav-link" data-scroll-target="#using-quarto-in-jupyterlab"><span class="header-section-number">14.10</span> Using Quarto in JupyterLab</a></li>
-  <li><a href="#sec-convert" id="toc-sec-convert" class="nav-link" data-scroll-target="#sec-convert"><span class="header-section-number">14.11</span> Using Quarto in JupyterLab</a></li>
-  <li><a href="#rendering-quarto-documents" id="toc-rendering-quarto-documents" class="nav-link" data-scroll-target="#rendering-quarto-documents"><span class="header-section-number">14.12</span> Rendering Quarto documents</a></li>
-  <li><a href="#multilingual-documents" id="toc-multilingual-documents" class="nav-link" data-scroll-target="#multilingual-documents"><span class="header-section-number">14.13</span> Multilingual documents</a></li>
-  <li><a href="#sec-tangle" id="toc-sec-tangle" class="nav-link" data-scroll-target="#sec-tangle"><span class="header-section-number">14.14</span> Tangling</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">14.15</span> Summary</a></li>
+  <li><a href="#using-quarto-in-rstudio" id="toc-using-quarto-in-rstudio" class="nav-link" data-scroll-target="#using-quarto-in-rstudio"><span class="header-section-number">8.1</span> Using Quarto in RStudio</a></li>
+  <li><a href="#using-quarto-in-rstudio-1" id="toc-using-quarto-in-rstudio-1" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-1"><span class="header-section-number">8.2</span> Using Quarto in RStudio</a></li>
+  <li><a href="#using-quarto-in-rstudio-2" id="toc-using-quarto-in-rstudio-2" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-2"><span class="header-section-number">8.3</span> Using Quarto in RStudio</a></li>
+  <li><a href="#using-quarto-in-rstudio-3" id="toc-using-quarto-in-rstudio-3" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-3"><span class="header-section-number">8.4</span> Using Quarto in RStudio</a></li>
+  <li><a href="#using-quarto-in-rstudio-4" id="toc-using-quarto-in-rstudio-4" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-4"><span class="header-section-number">8.5</span> Using Quarto in RStudio</a></li>
+  <li><a href="#using-quarto-in-rstudio-5" id="toc-using-quarto-in-rstudio-5" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-5"><span class="header-section-number">8.6</span> Using Quarto in RStudio</a></li>
+  <li><a href="#using-quarto-in-rstudio-6" id="toc-using-quarto-in-rstudio-6" class="nav-link" data-scroll-target="#using-quarto-in-rstudio-6"><span class="header-section-number">8.7</span> Using Quarto in RStudio</a></li>
+  <li><a href="#using-quarto-in-visual-studio-code" id="toc-using-quarto-in-visual-studio-code" class="nav-link" data-scroll-target="#using-quarto-in-visual-studio-code"><span class="header-section-number">8.8</span> Using Quarto in Visual Studio Code</a></li>
+  <li><a href="#using-quarto-in-visual-studio-code-1" id="toc-using-quarto-in-visual-studio-code-1" class="nav-link" data-scroll-target="#using-quarto-in-visual-studio-code-1"><span class="header-section-number">8.9</span> Using Quarto in Visual Studio Code</a></li>
+  <li><a href="#using-quarto-in-jupyterlab" id="toc-using-quarto-in-jupyterlab" class="nav-link" data-scroll-target="#using-quarto-in-jupyterlab"><span class="header-section-number">8.10</span> Using Quarto in JupyterLab</a></li>
+  <li><a href="#sec-convert" id="toc-sec-convert" class="nav-link" data-scroll-target="#sec-convert"><span class="header-section-number">8.11</span> Using Quarto in JupyterLab</a></li>
+  <li><a href="#rendering-quarto-documents" id="toc-rendering-quarto-documents" class="nav-link" data-scroll-target="#rendering-quarto-documents"><span class="header-section-number">8.12</span> Rendering Quarto documents</a></li>
+  <li><a href="#multilingual-documents" id="toc-multilingual-documents" class="nav-link" data-scroll-target="#multilingual-documents"><span class="header-section-number">8.13</span> Multilingual documents</a></li>
+  <li><a href="#sec-tangle" id="toc-sec-tangle" class="nav-link" data-scroll-target="#sec-tangle"><span class="header-section-number">8.14</span> Tangling</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">8.15</span> Summary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -361,27 +359,8 @@ window.Quarto = {
 </header>
 
 
-<section id="programming-languages" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="programming-languages"><span class="header-section-number">5.1</span> Programming languages</h2>
-<ul>
-<li>Assuming you already have <code>R</code>, <code>Python</code>, and/or <code>anaconda</code> installed on your computer, including the standard packages.</li>
-<li>you will need:
-<ul>
-<li>Python or Anaconda</li>
-<li>R</li>
-<li>Jupyter</li>
-<li>Quarto</li>
-<li>RStudio, VS Code, Antigravity</li>
-<li>Google Colab can be an alternative</li>
-</ul></li>
-<li><a href="https://www.bu.edu/metit/">Met It</a> will help you to install the necessary packages and libraries for the course.</li>
-</ul>
-<iframe src="https://www.bu.edu/metit/" width="1000px" height="120px&quot;" scrolling="no"></iframe>
-</section>
-<section id="reproducible-documents-research-and-software" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Reproducible Documents, Research, and Software</h1>
-<section id="overview-definitions" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="overview-definitions"><span class="header-section-number">6.1</span> Overview &amp; definitions</h2>
+<section id="overview-definitions" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="overview-definitions"><span class="header-section-number">5.1</span> Overview &amp; definitions</h2>
 <ul>
 <li>A <code>reproducible document</code> is a file or set of files, typically in a scientific or data-driven context, that includes both the content (text, tables, figures) &amp; [the code or instructions required to generate and update that content]{uublue-bold}.
 <ul>
@@ -395,8 +374,8 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="literate-programming" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="literate-programming"><span class="header-section-number">6.2</span> Literate programming</h2>
+<section id="literate-programming" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="literate-programming"><span class="header-section-number">5.2</span> Literate programming</h2>
 <ul>
 <li>Document a program by
 <ul>
@@ -418,8 +397,8 @@ window.Quarto = {
 <li>Integrates with <code>Jupyter</code> notebooks using <code>polyglot</code> cells</li>
 </ul>
 </section>
-<section id="reproducible-documents" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="reproducible-documents"><span class="header-section-number">6.3</span> Reproducible documents</h2>
+<section id="reproducible-documents" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="reproducible-documents"><span class="header-section-number">5.3</span> Reproducible documents</h2>
 <p>Adapting the <em>literate programming</em> method to creating documents</p>
 <ul>
 <li>Put text and code in the same document, with access to the data from the code</li>
@@ -433,8 +412,8 @@ window.Quarto = {
 <p>The code is a means to creating output for these products, rather than just documenting code</p>
 </blockquote>
 </section>
-<section id="tool-sets" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="tool-sets"><span class="header-section-number">6.4</span> Tool-sets</h2>
+<section id="tool-sets" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="tool-sets"><span class="header-section-number">5.4</span> Tool-sets</h2>
 <p>Reproducible documents are a marriage of natural language text (usually q/ some markup) &amp; a scripting language.</p>
 <table class="caption-top table">
 <colgroup>
@@ -486,12 +465,28 @@ window.Quarto = {
 </table>
 <p>There are many <a href="https://en.wikipedia.org/wiki/Literate_programming#Literate_programming_practices">other</a> toolsets as well.</p>
 </section>
+<section id="programming-languages" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="programming-languages"><span class="header-section-number">5.5</span> Programming languages</h2>
+<ul>
+<li>Assuming you already have <code>R</code>, <code>Python</code>, and/or <code>anaconda</code> installed on your computer, including the standard packages.</li>
+<li>you will need:
+<ul>
+<li>Python or Anaconda</li>
+<li>R</li>
+<li>Jupyter</li>
+<li>Quarto</li>
+<li>RStudio, VS Code, Antigravity</li>
+<li>Google Colab can be an alternative</li>
+</ul></li>
+<li><a href="https://www.bu.edu/metit/">Met It</a> will help you to install the necessary packages and libraries for the course.</li>
+</ul>
+<iframe src="https://www.bu.edu/metit/" width="1000px" height="120px&quot;" scrolling="no"></iframe>
 </section>
-<section id="markdown" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Markdown</h1>
+<section id="markdown" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="markdown"><span class="header-section-number">5.6</span> Markdown</h2>
 <p><span class="uugreen-bold">Optional content</span>: Either cover quickly or skip, students can review at their pace. As simple as text documents.</p>
-<section id="markdown-overview" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="markdown-overview"><span class="header-section-number">7.1</span> Markdown overview</h2>
+<section id="markdown-overview" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="markdown-overview"><span class="header-section-number">5.6.1</span> Markdown overview</h3>
 <ul>
 <li>Markdown is a lightweight markup language used for formatting plain text, enabling easy conversion to HTML. Popular for web content &amp; documentation due to simplicity.</li>
 <li><code>Why is markdown important for programmers?</code></li>
@@ -515,8 +510,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="markdown-fundamentals" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="markdown-fundamentals"><span class="header-section-number">7.2</span> Markdown fundamentals</h2>
+<section id="markdown-fundamentals" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="markdown-fundamentals"><span class="header-section-number">5.6.2</span> Markdown fundamentals</h3>
 <ul>
 <li>Markdown is very easy to learn!</li>
 <li>Take some time to get familiar with it over the coming days</li>
@@ -531,8 +526,8 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="important-markdown-commands" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="important-markdown-commands"><span class="header-section-number">7.3</span> Important Markdown commands</h2>
+<section id="important-markdown-commands" class="level3" data-number="5.6.3">
+<h3 data-number="5.6.3" class="anchored" data-anchor-id="important-markdown-commands"><span class="header-section-number">5.6.3</span> Important Markdown commands</h3>
 <ul>
 <li><span class="uured-bold">Headers</span>: Create headings with ‘#’ (e.g., ‘# Header 1’ for the largest heading).</li>
 <li><span class="uured-bold">Emphasis</span>: Use ’*’ or ’_’ for italics (‘<em>italic</em>’) and ’**’ or ’__’ for bold (‘<strong>bold</strong>’).</li>
@@ -548,11 +543,11 @@ window.Quarto = {
 </ul>
 </section>
 </section>
-<section id="latex" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> LaTex</h1>
+<section id="latex" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="latex"><span class="header-section-number">5.7</span> LaTex</h2>
 <p><span class="uugreen-bold">Optional content</span>: Either cover quickly or skip, students can review at their pace.</p>
-<section id="latex-overview" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="latex-overview"><span class="header-section-number">8.1</span> LaTex Overview</h2>
+<section id="latex-overview" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="latex-overview"><span class="header-section-number">5.7.1</span> LaTex Overview</h3>
 <ul>
 <li>LaTex is a typesetting system commonly used for creating documents with complex formatting, such as research papers, theses, and academic articles.</li>
 <li>Uses <code>plain text</code> w/ markup commands to define document structure &amp; formatting.</li>
@@ -564,21 +559,21 @@ window.Quarto = {
 <li>We often use <code>markdown</code> for document generation rather than LaTex. You <code>DON'T</code> have to be a LaTex expert, but, familiarity w/ writing math in LaTex is important</li>
 </ul>
 </section>
-<section id="latex-motivation" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="latex-motivation"><span class="header-section-number">8.2</span> LaTex Motivation</h2>
+<section id="latex-motivation" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="latex-motivation"><span class="header-section-number">5.7.2</span> LaTex Motivation</h3>
 <p>It’s worth learning a little bit of LaTex both for its mathematical typesetting and for its strong formatting capabilities.</p>
 <p>It is common for universities and journals and publishers to provide LaTex document classes for typesetting in their preferred manner.</p>
-<section id="resources" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="resources"><span class="header-section-number">8.2.1</span> Resources</h3>
+</section>
+<section id="resources" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="resources"><span class="header-section-number">5.7.3</span> Resources</h3>
 <ul>
 <li><a href="http://tug.ctan.org/info/undergradmath/undergradmath.pdf">LaTex Math for Undergrads</a></li>
 <li><a href="https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes">Learn LaTex in 30 minutes</a></li>
 <li><a href="https://latex-tutorial.com/tutorials/">LaTex-Tutorial.com</a></li>
 </ul>
 </section>
-</section>
-<section id="latex-1" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="latex-1"><span class="header-section-number">8.3</span> LaTex</h2>
+<section id="latex-1" class="level3" data-number="5.7.4">
+<h3 data-number="5.7.4" class="anchored" data-anchor-id="latex-1"><span class="header-section-number">5.7.4</span> LaTex</h3>
 <ul>
 <li>The strength of LaTex is in its strong separation of content and formatting.</li>
 <li>The document was written in a computer science-y markup</li>
@@ -588,22 +583,22 @@ window.Quarto = {
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/pdf.png" class="img-fluid figure-img"></p>
+<p><img src="./images/ch04/pdf.png" class="img-fluid figure-img"></p>
 <figcaption>LaTex math for undergrads [<a href="http://tug.ctan.org/info/undergradmath/undergradmath.pdf">link</a>]</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/eqn.png" class="img-fluid figure-img"></p>
+<p><img src="./images/ch04/eqn.png" class="img-fluid figure-img"></p>
 <figcaption>LaTex math for undergrads [<a href="http://tug.ctan.org/info/undergradmath/undergradmath.pdf">link</a>]</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="latex-basic-math-commands" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="latex-basic-math-commands"><span class="header-section-number">8.4</span> Latex: basic math commands</h2>
+<section id="latex-basic-math-commands" class="level3" data-number="5.7.5">
+<h3 data-number="5.7.5" class="anchored" data-anchor-id="latex-basic-math-commands"><span class="header-section-number">5.7.5</span> Latex: basic math commands</h3>
 <p>LaTeX math commands are fundamental for expressing mathematical equations and symbols in documents.</p>
 <div class="columns">
 <div class="column">
@@ -632,8 +627,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="sec-latex" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="sec-latex"><span class="header-section-number">8.5</span> LaTex installation</h2>
+<section id="sec-latex" class="level3" data-number="5.7.6">
+<h3 data-number="5.7.6" class="anchored" data-anchor-id="sec-latex"><span class="header-section-number">5.7.6</span> LaTex installation</h3>
 <p>Most reproducible document systems require an installation of LaTex on your computer or system. In particular, both RMarkdown and Quarto use it to generate PDF documents.</p>
 <p>There are several distributions of LaTex available, including</p>
 <ul>
@@ -641,25 +636,25 @@ window.Quarto = {
 <li><a href="http://miktex.org/">MiKTeX</a> or <a href="http://www.tug.org/texlive">TeX Live</a> on Windows</li>
 </ul>
 <p>However, there is a smaller, essential LaTex distribution available through the <code>tinytex</code> package, based on the TeX Live distribution</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> install tinytex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> install tinytex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This installation remains local to Quarto, i.e., it doesn’t affect other apps on your computer that use TeX. To make this your default TeX installation on your computer, use</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> install tinytex <span class="at">--update-path</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> install tinytex <span class="at">--update-path</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>See the Quarto documentation on <a href="https://quarto.org/docs/output-formats/pdf-engine.html">PDF Engines</a>, and <a href="#sec-tools">here</a> for other Quarto tools.</p>
 </section>
-<section id="mathpix-a-very-useful-tool" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="mathpix-a-very-useful-tool"><span class="header-section-number">8.6</span> Mathpix: A very useful tool</h2>
+</section>
+<section id="mathpix-a-very-useful-tool" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="mathpix-a-very-useful-tool"><span class="header-section-number">5.8</span> Mathpix: A very useful tool</h2>
 <ul>
 <li><code>mathpix</code>: <a href="https://mathpix.com/">https://mathpix.com/</a></li>
-<li>Mathpix is a tool that uses optical character recognition to convert images of handwritten or printed math equations into digital formats, aiding quick integration of math content into documents and applications. <img src="lecture00_figures/2023-08-24-09-24-28.png" class="img-fluid" width="800"></li>
+<li>Mathpix is a tool that uses optical character recognition to convert images of handwritten or printed math equations into digital formats, aiding quick integration of math content into documents and applications. <img src="./images/ch04/2023-08-24-09-24-28.png" class="img-fluid" width="800"></li>
 </ul>
 <!-- * **Demo**: `Run example` -->
 </section>
-</section>
-<section id="r-markdown" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> R-Markdown</h1>
+<section id="r-markdown" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="r-markdown"><span class="header-section-number">5.9</span> R-Markdown</h2>
 <p><span class="uugreen-bold">Optional content</span>: Either cover quickly or skip, students can review at their pace.</p>
-<section id="rmarkdown" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="rmarkdown"><span class="header-section-number">9.1</span> RMarkdown</h2>
+<section id="rmarkdown" class="level3" data-number="5.9.1">
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="rmarkdown"><span class="header-section-number">5.9.1</span> RMarkdown</h3>
 <ul>
 <li><a href="https://daringfireball.net/projects/markdown/">Markdown</a> is a text-to-HTML conversion tool meant for web writers to write HTML pages without having to deal with all the syntax
 <ul>
@@ -670,7 +665,7 @@ window.Quarto = {
 </ul>
 <div class="columns">
 <div class="column" style="width:30%;">
-<p><img src="lecture00_figures/rmarkdown.png" class="img-fluid" width="300"></p>
+<p><img src="./images/ch04/rmarkdown.png" class="img-fluid" width="300"></p>
 </div><div class="column" style="width:70%;">
 <p>This is still inspired by <code>Sweave</code></p>
 <ul>
@@ -681,14 +676,14 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="pandoc" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="pandoc"><span class="header-section-number">9.2</span> Pandoc</h2>
+<section id="pandoc" class="level3" data-number="5.9.2">
+<h3 data-number="5.9.2" class="anchored" data-anchor-id="pandoc"><span class="header-section-number">5.9.2</span> Pandoc</h3>
 <ul>
 <li><a href="https://pandoc.org/">Pandoc</a> is a “universal document converter” that has taken Markdown-based pipelines to a next level by allowing different kinds of outputs</li>
 </ul>
 <div class="columns">
 <div class="column" style="width:40%;">
-<p><img src="lecture00_figures/pandoc.png" style="height:55.0%"></p>
+<p><img src="./images/ch04/pandoc.png" style="height:55.0%"></p>
 </div><div class="column" style="width:60%;">
 <ul>
 <li>Note the breadth of available formats for conversion</li>
@@ -701,17 +696,18 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="rmarkdown-document" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="rmarkdown-document"><span class="header-section-number">9.3</span> RMarkdown document</h2>
+<section id="rmarkdown-document" class="level3" data-number="5.9.3">
+<h3 data-number="5.9.3" class="anchored" data-anchor-id="rmarkdown-document"><span class="header-section-number">5.9.3</span> RMarkdown document</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/paste-00475E59.png" class="img-fluid figure-img"></p>
+<p><img src="./images/ch04/paste-00475E59.png" class="img-fluid figure-img"></p>
 <figcaption>Andrew Bray, rstudio::conf(2022)</figcaption>
 </figure>
 </div>
 </section>
-<section id="rmarkdown-1" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="rmarkdown-1"><span class="header-section-number">9.4</span> RMarkdown</h2>
+</section>
+<section id="rmarkdown-1" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="rmarkdown-1"><span class="header-section-number">5.10</span> RMarkdown</h2>
 <ul>
 <li>RMarkdown has a <a href="https://rmarkdown.rstudio.com/gallery.html">strong ecosystem</a> around it due to its extensibility.
 <ul>
@@ -724,12 +720,11 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-</section>
-<section id="jupyter" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Jupyter</h1>
+<section id="jupyter" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="jupyter"><span class="header-section-number">5.11</span> Jupyter</h2>
 <p><span class="uugreen-bold">Optional content</span>: Either cover quickly or skip, students can review at their pace.</p>
-<section id="jupyter-lab-notebook" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="jupyter-lab-notebook"><span class="header-section-number">10.1</span> Jupyter Lab &amp; Notebook</h2>
+<section id="jupyter-lab-notebook" class="level3" data-number="5.11.1">
+<h3 data-number="5.11.1" class="anchored" data-anchor-id="jupyter-lab-notebook"><span class="header-section-number">5.11.1</span> Jupyter Lab &amp; Notebook</h3>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p><a href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> is a web-based interactive user interface</p>
@@ -751,15 +746,15 @@ window.Quarto = {
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/jupyter.png" class="img-fluid figure-img"></p>
+<p><img src="./images/ch04/jupyter.png" class="img-fluid figure-img"></p>
 <figcaption>Source: jupyter.org</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="jupyter-notebooks-are-very-popular" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="jupyter-notebooks-are-very-popular"><span class="header-section-number">10.2</span> Jupyter notebooks are very popular</h2>
+<section id="jupyter-notebooks-are-very-popular" class="level3" data-number="5.11.2">
+<h3 data-number="5.11.2" class="anchored" data-anchor-id="jupyter-notebooks-are-very-popular"><span class="header-section-number">5.11.2</span> Jupyter notebooks are very popular</h3>
 <ul>
 <li>Common in Kaggle competitions &amp; common analyses interface w/ literate programming</li>
 <li>Inbuilt into many cloud platforms (Google Colab, DataBricks, AWS Sagemaker)</li>
@@ -768,9 +763,9 @@ window.Quarto = {
 <p><span class="bloodred-bold">… But</span></p>
 <div class="columns">
 <div class="column" style="width:30%;">
-<p><img src="lecture00_figures/2egqlc.jpeg" height="350"></p>
+<p><img src="./images/ch04/2egqlc.jpeg" height="350"></p>
 </div><div class="column" style="width:70%;">
-<!-- ![](lecture00_figures/grus-jupyter.png){width=250} -->
+<!-- ![](./images/ch04/grus-jupyter.png){width=250} -->
 <blockquote class="blockquote">
 <p>But some would call this a <span class="bloodred-bold">red herring</span>, since you can always to “Run all cells” in a notebook to do things in the right order</p>
 </blockquote>
@@ -778,11 +773,11 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="quarto" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Quarto</h1>
+<section id="quarto" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="quarto"><span class="header-section-number">5.12</span> Quarto</h2>
 <p>Quarto is the next generation of RMarkdown developed by <a href="https://www.posit.com">Posit</a></p>
-<section id="quarto-overview" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="quarto-overview"><span class="header-section-number">11.1</span> Quarto overview</h2>
+<section id="quarto-overview" class="level3" data-number="5.12.1">
+<h3 data-number="5.12.1" class="anchored" data-anchor-id="quarto-overview"><span class="header-section-number">5.12.1</span> Quarto overview</h3>
 <p><a href="https://quarto.org/">Quarto</a> is a modern publishing system designed for data science and technical communication, focusing on reproducibility, interactivity, and flexibility:</p>
 <ul>
 <li><span class="uured-bold">Markdown-Based</span>: Utilizes Markdown for writing content, embedding code, and creating interactive documents.</li>
@@ -794,21 +789,21 @@ window.Quarto = {
 <li><span class="uured-bold">Extensible</span>: Offers extensibility via plugins with tools like R, Python, and Jupyter.</li>
 </ul>
 </section>
-<section id="r-vs.-rstudio-vs.-quarto" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="r-vs.-rstudio-vs.-quarto"><span class="header-section-number">11.2</span> R vs.&nbsp;RStudio vs.&nbsp;Quarto</h2>
+<section id="r-vs.-rstudio-vs.-quarto" class="level3" data-number="5.12.2">
+<h3 data-number="5.12.2" class="anchored" data-anchor-id="r-vs.-rstudio-vs.-quarto"><span class="header-section-number">5.12.2</span> R vs.&nbsp;RStudio vs.&nbsp;Quarto</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-IDEs and Programming Languages
+<span class="screen-reader-only">Note</span>IDEs and Programming Languages
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/quarto_logo.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
+<p><img src="./images/ch04/quarto_logo.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
 </figure>
 </div>
 </div>
@@ -817,7 +812,7 @@ IDEs and Programming Languages
 <div class="column" style="width:45%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/RStudio_logo.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+<p><img src="./images/ch04/RStudio_logo.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
 </figure>
 </div>
 <ul>
@@ -837,24 +832,27 @@ Note
 <p><a href="https://www.r-project.org/">R Language {{&lt; fa brands r-project &gt;}}</a></p>
 <ul>
 <li>Programming language</li>
-<li>Runs scripts via <code>Rscript &lt;script&gt;.r</code></li>
+<li>Runs scripts via ‘<em>r script.r</em>’ enclosed in single backticks ().</li>
 </ul>
 </div>
 </div>
 </div><div class="column" style="width:3%;">
-<section id="section" class="level3" data-number="11.2.1">
-<h3 data-number="11.2.1" class="anchored" data-anchor-id="section"><span class="header-section-number">11.2.1</span> +</h3>
+<section id="section" class="level3" data-number="5.12.3">
+<h3 data-number="5.12.3" class="anchored" data-anchor-id="section"><span class="header-section-number">5.12.3</span> +</h3>
 </section>
 </div><div class="column" style="width:45%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/jupyter_logo.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+<p><img src="./images/ch04/jupyter_logo.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
 </figure>
 </div>
 <ul>
 <li>GUI wrapper around Python (IDE)</li>
 <li>Run <strong>blocks</strong> of Python code (<code>.ipynb</code> <strong>cells</strong>)</li>
 </ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fontawesome)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -868,15 +866,16 @@ Note
 <p><a href="https://www.python.org/">Python {{&lt; fa brands python &gt;}}</a></p>
 <ul>
 <li>Scripting language</li>
-<li>On its own, just runs scripts via <code>python &lt;script&gt;.py</code></li>
+<li>On its own, just runs scripts via ‘<em>python script.py</em>’ enclosed in single backticks ()</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="rmarkdown-quarto" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="rmarkdown-quarto"><span class="header-section-number">11.3</span> RMarkdown &amp; Quarto</h2>
+</section>
+<section id="rmarkdown-quarto" class="level2" data-number="5.13">
+<h2 data-number="5.13" class="anchored" data-anchor-id="rmarkdown-quarto"><span class="header-section-number">5.13</span> RMarkdown &amp; Quarto</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -918,29 +917,31 @@ Note
 </ul></li>
 </ul>
 </section>
-<section id="rmarkdown-quarto-1" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="rmarkdown-quarto-1"><span class="header-section-number">11.4</span> RMarkdown &amp; Quarto</h2>
+<section id="rmarkdown-quarto-1" class="level2" data-number="5.14">
+<h2 data-number="5.14" class="anchored" data-anchor-id="rmarkdown-quarto-1"><span class="header-section-number">5.14</span> RMarkdown &amp; Quarto</h2>
 <div class="r-stack">
 <div class="fragment fade-left">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/paste-0860D360.png" class="img-fluid figure-img" style="width:65.0%"></p>
+<p><img src="./images/ch04/paste-0860D360.png" class="img-fluid figure-img" style="width:65.0%"></p>
 <figcaption>&nbsp;</figcaption>
 </figure>
 </div>
 </div>
 <div class="fragment fade-right">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/paste-CC007B93.png" class="fragment fade-left img-fluid figure-img" style="width:65.0%"></p>
+<p><img src="./images/ch04/paste-CC007B93.png" class="fade-left img-fluid figure-img" style="width:65.0%"></p>
 <figcaption>&nbsp;</figcaption>
 </figure>
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="single-source-many-outputs" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="single-source-many-outputs"><span class="header-section-number">11.5</span> Single source, many outputs</h2>
+<section id="single-source-many-outputs" class="level2" data-number="5.15">
+<h2 data-number="5.15" class="anchored" data-anchor-id="single-source-many-outputs"><span class="header-section-number">5.15</span> Single source, many outputs</h2>
 <p>We can create content (text, code, results, graphics) within a source document, and then use different weaving engines to create different document types</p>
 <div class="column" style="width:47%;">
 <ul>
@@ -968,20 +969,20 @@ Note
 </div>
 <p>Most RMarkdown documents readily render in Quarto</p>
 </section>
-<section id="installation" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="installation"><span class="header-section-number">11.6</span> Installation</h2>
+<section id="installation" class="level2" data-number="5.16">
+<h2 data-number="5.16" class="anchored" data-anchor-id="installation"><span class="header-section-number">5.16</span> Installation</h2>
 <ul>
 <li>Quarto is a standalone app on your computer, not a R or Python package</li>
 <li>Installation instructions can be found here: <a href="https://quarto.org/docs/get-started/">https://quarto.org/docs/get-started/</a></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/quarto-steps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+<p><img src="./images/ch04/quarto-steps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 </section>
-<section id="so-we-like-quarto" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="so-we-like-quarto"><span class="header-section-number">11.7</span> So we like Quarto?</h2>
+<section id="so-we-like-quarto" class="level2" data-number="5.17">
+<h2 data-number="5.17" class="anchored" data-anchor-id="so-we-like-quarto"><span class="header-section-number">5.17</span> So we like Quarto?</h2>
 <ul>
 <li>Keeping RMarkdown for lots of things, since it still works</li>
 <li>Ability to create Python-based documents (great for ML projects)</li>
@@ -992,8 +993,8 @@ Note
 <p>The major enhancement over both is in creating presentations, and the ease of constructing particular layouts</p>
 </div>
 </section>
-<section id="aside-project-website-and-presentation" class="level2" data-number="11.8">
-<h2 data-number="11.8" class="anchored" data-anchor-id="aside-project-website-and-presentation"><span class="header-section-number">11.8</span> Aside: Project website and presentation</h2>
+<section id="aside-project-website-and-presentation" class="level2" data-number="5.18">
+<h2 data-number="5.18" class="anchored" data-anchor-id="aside-project-website-and-presentation"><span class="header-section-number">5.18</span> Aside: Project website and presentation</h2>
 <ul>
 <li>It is a <span class="bloodred-bold">COURSE REQUIREMENT</span>, that you build your website and presentation with Quarto</li>
 <li>It is <span class="bloodred-bold">highly recommended</span> that use <code>.qmd</code> files and NOT <code>.ipynb</code> files for the website building.
@@ -1012,19 +1013,18 @@ Note
 </ul></li>
 </ul>
 </section>
-</section>
-<section id="using-quarto" class="level1" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> Using Quarto</h1>
+<section id="using-quarto" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Using Quarto</h1>
 <p>Tour through various important quarto constructs</p>
-<section id="latex-in-quarto" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="latex-in-quarto"><span class="header-section-number">12.1</span> LaTex in quarto</h2>
+<section id="latex-in-quarto" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="latex-in-quarto"><span class="header-section-number">6.1</span> LaTex in quarto</h2>
 <ul>
 <li>Since Quarto is built on top of Markdown, coding in Quarto should be pretty intuitive</li>
 </ul>
 <div class="columns">
 <div class="column">
-<section id="quarto-syntax" class="level3" data-number="12.1.1">
-<h3 data-number="12.1.1" class="anchored" data-anchor-id="quarto-syntax"><span class="header-section-number">12.1.1</span> Quarto syntax</h3>
+<section id="quarto-syntax" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="quarto-syntax"><span class="header-section-number">6.1.1</span> Quarto syntax</h3>
 <pre><code>- This is an example of a bulleted list with math 
 - Here is an in-line math equation $f(x)=\frac{e^{x^2}}{2}$
 
@@ -1039,8 +1039,8 @@ $$
 </code></pre>
 </section>
 </div><div class="column">
-<section id="result" class="level3" data-number="12.1.2">
-<h3 data-number="12.1.2" class="anchored" data-anchor-id="result"><span class="header-section-number">12.1.2</span> Result</h3>
+<section id="result" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="result"><span class="header-section-number">6.1.2</span> Result</h3>
 <ul>
 <li>This is an example of a bulleted list with math</li>
 <li>Here is an in-line math equation <span class="math inline">\(f(x)=\frac{e^{x^2}}{2}\)</span></li>
@@ -1056,13 +1056,13 @@ h(x)=\int x^n dx \rightarrow h(x)=\frac{x^{n+1}}{n+1}
 </div>
 </div>
 </section>
-<section id="layouts" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="layouts"><span class="header-section-number">12.2</span> Layouts</h2>
+<section id="layouts" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="layouts"><span class="header-section-number">6.2</span> Layouts</h2>
 <ul>
 <li>You can control basic layout options with <code>::: {layout-ncol=2}</code></li>
 </ul>
-<section id="quarto-syntax-1" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="quarto-syntax-1"><span class="header-section-number">12.2.1</span> Quarto syntax</h3>
+<section id="quarto-syntax-1" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="quarto-syntax-1"><span class="header-section-number">6.2.1</span> Quarto syntax</h3>
 <pre><code>::: {layout-ncol=2}
 ### List One
 
@@ -1077,21 +1077,21 @@ h(x)=\int x^n dx \rightarrow h(x)=\frac{x^{n+1}}{n+1}
 
 :::</code></pre>
 </section>
-<section id="result-1" class="level3" data-number="12.2.2">
-<h3 data-number="12.2.2" class="anchored" data-anchor-id="result-1"><span class="header-section-number">12.2.2</span> Result</h3>
+<section id="result-1" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="result-1"><span class="header-section-number">6.2.2</span> Result</h3>
 </section>
 <div class="bordered">
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<section id="list-one" class="level3 quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;" data-number="12.2.3">
-<h3 data-number="12.2.3" class="anchored" data-anchor-id="list-one"><span class="header-section-number">12.2.3</span> List One</h3>
+<section id="list-one" class="level3 quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="list-one"><span class="header-section-number">6.2.3</span> List One</h3>
 <ul>
 <li>Item A</li>
 <li>Item B</li>
 </ul>
 </section>
-<section id="list-two" class="level3 quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;" data-number="12.2.4">
-<h3 data-number="12.2.4" class="anchored" data-anchor-id="list-two"><span class="header-section-number">12.2.4</span> List Two</h3>
+<section id="list-two" class="level3 quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="list-two"><span class="header-section-number">6.2.4</span> List Two</h3>
 <ul>
 <li>Item X</li>
 <li>Item Y</li>
@@ -1102,24 +1102,24 @@ h(x)=\int x^n dx \rightarrow h(x)=\frac{x^{n+1}}{n+1}
 </div>
 <hr>
 </section>
-<section id="diagrams" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="diagrams"><span class="header-section-number">12.3</span> Diagrams</h2>
+<section id="diagrams" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="diagrams"><span class="header-section-number">6.3</span> Diagrams</h2>
 <p>Quarto has native support for embedding two popular diagram-generating tools:</p>
 <ul>
 <li><a href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a> (<code>.mmd</code>)</li>
 <li><a href="https://graphviz.org/">Graphviz</a> (<code>.dot</code>)</li>
 </ul>
 <div class="cell" data-output-location="column" data-layout-align="default">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">A Mermaid diagram</span><span class="ot">"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>%%| code-fold: false</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>%%| output-location: column</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  A[Hard edge] --&gt; B(Round edge)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  B --&gt; C{Decision}</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  C --&gt; D[Result one]</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  C --&gt; E[Result two]</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">A Mermaid diagram</span><span class="ot">"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>%%| code-fold: false</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>%%| output-location: column</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  A[Hard edge] --&gt; B(Round edge)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  B --&gt; C{Decision}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  C --&gt; D[Result one]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  C --&gt; E[Result two]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
@@ -1152,33 +1152,33 @@ h(x)=\int x^n dx \rightarrow h(x)=\frac{x^{n+1}}{n+1}
 One important thing to note here is that for Mermaid chunks, the chunk options are specified by `%%|` and not `#|` (R/Python) or `//|` (Javascript)
 ::: -->
 </section>
-<section id="creating-figure-layouts-1" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="creating-figure-layouts-1"><span class="header-section-number">12.4</span> Creating figure layouts-1</h2>
-<section id="quarto-syntax-2" class="level3" data-number="12.4.1">
-<h3 data-number="12.4.1" class="anchored" data-anchor-id="quarto-syntax-2"><span class="header-section-number">12.4.1</span> Quarto syntax</h3>
+<section id="creating-figure-layouts-1" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="creating-figure-layouts-1"><span class="header-section-number">6.4</span> Creating figure layouts-1</h2>
+<section id="quarto-syntax-2" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="quarto-syntax-2"><span class="header-section-number">6.4.1</span> Quarto syntax</h3>
 <pre><code>::: {layout-ncol=2}
 
-![](lecture00_figures/paste-CC007B93.png){fig-align="left" width="3.00in"}
+![](./images/ch04/paste-CC007B93.png){fig-align="left" width="3.00in"}
 
-![](lecture00_figures/paste-0860D360.png){fig-align="left" width="3.00in"}
+![](./images/ch04/paste-0860D360.png){fig-align="left" width="3.00in"}
 
 :::</code></pre>
 </section>
-<section id="result-2" class="level3" data-number="12.4.2">
-<h3 data-number="12.4.2" class="anchored" data-anchor-id="result-2"><span class="header-section-number">12.4.2</span> Result</h3>
+<section id="result-2" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="result-2"><span class="header-section-number">6.4.2</span> Result</h3>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="lecture00_figures/paste-CC007B93.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:3in"></p>
+<p><img src="./images/ch04/paste-CC007B93.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:3in"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="lecture00_figures/paste-0860D360.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:3in"></p>
+<p><img src="./images/ch04/paste-0860D360.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:3in"></p>
 </figure>
 </div>
 </div>
@@ -1186,50 +1186,50 @@ One important thing to note here is that for Mermaid chunks, the chunk options a
 </div>
 </section>
 </section>
-<section id="creating-figure-layouts-2" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="creating-figure-layouts-2"><span class="header-section-number">12.5</span> Creating figure layouts-2</h2>
-<section id="quarto-syntax-3" class="level3" data-number="12.5.1">
-<h3 data-number="12.5.1" class="anchored" data-anchor-id="quarto-syntax-3"><span class="header-section-number">12.5.1</span> Quarto syntax</h3>
+<section id="creating-figure-layouts-2" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="creating-figure-layouts-2"><span class="header-section-number">6.5</span> Creating figure layouts-2</h2>
+<section id="quarto-syntax-3" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="quarto-syntax-3"><span class="header-section-number">6.5.1</span> Quarto syntax</h3>
 <ul>
 <li>You can create arbitrary grid patterns for figure layouts</li>
 </ul>
 <pre><code>::: {layout="[[1], [1], [1],[1]]"}
-![](lecture00_figures/pdf.png){width=250}
-![](lecture00_figures/eqn.png){width=250}
-![](lecture00_figures/paste-0860D360.png){width=250}
-![](lecture00_figures/paste-0860D360.png){width=250}
+![](./images/ch04/pdf.png){width=250}
+![](./images/ch04/eqn.png){width=250}
+![](./images/ch04/paste-0860D360.png){width=250}
+![](./images/ch04/paste-0860D360.png){width=250}
 :::</code></pre>
 </section>
-<section id="result-3" class="level3" data-number="12.5.2">
-<h3 data-number="12.5.2" class="anchored" data-anchor-id="result-3"><span class="header-section-number">12.5.2</span> Result</h3>
+<section id="result-3" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="result-3"><span class="header-section-number">6.5.2</span> Result</h3>
 <div class="quarto-layout-panel" data-layout="[[1], [1], [1],[1]]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<p><img src="lecture00_figures/pdf.png" class="img-fluid" width="250"> <img src="lecture00_figures/eqn.png" class="img-fluid" width="250"> <img src="lecture00_figures/paste-0860D360.png" class="img-fluid" width="250"> <img src="lecture00_figures/paste-0860D360.png" class="img-fluid" width="250"></p>
+<p><img src="./images/ch04/pdf.png" class="img-fluid" width="250"> <img src="./images/ch04/eqn.png" class="img-fluid" width="250"> <img src="./images/ch04/paste-0860D360.png" class="img-fluid" width="250"> <img src="./images/ch04/paste-0860D360.png" class="img-fluid" width="250"></p>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="creating-figure-layouts-3" class="level2 scrollable" data-number="12.6">
-<h2 class="scrollable anchored" data-number="12.6" data-anchor-id="creating-figure-layouts-3"><span class="header-section-number">12.6</span> Creating figure layouts-3</h2>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap:</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - Speed and Stopping Distances of Cars</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - Vapor Pressure of Mercury as a Function of Temperature</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| vscode: {languageId: r}</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="creating-figure-layouts-3" class="level2 scrollable" data-number="6.6">
+<h2 class="scrollable anchored" data-number="6.6" data-anchor-id="creating-figure-layouts-3"><span class="header-section-number">6.6</span> Creating figure layouts-3</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - Speed and Stopping Distances of Cars</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - Vapor Pressure of Mercury as a Function of Temperature</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| vscode: {languageId: r}</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell quarto-layout-panel" data-vscode="{&quot;languageId&quot;:&quot;r&quot;}" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="04_working_with_quarto_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="04_working_with_quarto_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption>Speed and Stopping Distances of Cars</figcaption>
 </figure>
 </div>
@@ -1237,7 +1237,7 @@ One important thing to note here is that for Mermaid chunks, the chunk options a
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="04_working_with_quarto_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="04_working_with_quarto_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
 <figcaption>Vapor Pressure of Mercury as a Function of Temperature</figcaption>
 </figure>
 </div>
@@ -1245,22 +1245,22 @@ One important thing to note here is that for Mermaid chunks, the chunk options a
 </div>
 </div>
 </section>
-<section id="code-highlighting" class="level2" data-number="12.7">
-<h2 data-number="12.7" class="anchored" data-anchor-id="code-highlighting"><span class="header-section-number">12.7</span> Code highlighting</h2>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#| layout-ncol: 2</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#| label: fig-charts</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#| fig-cap: Charts</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#| fig-subcap:</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#|   - Speed and Stopping Distances of Cars</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#|   - Vapor Pressure of Mercury as a Function of Temperature</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#| code-fold: false</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#| code-line-numbers: '|3|4-7'</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#| vscode: {languageId: r}</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="fu">plot</span>(cars)</span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="fu">plot</span>(pressure)</span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="code-highlighting" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="code-highlighting"><span class="header-section-number">6.7</span> Code highlighting</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#| label: fig-charts</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#| fig-cap: Charts</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#| fig-subcap:</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#|   - Speed and Stopping Distances of Cars</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#|   - Vapor Pressure of Mercury as a Function of Temperature</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#| code-line-numbers: '|3|4-7'</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co">#| vscode: {languageId: r}</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="fu">plot</span>(cars)</span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="fu">plot</span>(pressure)</span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="fig-charts" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-charts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1292,7 +1292,7 @@ One important thing to note here is that for Mermaid chunks, the chunk options a
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-charts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.1: Charts
+Figure&nbsp;6.1: Charts
 </figcaption>
 </figure>
 </div>
@@ -1307,8 +1307,8 @@ So you can use this for tables and lists, among others
 :::
  -->
 </section>
-<section id="converting-file-types" class="level2" data-number="12.8">
-<h2 data-number="12.8" class="anchored" data-anchor-id="converting-file-types"><span class="header-section-number">12.8</span> Converting file types</h2>
+<section id="converting-file-types" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="converting-file-types"><span class="header-section-number">6.8</span> Converting file types</h2>
 <ul>
 <li>You can switch between <code>.qmd</code> and <code>.ipynb</code> with quarto
 <ul>
@@ -1327,14 +1327,14 @@ So you can use this for tables and lists, among others
 </ul></li>
 </ul>
 </section>
-<section id="embedding-video" class="level2" data-number="12.9">
-<h2 data-number="12.9" class="anchored" data-anchor-id="embedding-video"><span class="header-section-number">12.9</span> Embedding video</h2>
+<section id="embedding-video" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="embedding-video"><span class="header-section-number">6.9</span> Embedding video</h2>
 <p>{{&lt; video https://youtu.be/Z8t4k0Q8e8Y height="400" &gt;}}</p>
 <div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/Z8t4k0Q8e8Y" height="400" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>[See <a href="https://quarto.org/docs/authoring/videos.html">Quarto Videos</a> for more options and details]</p>
 </section>
-<section id="aside-yaml-overview" class="level2" data-number="12.10">
-<h2 data-number="12.10" class="anchored" data-anchor-id="aside-yaml-overview"><span class="header-section-number">12.10</span> Aside: YAML overview</h2>
+<section id="aside-yaml-overview" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="aside-yaml-overview"><span class="header-section-number">6.10</span> Aside: YAML overview</h2>
 <ul>
 <li><code>Quarto</code> relies heavily on the <code>YAML format</code></li>
 <li><span class="uured-bold">YAML (YAML Ain’t Markup Language)</span>: A human-readable data serialization format.</li>
@@ -1350,8 +1350,8 @@ So you can use this for tables and lists, among others
 <li><span class="uured-bold">No Code Execution</span>: YAML is not intended for executing code, making it safer than some other formats for data exchange.</li>
 </ul>
 </section>
-<section id="aside-tip-for-mac-users" class="level2" data-number="12.11">
-<h2 data-number="12.11" class="anchored" data-anchor-id="aside-tip-for-mac-users"><span class="header-section-number">12.11</span> Aside: Tip for Mac users</h2>
+<section id="aside-tip-for-mac-users" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="aside-tip-for-mac-users"><span class="header-section-number">6.11</span> Aside: Tip for Mac users</h2>
 <ul>
 <li><code>command+control+shift+4</code> is very useful on a mac.
 <ul>
@@ -1359,16 +1359,16 @@ So you can use this for tables and lists, among others
 </ul></li>
 <li>Windows has a similar shortcut but you will have to google it</li>
 <li>The following VSC extension allows you to paste images from the clip-board with <code>alt+command+v</code>.<br>
-<img src="lecture00_figures/2023-08-23-09-35-05.png" class="img-fluid" width="300"></li>
+<img src="./images/ch04/2023-08-23-09-35-05.png" class="img-fluid" width="300"></li>
 <li><code>tab</code> is your best friend when using the command line, since it does <code>auto-completion</code></li>
 <li><code>open ./path_to_file</code> will open any file or directory from the command line –&gt;</li>
 </ul>
 </section>
 </section>
-<section id="citations-and-bibliographies" class="level1" data-number="13">
-<h1 data-number="13"><span class="header-section-number">13</span> Citations and Bibliographies</h1>
-<section id="citations" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="citations"><span class="header-section-number">13.1</span> Citations</h2>
+<section id="citations-and-bibliographies" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Citations and Bibliographies</h1>
+<section id="citations" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="citations"><span class="header-section-number">7.1</span> Citations</h2>
 <p>When creating documents, it is <strong>imperative</strong> that we properly cite and attribute sources we use in our document</p>
 <ul>
 <li>This is part of the Honor Code for academic integrity</li>
@@ -1378,8 +1378,8 @@ So you can use this for tables and lists, among others
 <p>Keeping track of sources and citations often ends up being a <strong>big deal</strong></p>
 </blockquote>
 </section>
-<section id="reference-management" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="reference-management"><span class="header-section-number">13.2</span> Reference management</h2>
+<section id="reference-management" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="reference-management"><span class="header-section-number">7.2</span> Reference management</h2>
 <p>There are several established reference managers available, both commercial and open-source.</p>
 <ul>
 <li>Many of these can search online resources to add references and PDF</li>
@@ -1388,8 +1388,8 @@ So you can use this for tables and lists, among others
 </ul>
 <hr>
 </section>
-<section id="bibtex" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="bibtex"><span class="header-section-number">13.3</span> BibTeX</h2>
+<section id="bibtex" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="bibtex"><span class="header-section-number">7.3</span> BibTeX</h2>
 <p><a href="">BibTeX</a> is a tool and file format that is used to describe and process lists of references. It was developed alongside LaTex.</p>
 <ul>
 <li>BibTeX works especially well with the Markdown/Pandoc workflow of Quarto
@@ -1429,8 +1429,8 @@ So you can use this for tables and lists, among others
 </div>
 </div>
 </section>
-<section id="reference-managers" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="reference-managers"><span class="header-section-number">13.4</span> Reference managers</h2>
+<section id="reference-managers" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="reference-managers"><span class="header-section-number">7.4</span> Reference managers</h2>
 <p>Several reference manages are available that provide citations in BibTeX format, among other formats</p>
 <p>We tend to use two free managers: <a href="https://www.mendeley.com">Mendeley</a> and <a href="https://www.zotero.org">Zotero</a></p>
 <ul>
@@ -1452,8 +1452,8 @@ So you can use this for tables and lists, among others
 </div>
 <p>To see some comparisons between these and a popular commercial reference manager, see <a href="https://libguides.wustl.edu/BrownSchoolLibrary/citations">here</a></p>
 </section>
-<section id="citations-in-quarto" class="level2" data-number="13.5">
-<h2 data-number="13.5" class="anchored" data-anchor-id="citations-in-quarto"><span class="header-section-number">13.5</span> Citations in Quarto</h2>
+<section id="citations-in-quarto" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="citations-in-quarto"><span class="header-section-number">7.5</span> Citations in Quarto</h2>
 <p>There are a few citation formats that can be used with Quarto, through pandoc.</p>
 <table class="caption-top table">
 <thead>
@@ -1486,12 +1486,12 @@ So you can use this for tables and lists, among others
 </tbody>
 </table>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1506,8 +1506,8 @@ Note
 </div>
 <p>Pandoc has the ability to automatically generate citations and a bibliography from BibTeX files and embedded references (much like we replace R/Python code with their output)</p>
 </section>
-<section id="citations-in-quarto-1" class="level2" data-number="13.6">
-<h2 data-number="13.6" class="anchored" data-anchor-id="citations-in-quarto-1"><span class="header-section-number">13.6</span> Citations in Quarto</h2>
+<section id="citations-in-quarto-1" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="citations-in-quarto-1"><span class="header-section-number">7.6</span> Citations in Quarto</h2>
 <p>Point to <code>.bib</code> files in the YAML header, replacing the name w/ the file-name you’re using</p>
 <pre><code>---
 bibliography: references.bib
@@ -1519,16 +1519,16 @@ csl: nature.csl
 ---</code></pre>
 <p>You would need to download the <code>.csl</code> file from the repository and keep it in the same folder as your document.</p>
 </section>
-<section id="citations-in-quarto-2" class="level2" data-number="13.7">
-<h2 data-number="13.7" class="anchored" data-anchor-id="citations-in-quarto-2"><span class="header-section-number">13.7</span> Citations in Quarto</h2>
+<section id="citations-in-quarto-2" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="citations-in-quarto-2"><span class="header-section-number">7.7</span> Citations in Quarto</h2>
 <p>You make a citation using the standard Pandoc/BibTeX syntax (<code>[@citation]</code>), where these are the citation-keys we saw before in the BibTeX entries.</p>
 <ul>
 <li>You can use multiple citations at a time, separated by semi-colons</li>
 </ul>
-<p><img src="lecture00_figures/citations.png" class="img-fluid"></p>
+<p><img src="./images/ch04/citations.png" class="img-fluid"></p>
 </section>
-<section id="citations-in-quarto-3" class="level2" data-number="13.8">
-<h2 data-number="13.8" class="anchored" data-anchor-id="citations-in-quarto-3"><span class="header-section-number">13.8</span> Citations in Quarto</h2>
+<section id="citations-in-quarto-3" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="citations-in-quarto-3"><span class="header-section-number">7.8</span> Citations in Quarto</h2>
 <p>Pandoc will generate a bibliography and place it in the document. It will be placed in a div with the id <code>refs</code> if one exists, otherwise it will be place in the end of the document</p>
 <pre><code>### References
 
@@ -1541,7 +1541,7 @@ csl: nature.csl
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/asa.png" class="img-fluid figure-img"></p>
+<p><img src="./images/ch04/asa.png" class="img-fluid figure-img"></p>
 <figcaption>American Statistical Association</figcaption>
 </figure>
 </div>
@@ -1549,7 +1549,7 @@ csl: nature.csl
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/nature.png" class="img-fluid figure-img"></p>
+<p><img src="./images/ch04/nature.png" class="img-fluid figure-img"></p>
 <figcaption>Nature</figcaption>
 </figure>
 </div>
@@ -1557,7 +1557,7 @@ csl: nature.csl
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/chicago.png" class="img-fluid figure-img"></p>
+<p><img src="./images/ch04/chicago.png" class="img-fluid figure-img"></p>
 <figcaption>Chicago</figcaption>
 </figure>
 </div>
@@ -1572,11 +1572,11 @@ csl: nature.csl
 - You can also add citations by starting typing `[@` and you can search your document bibliography for the right reference.  -->
 </section>
 </section>
-<section id="supplementary-material" class="level1" data-number="14">
-<h1 data-number="14"><span class="header-section-number">14</span> Supplementary material</h1>
+<section id="supplementary-material" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Supplementary material</h1>
 <p><span class="uugreen-bold">Optional content</span>: Either cover quickly or skip, students can review at their pace.</p>
-<section id="using-quarto-in-rstudio" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="using-quarto-in-rstudio"><span class="header-section-number">14.1</span> Using Quarto in RStudio</h2>
+<section id="using-quarto-in-rstudio" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="using-quarto-in-rstudio"><span class="header-section-number">8.1</span> Using Quarto in RStudio</h2>
 <p>Given that Quarto is developed by Posit, the company behind RStudio, Quarto works quite seamlessly in RStudio</p>
 <p>RStudio provides both a source editor and a <em>visual editor</em> experience for editing Quarto files</p>
 <div class="callout callout-style-simple callout-caution no-icon">
@@ -1595,38 +1595,21 @@ csl: nature.csl
 </figure>
 </div>
 </section>
-<section id="using-quarto-in-rstudio-1" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="using-quarto-in-rstudio-1"><span class="header-section-number">14.2</span> Using Quarto in RStudio</h2>
+<section id="using-quarto-in-rstudio-1" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="using-quarto-in-rstudio-1"><span class="header-section-number">8.2</span> Using Quarto in RStudio</h2>
 <p>At the top of the file, we put an (optional) YAML header to provide information about document output, general formatting rules and the like.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Hello, Quarto"</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> visual</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Hello, Quarto"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> visual</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>You can provide specifications for multiple output types in the same YAML header
 <ul>
 <li>The first one written is the one rendered by default</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Hello, Quarto"</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">html</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cerulean</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">pdf</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="using-quarto-in-rstudio-2" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="using-quarto-in-rstudio-2"><span class="header-section-number">14.3</span> Using Quarto in RStudio</h2>
-<ul>
-<li>You can also specify the computational engine you want to use for the Quarto document in the YAML header (only if you’re using a non-R engine via Jupyter)</li>
-</ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Hello, Quarto"</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">html</span><span class="kw">:</span><span class="at"> </span></span>
@@ -1636,8 +1619,25 @@ csl: nature.csl
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">pdf</span><span class="kw">:</span><span class="at"> </span></span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">jupyter</span><span class="kw">:</span><span class="at"> python3</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="using-quarto-in-rstudio-2" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="using-quarto-in-rstudio-2"><span class="header-section-number">8.3</span> Using Quarto in RStudio</h2>
+<ul>
+<li>You can also specify the computational engine you want to use for the Quarto document in the YAML header (only if you’re using a non-R engine via Jupyter)</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Hello, Quarto"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">html</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cerulean</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">pdf</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">jupyter</span><span class="kw">:</span><span class="at"> python3</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You specify the Jupyter kernel you want to use as well</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1653,56 +1653,38 @@ Important
 </div>
 </div>
 </section>
-<section id="using-quarto-in-rstudio-3" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="using-quarto-in-rstudio-3"><span class="header-section-number">14.4</span> Using Quarto in RStudio</h2>
+<section id="using-quarto-in-rstudio-3" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="using-quarto-in-rstudio-3"><span class="header-section-number">8.4</span> Using Quarto in RStudio</h2>
 <p>Code is encapsulated in <em>code chunks</em></p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<section id="r" class="level3" data-number="14.4.1">
-<h3 data-number="14.4.1" class="anchored" data-anchor-id="r"><span class="header-section-number">14.4.1</span> R</h3>
+<section id="r" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="r"><span class="header-section-number">8.4.1</span> R</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-packages-r</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'stringr' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'forcats' was built under R version 4.5.2</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-packages-r</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.6
-✔ forcats   1.0.1     ✔ stringr   1.6.0
-✔ ggplot2   4.0.1     ✔ tibble    3.3.0
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.1     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
 ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.2.0     
+✔ purrr     1.1.0     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-packages-r</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-packages-r</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'palmerpenguins'
@@ -1722,19 +1704,19 @@ The following objects are masked from 'package:datasets':
 </blockquote>
 </section>
 </div><div class="column" style="width:50%;">
-<section id="python" class="level3" data-number="14.4.2">
-<h3 data-number="14.4.2" class="anchored" data-anchor-id="python"><span class="header-section-number">14.4.2</span> Python</h3>
+<section id="python" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="python"><span class="header-section-number">8.4.2</span> Python</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-packages-py</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-packages-py</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To create “inline” code in Python use <code>python</code></p>
 </section>
@@ -1742,41 +1724,41 @@ The following objects are masked from 'package:datasets':
 </div>
 <hr>
 </section>
-<section id="using-quarto-in-rstudio-4" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="using-quarto-in-rstudio-4"><span class="header-section-number">14.5</span> Using Quarto in RStudio</h2>
+<section id="using-quarto-in-rstudio-4" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="using-quarto-in-rstudio-4"><span class="header-section-number">8.5</span> Using Quarto in RStudio</h2>
 <p>You can add <em>snippets</em> to the RStudio configuration. Thomas Mock provides several <a href="https://gist.github.com/jthomasmock/11acebd4448f171f786e01397df34116?permalink_comment_id=4269591#file-markdown-snippets">useful Quarto snippets</a></p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 42.9%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/snippets1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="./images/ch04/snippets1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 57.1%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lecture00_figures/snippets2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="./images/ch04/snippets2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="using-quarto-in-rstudio-5" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="using-quarto-in-rstudio-5"><span class="header-section-number">14.6</span> Using Quarto in RStudio</h2>
+<section id="using-quarto-in-rstudio-5" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="using-quarto-in-rstudio-5"><span class="header-section-number">8.6</span> Using Quarto in RStudio</h2>
 <p>You can run individual chunks in the R session</p>
 <p><img src="https://quarto.org/docs/get-started/hello/images/rstudio-inline-output.png" class="img-fluid"></p>
 </section>
-<section id="using-quarto-in-rstudio-6" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="using-quarto-in-rstudio-6"><span class="header-section-number">14.7</span> Using Quarto in RStudio</h2>
+<section id="using-quarto-in-rstudio-6" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="using-quarto-in-rstudio-6"><span class="header-section-number">8.7</span> Using Quarto in RStudio</h2>
 <p>You can render Quarto documents from the menu:</p>
 <p><img src="https://quarto.org/docs/get-started/hello/images/rstudio-render.png" class="img-fluid"></p>
 <p>or from the {{&lt; fa brands r-project &gt;}} Console</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("quarto")</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"hello.qmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("quarto")</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"hello.qmd"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
@@ -1789,8 +1771,8 @@ The following objects are masked from 'package:datasets':
 </div>
 </div>
 </section>
-<section id="using-quarto-in-visual-studio-code" class="level2" data-number="14.8">
-<h2 data-number="14.8" class="anchored" data-anchor-id="using-quarto-in-visual-studio-code"><span class="header-section-number">14.8</span> Using Quarto in Visual Studio Code</h2>
+<section id="using-quarto-in-visual-studio-code" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="using-quarto-in-visual-studio-code"><span class="header-section-number">8.8</span> Using Quarto in Visual Studio Code</h2>
 <p>Quarto in VS Code works much like in RStudio, with some differences.</p>
 <ul>
 <li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=quarto.quarto">Quarto VS Code Extension</a> which provides several usability enhancements for Quarto documents</li>
@@ -1799,8 +1781,8 @@ The following objects are masked from 'package:datasets':
 </ul>
 <p><img src="https://quarto.org/docs/tools/images/vscode-execute-cell.png" class="img-fluid"></p>
 </section>
-<section id="using-quarto-in-visual-studio-code-1" class="level2" data-number="14.9">
-<h2 data-number="14.9" class="anchored" data-anchor-id="using-quarto-in-visual-studio-code-1"><span class="header-section-number">14.9</span> Using Quarto in Visual Studio Code</h2>
+<section id="using-quarto-in-visual-studio-code-1" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="using-quarto-in-visual-studio-code-1"><span class="header-section-number">8.9</span> Using Quarto in Visual Studio Code</h2>
 <ul>
 <li>You can also render a document using the <code>Preview</code> button at the top right of the editor</li>
 </ul>
@@ -1809,8 +1791,8 @@ The following objects are masked from 'package:datasets':
 <li>A set of useful snippets, and instructions for installing them, are <a href="https://gist.github.com/jthomasmock/11acebd4448f171f786e01397df34116?permalink_comment_id=4269591#gistcomment-4269591">here</a></li>
 </ul>
 </section>
-<section id="using-quarto-in-jupyterlab" class="level2" data-number="14.10">
-<h2 data-number="14.10" class="anchored" data-anchor-id="using-quarto-in-jupyterlab"><span class="header-section-number">14.10</span> Using Quarto in JupyterLab</h2>
+<section id="using-quarto-in-jupyterlab" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="using-quarto-in-jupyterlab"><span class="header-section-number">8.10</span> Using Quarto in JupyterLab</h2>
 <p>The basic Quarto document structure is retained in JupyterLab within a <code>ipynb</code> file</p>
 <ul>
 <li>You create Markdown and Code cells just as you’re used to in Jupyter notebooks</li>
@@ -1832,8 +1814,8 @@ quarto render hello.ipynb --to docx</code></pre>
 </div>
 <hr>
 </section>
-<section id="sec-convert" class="level2" data-number="14.11">
-<h2 data-number="14.11" class="anchored" data-anchor-id="sec-convert"><span class="header-section-number">14.11</span> Using Quarto in JupyterLab</h2>
+<section id="sec-convert" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="sec-convert"><span class="header-section-number">8.11</span> Using Quarto in JupyterLab</h2>
 <ul>
 <li>Quarto does not execute the <code>.ipynb</code> cells while render the notebook again
 <ul>
@@ -1859,8 +1841,8 @@ execute:
 quarto convert hello.qmd   # converts to ipynb </code></pre>
 <hr>
 </section>
-<section id="rendering-quarto-documents" class="level2" data-number="14.12">
-<h2 data-number="14.12" class="anchored" data-anchor-id="rendering-quarto-documents"><span class="header-section-number">14.12</span> Rendering Quarto documents</h2>
+<section id="rendering-quarto-documents" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="rendering-quarto-documents"><span class="header-section-number">8.12</span> Rendering Quarto documents</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1896,16 +1878,16 @@ quarto render document.ipynb --to html</code></pre>
 </div>
 </div>
 </section>
-<section id="multilingual-documents" class="level2" data-number="14.13">
-<h2 data-number="14.13" class="anchored" data-anchor-id="multilingual-documents"><span class="header-section-number">14.13</span> Multilingual documents</h2>
+<section id="multilingual-documents" class="level2" data-number="8.13">
+<h2 data-number="8.13" class="anchored" data-anchor-id="multilingual-documents"><span class="header-section-number">8.13</span> Multilingual documents</h2>
 <p>You can use <strong>both</strong> {{&lt; fa brands r-project &gt;}} and {{&lt; fa brands python &gt;}} in the same document!!!</p>
 <ul>
 <li>You should use the <code>knitr</code> engine</li>
 <li>Add the following chunk as the first chunk in your document</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># reticulate::use_condaenv('aba688')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># reticulate::use_condaenv('aba688')</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>The R engine will then use the <code>anly503</code> conda environment for all Python chunks.
@@ -1924,15 +1906,15 @@ quarto render document.ipynb --to html</code></pre>
 </div>
 </div>
 </section>
-<section id="sec-tangle" class="level2" data-number="14.14">
-<h2 data-number="14.14" class="anchored" data-anchor-id="sec-tangle"><span class="header-section-number">14.14</span> Tangling</h2>
+<section id="sec-tangle" class="level2" data-number="8.14">
+<h2 data-number="8.14" class="anchored" data-anchor-id="sec-tangle"><span class="header-section-number">8.14</span> Tangling</h2>
 <p>Sometimes it is useful to extract the actual code from the Quarto document so that it can just run without the overhead of processing the full document or noteboook. This is called <a href="#sec-rd"><strong>tangling</strong></a></p>
 <ul>
 <li>This feature is currently not implemented in Quarto :frowning:</li>
 <li>For R/<code>knitr</code>-based quarto documents, one can use <code>knitr::purl</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">purl</span>(<span class="st">"mydocument.qmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">purl</span>(<span class="st">"mydocument.qmd"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>will result in creating <code>mydocument.R</code>, where the markdown are placed in comments.</p>
 <ul>
@@ -1944,8 +1926,8 @@ quarto render document.ipynb --to html</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="summary" class="level2" data-number="14.15">
-<h2 data-number="14.15" class="anchored" data-anchor-id="summary"><span class="header-section-number">14.15</span> Summary</h2>
+<section id="summary" class="level2" data-number="8.15">
+<h2 data-number="8.15" class="anchored" data-anchor-id="summary"><span class="header-section-number">8.15</span> Summary</h2>
 <ul>
 <li>Quarto is a new document creation system that is built on top of Markdown</li>
 <li>It is designed to be more flexible and extensible than RMarkdown</li>
@@ -2009,13 +1991,14 @@ quarto render document.ipynb --to html</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
