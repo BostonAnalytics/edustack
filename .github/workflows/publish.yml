@@ -14,10 +14,25 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
       - name: Install system libraries
-        run: sudo apt-get update && sudo apt-get install -y \
-          make pandoc libx11-dev libcurl4-openssl-dev libssl-dev zlib1g-dev \
-          libfreetype6-dev libjpeg-dev libpng-dev libtiff-dev libwebp-dev \
-          libicu-dev libfontconfig1-dev libfribidi-dev libharfbuzz-dev libxml2-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            cmake \
+            pandoc \
+            libx11-dev \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            zlib1g-dev \
+            libfreetype-dev \
+            libjpeg-dev \
+            libpng-dev \
+            libtiff-dev \
+            libwebp-dev \
+            libicu-dev \
+            libfontconfig1-dev \
+            libfribidi-dev \
+            libharfbuzz-dev \
+            libxml2-dev
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
