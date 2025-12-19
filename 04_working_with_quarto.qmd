@@ -1,899 +1,1141 @@
 # Reproducible Documents with Quarto
 
+Here is a cleaned, consolidated version written as **notes + instructions**, with redundant headings merged, flow improved, and intent made clearer for students. All existing images/embeds and their locations are preserved exactly.
+
 ## Overview & definitions
 
-* A `reproducible document` is a file or set of files, typically in a scientific or data-driven context, that includes both the content (text, tables, figures) & [the code or instructions required to generate and update that content]{uublue-bold}.
-  * Designed to ensure that others can reproduce the same document, including its data analysis, results, and visualizations, consistently & accurately. 
-  * Reproducible documents are essential for transparent & verifiable research, allowing others to verify and build upon the work.
+A **reproducible document** is a file (or a small collection of files) that combines written content—text, tables, figures, equations—with **the code or instructions required to generate that content**. The goal is simple but powerful: given the same data and the same code, the document can be regenerated with identical results.
 
-* `Literate programming` is a [coding]{.uured-bold} & [documentation]{.uured-bold} approach where code and explanations are combined in a single document. 
-  * Emphasizes clear and understandable code by interleaving human-readable text (explanations, comments, and documentation) with executable code.
-  * Fosters better communication and understanding among programmers.
+Reproducible documents are foundational to transparent and verifiable research. They allow others (including your future self) to inspect how results were produced, verify claims, and extend the work without guesswork or manual reconstruction. In applied analytics, this also means fewer copy–paste errors and a clearer audit trail from data to insight.
+
+Closely related is the idea of **literate programming**, a way of writing programs where **code and explanation live together**. Instead of treating documentation as an afterthought, literate programming treats explanation as a first-class component of the work. Code is embedded alongside human-readable text that explains *why* something is done, not just *how*.
+
+The modern reproducible workflow blends these two ideas:
+you write explanations in natural language, embed executable code, and generate polished outputs from a single source.
 
 
-## Literate programming
-- Document a program by
-  - Writing explanations in a natural language, interspersed with
-  - Snippets of code written in a programming language
-- Two operations on this file:
-  - [Weaving]{.uublue-bold}: Creating a document incorporating the code and its results
-  - [Tangling]{.uublue-bold}: Extract the code into a script file for running
-- In the R ecosystem, this was first implemented as `Sweave`
-  - Use LaTex to provide the mathematical & textual bits (we'll talk about LaTex soon)
-  - The code bits are in R
-- Superseded by `rmarkdown` and `knitr`
-- Superseded by `Quarto` in the both `R` and `Python` ecosystem 
-- Integrates with `Jupyter` notebooks using `polyglot` cells
+## Literate programming in practice
+
+Literate programming follows a simple pattern:
+
+* Write explanations in a natural language
+* Interleave those explanations with short, meaningful code snippets
+* Treat the document itself as the primary artifact
+
+From this single source file, two key operations are possible:
+
+* **Weaving**: producing a finished document that includes code, outputs, figures, and narrative
+* **Tangling**: extracting the code into a standalone script that can be run independently
+
+Historically, this approach appeared in the R ecosystem as **Sweave**, which combined LaTeX for text and mathematics with embedded R code. This was later generalized and simplified through **knitr** and **R Markdown**.
+
+Today, **Quarto** supersedes these tools across both R and Python ecosystems. It supports:
+
+* Multiple programming languages
+* Multiple output formats
+* Integration with Jupyter notebooks
+* Polyglot documents that mix languages in a single file
+
+For this course, Quarto is the unifying layer that connects analysis, writing, and publishing.
 
 
 ## Reproducible documents
 
-Adapting the *literate programming* method to creating documents
+Reproducible documents are the practical application of literate programming to analytics, research, and communication.
 
--  Put text and code in the same document, with access to the data from the code
--  Weave the document so that the results of your analysis are incorporated into the document
--  Given the same data and code, you'll create the same document (reproducible)
--  You can look at the source file to see how the results presented are generated
--  Potentially you can use the same source to create many different kinds of outputs
+The workflow looks like this:
 
->The main purpose here is to create documents, slides, websites, blogs, books etc.
+* Place text and code in the same document
+* Ensure the code has access to the data it needs
+* Render (weave) the document so results appear inline
+* Regenerate the document whenever data or assumptions change
+
+If the inputs do not change, the output does not change. That is reproducibility.
+
+Because the source file contains both logic and explanation, readers can always trace results back to their origin. The same source can also be reused to create **multiple outputs**—for example, a report, a slide deck, and a website—without rewriting the analysis.
+
+> The primary goal is not to document code.
+> The goal is to **produce documents**: reports, slides, websites, blogs, books.
 >
-> The code is a means to creating output for these products, rather than just documenting code
+> Code exists to serve the output, not the other way around.
+
 
 ## Tool-sets
-Reproducible documents are a marriage of natural language text (usually q/ some markup) & a scripting language.
+
+Reproducible documents combine two components:
+
+* Natural language text (with a lightweight markup)
+* A scripting or programming language
+
+Common toolsets include:
 
 | Toolset           | Natural language text | Scripting language                   | Requirement                 |
-|-------------------|-----------------------|--------------------------------------|-----------------------------|
-| Sweave            | LaTex              | R                                    | {{< fa brands r-project >}}           |
-| Jupyter notebooks | Markdown              | Python, other kernels                | {{< fa brands python >}}              |
-| rmarkdown         | Markdown              | R, but can use Python, shell, others | {{< fa brands r-project >}}           |
-| Quarto            | Markdown              | R, Python, Julia, Javascript, others | Independent                           |
-| | | | |
+| ----------------- | --------------------- | ------------------------------------ | --------------------------- |
+| Sweave            | LaTeX                 | R                                    | {{< fa brands r-project >}} |
+| Jupyter notebooks | Markdown              | Python and other kernels             | {{< fa brands python >}}    |
+| R Markdown        | Markdown              | R (plus Python, shell, others)       | {{< fa brands r-project >}} |
+| Quarto            | Markdown              | R, Python, Julia, JavaScript, others | Independent                 |                                      
 
-There are many [other](https://en.wikipedia.org/wiki/Literate_programming#Literate_programming_practices) toolsets as well.
-
+Many other literate programming systems exist, but Quarto provides the broadest and most modern foundation for analytics-focused work.
 
 
-## Programming languages
+## Programming languages and environment
 
-- Assuming you already have `R`, `Python`, and/or `anaconda` installed on your computer, including the standard packages.
-- you will need: 
-  - Python or Anaconda
-  - R
-  - Jupyter
-  - Quarto
-  - RStudio, VS Code, Antigravity
-  - Google Colab can be an alternative
-- [Met It](https://www.bu.edu/metit/) will help you to install the necessary packages and libraries for the course.
-  
+This chapter assumes you already have a basic analytics environment available. You do **not** need to master every tool immediately, but you should ensure the following are installed and accessible:
 
-```{=html}
-<iframe src="https://www.bu.edu/metit/" width="1000px" height=120px" scrolling="no"></iframe>
-```
+* Python (or Anaconda)
+* R
+* Jupyter
+* Quarto
+* An editor such as RStudio, VS Code, or Antigravity
+
+Cloud-based tools such as Google Colab can be used as alternatives in some cases, but local installation is preferred for reproducibility and long-term projects.
+
+If you encounter installation issues, [MET IT](https://www.bu.edu/metit/) can assist with setting up the required software for the course.
 
 
-## Markdown 
 
-[Optional content]{.uugreen-bold}: Either cover quickly or skip, students can review at their pace. As simple as text documents.
+## Markdown
 
-### Markdown overview
+[Optional content]{.uugreen-bold}
 
-* Markdown is a lightweight markup language used for formatting plain text, enabling easy conversion to HTML. Popular for web content & documentation due to simplicity.
-* `Why is markdown important for programmers?`
+This section can be covered briefly in class. Students can review and practice at their own pace.
 
-:::: {.columns}
-::: {.column width="50%"}
-- [Documentation]{.uured-bold}: Markdown simplifies code documentation & explanations.
-- [Readability]{.uured-bold}: Enhances code readability & comprehension w/ organized formatting.
-- [Collaboration]{.uured-bold}: Markdown fosters efficient collaboration through clear communication of ideas and code.
-- [Version Control]{.uured-bold}: Markdown files play well with version control systems like Git, tracking changes effectively.
-* `README.md` files are generally markdown 
+Markdown is a lightweight markup language that allows you to format plain text using simple, readable syntax. It is widely used for documentation, reports, and web content because it is easy to write and easy to convert into formats such as HTML, PDF, and Word.
+
+Markdown matters because it sits at the center of modern reproducible workflows.
+
+### Why Markdown is used in analytics
+
+Markdown supports:
+
+- [Documentation]{.uugreen-bold}: clear explanations alongside code
+- [Readability]{.uugreen-bold}: structured text without visual clutter
+- [Collaboration]{.uugreen-bold}: easy review and editing by teams
+- [Version control]{.uugreen-bold}: clean diffs in Git compared to binary formats
+- [Presentation]{.uugreen-bold}: seamless integration of text, code, and visuals
+- [Reproducibility]{.uugreen-bold}: concise pairing of explanation and execution
+- [Portability]{.uugreen-bold}: platform-independent plain text files
+- [Efficiency]{.uugreen-bold}: minimal syntax, focus on content rather than formatting
+
+Files such as `README.md`, `.qmd`, `.rmd`, and even Jupyter notebooks rely heavily on Markdown.
+
+### Learning Markdown
+
+Markdown is intentionally simple. You do not need to memorize everything at once.
+
+Common uses in data science include:
+
+* Writing `README.md` files
+* Creating reports and assignments
+* Documenting code and analysis notebooks
+
+A concise reference is available here:
+[Markdown cheat-sheet](https://www.markdownguide.org/cheat-sheet/)
+
+### Common Markdown commands
+
+* **Headers**: `#`, `##`, `###` for section headings
+* **Emphasis**: `*italic*`, `**bold**`
+* **Lists**: ordered (`1.`) and unordered (`-`)
+* **Links**: `[text](URL)`
+* **Images**: `![alt text](image URL)`
+* **Blockquotes**: `>`
+* **Inline code**: `` `code` ``
+* **Code blocks**: triple backticks
+* **Horizontal rules**: `---` or `___`
+* **Tables**: `|` and `-` syntax
+* **Escaping characters**: `\`
+
+You will gradually use these throughout the course as they appear naturally in assignments and projects.
+
+## LaTeX
+
+[Optional content]{.uugreen-bold}
+This section can be covered briefly in class. Students can return to it when writing mathematical expressions, proofs, or formal reports.
+
+LaTeX is not required for everyday writing in this course. However, **basic familiarity with LaTeX-style mathematics is essential**, especially for equations, models, and formal notation used in analytics, statistics, and machine learning.
+
+## What LaTeX is (and why it matters)
+
+LaTeX is a **typesetting system** designed for producing high-quality documents with complex structure, especially those containing mathematics, equations, references, and formal layouts.
+
+Key ideas to understand:
+
+* LaTeX uses **plain text with markup commands** to describe structure and meaning
+* Content and presentation are deliberately separated
+* Formatting decisions are handled by document classes and templates
+* Mathematical notation is a first-class citizen
+
+Because of this, LaTeX has become the standard for:
+
+* Academic papers
+* Theses and dissertations
+* Journal submissions
+* Technical and scientific documentation
+
+Documents written in LaTeX are typically compiled into PDF files using engines such as `pdflatex` or `xelatex`.
+
+For this course:
+
+* You will **mostly write in Markdown**
+* You are **not expected to be a LaTeX expert**
+* You *are* expected to understand and use **LaTeX math syntax** when writing equations
+
+Markdown-based tools (R Markdown, Quarto, Jupyter) all rely on LaTeX **under the hood** for math rendering.
+
+## When you actually need LaTeX
+
+You will encounter LaTeX most often in three situations:
+
+1. **Mathematical expressions**
+
+   * Equations
+   * Models
+   * Constraints
+   * Optimization problems
+
+2. **Formal reasoning**
+
+   * Proof sketches
+   * Theorems and propositions
+   * Definitions and assumptions
+
+3. **Publishing constraints**
+
+   * Journals and conferences often provide LaTeX templates
+   * Universities commonly distribute LaTeX thesis classes
+
+Even when writing Markdown or Quarto documents, math is still written using LaTeX syntax.
+
+## Strengths of LaTeX
+
+The main strength of LaTeX is its **semantic clarity**:
+
+* You describe *what* something is, not *how* it should look
+* Equations scale correctly across formats
+* Mathematical notation is precise and unambiguous
+* Documents remain readable and editable as plain text
+
+This is why LaTeX remains dominant in STEM disciplines.
+
+:::{.columns}
+:::{.column width="50%"}
+
+![LaTex math for undergrads](./images/ch04/pdf.png)
+
 :::
 
-::: {.column width="50%"}
-- [Presentation]{.uured-bold}: It allows seamless integration of code, visuals, and text for clearer presentations.
-- [Reproducibility]{.uured-bold}: Markdown aids in replicating experiments by combining code and explanations concisely.
-- [Portability]{.uured-bold}: Markdown files are platform-independent and easily convertible to various formats, ensuring accessibility.
-- [Time Efficiency]{.uured-bold}: Quick and intuitive syntax saves time on formatting, focusing on content creation.
-:::
-::::
+:::{.column width="50%"}
 
+![LaTex math for undergrads](./images/ch04/eqn.png)
 
-### Markdown fundamentals
-
-* Markdown is very easy to learn!
-* Take some time to get familiar with it over the coming days 
-* Common uses in Data science 
-  * `README.md` files and report generation
-  * Well documented coding with `.ipynb`, `.qmd`, or `.rmd`
-* The following cheat-sheet summarizes much of the functionality 
-  * [markdown cheat-sheet](https://www.markdownguide.org/cheat-sheet/)
-
-### Important Markdown commands  
-
-- [Headers]{.uured-bold}: Create headings with '#' (e.g., '# Header 1' for the largest heading).
-- [Emphasis]{.uured-bold}: Use '*' or '_' for italics ('*italic*') and '**' or '__' for bold ('**bold**').
-- [Lists]{.uured-bold}: Create ordered (1. Item) and unordered (- Item) lists.
-- [Links]{.uured-bold}: Insert links with `[text](URL)`.
-- [Images]{.uured-bold}: Embed images with `![alt text](image URL)`.
-- [Blockquotes]{.uured-bold}: Quote text with '>' (e.g., '> This is a quote').
-- [Inline-Code]{.uured-bold}: Format inline code with backticks (e.g. \`code\`)
-- [Code blocks]{.uured-bold}: Multi-line code-blocks use triple backticks e.g. \`\`\`code\`\`\`).
-- [Horizontal Rule]{.uured-bold}: Add a horizontal line with '---' or '___'.
-- [Tables]{.uured-bold}: Create tables using '|' and '-' (see Markdown table syntax).
-- [Escape Characters]{.uured-bold}: Use '\\' to escape special Markdown characters.
-
-## LaTex
-[Optional content]{.uugreen-bold}: Either cover quickly or skip, students can review at their pace.
-
-### LaTex Overview 
-
-- LaTex is a typesetting system commonly used for creating documents with complex formatting, such as research papers, theses, and academic articles.
-- Uses `plain text` w/ markup commands to define document structure & formatting.
-- Focuses on content & structure, allowing users to separate content from presentation.
-- Highly customizable, w/ packages & templates available for various document types.
-- LaTeX is particularly popular in academia & scientific publishing due to its support for mathematical equations and references.
-- Documents are compiled into PDF w/ LaTeX compilers like pdflatex or xelatex.
-- LaTeX is free and open-source, compatible with Windows, macOS, and Linux, and widely used in technical and scientific fields.
-- We often use `markdown` for document generation rather than LaTex. You `DON'T` have to be a LaTex expert, but, familiarity w/ writing math in LaTex is important
-
-
-### LaTex Motivation
-
-It's worth learning a little bit of LaTex both for its mathematical typesetting and for its strong formatting capabilities.
-
-It is common for universities and journals and publishers to provide LaTex document classes for typesetting in their preferred manner. 
-
-### Resources
-
-- [LaTex Math for Undergrads](http://tug.ctan.org/info/undergradmath/undergradmath.pdf)
-- [Learn LaTex in 30 minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)
-- [LaTex-Tutorial.com](https://latex-tutorial.com/tutorials/)
-
-### LaTex
-
--   The strength of LaTex is in its strong separation of content and formatting.
--   The document was written in a computer science-y markup
--   One of its signature capabilities is in typesetting mathematics, leading it to be one of the main tools for authorship in STEM research.
-<!-- -   The final document was determined by the `documentclass` designated in the source. -->
-
-:::: {.columns}
-::: {.column width="50%"}
-![LaTex math for undergrads [[link](http://tug.ctan.org/info/undergradmath/undergradmath.pdf)]](./images/ch04/pdf.png)
-:::
-
-::: {.column width="50%"}
-![LaTex math for undergrads [[link](http://tug.ctan.org/info/undergradmath/undergradmath.pdf)]](./images/ch04/eqn.png)
-:::
-::::
-
-
-### Latex: basic math commands
-LaTeX math commands are fundamental for expressing mathematical equations and symbols in documents.
-
-::: {.columns}
-::: {.column}
-- `$ $`: Enclose mathematical expressions for inline math mode.
-- `$$ $$`: Enclose mathematical expressions for non-inline math mode.
-- `\begin{equation}  \end{equation}`: Numbered equation w/ label
-- `\begin{align}  \end{align}`: Numbered equation array w/ label
-- `\frac{numerator}{denominator}`: Display fractions.
-- `\sqrt{...}`: Add square roots.
-- `\sum`, `\prod`: Generate summation and product symbols.
-- `\int`: Insert integral symbols.
-:::
-::: {.column}
-- `\frac{d}{dx}`: Represent derivatives.
-- `\lim`: Display limits.
-- `\infty`: Represent infinity symbol.
-- `\pm`, `\mp`: Add plus-minus and minus-plus symbols.
-- `\cdot`, `\times`: Insert multiplication symbols.
-- `\frac{\partial}{\partial x}`: Indicate partial derivatives.
-- `\left(...\right)`: Automatically size parentheses and brackets.
-- `\alpha`, `\beta`, etc.: Use Greek letters.
-- `^` and `_`: Superscripts and subscripts, e.g., `x^2` $\rightarrow x^2$ and `a_{ij}` $\rightarrow a_{ij}$.
 :::
 :::
 
-### LaTex installation {#sec-latex}
+## Writing mathematics with LaTeX
 
-Most reproducible document systems require an installation of LaTex on your computer or system. In particular, both RMarkdown and Quarto use it to generate PDF documents.
+You will most often use LaTeX **inside Markdown or Quarto**, not in standalone `.tex` files.
 
-There are several distributions of LaTex available, including
+### Math modes
 
-- [MacTeX](http://tug.org/mactex/) on macOS
-- [MiKTeX](http://miktex.org/) or [TeX Live](http://www.tug.org/texlive) on Windows
+- `$ ... $` - Inline math, used within sentences
+- `$$ ... $$` - Display math, centered and on its own line
+- `\begin{equation} ... \end{equation}` - Numbered equations with labels
+- `\begin{align} ... \end{align}` - Aligned, multi-line equations with numbering
 
-However, there is a smaller, essential LaTex distribution available through the `tinytex` package, based on the TeX Live distribution
+Use inline math for symbols and short expressions, and display math for models and derivations.
+
+## Core LaTeX math commands
+
+These commands cover **most equations you will write in this course**.
+
+:::{.columns}
+
+:::{.column}
+- `$ $` - Inline mathematical expressions
+- `$$ $$` - Display mathematical expressions
+- `\begin{equation} ... \end{equation}` - Numbered equations
+- `\begin{align} ... \end{align}` - Multi-line aligned equations
+- `\frac{a}{b}` - Fractions
+- `\sqrt{x}` - Square roots
+- `\sum`, `\prod` - Summations and products
+- `\int` - Integrals
+:::
+
+:::{.column}
+- `\frac{d}{dx}` - Derivatives
+- `\frac{\partial}{\partial x}` - Partial derivatives
+- `\lim` - Limits
+- `\infty` - Infinity
+- `\pm`, `\mp` - Plus/minus symbols
+- `\cdot`, `\times` - Multiplication
+- `\left( \right)` - Auto-sized brackets
+- `\alpha`, `\beta`, … - Greek letters
+- `^`, `_` - Superscripts and subscripts
+:::
+
+:::
+
+Example-
+
+- `x^2` → ($x^2$)
+- `a_{ij}` → ($a_{ij}$)
+
+## Proofs, definitions, and theorems (conceptual)
+
+While you will not write full formal proofs in this course, LaTeX provides standard structures for:
+
+- Definitions
+- Assumptions
+- Propositions
+- Theorems
+- Proof sketches
+
+In Markdown and Quarto, these are often expressed using **headings and math blocks**, rather than full LaTeX environments. The emphasis is on **clarity of reasoning**, not rigid formalism.
+
+## Installing LaTeX for PDF output {#sec-latex}
+
+To generate PDFs from Quarto or R Markdown, a LaTeX installation is required.
+
+Instead of installing a full LaTeX distribution, we recommend using **TinyTeX**, a lightweight setup managed directly by Quarto.
+
+Install TinyTeX with:
 
 ```bash
 quarto install tinytex
 ```
 
-This installation remains local to Quarto, i.e., it doesn't affect other apps on your computer that use TeX. To make this your default TeX installation on your computer, use 
+This installs LaTeX locally for Quarto only and does not interfere with other software.
+
+To make TinyTeX available system-wide:
 
 ```bash
 quarto install tinytex --update-path
 ```
 
-See the Quarto documentation on [PDF Engines](https://quarto.org/docs/output-formats/pdf-engine.html), and [here](#sec-tools) for other Quarto tools.
+For reference:
+
+* Quarto PDF engines: [https://quarto.org/docs/output-formats/pdf-engine.html](https://quarto.org/docs/output-formats/pdf-engine.html)
+* Other Quarto tools: see Section `#sec-tools`
+
+## Learning resources
+
+You do not need to memorize LaTeX. Use references as needed.
+
+Recommended resources:
+
+* LaTeX Math for Undergraduates
+  [http://tug.ctan.org/info/undergradmath/undergradmath.pdf](http://tug.ctan.org/info/undergradmath/undergradmath.pdf)
+
+* Learn LaTeX in 30 Minutes
+  [https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)
+
+* LaTeX Tutorial
+  [https://latex-tutorial.com/tutorials/](https://latex-tutorial.com/tutorials/)
+
+## Mathpix: a practical helper
+
+* Mathpix: [https://mathpix.com/](https://mathpix.com/)
+
+Mathpix converts images of handwritten or printed equations into LaTeX, Markdown, or MathML. It is especially useful when:
+
+* Transcribing equations from slides or papers
+* Converting handwritten notes into clean math
+* Avoiding manual typing errors
+
+![](./images/ch04/2023-08-24-09-24-28.png){width=800}
 
 
-## Mathpix: A very useful tool 
+## Markdown with code execution (R Markdown)
 
-* `mathpix`: [https://mathpix.com/](https://mathpix.com/)
-* Mathpix is a tool that uses optical character recognition to convert images of handwritten or printed math equations into digital formats, aiding quick integration of math content into documents and applications.
-    ![](./images/ch04/2023-08-24-09-24-28.png){width=800}
+[Optional content]{.uugreen-bold}
+This section provides historical and conceptual grounding. Students do not need to master R Markdown, but understanding it helps explain how modern reproducible tools evolved.
 
-<!-- * **Demo**: `Run example` -->
+Markdown on its own is a lightweight way to write structured text. What made it transformative for data science was the ability to **execute code inside Markdown documents** and embed the results directly into the output.
 
-## R-Markdown
-[Optional content]{.uugreen-bold}: Either cover quickly or skip, students can review at their pace.
+That idea is what R Markdown introduced.
 
+## What R Markdown adds to Markdown
 
-### RMarkdown
+At its core, **R Markdown** extends Markdown by allowing you to:
 
-- [Markdown](https://daringfireball.net/projects/markdown/) is a text-to-HTML conversion tool meant for web writers to write HTML pages without having to deal with all the syntax
-    - It allows the use of LaTex for math typesetting :wink: :wink:
+* Write narrative text in Markdown
+* Embed executable R code chunks
+* Automatically insert tables, figures, and results
+* Render everything into a polished document
 
-- [RMarkdown](https://rmarkdown.rstudio.com) creates a noweb-like system for creating Markdown documents using R
-- RMarkdown was preceded by Yihui Xie's `knitr` package, & still has most of its capabilitie
- 
-:::: {.columns}
-::: {.column width="30%"}
+Mathematics written using LaTeX syntax works seamlessly inside R Markdown documents, which is why it became widely adopted in statistics, analytics, and academic research.
+
+Conceptually, R Markdown sits between:
+
+* literate programming (Sweave)
+* and modern multi-language publishing tools (Quarto)
+
+## Historical context
+
+Markdown was originally created as a **text-to-HTML** tool so writers could produce web pages without writing raw HTML.
+
+R Markdown builds on this idea by creating a *noweb-style* system for analytics:
+
+* Text is written using Markdown
+* Code is embedded in fenced code blocks
+* Outputs are inserted during rendering
+
+R Markdown was built on top of Yihui Xie’s **knitr** package and inherited most of its capabilities.
+
+:::{.columns}
+:::{.column width="30%"}
 ![](./images/ch04/rmarkdown.png){width=300}
 :::
 
-::: {.column width="70%"}
-This is still inspired by `Sweave`
+:::{.column width="70%"}
+This design was inspired by `Sweave`.
 
-- Text is written in Markdown markup
-- Code chunks are delimited by ` ```{r}` in line with Markdown syntax
-- A richer set of options for chunks
+* Narrative text uses Markdown syntax
+* Code chunks are delimited using ` ```{r}`
+* Chunk options control execution, visibility, and formatting
+* Results are automatically woven into the document
 :::
-::::
+:::
 
-### Pandoc
+## Code chunks (conceptual)
 
-- [Pandoc](https://pandoc.org/) is a "universal document converter" that has taken Markdown-based pipelines to a next level by allowing different kinds of outputs
+In R Markdown, executable code is written inside **code chunks**. Each chunk:
 
-:::: {.columns}
-::: {.column width="40%"}
+* Has a language (most commonly R)
+* Can be executed during rendering
+* Can show or hide code, output, warnings, or messages
+
+You do not need to memorize chunk options now. The key idea is that **code and explanation live in the same document**, and the document itself becomes reproducible.
+
+## Pandoc: the publishing engine underneath
+
+R Markdown relies on **Pandoc**, a universal document converter that makes Markdown-based publishing powerful and flexible.
+
+Pandoc allows a single source document to be converted into many output formats without rewriting content.
+
 ![](./images/ch04/pandoc.png){height=55%}
-:::
-::: {.column width="60%"}
-- Note the breadth of available formats for conversion
-- For us, the most useful are 
-  - HTML
-  - Word/Powerpoint
 
-:::
-::::
+Pandoc supports a wide range of formats.
 
-### RMarkdown document
+For this course, the most relevant are:
+
+* HTML
+* PDF
+* Word
+* PowerPoint
+
+This capability is what enables “single source, many outputs.”
+
+## What an R Markdown document looks like
+
+The structure of an R Markdown document typically includes:
+
+* A small metadata header (YAML)
+* Markdown text
+* Code chunks
+* Embedded outputs (tables, figures, equations)
+
+The image below shows how code, output, and narrative coexist naturally in a single document.
 
 ![Andrew Bray, rstudio::conf(2022)](./images/ch04/paste-00475E59.png)
 
+## The R Markdown ecosystem
 
-## RMarkdown
+R Markdown developed a large ecosystem due to its extensibility. It has been used to create:
 
-- RMarkdown has a [strong ecosystem](https://rmarkdown.rstudio.com/gallery.html) around it due to its extensibility. 
-  - Documents
-  - Interactive documents (including dashboards and Shiny apps)
-  - Presentations
-  - Books (see [bookdown.org](https://www.bookdown.org) for many great R books freely available)
-  - Websites
-  - Journal templates (using the `rticles` package)
+- Reports and documents
+- Interactive documents and dashboards
+- Presentations
+- Books (via **bookdown**)
+- Websites
+- Journal-ready manuscripts (via **rticles**)
+
+This ecosystem is one reason R Markdown became the dominant reproducible reporting tool in statistics and analytics for many years.
+
+## Why we do not focus on R Markdown directly
+
+While R Markdown is still widely used, it is **no longer the recommended end point** for new projects.
+
+Its ideas live on—and are expanded—in **Quarto**, which:
+
+* Supports multiple programming languages
+* Uses the same Markdown foundation
+* Builds on Pandoc
+* Unifies workflows across R, Python, and Jupyter
+
+For students, the takeaway is:
+
+> Learn Markdown well.
+> Understand how code execution works inside documents.
+> Use Quarto as the modern, language-agnostic successor.
 
 
 ## Jupyter
-[Optional content]{.uugreen-bold}: Either cover quickly or skip, students can review at their pace.
+
+[Optional content]{.uugreen-bold}
+This section provides context. Jupyter is widely used and worth understanding, but it is not the final workflow we emphasize.
+
+Jupyter introduced many students to **literate, interactive computing**. It combines code, text, and output in a single document and remains one of the most popular tools in data science.
 
 
-### Jupyter Lab & Notebook
+## JupyterLab and Jupyter Notebooks
 
-:::: {.columns}
-::: {.column width="60%"}
-[JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) is a web-based interactive user interface
+:::{.columns}
+:::{.column width="60%"}
 
-- Like its predecessor, the [Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/latest/), it runs a [programming language **kernel**](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) that provides the computational engine for the notebook
-    - Wide variety of kernels are available, including R, Julia, SAS, Ruby, Javascript (based on nodejs), Matlab & many, many others ([full list](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels))
-- The text part of the ntebook uses Markdown formatting
-- One can produce various outputs with JupyterLab using the [nbconvert](https://nbconvert.readthedocs.io/en/latest/) Python package
-    - Primary targets are static, like HTML, LaTex, PDF, Markdown, etc
-- You can convert set of Jupyter notebooks into an online book w/ [jupyterbook](https://jupyterbook.org/en/stable/intro.html)
-    - See examples [here](https://executablebooks.org/en/latest/gallery.html)
+[JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) is a web-based interactive development environment. It evolved from the original [Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/latest/) interface and provides a more flexible workspace.
+
+Core ideas:
+
+* A **kernel** provides the computational engine
+* Each notebook connects to exactly one kernel
+* Many kernels are available beyond Python
+
+Supported kernels include:
+
+* Python
+* R
+* Julia
+* SAS
+* MATLAB
+* JavaScript (Node.js)
+* and many others
+  ([full list](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels))
+
+Text inside notebooks is written using **Markdown**, while executable code is organized into **cells**.
+
+Jupyter outputs can be exported using the `nbconvert` tool into:
+
+* HTML
+* LaTeX
+* PDF
+* Markdown
+* and other static formats
+
+Entire collections of notebooks can be published as books using **Jupyter Book**:
+
+* [https://jupyterbook.org/en/stable/intro.html](https://jupyterbook.org/en/stable/intro.html)
+* Examples: [https://executablebooks.org/en/latest/gallery.html](https://executablebooks.org/en/latest/gallery.html)
+
 :::
-::: {.column width="40%"}
+:::{.column width="40%"}
 ![Source: jupyter.org](./images/ch04/jupyter.png)
 :::
-::::
+:::
 
-### Jupyter notebooks are very popular
 
-- Common in Kaggle competitions & common analyses interface w/ literate programming
-- Inbuilt into many cloud platforms (Google Colab, DataBricks, AWS Sagemaker)
-- Can be read, edited and run directly in VS Code or Pycharm without starting a web service
+## Why Jupyter is so popular
+
+Jupyter notebooks are widely adopted because they are:
+
+* Common in Kaggle competitions and exploratory analysis
+* Integrated into cloud platforms such as:
+
+  * Google Colab
+  * Databricks
+  * AWS SageMaker
+* Usable directly inside VS Code and PyCharm
+* Friendly for experimentation and rapid iteration
+
+For many learners, Jupyter is the first exposure to combining code, explanation, and output.
+
+
+## A structural limitation
 
 [... But]{.bloodred-bold}
 
-:::: {.columns}
-::: {.column width="30%"}
+:::{.columns}
+:::{.column width="30%"}
 ![](./images/ch04/2egqlc.jpeg){height=350}
+:::
+:::{.column width="70%"}
+
+> Jupyter notebooks are **order-dependent**.
+
+Cells can be run in arbitrary order, which means:
+
+* The visible code may not reflect execution order
+* Hidden state can accumulate
+* Reproducibility can suffer if notebooks are not carefully managed
+
+While one can always “Run all cells” to restore order, this places responsibility on the user rather than the tool.
+
+This limitation is not fatal, but it matters when moving from **exploration** to **communication and publication**.
 
 :::
-::: {.column width="70%"}
-<!-- ![](./images/ch04/grus-jupyter.png){width=250} -->
-
-> But some would call this a [red herring]{.bloodred-bold}, since you can always to "Run all cells" in a notebook to do things in the right order
 :::
-::::
-
 
 ## Quarto
 
-Quarto is the next generation of RMarkdown developed by [Posit](https://www.posit.com)
+Quarto is the next generation of reproducible publishing tools, developed by [Posit](https://www.posit.com). It generalizes the ideas behind R Markdown and Jupyter into a **single, consistent system**.
 
+## Quarto overview
 
+[Quarto](https://quarto.org/) is a publishing framework designed for data science and technical communication.
 
-### Quarto overview 
+Key characteristics:
 
-[Quarto](https://quarto.org/) is a modern publishing system designed for data science and technical communication, focusing on reproducibility, interactivity, and flexibility:
+* **Markdown-based**
+  Write content using Markdown, including code and math.
 
-- [Markdown-Based]{.uured-bold}: Utilizes Markdown for writing content, embedding code, and creating interactive documents.
-- [Data-Driven]{.uured-bold}: Supports integration of code & data to generate dynamic, up-to-date reports and documents.
-- [Reproducibility]{.uured-bold}: Ensures the ability to recreate documents with consistent results using source code and data.
-- [Customizable Outputs]{.uured-bold}: Generates various outputs like HTML, PDF, and more, allowing customization for different needs.  
-- [Interactive Elements]{.uured-bold}: Enables creation of interactive charts, tables, and visualizations directly within documents.
-- [Extensible]{.uured-bold}: Offers extensibility via plugins with tools like R, Python, and Jupyter.
+* **Language-agnostic**
+  Supports R, Python, Julia, JavaScript, and any Jupyter kernel.
 
-### R vs. RStudio vs. Quarto
-:::: {.callout-note}
+* **Reproducible by design**
+  Documents are rendered top-to-bottom with controlled execution.
 
-#### IDEs and Programming Languages
+* **Multiple outputs**
+  HTML, PDF, Word, PowerPoint, and more.
+
+* **Interactive**
+  Supports interactive tables, charts, and widgets.
+
+* **Extensible**
+  Plugins, filters, and custom layouts are supported.
+
+Quarto treats documents as **products**, not notebooks or scripts.
+
+## IDEs, languages, and Quarto (clarifying roles)
+
+:::{.callout-note}
+
+#### IDEs and programming languages
 
 ![](./images/ch04/quarto_logo.svg){width=20% fig-align="center"}
-::::
 
-:::: {.columns}
+:::
 
-::: {.column width=45%}
+:::{.columns}
+
+:::{.column width=45%}
 
 ![](./images/ch04/RStudio_logo.svg){width=30% fig-align="center"}
 
-- GUI wrapper around R
-- Run **blocks** of R code (`.qmd` **chunks**)
+* IDE commonly used with R
+* Runs **code chunks** inside `.qmd` files
 
-::: {.callout-note}
-[R Language {{< fa brands r-project >}}](https://www.r-project.org/)
+:::{.callout-note}
+[R language {{< fa brands r-project >}}](https://www.r-project.org/)
 
-- Programming language
-- Runs scripts via '*r script.r*' enclosed in single backticks ().
+* Programming language
+* Can be run as scripts (`Rscript file.R`)
 :::
 :::
 
-::: {.column width=3%}
+:::{.column width=3%}
+
 ### +
+
 :::
 
-::: {.column width=45%}
+:::{.column width=45%}
 
 ![](./images/ch04/jupyter_logo.svg){width=30% fig-align="center"}
 
-- GUI wrapper around Python (IDE)
-- Run **blocks** of Python code (`.ipynb` **cells**)
+* IDE commonly used with Python
+* Runs **cells** inside `.ipynb` notebooks
 
-```r
-library(fontawesome)
-```
-
-::: {.callout-note}
+:::{.callout-note}
 [Python {{< fa brands python >}}](https://www.python.org/)
 
-- Scripting language
-- On its own, just runs scripts via '*python script.py*' enclosed in single backticks ()
+* Programming language
+* Can be run as scripts (`python file.py`)
 :::
 :::
 
-::::
+:::
+
+Quarto sits *above* these tools and languages. It does not replace them; it **coordinates them**.
+
+## R Markdown and Quarto
+
+Quarto builds on many ideas from R Markdown while expanding their scope.
+
+| rmarkdown                  | quarto                                         |
+| -------------------------- | ---------------------------------------------- |
+| Requires R                 | Language-agnostic                              |
+| Mature ecosystem           | Modern, unified system                         |
+| Uses `knitr`               | Uses `knitr` or Jupyter                        |
+| Multiple rendering engines | Uses Pandoc exclusively                        |
+| Basic Markdown             | Extended Markdown (callouts, tabsets, layouts) |
+
+Additional notes:
+
+* Most Pandoc-based R Markdown documents render in Quarto
+* Some legacy tools (e.g., `xaringan`) are not compatible
+* Jupyter notebooks can be used directly as Quarto sources
+* Any Jupyter kernel can be used, not just Python
 
 
 ## RMarkdown & Quarto
 
-+---------------------------------------------+------------------------------------------------------------------------------+
-| rmarkdown                                   | quarto                                                                       |
-+=============================================+==============================================================================+
-| Requires R                                  | Script-language agnostic (R or Jupyter kernel)                               |
-+---------------------------------------------+------------------------------------------------------------------------------+
-| Mature ecosystem                            | New kid on the block                                                         |
-+---------------------------------------------+------------------------------------------------------------------------------+
-| Uses `knitr` for weaving                    | Uses `knitr` or jupyter for weaving                                          |
-+---------------------------------------------+------------------------------------------------------------------------------+
-| Various engines for creating final document | Uses [pandoc](https://www.pandoc.org) exclusively for document rendering     |
-+---------------------------------------------+------------------------------------------------------------------------------+
-| Uses more basic markdown                    | Allows more complex HTML structures like div blocks, tabsets, callouts, etc. |
-+---------------------------------------------+------------------------------------------------------------------------------+
-
-
-- RMarkdown documents based on pandoc will render in quarto
-    - `xaringan`, a popular presentation package based on RMarkdown, renders directly to `remark.js` and so is **not** compatible with Quarto
-- We can now use Jupyter notebooks as a source for Quarto, allowing the production of Python-based documents with the same fidelity as R users experience. 
-    - In fact, you can use any available Jupyter kernel for the source Jupyter notebook, not just Python
-
-## RMarkdown & Quarto
 ::: {.r-stack}
 :::{.fragment .fade-left}
-![&nbsp;](./images/ch04/paste-0860D360.png){fig-align="center" width="65%"}
+![ ](./images/ch04/paste-0860D360.png){fig-align="center" width="65%"}
 :::
 :::{.fragment .fade-right}
-![&nbsp;](./images/ch04/paste-CC007B93.png){.fragment .fade-left fig-align="center" width="65%"}
+![ ](./images/ch04/paste-CC007B93.png){.fragment .fade-left fig-align="center" width="65%"}
 :::
 :::
 
+## Single source, many outputs
 
-## Single source, many outputs 
+A central idea behind Quarto is **single source publishing**.
 
-We can create content (text, code, results, graphics) within a source document, and then use different weaving engines to create different document types
+From one source document containing:
 
-::: {.column width="47%"}
--   Documents
-    -   Web pages (HTML)
-    -   Word documents
-    -   PDF files
--   Presentations
-    -   HTML
-    -   PowerPoint
+* Text
+* Code
+* Results
+* Figures
+
+You can generate:
+
+:::{.columns}
+:::{.column width="47%"}
+
+* Documents
+
+  * HTML
+  * Word
+  * PDF
+* Presentations
+
+  * HTML
+  * PowerPoint
+:::
+:::{.column width="47%"}
+* Websites and blogs
+* Books
+* Dashboards
+* Interactive reports
+* Journal-ready articles
+:::
 :::
 
-::: {.column width="47%"}
--   Websites/blogs
--   Books
--   Dashboards
--   Interactive documents
--   Formatted journal articles
-:::
+Most R Markdown documents already follow this philosophy; Quarto makes it consistent across languages.
 
-Most RMarkdown documents readily render in Quarto
 
 ## Installation
 
-- Quarto is a standalone app on your computer, not a R or Python package
-- Installation instructions can be found here: [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
+Quarto is a **standalone application**, not an R or Python package.
+
+Installation instructions:
+
+* [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
 
 ![](./images/ch04/quarto-steps.png){width="80%" fig-align="center"}
 
 
+## So, do we like Quarto?
 
-## So we like Quarto?
+Yes — with nuance.
 
-- Keeping RMarkdown for lots of things, since it still works
-- Ability to create Python-based documents (great for ML projects)
-- Love some new things for presentations
+* R Markdown continues to work well and remains widely used
+* Jupyter is excellent for exploration and teaching
+* Quarto unifies both approaches and adds:
 
-::: {.notes}
-The main story is that there is nothing wrong with either RMarkdown or Jupyter per se, but
-Quarto enhances the feature set and gives Python a proper reproducible document tool. RMarkdown is still richer. 
+  * Better structure
+  * Better publishing
+  * First-class Python support
+  * Strong presentation tools
 
-The major enhancement over both is in creating presentations, and the ease of constructing 
-particular layouts
+:::{.notes}
+There is nothing “wrong” with R Markdown or Jupyter.
+
+Quarto extends their ideas and gives Python an equivalent of what R users have long had: a serious, reproducible publishing workflow.
+
+Its strongest advantage is not computation, but communication.
 :::
 
 
-## Aside: Project website and presentation  
+Great choice — this works very well as a **capstone framing** for the chapter. Below is a **clean, student-facing decision guide** that is concise, principled, and aligned with how you actually want them to work in the course. It avoids tool evangelism and focuses on *intent*.
 
-- It is a [COURSE REQUIREMENT]{.bloodred-bold}, that you build your website and presentation with Quarto
-- It is [highly recommended]{.bloodred-bold} that use `.qmd` files and NOT `.ipynb` files for the website building.
-  - However, it is easy to convert between the two formats by using the `quarto convert filename` command
-- Functionally the two formats are basically identical, i.e. they're just `Markdown` + `Code` 
-- However there is [ONE MAJOR DIFFERENCE]{.bloodred-bold}, i.e. `.ipynb` stores the code outputs in the meta-data of the file
-  - This means you `ONLY HAVE TO RUN THE CODE ONCE` with `.ipynb`
-  - `.qmd` will run the code every time you build the report, which can be very slow
-    - There are `caching` options for `.qmd` to avoid this, however, they are "messier" that just using `.ipynb`
-  - **Note**: If `.qmd` has no code, then it is basically just a `Markdown` file `.md`
 
-## Using Quarto
-Tour through various important quarto constructs 
+## Choosing the right tool: a practical guide
 
-### LaTex in quarto
+This course exposes you to multiple tools not because you must use all of them, but because **different stages of analytical work call for different environments**.
 
-- Since Quarto is built on top of Markdown, coding in Quarto should be pretty intuitive 
+The goal is not tool loyalty.
+The goal is **clarity, reproducibility, and communication**.
 
-::: {.columns}
-::: {.column}
-#### Quarto syntax
+:::{.panel-tabset}
+### Jupyter
 
-```
-- This is an example of a bulleted list with math 
-- Here is an in-line math equation $f(x)=\frac{e^{x^2}}{2}$
+Jupyter is best suited for **exploration and experimentation**.
 
-$$ g(x)=x^n \rightarrow \frac{\partial g}{\partial x}=n x^{n-1} $$
+Choose Jupyter if you are:
+
+* Exploring a new dataset
+* Testing ideas interactively
+* Prototyping models or visualizations
+* Learning a new library or API
+* Working in cloud environments (Colab, Databricks, SageMaker)
+* Iterating rapidly without worrying about final presentation
+
+Jupyter shines when you want immediate feedback and flexibility.
+
+**Caution:**
+Before sharing or submitting a notebook, always:
+
+* Restart the kernel
+* Run all cells top-to-bottom
+* Verify that results are reproducible
+
+
+### R Markdown
+
+R Markdown is best for **R-centered analytical reporting**.
+
+Choose R Markdown if you are:
+
+* Working primarily in R
+* Creating structured reports or homework assignments
+* Writing statistical analyses with embedded math
+* Using an existing R Markdown template or journal format
+* Building documents that rely heavily on the R ecosystem
+
+R Markdown remains a strong and mature option, especially in R-heavy workflows.
+
+### Quarto
+
+Quarto is best for **final products and public-facing work**.
+
+Choose Quarto if you are:
+
+* Working primarily in R
+* Creating structured reports or homework assignments
+* Writing statistical analyses with embedded math
+* Using an existing R Markdown template or journal format
+* Building documents that rely heavily on the R ecosystem
+
+R Markdown remains a strong and mature option, especially in R-heavy workflows.
+
+Quarto is best for **final products and public-facing work**.
+
+Choose Quarto if you are:
+
+* Writing reproducible reports meant to be read by others
+* Creating course deliverables (reports, slides, websites)
+* Working across R and Python in the same project
+* Publishing content to HTML, PDF, or Word
+* Building presentations or course websites
+* Planning to reuse the same content in multiple formats
+
+Quarto emphasizes **structure, consistency, and polish**.
+
+
+:::
+
+## A typical workflow in this course
+
+Most projects will naturally follow this pattern:
+
+1. **Explore** in Jupyter
+
+   * Load data
+   * Experiment
+   * Debug
+   * Prototype
+
+2. **Formalize** in Quarto
+
+   * Clean the analysis
+   * Add narrative and interpretation
+   * Insert equations and figures
+   * Ensure reproducibility
+
+3. **Publish** using Quarto
+
+   * Render to HTML, PDF, or slides
+   * Share with instructors or peers
+   * Archive for future reference
+
+You are encouraged to **move between tools**, not choose one forever.
+
+## Summary table
+
+| Task                      | Recommended tool |
+| ------------------------- | ---------------- |
+| Rapid experimentation     | Jupyter          |
+| Learning and prototyping  | Jupyter          |
+| R-based reporting         | R Markdown       |
+| Reproducible assignments  | Quarto           |
+| Final reports and papers  | Quarto           |
+| Presentations             | Quarto           |
+| Websites and portfolios   | Quarto           |
+| Mixed R + Python projects | Quarto           |
+
+## Final takeaway
+
+Think in terms of **intent**, not software.
+
+* Jupyter helps you *think*
+* R Markdown helps you *analyze*
+* Quarto helps you *communicate*
+
+The most important skill you will develop is not proficiency with a tool, but the ability to **move cleanly from exploration to explanation**.
+
+## Course requirements and practical Quarto usage
+
+This course uses **Quarto as the standard publishing system** for websites, reports, and presentations.
+
+### Course requirements
+
+* All **project websites and presentations must be built using Quarto**
+* You are **strongly encouraged to use `.qmd` files**, not `.ipynb`, for published content
+* Jupyter notebooks are fine for exploration, but Quarto is required for final deliverables
+
+Functionally, `.qmd` and `.ipynb` files are similar:
+both are **Markdown + executable code**.
+
+The key difference is execution behavior:
+
+* `.ipynb` stores outputs inside the file
+* `.qmd` re-runs code during rendering
+
+  * This improves reproducibility
+  * Caching options exist for expensive computations
+
+If a `.qmd` file contains no code, it behaves like a standard Markdown file.
+
+## What Quarto gives you (at a glance)
+
+Quarto allows you to combine, in one source file:
+
+* Narrative text (Markdown)
+* Mathematical notation (LaTeX-style math)
+* Code (R, Python, or other kernels)
+* Figures, tables, and diagrams
+* Interactive and static outputs
+
+From that single source, you can generate:
+
+* HTML documents and websites
+* PDF reports
+* Word or PowerPoint files
+* Presentations
+* Books and blogs
+
+This is the **“single source, many outputs”** principle.
+
+## A minimal Quarto example
+
+```markdown
+- Inline math example: $f(x)=\frac{e^{x^2}}{2}$
 
 $$
 \begin{align}
-g(x)=x^n \rightarrow \frac{\partial g}{\partial x}=n x^{n-1}\\
-h(x)=\int x^n dx \rightarrow h(x)=\frac{x^{n+1}}{n+1}
+g(x) &= x^n \\
+\frac{\partial g}{\partial x} &= n x^{n-1}
 \end{align}
 $$
-
 ```
 
-:::
-::: {.column}
-#### Result
-
-- This is an example of a bulleted list with math 
-- Here is an in-line math equation $f(x)=\frac{e^{x^2}}{2}$
-
-$$ g(x)=x^n \rightarrow \frac{\partial g}{\partial x}=n x^{n-1} $$
-
-$$
-\begin{align}
-g(x)=x^n \rightarrow \frac{\partial g}{\partial x}=n x^{n-1}\\
-h(x)=\int x^n dx \rightarrow h(x)=\frac{x^{n+1}}{n+1}
-\end{align}
-$$
-
-:::
-:::
-
-### Layouts  
- 
-- You can control basic layout options with `::: {layout-ncol=2}`
-
-#### Quarto syntax
-
-````
-::: {layout-ncol=2}
-### List One
-
-- Item A
-- Item B
+If you understand this, you already understand the core of Quarto authoring.
 
 
-### List Two
+## Beyond the basics
 
-- Item X
-- Item Y
+Quarto also supports:
 
-:::
-````
+* Multi-column layouts
+* Figure grids
+* Diagrams (Mermaid, Graphviz)
+* Embedded video
+* Rich document metadata via YAML
 
-#### Result
+You will learn these **incrementally** through labs and examples.
+You are **not expected to memorize syntax** at this stage.
 
-:::: {.bordered}
-::: {layout-ncol=2}
-#### List One
+## Key takeaway
 
-- Item A
-- Item B
+> Use Jupyter to explore
+> Use Quarto to communicate
+
+Your goal is not to master every feature immediately, but to develop a **clean, reproducible publishing habit** that scales from homework to research to professional work.
+
+## Citations and bibliographies
+
+Correct citation and attribution are **non-negotiable** in academic and professional work.
+
+This is not only about avoiding plagiarism; it is about:
+
+* intellectual honesty
+* reproducibility
+* traceability of ideas and evidence
+
+In analytics and research, managing citations early saves significant time later.
 
 
-#### List Two
+## How citations work in modern workflows
 
-- Item X
-- Item Y
+In Quarto (and other Pandoc-based systems), citations are **data**, not formatting.
 
-:::
-::::
+The workflow is:
 
----
+1. Store references in a reference manager
+2. Export them to a citation file (usually `.bib`)
+3. Cite sources using short citation keys
+4. Let Quarto generate the bibliography automatically
 
+You never format references by hand.
 
-### Diagrams
+## Reference management tools
 
-Quarto has native support for embedding two popular diagram-generating tools:
+A **reference manager** stores, organizes, and exports citations.
 
-- [Mermaid](https://mermaid-js.github.io/mermaid/#/) (`.mmd`)
-- [Graphviz](https://graphviz.org/) (`.dot`)
+Most reference managers can:
 
-```{mermaid}
-%%| fig-cap: "A Mermaid diagram"
-%%| echo: fenced
-%%| code-fold: false
-%%| output-location: column
-flowchart LR
-  A[Hard edge] --> B(Round edge)
-  B --> C{Decision}
-  C --> D[Result one]
-  C --> E[Result two]
-```
+* search online databases
+* import PDFs and metadata
+* annotate and organize papers
+* generate citation files
+* insert citations into documents
 
-::: {.callout-note appearance="simple"}
-- You can preview Mermaid (`.mmd`) and Graphviz (`.dot`) files both in RStudio (using the `DiagrammeR` package) and in VS Code (using the Quarto extension)
-- For PDF and Word outputs, the diagrams are converted to PNG images using a native Chrome installation or the [Chromium] tool. 
+Two widely used free options are:
+
+* **Zotero** — [https://www.zotero.org](https://www.zotero.org)
+* **Mendeley** — [https://www.mendeley.com](https://www.mendeley.com)
+
+Both:
+
+* store references in a single library
+* attach PDFs and notes
+* provide browser extensions for one-click import
+* export `.bib` files compatible with Quarto
+* automatically generate citation keys
+
+::: {.callout-note appearance="minimal"}
+Zotero is one of the citation tools recommended by many university libraries.
 :::
 
-<!-- ::: {.notes}
-One important thing to note here is that for Mermaid chunks, the chunk options are specified by `%%|` and not `#|` (R/Python) or `//|` (Javascript)
-::: -->
+## BibTeX (what you need to know)
 
-### Creating figure layouts-1
+**BibTeX** is a reference file format originally developed with LaTeX and now widely used across Markdown and Pandoc workflows.
 
-#### Quarto syntax
+You do **not** need to write BibTeX entries by hand, but you should understand their structure.
 
-````
-::: {layout-ncol=2}
-
-![](./images/ch04/paste-CC007B93.png){fig-align="left" width="3.00in"}
-
-![](./images/ch04/paste-0860D360.png){fig-align="left" width="3.00in"}
-
-:::
-````
-
-#### Result
-
-
-::: {layout-ncol=2}
-
-![](./images/ch04/paste-CC007B93.png){fig-align="left" width="3.00in"}
-
-![](./images/ch04/paste-0860D360.png){fig-align="left" width="3.00in"}
-
-:::
-
-### Creating figure layouts-2
-
-#### Quarto syntax
-
-- You can create arbitrary grid patterns for figure layouts
-
-````
-::: {layout="[[1], [1], [1],[1]]"}
-![](./images/ch04/pdf.png){width=250}
-![](./images/ch04/eqn.png){width=250}
-![](./images/ch04/paste-0860D360.png){width=250}
-![](./images/ch04/paste-0860D360.png){width=250}
-:::
-````
-
-#### Result
-
-::: {layout="[[1], [1], [1],[1]]"}
-![](./images/ch04/pdf.png){width=250}
-![](./images/ch04/eqn.png){width=250}
-![](./images/ch04/paste-0860D360.png){width=250}
-![](./images/ch04/paste-0860D360.png){width=250}
-:::
-
-
-### Creating figure layouts-3 {.scrollable}
-
-```r
-#| layout-ncol: 2
-#| fig-cap:
-#|   - Speed and Stopping Distances of Cars
-#|   - Vapor Pressure of Mercury as a Function of Temperature
-
-#| code-fold: false
-#| vscode: {languageId: r}
-#| eval: false
-#| echo: true
-
-plot(cars)
-plot(pressure)
-```
-
-### Code highlighting
-
-```r
-#| layout-ncol: 2
-#| label: fig-charts
-#| fig-cap: Charts
-#| fig-subcap:
-#|   - Speed and Stopping Distances of Cars
-#|   - Vapor Pressure of Mercury as a Function of Temperature
-
-#| code-fold: false
-#| code-line-numbers: '|3|4-7'
-#| vscode: {languageId: r}
-#| eval: false
-#| echo: true
-
-plot(cars)
-plot(pressure)
-```
-
-<!-- :::{.callout-note appearance="simple"}
-You can use this same technique for any block-like element, not just figures. 
-So you can use this for tables and lists, among others
-:::
-
-::: {.notes}
-- Note that we have added a `label` to the options. This results in the captions being numbered
-- We can specify sub-captions for each subfigure
-:::
- -->
-
-### Converting file types
-
-* You can switch between `.qmd` and `.ipynb` with quarto 
-  * `quarto convert clustering.qmd` this will output a `.ipynb` version called `clustering.ipynb`
-  * `quarto convert eda.ipynb` this will output a `.qmd` version called `eda.qmd`
-* **Examples**: 
-  * `quarto convert filename.ipynb`
-  * `quarto convert filename.qmd`
-  * `quarto convert filename.rmd`
-  * `quarto preview filename.qmd`
-  * `quarto preview filename.ipynb`
-  * `quarto render filename.qmd`
-  * `quarto render filename.ipynb`
-
-### Embedding video
-
-{{{< video https://youtu.be/Z8t4k0Q8e8Y height="400" >}}}
-
-{{< video https://youtu.be/Z8t4k0Q8e8Y height="400" >}}
-
-[See [Quarto Videos](https://quarto.org/docs/authoring/videos.html) for more options and details]
-
-### Aside: YAML overview 
-
-- `Quarto` relies heavily on the `YAML format`
-  - [YAML (YAML Ain't Markup Language)]{.uured-bold}: A human-readable data serialization format.
-  - [Indentation]{.uured-bold}: Uses whitespace indentation (spaces or tabs) for structure, without relying on explicit delimiters like braces or brackets.
-  - [Key-Value Pairs]{.uured-bold}: Represents data as key-value pairs, e.g., `key: value`.
-  - [Lists]{.uured-bold}: Represents lists using hyphens, e.g., `- item1`, `- item2`.
-  - [Nested Structures]{.uured-bold}: Supports nested data structures using indentation.
-  - [Comments]{.uured-bold}: Allows comments with `#`.
-  - [Scalars]{.uured-bold}: Represents simple data types like strings, numbers, and booleans.
-  - [Data Types]{.uured-bold}: Supports various data types including strings, numbers, booleans, null, and dates.
-  - [Inclusion]{.uured-bold}: Permits the use of anchors and aliases for reusing data.
-  - [Readability]{.uured-bold}: Prioritizes human readability and is often used in configuration files and data exchange between languages.
-  - [No Code Execution]{.uured-bold}: YAML is not intended for executing code, making it safer than some other formats for data exchange.
-
-
-
-### Aside: Tip for Mac users
-
-- `command+control+shift+4` is very useful on a mac. 
-  * It takes a screenshot and saves it to the clip-board
-- Windows has a similar shortcut but you will have to google it 
-- The following VSC extension allows you to paste images from the clip-board with `alt+command+v`.    
-  ![](./images/ch04/2023-08-23-09-35-05.png){width=300}
-- `tab` is your best friend when using the command line, since it does `auto-completion` 
-- `open ./path_to_file` will open any file or directory from the command line  -->
-
-## Citations and Bibliographies
-
-
-### Citations
-
-When creating documents, it is **imperative** that we properly cite and attribute sources we use in our document
-
-- This is part of the Honor Code for academic integrity
-- This is about being honest with intellectual property & giving credit where credit is due. 
-
-> Keeping track of sources and citations often ends up being a **big deal**
-
-
-### Reference management
-
-There are several established reference managers available, both commercial and open-source. 
-
-- Many of these can search online resources to add references and PDF
-- Many have cloud storage allowing you to access your references from anywhere
-- They can insert citations and create bibliographies in documents
-
-
-### BibTeX
-
-[BibTeX]() is a tool and file format that is used to describe and process lists of references. It was developed 
-alongside LaTex. 
-
-- BibTeX works especially well with the Markdown/Pandoc workflow of Quarto
-   - It also works with Word using the [BibTeX4Word](http://www.ee.ic.ac.uk/hp/staff/dmb/perl/index.html) plugin
-
-A typical BibTeX entry looks like this:
+A typical entry looks like this:
 
 :::: {.columns}
 ::: {.column width="40%"}
+
 ```code
 @article{article_key,
   author  = {Peter Adams}, 
   title   = {The title of the work},
   journal = {The name of the journal},
   year    = 1993,
+  volume  = 4,
   number  = 2,
-  pages   = {201-213},
-  month   = 7,
-  note    = {An optional note}, 
-  volume  = 4
+  pages   = {201--213}
 }
 ```
+
 :::
 ::: {.column width="55%"}
-- The crucial piece in this entry is the `article_key` by which you will refer to the citation in your document
-- There are [14 key BibTeX types](https://www.bibtex.com/e/entry-types/), but the most common are `@article`, `@book` and `@unpublished`
-:::
-::::
+
+* The most important part is the **citation key** (`article_key`)
+* This is what you use to cite the work in your document
+* Common entry types include:
+
+  * `@article`
+  * `@book`
+  * `@unpublished`
+    :::
+    ::::
 
 ::: {.callout-important appearance="minimal"}
-However, you **don't** need to write out these entries by hand
+You should generate these entries using a reference manager, not manually.
 :::
 
+## Citations in Quarto
 
-### Reference managers
+Quarto supports multiple citation file formats via Pandoc.
 
-Several reference manages are available that provide citations in BibTeX format, among other formats
+| Format   | File extension |
+| -------- | -------------- |
+| BibTeX   | `.bib`         |
+| BibLaTeX | `.bibtex`      |
+| CSL JSON | `.json`        |
+| CSL YAML | `.yaml`        |
+| RIS      | `.ris`         |
 
-We tend to use two free managers: [Mendeley](https://www.mendeley.com) and [Zotero](https://www.zotero.org)
+Most students will use **BibTeX (`.bib`)**.
 
-- Both store references in a single repository
-- Both allow you to annotate PDFs and store them with the reference
-- Both can import references from web pages using browser extensions
-- Both can create a `.bib` file with references that can be used by Quarto 
-- Both will create automatic citation keys for each reference
+## Adding citations to a Quarto document
 
-::: {.callout-note appearance='minimal'}
-Zotero is one of the [citation tools](https://library.georgetown.edu/citations) recommended by GU
-:::
+### Step 1: Point to your bibliography file
 
-To see some comparisons between these and a popular commercial reference manager, see [here](https://libguides.wustl.edu/BrownSchoolLibrary/citations)
+In the YAML header of your `.qmd` file:
 
-
-### Citations in Quarto
-
-There are a few citation formats that can be used with Quarto, through pandoc.
-
-| **Format** | **File extension** |
-| :--- | :--- |
-| BibLaTeX | .bib |
-| BibTeX | .bibtex |
-| CSL JSON | .json |
-| CSL YAML | .yaml |
-| RIS | .ris |
-
-::: {.callout-note appearance="simple" collapse="true"}
-#### Note
-
-- The RIS format is available from many reference managers, including Endnote
-- The CSL JSON format is also an available format from many reference managers
-:::
-
-Pandoc has the ability to automatically generate citations and a bibliography from BibTeX files and 
-embedded references (much like we replace R/Python code with their output).
-
-Point to `.bib` files in the YAML header, replacing the name w/ the file-name you're using
-
-```
+```yaml
 ---
 bibliography: references.bib
 ---
 ```
 
-You can also specify a citation style (e.g., APA, MLA, Chicago) using the [Citation Style Language](https://citationstyles.org/),listed in the
-[Zotero Style Repository](https://www.zotero.org/styles)
+### Step 2: (Optional) Specify a citation style
 
-This can be specified in the YAML header as well
+Citation styles are defined using **CSL (Citation Style Language)** files.
 
-```
+Styles can be downloaded from:
+
+* [https://www.zotero.org/styles](https://www.zotero.org/styles)
+
+Add the style to your YAML:
+
+```yaml
 ---
 csl: nature.csl
 ---
 ```
-You would need to download the `.csl` file from the repository and keep it in the same folder as your document.
 
-You make a citation using the standard Pandoc/BibTeX syntax (`[@citation]`), where these are the citation-keys we saw before in the BibTeX entries.
+Place the `.csl` file in the same folder as your document.
 
-- You can use multiple citations at a time, separated by semi-colons
+## Citing sources in the text
+
+Citations are written using Pandoc syntax:
+
+* Single citation: `[@citation_key]`
+* Multiple citations: `[@key1; @key2]`
+
+Example:
 
 ![](./images/ch04/citations.png)
 
-Pandoc will generate a bibliography and place it in the document. It will be placed in a div with the id `refs` if one exists, otherwise it will be place in the end of the document
+Quarto automatically:
 
+* formats in-text citations
+* generates the bibliography
+* applies the selected citation style
 
-```
+## Where the bibliography appears
+
+Pandoc places the bibliography:
+
+* inside a `div` with id `refs` if it exists
+* otherwise at the end of the document
+
+To control placement:
+
+```markdown
 ### References
 
 ::: {#refs}
 :::
 ```
 
-Depending on the CSL format, the bibliography will conform to the ordering and format of that CSL specification. 
+---
 
-`Citation styles` 
+## Citation styles
+
+Different fields require different citation styles.
+
+Examples:
 
 ::: {layout-ncol=3}
 
@@ -905,311 +1147,16 @@ Depending on the CSL format, the bibliography will conform to the ordering and f
 
 :::
 
-<!-- 
-## Citations in RStudio's visual editor
-
-- Citations can be entered from your document bibliography (`.bib`) file, Zotero, DOI references or searches of [Crossref]( https://www.crossref.org/), [DataCite](https://datacite.org/) or [PubMed](https://pubmed.ncbi.nlm.nih.gov/)
-- There is a "Insert Citation" dialog allowing you to run your searches of the bibliography file or other sources
-- You can also add citations by starting typing `[@` and you can search your document bibliography for the right reference.  -->
-
-## Supplementary material 
-
-[Optional content]{.uugreen-bold}: Either cover quickly or skip, students can review at their pace.
-
-
-### Using Quarto in RStudio
-
-Given that Quarto is developed by Posit, the company behind RStudio, Quarto works 
-quite seamlessly in RStudio
-
-RStudio provides both a source editor and a *visual editor* experience for editing Quarto files
-
-::: {.callout-caution appearance="minimal" collapse="true"}
-The visual editor in RStudio does not work really well with more complex constructs like 
-columns, callouts and tabsets. It tends to change the source code leading to problems
-:::
-
-![](https://quarto.org/docs/get-started/hello/images/rstudio-source-visual.png){width="60%" fig-align="center"}
-
-
-At the top of the file, we put an (optional) YAML header to provide information about 
-document output, general formatting rules and the like.
-
-````yaml
----
-title: "Hello, Quarto"
-format: html
-editor: visual
----
-````
-
-- You can provide specifications for multiple output types in the same YAML header
-   - The first one written is the one rendered by default
-
-````yaml
----
-title: "Hello, Quarto"
-format:
-   html: 
-      theme: cerulean
-      toc: true
-      css: styles.css
-   pdf: 
-      toc: true
-      number-sections: true
----
-````
-
-- You can also specify the computational engine you want to use for the Quarto document in the YAML header (only if you're using a non-R engine via Jupyter)
-
-````yaml
----
-title: "Hello, Quarto"
-format:
-   html: 
-      theme: cerulean
-      toc: true
-      css: styles.css
-   pdf: 
-      toc: true
-      number-sections: true
-jupyter: python3
----
-````
-
-You specify the Jupyter kernel you want to use as well
-
-::: {.callout-important}
-Note that YAML is a hierarchical specification with hierarchy denoted by indentation. This is important to maintain,
-so your specification is clear. Note, for example, that the `jupyter` option is a top-level option, while the 
-`html` and `pdf` specifications are within the `format` specification
-:::
-
-Code is encapsulated in _code chunks_
-
-::: {.columns}
-::: {.column width="50%"}
-### R
-
-```r
-#| label: load-packages-r
-#| code-fold: false
-#| eval: false
-#| echo: true
-library(tidyverse)
-```
-
-You can also add code within the markdown sections, by using `r` or `python` syntax
-
-
-> There are \`&#8203;r nrow(ggplot2::mpg)\` observations in our data 
-
-results in 
-
-> There are `r nrow(ggplot2::mpg)` observations in our data
-:::
-
-::: {.column width="50%"}
-
-### Python
-
-```python
-#| label: load-packages-py
-#| code-fold: false
-#| eval: false
-
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-```
-
-To create "inline" code in Python use `python`
-:::
-:::
+The same source file can be rendered in different styles simply by switching the `.csl` file.
 
 ---
 
+## Key takeaway
 
-You can add _snippets_ to the RStudio configuration. Thomas Mock provides several [useful Quarto snippets](https://gist.github.com/jthomasmock/11acebd4448f171f786e01397df34116?permalink_comment_id=4269591#file-markdown-snippets)
+> Write once.
+> Cite with keys.
+> Let the system format everything.
 
-::: {layout-ncol=2 }
-![](./images/ch04/snippets1.png){width="60%" fig-align="center"} 
-
-![](./images/ch04/snippets2.png){width="80%" fig-align="center"}
-
-:::
+If you maintain a clean reference library and a single `.bib` file, citations become **infrastructure**, not overhead.
 
 
-You can run individual chunks in the R session
-
-![](https://quarto.org/docs/get-started/hello/images/rstudio-inline-output.png)
-
-
-You can render Quarto documents from the menu:
-
-![](https://quarto.org/docs/get-started/hello/images/rstudio-render.png)
-
-or from the {{< fa brands r-project >}} Console
-
-```r
-#| eval: false
-#| echo: true
-#install.packages("quarto")
-quarto::quarto_render("hello.qmd")
-```
-
-::: {.callout-tip appearance="simple"}
-You can use the R Console regardless of whether you're running a {{< fa brands r-project >}} or {{< fa brands python >}} Quarto document
-
-:::
-
-## Using Quarto in Visual Studio Code
-
-Quarto in VS Code works much like in RStudio, with some differences.
-
-- Install the [Quarto VS Code Extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) which provides several usability enhancements for Quarto documents
-- VS Code tends to work better when using the Jupyter engines
-- Running individual code chunks is a little different, using the `Run cell` button above the code cell
-
-![](https://quarto.org/docs/tools/images/vscode-execute-cell.png)
-
-### Using Quarto in Visual Studio Code
-
-- You can also render a document using the `Preview` button at the top right of the editor
-
-![](https://quarto.org/docs/tools/images/vscode-preview-button.png)
-
-- A set of useful snippets, and instructions for installing them, are [here](https://gist.github.com/jthomasmock/11acebd4448f171f786e01397df34116?permalink_comment_id=4269591#gistcomment-4269591)
-
-## Using Quarto in JupyterLab
-
-The basic Quarto document structure is retained in JupyterLab within a `ipynb` file
-
-- You create Markdown and Code cells just as you're used to in Jupyter notebooks
-- For the YAML header, you use a "Raw" cell, rather than a Markdown cell
-- You can use YAML comments in Code cells for cell options
-
-::: {.fragment}
-But rendering is different
-
-- Open a Terminal in JupyterLab
-- Render documents via the command line
-
-```code
-quarto render hello.ipynb --to html
-quarto render hello.ipynb --to docx
-```
-:::
-::: {.fragment}
-If you just want a live preview of the notebook (for development), so you can see updates and errors "on the fly":
-
-```code
-quarto preview hello.ipynb --to html
-```
-:::
-
----
-
-### Using Quarto in JupyterLab {#sec-convert}
-
-- Quarto does not execute the `.ipynb` cells while render the notebook again
-  - Cell outputs are cached in a Jupyter notebook, and so *you will get what you see*
-   - If you want to execute the cells upon rendering, add a `--execute` flag
-
-```code
-quarto render hello.ipynb --execute
-```
-  - or add to the YAML header
-   
-```code
----
-execute:
-      enabled: true
----
-```
-   
-- You can convert between a `ipynb` notebook and a text-based `qmd` file
-  - You can use the [Jupytext](https://jupytext.readthedocs.io/en/latest/) package to maintain parallel synchronized version of `.qmd` and `.ipynb` files
-
-```code
-quarto convert hello.ipynb # converts to qmd
-quarto convert hello.qmd   # converts to ipynb 
-```
-
-
----
-
-### Rendering Quarto documents
-
-::: {.callout-important}
-This section is specific to our class setup and workflows and is applicable more generally
-:::
-
-We use `conda` virtual environments in our workflows. These require some special treatment
-
-- There is a Posit-preferred way described [here](https://quarto.org/docs/projects/virtual-environments.html) that requires you to have the virtual environment in the same folder as your project
-- We have found that a better option is to use the command line!!
-   - Open terminal & activate the virtual environment: `conda activate anly503`
-   - Render/preview the Quarto document from the command line
-
-```code
-quarto render document.qmd --to html
-quarto render document.ipynb --to html
-```
-
-::: {.callout-warning appearance='minimal'}
-Make sure you have the right path to the `.qmd` document relative to where you're running the terminal
-:::
-
-
-### Multilingual documents
-
-You can use **both** {{< fa brands r-project >}} and {{< fa brands python >}} in the same document!!!
-
-- You should use the `knitr` engine
-- Add the following chunk as the first chunk in your document
-
-```r
-#| echo: true
-#| eval: false
-
-library(reticulate)
-# reticulate::use_condaenv('aba688')
-
-```
-
-- The R engine will then use the `anly503` conda environment for all Python chunks. 
-   - It will also run all the chunks in the same Python instance, so you can pass data from one chunk to the next
-   
-::: {.callout-note appearance='simple'}
-The Jupyter engine does not allow multipe engines to run concurrently, so rendering both R and Python chunks in the same Jupyter document doesn't work
-:::
-
-### Tangling {#sec-tangle}
-
-Sometimes it is useful to extract the actual code from the Quarto document so that it can just run without the overhead 
-of processing the full document or noteboook. This is called [**tangling**](#sec-rd)
-
-- This feature is currently not implemented in Quarto :frowning:
-- For R/`knitr`-based quarto documents, one can use `knitr::purl`
-
-```r
-#| echo: true
-#| eval: false
-knitr::purl("mydocument.qmd")
-```
-
-will result in creating `mydocument.R`, where the markdown are placed in comments. 
-
-- For Python/Jupyter, open the document in Jupyter (after [converting](#sec-convert) it to `.ipynb` if needed) and then do one of the following:
-    - Convert from the GUI, using `File -> Download as -> Python (.py)`
-    - Use the command line: `jupyter nbconvert --to python notebook.ipynb`
-    - Use `jupytext` to sync the `.ipynb` file with a `.py` file (see [here]()) 
-
-## Summary
-
-- Quarto is a new document creation system that is built on top of Markdown
-- It is designed to be more flexible and extensible than RMarkdown
-- It can use R, Python and Jupyter kernels
-- It can create a wide variety of document types

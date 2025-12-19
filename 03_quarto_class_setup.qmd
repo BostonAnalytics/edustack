@@ -2,6 +2,9 @@
 
 This chapter walks you through creating and organizing a Quarto microsite. Before beginning, review the to-do list below. You can click on each item to jump to its section.
 
+![Quick Setup Flow](./images/ch03/Class-Website-Workflow.png){width="80%" fig-align="center" #fig-quicksetupflow}
+
+
 ## Keeping Your Git Repository Updated
 
 If you are using GitHub or any Git-based workflow, run a pull before starting work and a push after you finish a working session. This prevents merge conflicts, overwriting, or accidental loss of changes when building large course sites.
