@@ -47,9 +47,13 @@ jobs:
 
       - name: install quarto tinytex
         run: quarto install tinytex
-
+      - name: Cache Quarto extensions
+        uses: actions/cache@v4
+        with:
+          path: ~/.quarto/extensions
+          key: ${{ runner.os }}-quarto-extensions
       - name: install fontawesome
-        run: quarto add quarto-ext/fontawesome
+        run: quarto add quarto-ext/fontawesome -y
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
