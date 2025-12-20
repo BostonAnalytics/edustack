@@ -910,13 +910,63 @@
     ]
   },
   {
+    "objectID": "08_automating_with_AI.html",
+    "href": "08_automating_with_AI.html",
+    "title": "7  Automating with AI",
+    "section": "",
+    "text": "7.1 Creating a virtual environment",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Automating with AI</span>"
+    ]
+  },
+  {
+    "objectID": "08_automating_with_AI.html#creating-a-adxxx-schedule.xlsx-file",
+    "href": "08_automating_with_AI.html#creating-a-adxxx-schedule.xlsx-file",
+    "title": "7  Automating with AI",
+    "section": "7.2 Creating a ADXXX-Schedule.xlsx file",
+    "text": "7.2 Creating a ADXXX-Schedule.xlsx file",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Automating with AI</span>"
+    ]
+  },
+  {
+    "objectID": "08_automating_with_AI.html#generating-the-folder-structure",
+    "href": "08_automating_with_AI.html#generating-the-folder-structure",
+    "title": "7  Automating with AI",
+    "section": "7.3 Generating the folder structure",
+    "text": "7.3 Generating the folder structure",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Automating with AI</span>"
+    ]
+  },
+  {
+    "objectID": "08_automating_with_AI.html#generating-basic-quarto-files",
+    "href": "08_automating_with_AI.html#generating-basic-quarto-files",
+    "title": "7  Automating with AI",
+    "section": "7.4 Generating basic quarto files",
+    "text": "7.4 Generating basic quarto files",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Automating with AI</span>"
+    ]
+  },
+  {
+    "objectID": "08_automating_with_AI.html#importing-relevant-data-from-.xlsx-files",
+    "href": "08_automating_with_AI.html#importing-relevant-data-from-.xlsx-files",
+    "title": "7  Automating with AI",
+    "section": "7.5 importing relevant data from .xlsx files",
+    "text": "7.5 importing relevant data from .xlsx files",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Automating with AI</span>"
+    ]
+  },
+  {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "7  Summary",
+    "title": "8  Summary",
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Summary</span>"
     ]
   }
 ]
