@@ -1,0 +1,13 @@
+# Automating with AI
+
+## Creating a virtual environment
+
+## Creating a ADXXX-Schedule.xlsx file
+
+## Generating the folder structure
+
+
+## Generating basic quarto files
+
+
+## importing relevant data from .xlsx files

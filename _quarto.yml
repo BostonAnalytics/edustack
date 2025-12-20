@@ -21,6 +21,8 @@ book:
       text: "Working with Quarto"
     - href: 05_blackboard_ultra.qmd
       text: "Blackboard Ultra"
+    - href: 08_automating_with_AI.qmd
+      text: "Automating with AI"
     - summary.qmd
     - references.qmd
 
