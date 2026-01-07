@@ -1,0 +1,264 @@
+# Designing the Course Feeder Workbook
+
+This chapter defines the **standard feeder Excel workbook** used to generate a complete Quarto-based course website. The workbook separates **course content**, **delivery logistics**, and **grading structure** into three clearly defined sheets.
+
+This separation is intentional:
+
+* It mirrors how universities think about courses
+* It allows partial automation with AI
+* It prevents accidental coupling between pedagogy and logistics
+
+## Workbook Overview
+
+The feeder workbook **must contain three sheets**:
+
+| Sheet Name       | Purpose                                    |
+| ---------------- | ------------------------------------------ |
+| `course_details` | What is taught (modules, lectures, topics) |
+| `sections`       | How and when it is taught                  |
+| `grading`        | How students are evaluated                 |
+
+Only the **first sheet** is typically AI-generated.
+The other two are usually human-authored (or lightly assisted).
+
+## Sheet 1 — `course_details` (Core Content Sheet)
+
+### Purpose
+
+This sheet defines the **academic structure of the course**:
+
+* Modules
+* Lectures
+* Titles
+* Descriptions
+* Delivery modality (online / on-campus)
+
+This is the **only sheet required** to generate:
+
+* Lecture Notes (`LN`)
+* Presentations (`P`)
+* Labs
+* Highlights
+* Wrap-ups
+* Syllabus lecture tables
+
+### Required Columns
+
+The `course_details` sheet **must contain exactly** the following columns:
+
+| Column        | Description                      |
+| ------------- | -------------------------------- |
+| `Modules`     | Module identifier (`M00`–`M07`)  |
+| `Lecture`     | Lecture identifier (`L01`–`L16`) |
+| `Title`       | Lecture title                    |
+| `Description` | One–two paragraph description    |
+| `Online`      | `TRUE` / `FALSE`                 |
+| `On-Campus`   | `TRUE` / `FALSE`                 |
+
+> At least one of `Online` or `On-Campus` must be TRUE.
+
+### Blank Template (Instructor-Facing)
+
+This sheet is **generated blank by default**:
+
+| Modules | Lecture | Title | Description | Online | On-Campus |
+| ------- | ------- | ----- | ----------- | ------ | --------- |
+| M00     | L01     |       |             |        |           |
+| M00     | L02     |       |             |        |           |
+| M01     | L03     |       |             |        |           |
+| …       | …       |       |             |        |           |
+
+This ensures:
+
+* No accidental AI hallucinations
+* Full instructor control
+* Easy manual editing
+
+### Optional AI Population (OpenAI)
+
+Once the structure exists, instructors **may** populate `Title` and `Description` using AI.
+
+#### Recommended Prompt (per row)
+
+```text
+Generate a graduate-level lecture title and a two-sentence description for:
+
+Course: Applied Generative AI for Business
+Module: M02
+Lecture: L04
+
+Focus on business relevance, technical rigor, and practical applications.
+```
+
+### `.env` file
+
+- Create a `.env` file in the root directory of the project
+- Add the following line to the file:
+
+```text
+OPENAI_API_KEY=your_api_key_here
+```
+- Replace `your_api_key_here` with your actual OpenAI API key
+  - Go to [https://platform.openai.com/settings/organization/api-keys](https://platform.openai.com/settings/organization/api-keys)
+  - Click on `Create new secret key`
+  - Add Bame to the key and select Permissions `All`
+  - Click on `Create key`
+  - Copy the API key, remember to copy it before it expires, as it will not be visible again.
+
+![OpenAI API Key](./images/ch04/apikey.jpg)
+
+::: {.panel-tabset}
+
+## Python 
+
+```python
+import openai
+import pandas as pd
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+def generate_lecture(title_seed):
+    prompt = f"""
+    Generate a lecture title and a two-sentence description
+    for a graduate business analytics course.
+
+    Topic seed: {title_seed}
+    """
+
+    response = openai.ChatCompletion.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.4
+    )
+
+    return response.choices[0].message.content
+
+df = pd.read_excel("Course-Schedule.xlsx", sheet_name="course_details")
+df.loc[0, "Title"] = "Introduction to Generative AI in Business"
+df.loc[0, "Description"] = generate_lecture("Generative AI foundations")
+
+df.to_excel("Course-Schedule.xlsx", index=False)
+```
+
+
+## R
+
+```r
+library(httr)
+library(jsonlite)
+
+generate_lecture <- function(seed) {
+  body <- list(
+    model = "gpt-4o-mini",
+    messages = list(
+      list(role = "user", content = paste(
+        "Generate a lecture title and two-sentence description for:",
+        seed
+      ))
+    )
+  )
+
+  res <- POST(
+    "https://api.openai.com/v1/chat/completions",
+    add_headers(Authorization = paste("Bearer", Sys.getenv("OPENAI_API_KEY"))),
+    body = toJSON(body, auto_unbox = TRUE)
+  )
+
+  content(res)$choices[[1]]$message$content
+}
+```
+
+:::
+
+
+## Sheet 2 — `sections` (Delivery Logistics)
+
+### Purpose
+
+This sheet captures **when and by whom** the course is delivered.
+It is **never used** to generate `.qmd` files, but is used for:
+
+* Syllabus tables
+* Schedule pages
+* Administrative exports
+
+### Required Columns
+
+| Column       | Description                       |
+| ------------ | --------------------------------- |
+| `Section`    | Section identifier (e.g., A1, B1) |
+| `Title`      | Course title                      |
+| `Instructor` | Instructor name                   |
+| `Day`        | Day of week                       |
+| `Time`       | Start time                        |
+
+### Blank Template
+
+```text
+Section | Title | Instructor | Day | Time
+A1 |  |  |  | 
+```
+
+This is intentionally **manual-first**.
+
+
+## Sheet 3 — `grading` (Evaluation Structure)
+
+### Purpose
+
+This sheet defines the **grading logic** independently of content.
+
+It supports:
+
+* Automatic syllabus grading tables
+* LMS alignment
+* Reweighting without touching content
+
+
+### Required Columns
+
+| Column         | Description            |
+| -------------- | ---------------------- |
+| `Deliverables` | Category name          |
+| `Count_norman` | Number of items        |
+| `Total Points` | Total points allocated |
+
+### Blank Template
+
+```text
+Deliverables | Count_norman | Total Points
+Participation |  | 
+Weekly Labs |  | 
+Individual Assignments |  | 
+Group Project Milestones |  | 
+```
+    
+## Why This Design Works
+
+| Principle              | Outcome                                    |
+| ---------------------- | ------------------------------------------ |
+| Separation of concerns | Content ≠ logistics ≠ grading              |
+| AI-optional            | No forced dependency on OpenAI             |
+| Reproducibility        | Same structure across all courses          |
+| Scalability            | Multiple sections, modalities, instructors |
+| Safety                 | AI never overwrites logistics or grading   |
+
+## How This Feeds the Pipeline
+
+| Sheet            | Used For                                  |
+| ---------------- | ----------------------------------------- |
+| `course_details` | Lecture `.qmd`, presentations, highlights |
+| `sections`       | Schedule tables, syllabus                 |
+| `grading`        | Deliverables page, grading schema         |
+
+Downstream scripts **assume these sheets exist** but do not assume they are populated.
+
+## Summary
+
+* The feeder workbook is **the contract**
+* AI is **assistive, not authoritative**
+* Instructors retain full control
+* Automation remains safe and auditable
+
+This structure allows anyone to build a **production-grade Quarto course** without touching internal code.
+

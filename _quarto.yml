@@ -15,13 +15,15 @@ book:
       text: "Tool Setup"
     - href: 02_version_control.qmd
       text: "Version Control"
-    - href: 03_quarto_class_setup.qmd
-      text: "Quarto Class Setup"
-    - href: 04_working_with_quarto.qmd
+    - href: 03_working_with_quarto.qmd
       text: "Working with Quarto"
-    - href: 05_blackboard_ultra.qmd
+    - href: 04_creating_excel.qmd
+      text: "Creating Excel Files"
+    - href: 05_quarto_class_setup.qmd
+      text: "Quarto Class Setup"
+    - href: 07_blackboard_ultra.qmd
       text: "Blackboard Ultra"
-    - href: 08_automating_with_AI.qmd
+    - href: 09_automating_with_AI.qmd
       text: "Automating with AI"
     - summary.qmd
     - references.qmd

@@ -1,0 +1,479 @@
+# Building Your First Quarto Microsite
+
+This chapter walks you through creating and organizing a Quarto microsite. Before beginning, review the to-do list below. You can click on each item to jump to its section.
+
+![Quick Setup Flow](./images/ch03/Class-Website-Workflow.png){width="80%" fig-align="center" #fig-quicksetupflow}
+
+
+## Keeping Your Git Repository Updated
+
+If you are using GitHub or any Git-based workflow, run a pull before starting work and a push after you finish a working session. This prevents merge conflicts, overwriting, or accidental loss of changes when building large course sites.
+
+Pull before you begin each session:
+
+```
+git pull
+```
+
+Stage and commit your updates during work:
+
+```
+git add .
+git commit -m "Update microsite structure"
+```
+
+Push your changes when you are done:
+
+```
+git push
+```
+
+You may repeat these commands several times as you work through this chapter so that your repository accurately reflects your progress and remains synchronized across devices or collaborators.
+
+
+## Create the Microsite Folder Structure
+
+You may complete this step on a local drive or within a cloud-synced folder. If you choose not to use GitHub, you can start here and skip the optional Git workflows.
+
+- Create a new folder for your microsite, name it based on your course name with a hyphen for spaces.
+- Use terminal or command prompt and navigate to the folder.
+-  `quarto create project website .` (including `.`) to create the project. This step requires python, r, quarto. 
+
+## Set Up the Core Quarto Configuration File
+
+The `_quarto.yml` file defines the structure and appearance of your microsite. A minimal starter configuration looks like this:
+
+```
+project:
+  type: website
+  preview:
+    port: 4300
+    browser: false
+  render:
+    - "*.qmd"
+    - "!delivarables-solutions/*"
+    - "!classroom-organization/*"
+    - "!data/*"
+    - "Announcements/*"
+
+editor:  
+  render-on-save: true
+  preview: true
+
+execute:
+  freeze: auto
+  keep-ipynb: false
+  fig-align: center
+
+website:
+  title: "My Course"
+  navbar: false
+    # search: true
+    # left:
+    #   - text: Syllabus
+    #     href: index.qmd
+    #   - text: Schedule
+    #     href: schedule.qmd
+    #   - text: Deliverables
+    #     href: deliverables.qmd
+    #   - text: "Module 0"
+    #     menu:
+    #       - text: "Lecture Notes 0.1"
+    #         href: M0/M0_lecturenotes0.1.qmd
+    #       - text: "Presentation 0.1"
+    #         href: M0/M0_presentation0.1.qmd
+    #       - text: "Lecture Notes 0.2"
+    #         href: M0/M0_lecturenotes0.2.qmd
+    #       - text: "Presentation 0.2"
+    #         href: M0/M0_presentation0.2.qmd
+    #       - text: "Lecture Notes 0.3"
+    #         href: M0/M0_lecturenotes0.3.qmd
+    #       - text: "Presentation 0.3"
+    #         href: M0/M0_presentation0.3.qmd
+    #   - text: "Module 1"
+    #     menu:
+    #       - text: "Lecture Notes 1.1"
+    #         href: M1/M01_lecturenotes01.qmd
+    #       - text: "Presentation 1.1"
+    #         href: M1/M01_presentation01.qmd
+    #       - text: "Lab 01"
+    #         href: M1/M01_lab01.qmd
+    #       - text: "Lecture Notes 1.2"
+    #         href: M1/M01_lecturenotes02.qmd
+    #       - text: "Presentation 1.2"
+    #         href: M1/M01_presentation02.qmd
+    #       - text: "Lab 02"
+    #         href: M1/M01_lab02.qmd
+    #       - text: "Assignment 01"
+    #         href: M1/M01_assignment01.qmd
+    #       - text: "Project 01"
+    #         href: M1/M01_project01.qmd
+    #   - text: "Module 2"
+    #     menu:
+    #       - text: "Lecture Notes 2.1"
+    #         href: M2/M02_lecturenotes01.qmd
+    #       - text: "Presentation 2.1"
+    #         href: M2/M02_presentation01.qmd
+    #       - text: "Lab 03"
+    #         href: M2/M02_lab01.qmd
+    #       - text: "Lecture Notes 2.2"
+    #         href: M2/M02_lecturenotes02.qmd
+    #       - text: "Presentation 2.2"
+    #         href: M2/M02_presentation02.qmd
+    #       - text: "Lab 04"
+    #         href: M2/M02_lab02.qmd
+      
+format:
+  html:
+    bibliography: references.bib
+    theme: [cosmo, ./themes/mycourse.scss]
+    toc: true
+    number-sections: true
+    embed-resources: true
+    highlight-style: github
+    code-overflow: wrap
+    html-math-method: mathml
+    grid:
+      sidebar-width: 100px
+      body-width: 1100px
+      margin-width: 400px
+      gutter-width: 1.5rem
+
+crossref:
+  fig-title: '**Figure**'
+  fig-labels: arabic
+  title-delim: "**.**"
+```
+
+### Project
+
+| Key                                 | Short Description                             |
+| ----------------------------------- | --------------------------------------------- |
+| type: website                       | Treats the project as a multi-page website.   |
+| preview.port: 4300                  | Runs the local preview server on port 4300.   |
+| preview.browser: false              | Prevents automatic browser launch.            |
+| render: "*.qmd"                     | Renders all qmd files unless excluded.        |
+| render: "!deliverables-solutions/*" | Excludes instructor-only solutions.           |
+| render: "!classroom-organization/*" | Excludes internal organizational files.       |
+| render: "!data/*"                   | Excludes data folders from rendering.         |
+| render: "Announcements/*"           | Explicitly includes the Announcements folder. |
+
+
+### Editor
+
+| Key                  | Short Description                     |
+| -------------------- | ------------------------------------- |
+| render-on-save: true | Automatically renders pages on save.  |
+| preview: true        | Maintains a live preview as you edit. |
+
+### Execute
+
+| Key               | Short Description                          |
+| ----------------- | ------------------------------------------ |
+| freeze: auto      | Reuses cached outputs unless code changes. |
+| keep-ipynb: false | Prevents generating .ipynb versions.       |
+| fig-align: center | Centers all figures.                       |
+
+### Website
+
+| Key                | Short Description            |
+| ------------------ | ---------------------------- |
+| title: "My Course" | Sets the website title.      |
+| navbar: false      | Disables the navigation bar. |
+
+### Format (HTML Rendering)
+
+| Key                           | Short Description                            |
+| ----------------------------- | -------------------------------------------- |
+| bibliography: references.bib  | Enables citation support.                    |
+| theme: [cosmo, mycourse.scss] | Applies Bootswatch theme and custom SCSS.    |
+| toc: true                     | Adds a table of contents to all pages.       |
+| number-sections: true         | Numbers section headings.                    |
+| embed-resources: true         | Inlines assets for Blackboard compatibility. |
+| highlight-style: github       | Uses GitHub-style code highlighting.         |
+| code-overflow: wrap           | Wraps long code lines.                       |
+| html-math-method: mathml      | Renders math via MathML.                     |
+
+### Format → Grid Layout
+
+| Key                  | Short Description                    |
+| -------------------- | ------------------------------------ |
+| sidebar-width: 100px | Sets sidebar width.                  |
+| body-width: 1100px   | Sets main body width.                |
+| margin-width: 400px  | Sets margin column width.            |
+| gutter-width: 1.5rem | Sets spacing between layout columns. |
+
+### Crossref
+
+| Key                 | Short Description                         |
+| ------------------- | ----------------------------------------- |
+| fig-title: "Figure" | Prefix used for figure labels.            |
+| fig-labels: arabic  | Uses Arabic numerals for figures.         |
+| title-delim: "."    | Inserts a period between label and title. |
+
+
+## Course Folder Structure
+
+Create the top-level folders. BU Virtual likes to see the modules as separate folders for better organization. M followed by single digit is the module number. Module 0 is a prerequisite module and can be omitted. Module 7 is an extra module that can be omitted as well.
+
+Inside each module folder, create the same baseline structure. Each module (M0–M7) should follow a consistent pattern. Please create files with the specific names regardless of them being used in the course or not. The files are placeholders and can be empty and turned off at blackboard level.
+
+```{mermaid}
+flowchart TD
+
+%% Group: Module Structure
+subgraph ModuleStructure["**Module Structure**"]
+        direction TB
+        B1[M1_lecture01_figures]
+        B2[M1_lecture02_figures]
+        B3[M1_presentation01_files]
+        B4[M1_presentation02_files]
+    end
+
+%% Coloring
+classDef lightGroup fill:#f8f3e8,stroke:#d4c7a1,color:#333
+classDef lightNode fill:#fdfbf7,stroke:#d4c7a1,color:#333
+
+class ModuleStructure lightGroup
+class Subfolders lightGroup
+class B1,B2,B3,B4 lightNode
+
+```
+
+```{mermaid}
+flowchart LR
+
+subgraph CoreFiles["**Core Authoring Files**"]
+    direction LR
+
+    %% Column 1
+    subgraph Col1["***Lecture Notes and Labs***"]
+        direction TB
+        C1[M1_LN1.qmd]
+        C2[M1_LN2.qmd]
+        C3[M1_Lab1.qmd]
+        C4[M1_Lab2.qmd]
+    end
+
+    %% Column 2
+    subgraph Col2["***Assignments and Project Parts***"]
+        direction TB
+        C5[M1_Assignment.qmd]
+        C6[M1_P1.qmd]
+        C7[M1_P2.qmd]
+    end
+
+    %% Column 3
+    subgraph Col3["***Full Project and Wrapup***"]
+        direction TB
+        C8[M1_Proj.qmd]
+        C9[M1_Highlights.qmd]
+        C10[M1_Wrapup.qmd]
+    end
+
+end
+
+%% Styling
+classDef group fill:#e9f4f9,stroke:#9ac3d1,color:#1a1a1a
+classDef node fill:#f7fcfe,stroke:#9ac3d1,color:#1a1a1a
+
+class CoreFiles,Col1,Col2,Col3 group
+class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10 node
+```
+
+### Figures and Attachments Folders
+
+| Folder Name              | Short Description                                                          |
+| ------------------------ | -------------------------------------------------------------------------- |
+| M##_lecture01_figures    | Images and diagrams for Lecture Notes 1.                                   |
+| M##_lecture02_figures    | Images and diagrams for Lecture Notes 2.                                   |
+| M##_presentation02_files | Assets used by Presentation 2; often generated automatically by Reveal.js. |
+| M##_P1_files             | Attachments or figures used in Project Part 1.                             |
+| M##_P2_files             | Attachments or figures used in Project Part 2.                             |
+
+These folders keep images and assets organized and prevent broken paths when exporting to Blackboard Ultra.
+
+### Core Module Files (.qmd)
+
+| File Name          | Short Description                                                   |
+| ------------------ | ------------------------------------------------------------------- |
+| M##_A.qmd          | Assignment file for the module; may include multi-part tasks.       |
+| M##_highlights.qmd | Key takeaways and summary notes for quick review.                   |
+| M##_Lab1.qmd       | First lab introducing the applied technique from Lecture 1.         |
+| M##_Lab2.qmd       | Second lab building on concepts toward the assignment or project.   |
+| M##_LN1.qmd        | Lecture Notes for the first subtopic; includes theory and examples. |
+| M##_LN2.qmd        | Lecture Notes for the second subtopic.                              |
+| M##_P1.qmd         | Project Part 1; typically data analysis or modeling tasks.          |
+| M##_P2.qmd         | Project Part 2; deeper or extended work based on Part 1.            |
+| M##_Proj.qmd       | Full module project (if the module includes one standalone).        |
+| M##_Wrapup.qmd     | End-of-module summary highlighting major insights and next steps.   |
+
+
+## Create Starter Pages
+
+The quarto create command will create a `index.qmd` file in the root directory. This will be your syllabus file.
+
+### References and csl
+
+- Download the Econometrica CSL File (or any other csl file based on your discipline)
+- The **Econometrica citation style** can be downloaded from: [Econometrica CSL GitHub Link](https://github.com/citation-style-language/styles/blob/master/econometrica.csl)  
+- Add `econometrica.csl` to Your Quarto Project
+  - Navigate to your Quarto project folder.  
+  - Create a new directory named **`csl/`** (optional, but recommended).  
+  - Move the **`econometrica.csl`** file into the `csl/` folder.  
+
+### index.qmd
+
+```
+title: "AD 688 Cloud Analytics for Business" 
+subtitle: "Syllabus"
+number-sections: true
+format:
+    html: default
+bibliography: references.bib
+csl: csl/econometrica.csl
+html-table-processing: none
+---
+
+# Welcome
+
+This microsite introduces the workflow for building course content and integrating Quarto HTML into Blackboard Ultra.
+```
+
+### about.qmd
+
+```
+title: "About This Microsite"
+---
+
+# About This Project
+
+This site is part of the training pathway for developing professional course materials with Quarto.
+```
+
+Screenshot placeholder: index.qmd open in editor
+
+
+## Preview the Website Locally
+
+- Run the preview bu clicking the newspaper icon in the VScode editor
+- VScode will open a local preview server in your default browser.
+
+![VScode preview screenshot](./images/ch03/quarto-classsetup-render.png){width="80%" fig-align="center" #fig-vsc-quarto-preview}
+
+## Create the Module Structure
+
+- Add a folder for the first module (M1):
+- Inside it, create: `module1/M##_highlights.qmd`
+- Add content to the highlights file (example from AD 688 Cloud Analytics for Business):
+
+
+```
+---
+title: "Module 1: Highlights"
+subtitle: "Cloud Foundations and Big Data Pipelines"
+number-sections: true
+date: "2024-11-21"
+date-modified: today
+date-format: long
+categories: ["Cloud Computing", "Big Data", "AWS Academy", "APIs", "Data Engineering", "Cloud Storage"]
+---
+
+
+# Lecture 01: Introduction to Big Data and Cloud
+
+## Highlights
+
+* Understand the landscape of **Big Data**: volume, velocity, variety, veracity, and value.
+* Overview of course logistics, expectations, and deliverables.
+* Familiarization with key **terminology** in cloud and data engineering.
+* Setup instructions for development environments, including VS Code and browser-native notebooks.
+* Introduction to **AWS Academy Learner Labs** and access setup.
+
+## Learning Objectives
+
+By the end of this lecture, students will be able to:
+
+* Explain the characteristics and challenges of working with big data.
+* Set up their local and cloud-based development environments.
+* Navigate the AWS Academy interface and launch cloud instances.
+* Describe the roles of data engineers, cloud architects, and analysts in cloud ecosystems.
+
+
+# Lecture 02: Data Pipelines with APIs and Cloud Services
+
+## Highlights
+
+* Introduction to **cloud-native data architecture** and the flow of data in modern systems.
+* Understand **data pipelines** and their components: ingestion, transformation, storage, and access.
+* Compare and contrast storage and data management options:
+
+  * AWS S3 (object storage)
+  * Azure Blob Storage
+  * Google BigQuery (serverless, warehouse)
+* Introduction to using **APIs for data ingestion** and service orchestration.
+
+## Learning Objectives
+
+By the end of this lecture, students will be able to:
+
+* Explain the structure and function of data pipelines.
+* Identify key differences between cloud storage solutions across major providers.
+* Describe how APIs integrate with cloud services for real-time and batch processing.
+* Connect cloud theory with practical workflow design in analytics projects.
+
+```
+
+## Add Custom Styling with SCSS
+
+- Create a `theme/styles` folder:
+- Add `scss/mycourse.scss`
+- Sample scss is available [AD688-Web-Analytics/themes](https://github.com/BostonAnalytics/AD688-Web-Analytics/blob/main/analytics_themes/web-analytics.scss).
+- Make sure this theme is referenced in the `_quarto.yml` file under `theme`.
+
+## Optional Git Workflow Throughout the Chapter
+
+You may run these commands after each major step.
+
+Pull updates before continuing:
+
+```
+git pull
+```
+
+Save your work:
+
+```
+git add .
+git commit -m "Progress on microsite"
+```
+
+Push updates:
+
+```
+git push
+```
+
+This ensures your repository captures every structural change without waiting until the end.
+
+
+## Preparing for Blackboard Ultra Integration
+
+Blackboard Ultra does not host Quarto sites directly. In upcoming chapters, you will export rendered HTML files and map them to the Blackboard course structure. For now, ensure that:
+
+- File paths are clean
+- Navigation is easy to follow
+- Pages render correctly without external dependencies
+- The microsite structure mirrors the eventual Blackboard module layout
+
+## Final Checklist
+
+Your microsite is ready for content development if you have:
+
+- A working folder structure    
+- index.qmd and about.qmd rendering without error
+- Module folders initialized
+- A functional `_quarto.yml`
+- Local preview running
+- Basic SCSS scaffolding
+- Optional Git workflow active and consistent
