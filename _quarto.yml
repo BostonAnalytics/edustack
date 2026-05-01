@@ -21,9 +21,11 @@ book:
       text: "Creating Excel Files"
     - href: 05_quarto_class_setup.qmd
       text: "Quarto Class Setup"
+    - href: 06_github_classroom.qmd
+      text: "GitHub Classroom"
     - href: 07_blackboard_ultra.qmd
       text: "Blackboard Ultra"
-    - href: 09_automating_with_AI.qmd
+    - href: 08_automating_with_AI.qmd
       text: "Automating with AI"
     - summary.qmd
     - references.qmd

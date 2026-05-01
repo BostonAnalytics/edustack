@@ -1,0 +1,238 @@
+---
+title: "Automating with AI"
+---
+
+# Supercharging Course Production with GitHub Copilot & AI Tools
+
+As an educator building out reproducible courses with Quarto, you are inherently writing code. Whether it is Markdown for lecture notes, Python or R for your data analysis labs, or simply writing Python scripts to automate your directory structures, you are functioning as a developer.
+
+To assist you in this endeavor, **GitHub Copilot** serves as an indispensable AI pair programmer. Copilot is integrated directly into your IDE (like Antigravity or VS Code) and provides real-time autocomplete suggestions, conversational assistance, and code generation. 
+
+![GitHub Copilot in Action](images/copilot_action_placeholder.png)
+*(Placeholder: Add an animated GIF or screenshot of Copilot suggesting code in VS Code)*
+
+## Copilot for Course Organization Scripts
+
+One of the most powerful uses of Copilot is automating the tedious parts of course administration. 
+
+For instance, consider the requirement of generating a consistent module structure (`M0`, `M1`) complete with boilerplate Quarto files for Lecture Notes, Labs, and Assignments. Instead of writing this entire generation script from scratch, you can provide Copilot with a prompt outlining your needs:
+
+> "Write a Python script that generates directories named M0 through M7. Inside each directory, create the following empty Quarto files: _LN1.qmd, _LN2.qmd, _P1.qmd, _P2.qmd, _Lab1.qmd, _Lab2.qmd, _A.qmd, _Proj.qmd, _Part1.qmd, and _Part2.qmd."
+
+Copilot will swiftly generate a `generate_modules.py` script that perfectly matches your requirements. 
+
+### The Module Generation Script
+
+If you don't want to use Copilot to generate it, you can simply copy the script below. Create a file named `generate_modules.py` in your project root, paste the following code, and run it via terminal (`python generate_modules.py`):
+
+```python
+import os
+import sys
+import shutil
+
+NUM_MODULES = 8  # M0 - M7
+
+def load_course_title(base_path):
+    config_path = os.path.join(base_path, ".course_config.env")
+    if not os.path.exists(config_path):
+        return ""
+
+    with open(config_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            if key.strip() == "COURSE_TITLE":
+                return value.strip().strip('"').strip("'")
+    return ""
+
+def make_qmd(path, title):
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(f"---\ntitle: \"{title}\"\n---\n\n# {title}\n")
+
+def main():
+    base_path = sys.argv[1] if len(sys.argv) > 1 else "."
+    base_path = os.path.abspath(base_path)
+
+    if not os.path.isdir(base_path):
+        print(f"❌ Path does not exist: {base_path}")
+        sys.exit(1)
+
+    force_reset = "--force" in sys.argv
+    print(f"📂 Using project root: {base_path}")
+    course_title = load_course_title(base_path)
+
+    for i in range(NUM_MODULES):
+        module = f"M{i}"
+        module_path = os.path.join(base_path, module)
+
+        if os.path.exists(module_path) and not force_reset:
+            print(f"❌ Module folder already exists: {module_path}")
+            print("👉 Run with --force to overwrite everything.")
+            sys.exit(1)
+
+        if force_reset and os.path.isdir(module_path):
+            shutil.rmtree(module_path)
+
+        os.makedirs(module_path, exist_ok=True)
+
+        qmd_files = {
+            "Lecture Note 1": f"{module}_LN1.qmd",
+            "Lecture Note 2": f"{module}_LN2.qmd",
+            "Presentation 1": f"{module}_P1.qmd",
+            "Presentation 2": f"{module}_P2.qmd",
+            "Lab 1": f"{module}_Lab1.qmd",
+            "Lab 2": f"{module}_Lab2.qmd",
+            "Assignment": f"{module}_A.qmd",
+            "Project": f"{module}_Proj.qmd",
+            "Participation 1": f"{module}_Part1.qmd",
+            "Participation 2": f"{module}_Part2.qmd",
+        }
+
+        for label, fname in qmd_files.items():
+            file_path = os.path.join(module_path, fname)
+            page_title = course_title if course_title else f"{module} {label}"
+            make_qmd(file_path, page_title)
+
+        os.makedirs(os.path.join(module_path, "data"), exist_ok=True)
+        os.makedirs(os.path.join(module_path, f"{module}_lecture01_figures"), exist_ok=True)
+        os.makedirs(os.path.join(module_path, f"{module}_lecture02_figures"), exist_ok=True)
+        os.makedirs(os.path.join(module_path, "output"), exist_ok=True)
+
+    print("✅ All module folders and QMD skeletons generated.")
+
+if __name__ == "__main__":
+    main()
+```
+
+## Automating Metadata with LLMs (OpenAI / Gemini)
+
+Beyond structural generation, you can use large language models (LLMs) via APIs to automatically populate the YAML metadata in your Quarto files. For example, a script can read your course outline (an Excel or CSV file) and prompt an AI to generate SEO-friendly keywords and summaries for each lecture note.
+
+### Setting up API Keys (`.env`)
+
+Before running API-dependent scripts, you must securely store your API keys. **Never** hardcode your keys into your Python scripts or commit them to GitHub. Instead, use a `.env` file.
+
+Create a file named `.env` in the root of your project directory and add the following placeholder keys. Replace `your_...` with your actual keys.
+
+```env
+# .env
+
+# OpenAI API Key (Required for GPT-4 integrations)
+OPENAI_API_KEY="your_openai_api_key_here"
+
+# Gemini API Key (Required if you use Google's models instead)
+GEMINI_API_KEY="your_gemini_api_key_here"
+```
+
+> [!WARNING]
+> Ensure your `.gitignore` file contains the line `.env` so your keys are not accidentally uploaded to your GitHub repository!
+
+### The Metadata Population Script
+
+Once your keys are configured, you can use the following script to automatically fill in the YAML frontmatter for your `.qmd` files. This script uses the OpenAI API to generate keywords and a short summary based on a provided CSV outline. 
+
+Save this file as `file_qmd_metadata.py`:
+
+```python
+import os
+import sys
+import pandas as pd
+from datetime import date
+import openai 
+import random
+from dotenv import load_dotenv
+
+# Load the keys from our .env file!
+load_dotenv()
+
+def generate_ai_content(title, subtitle, description, use_openai=True):
+    keywords = ["Cloud", "Big Data", "Analytics", "Computing"]
+    summary = description if description else "Short description."
+    
+    if use_openai and "OPENAI_API_KEY" in os.environ:
+        try:
+            openai.api_key = os.getenv("OPENAI_API_KEY")
+            prompt = f"Generate 4 keywords and a 2-line summary for:\nTitle: {title}\nSubtitle: {subtitle}\nDescription: {description}"
+            resp = openai.ChatCompletion.create(
+                model="gpt-4o-mini",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=150,
+                temperature=0.7
+            )
+            text = resp["choices"][0]["message"]["content"].strip()
+            parts = text.split("\n")
+            keywords = parts[0].replace("Keywords:", "").split(",") if parts else keywords
+            summary = " ".join(parts[1:]) if len(parts) > 1 else summary
+        except Exception as e:
+            print(f"⚠️ AI generation failed, using defaults: {e}")
+    else:
+        words = title.split()
+        keywords = random.sample(words, min(4, len(words)))
+        summary = description[:150] if description else "Short description."
+    
+    return [kw.strip() for kw in keywords], summary
+
+# Helper functions omitted for brevity (e.g. get_row_value, load_course_title)
+
+def write_yaml(file_path, row, course_title=""):
+    title = row.get("Title", "Course Content")
+    subtitle = row.get("Subtitle", "")
+    desc = row.get("Description", "")
+    
+    keywords, summary = generate_ai_content(title, subtitle, desc)
+
+    yaml_lines = [
+        "---",
+        f'title: "{title}"',
+        f'subtitle: "{subtitle}"',
+        "number-sections: true",
+        f'date: "{date.today()}"',
+        f'categories: {keywords}',
+        f'description: "{summary}"',
+        "---"
+    ]
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(yaml_lines) + "\n")
+    print(f"✅ Filled {file_path}")
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python file_qmd_metadata.py <outline.csv>")
+        sys.exit(1)
+
+    input_file = sys.argv[1]
+    df = pd.read_csv(input_file)
+    
+    for _, row in df.iterrows():
+        module = row.get("Module")
+        filetype = row.get("FileType")
+        fpath = os.path.join(".", module, f"{module}_{filetype}.qmd")
+
+        if os.path.exists(fpath):
+            write_yaml(fpath, row)
+
+if __name__ == "__main__":
+    main()
+```
+
+## Copilot for Authoring Quarto Content
+
+Copilot is not just for Python scripts. Because Quarto is a text-based format (`.qmd`), Copilot understands the context of your lecture notes and can predict what you want to write next.
+
+*   **Generating Code Blocks**: If you are writing a lab assignment and need to insert a code block showing how to plot a scatterplot using `matplotlib` or `ggplot2`, simply write the comment `# create a scatterplot of x vs y` and Copilot will suggest the exact code block.
+*   **Writing Summaries**: You can highlight a large chunk of text in your lecture notes and ask Copilot Chat to "Summarize this section for the introduction."
+*   **Translating Content**: If you are moving an old syllabus from Word to Quarto Markdown, you can prompt Copilot to convert your plain text into structured Markdown tables and formatted lists.
+
+## Responsible AI Use in Education
+
+While GitHub Copilot is a powerful authoring assistant for you as an educator, it also introduces important discussions regarding responsible use in the classroom.
+
+If you are using GitHub Classroom (discussed in Chapter 6), your students may also have access to Copilot through GitHub Education. It is critical to establish a clear policy in your syllabus regarding the acceptable use of Generative AI. 
+
+> [!TIP]
+> Use Copilot to help you generate boilerplate code, format markdown, and troubleshoot errors. However, always review the generated content critically before publishing it to your Blackboard course shell to ensure pedagogical accuracy.
+
+Integrating AI into your workflow does not replace your expertise; it simply accelerates the mechanics of course production, giving you more time to focus on teaching.
