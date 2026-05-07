@@ -109,7 +109,7 @@ Add it to [https://github.com/settings/keys](https://github.com/settings/keys)
 ssh -T git@github.com
 ```
 
-![SSH Key Added](images/toolsetup-sshkey.png){width=80% fig-align="center" #fig-sshkey}
+![SSH Key Added](images/ch01/toolsetup-sshkey.png){width=80% fig-align="center" #fig-sshkey}
 
 ---
 
@@ -209,7 +209,7 @@ Graphviz supports diagrams and visual structures.
   ```
 - Windows: Download [https://graphviz.org/download/](https://graphviz.org/download/)
 
-![Graphviz Installation](images/toolsetup-graphviz.png){width=80% fig-align="center" #fig-graphviz}
+![Graphviz Installation](images/ch01/toolsetup-graphviz.png){width=80% fig-align="center" #fig-graphviz}
 
 # Install Python 3.12 or higher
  
@@ -225,7 +225,7 @@ Select "Add Python to PATH" during installation.
 python3 --version
 ```
 
-![Python Installation](images/toolsetup-python.png){width=80% fig-align="center" #fig-python}
+Complete Guide for Python Installation is [here](https://realpython.com/installing-python/) 
 
 # Install R and RTools
 
@@ -239,9 +239,17 @@ Windows users install RTools:
 
 ![R Installation](images/toolsetup-r.png){width=80% fig-align="center" #fig-r}
 
-# Install Antigravity (or VSCode) IDE
+# Install VS Code, Antigravity, or Cursor
 
-Antigravity is the preferred IDE for this workflow because it integrates:
+You can use any of the following editors for this workflow:
+
+- **VS Code** for the broadest extension ecosystem
+- **Antigravity** for a VS Code-style environment with built-in agent workflows
+- **Cursor** for editor-native AI coding assistance
+
+All three work well for Quarto, Python, GitHub, and notebook-based teaching materials.
+
+Antigravity is a strong option for this workflow because it integrates:
 
 - GitHub
 - Jupyter
@@ -264,9 +272,20 @@ Sign in with Google or GitHub.
 
 ---
 
-# Install Required Antigravity Extensions
+# Connect AI Coding Tools
 
-The following extension groups must be installed for the quarto workflow:
+Once your editor is installed, connect the AI tools you plan to use for course development:
+
+- **GitHub Copilot** for inline completions, chat, and code explanations inside the editor
+- **ChatGPT-connected coding tools** in VS Code or Antigravity when you want help drafting scripts, debugging, or restructuring Quarto content
+- **Cursor** if you prefer an AI-first editing environment for project-wide code generation and refactoring
+- **Gemini APIs** when you want to automate metadata generation, text transformation, or structured content workflows from scripts
+
+For classroom use, these tools are most helpful for boilerplate generation, formatting, debugging, and rapid prototyping. Final instructional content should still be reviewed by the instructor before release.
+
+# Install Required Editor Extensions
+
+The following extension groups should be installed for the Quarto workflow:
 
 ![VSCode/Antigravity Extensions Installed](images/ch01/toolsetup-plugins.png){width=80% fig-align="center" #fig-plugins}
 

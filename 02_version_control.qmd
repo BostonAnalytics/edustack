@@ -1,2 +1,768 @@
-# Introduction
+# Version Control: Mastering the Foundation of Collaborative Development
 
+## Introduction
+
+Version control is one of the most critical skills you'll develop as an educator building course materials and supporting student projects. Whether you're managing a single syllabus, collaborating on curriculum development with colleagues, or maintaining course repositories for students to learn from, version control systems provide the backbone for organizing, tracking, and sharing your work.
+
+In this chapter, we'll explore what version control is, why it matters for educational contexts, and how to use Git and GitHub effectively in your teaching practice. By the end of this chapter, you'll understand not just how to use these tools, but *why* they matter and how to teach them to your students in a meaningful way.
+
+## What Is Version Control?
+
+At its heart, version control is a system that tracks changes to files over time. Imagine editing a Word document and having the ability to see every modification made, by whom, when, and why. Now imagine being able to instantly revert to any previous version if something goes wrong, or merge changes from multiple people working simultaneously. That's what version control does.
+
+For educators, version control offers several powerful benefits:
+
+**Collaboration Made Simple**: Multiple instructors can work on the same curriculum without overwriting each other's changes. Each person's contribution is tracked independently, and conflicts are resolved systematically.
+
+**History and Accountability**: Every change is recorded with metadata—who made it, when, and optionally, why. This creates a complete audit trail of how your course materials evolved over semesters.
+
+**Experimentation Without Fear**: Create branches to try new teaching approaches or reorganize content without affecting the main course materials. If an experiment doesn't work out, you simply discard the branch. If it's successful, you merge it back.
+
+**Backup and Recovery**: Your materials are stored both locally on your computer and in the cloud. If your laptop crashes, your entire course history is safe. If you accidentally delete something, you can recover it from any previous commit.
+
+**Sharing with Students**: Version control demonstrates professional development practices to your students. When your course materials are in a public or classroom repository, students can see how professional developers organize, document, and collaborate on projects.
+
+### Knowledge Check
+
+Before proceeding, consider these questions:
+
+- [ ] Have you ever needed to recover an earlier version of a document?
+- [ ] Have you collaborated with colleagues and struggled to merge their changes with yours?
+- [ ] Would it be valuable to show students the evolution of your course materials?
+
+If you checked any of these boxes, version control will solve these problems for you.
+
+## Understanding Git: The Version Control System
+
+Git is a distributed version control system created by Linus Torvalds in 2005. Unlike older centralized version control systems, Git allows every contributor to have a complete copy of the project history. This makes it resilient, flexible, and perfect for both individual projects and large collaborative efforts.
+
+### The Core Concept: Commits
+
+The fundamental unit of version control in Git is the **commit**. A commit is a snapshot of your files at a specific point in time, accompanied by a message describing what changed. Think of commits like chapters in a book—each chapter marks a milestone in the story, and you can always reference any chapter by name.
+
+When you create a commit, you're essentially saying: "I've made these specific changes, and here's why." This creates a chain of events that represents the entire development history of your project.
+
+### Local vs. Remote Repositories
+
+Git operates on two levels:
+
+**Local Repository**: This is the version control database on your computer, usually hidden in a `.git` folder. When you work on files, make changes, and commit them, you're working with your local repository.
+
+**Remote Repository**: This is a copy of your repository hosted on a server (like GitHub, GitLab, or Bitbucket). It serves as a central hub for collaboration and backup.
+
+When you're ready to share your work or collaborate with others, you push your local commits to the remote repository. When teammates make changes, you pull their commits to update your local copy.
+
+### The Three States of Git
+
+Understanding Git's three states is crucial:
+
+1. **Modified**: You've changed a file, but you haven't committed the change yet. The file exists only on your computer.
+
+2. **Staged**: You've marked a modified file to be included in the next commit. This is the staging area or "index"—a holding area where you prepare files before committing.
+
+3. **Committed**: The file is securely stored in your local Git database with all the metadata about what changed and who changed it.
+
+This three-state system gives you fine-grained control. You can modify multiple files, stage only some of them, commit them with a meaningful message, then move on to the next set of changes.
+
+## Setting Up Git for Your Teaching Environment
+
+### Installation and Configuration
+
+Git is available for Windows, macOS, and Linux. Most systems come with Git pre-installed, but if you need to install it:
+
+- **Windows**: Download from [git-scm.com](https://git-scm.com)
+- **macOS**: Install via Homebrew (`brew install git`) or download from git-scm.com
+- **Linux**: Use your package manager (`apt-get install git`, `yum install git`, etc.)
+
+Once installed, configure Git with your identity:
+
+```bash
+git config --global user.name "Your Full Name"
+git config --global user.email "your.email@example.com"
+```
+
+This information appears in every commit you make, so choose values you're comfortable sharing with colleagues and students.
+
+### Workbook Exercise: Configure Your Git Environment
+
+Take a moment to configure Git on your machine if you haven't already:
+
+**Task**: Open your terminal/command prompt and run the configuration commands above with your actual name and email.
+
+```bash
+# Step 1: Verify Git is installed
+git --version
+
+# Step 2: Configure your user name
+git config --global user.name "Your Full Name"
+
+# Step 3: Configure your email
+git config --global user.email "your.email@example.com"
+
+# Step 4: Verify your configuration
+git config --list
+```
+
+**Verification Checklist**:
+- [ ] Git is installed and version is displayed
+- [ ] No errors when running configuration commands
+- [ ] `git config --list` shows your name and email
+- [ ] You can see `user.name` and `user.email` in the output
+
+If you encounter any issues, note them below and we'll address them:
+
+> **My Git configuration status**: _________________________________
+
+## Creating Your First Repository
+
+A repository is a directory where Git tracks all the files and their history. Let's create one for a course or project.
+
+### Starting Fresh: `git init`
+
+If you have an existing folder with course materials or a blank folder where you want to begin, you can initialize it as a Git repository:
+
+```bash
+cd /path/to/your/course/folder
+git init
+```
+
+This creates a hidden `.git` folder (you might need to enable viewing hidden files in your file manager) that stores all version control information.
+
+### Cloning an Existing Repository: `git clone`
+
+If you want to work with an existing repository (perhaps a template or a shared resource), clone it:
+
+```bash
+git clone https://github.com/username/repository-name.git
+```
+
+This creates a local copy of the entire repository, including all history, on your computer.
+
+### Workbook Exercise: Initialize Your Course Repository
+
+Choose one of your courses or create a new folder for this exercise.
+
+**Task**: Initialize a Git repository
+
+```bash
+# Create a new folder (or navigate to an existing one)
+mkdir my-course
+cd my-course
+
+# Initialize Git
+git init
+
+# List hidden files to verify .git was created
+ls -la        # On macOS/Linux
+dir /a        # On Windows (Command Prompt)
+Get-ChildItem -Force  # On Windows (PowerShell)
+```
+
+**Verification Checklist**:
+- [ ] Folder created or navigated to successfully
+- [ ] `git init` ran without errors
+- [ ] Hidden `.git` folder is visible
+- [ ] Repository is ready for tracking files
+
+**Document your result**: 
+
+> **My repository location**: _________________________________
+
+## Understanding the Git Workflow
+
+The typical Git workflow follows this sequence: **Modify → Stage → Commit → Push**.
+
+Let's explore each step in detail.
+
+### Step 1: Creating and Modifying Files
+
+Start by creating or editing files in your repository. This might be adding a new syllabus, updating reading materials, or creating assignment prompts. Git doesn't care what you're working on—it just tracks changes to text-based files.
+
+Git works best with text-based files like:
+- Markdown files (`.md`, `.qmd`)
+- Source code (`.py`, `.js`, `.R`)
+- Configuration files (`.yml`, `.json`)
+- Plain text documents
+
+Binary files (like `.docx`, `.xlsx`, `.pdf`) can be tracked, but Git can't show you what changed between versions—it only knows the files are different.
+
+### Step 2: Checking Status with `git status`
+
+Before committing, check what has changed:
+
+```bash
+git status
+```
+
+This command shows you:
+- **Untracked files**: New files Git hasn't seen before
+- **Modified files**: Files that have changed since the last commit
+- **Staged files**: Changes ready to be committed
+
+The output might look like:
+
+```
+On branch main
+Changes not staged for commit:
+  modified:   syllabus.md
+  modified:   course_outline.md
+
+Untracked files:
+  new_file:   assignment_template.md
+```
+
+### Step 3: Staging Changes with `git add`
+
+Once you're happy with your changes, stage them for commit:
+
+```bash
+# Stage a single file
+git add syllabus.md
+
+# Stage multiple files
+git add syllabus.md course_outline.md
+
+# Stage all changes
+git add .
+```
+
+Staging is like selecting files you want to include in a package before sending it. You might have made changes to ten files, but you only want to commit five of them together because they represent a single logical change.
+
+### Step 4: Committing with a Meaningful Message
+
+Now commit your staged changes:
+
+```bash
+git commit -m "Update syllabus with new learning objectives and grading breakdown"
+```
+
+The message should be clear and descriptive. Good commit messages help future you and your collaborators understand *why* changes were made, not just *what* changed. The Git history becomes a narrative of your course's evolution.
+
+**Guidelines for good commit messages**:
+- Start with a verb in the imperative mood: "Add", "Update", "Fix", "Remove"
+- Keep the first line under 50 characters
+- Add more details in the message body if needed (separated by a blank line)
+- Explain the *why*, not the *what* (Git shows the what)
+
+**Examples**:
+
+❌ *Poor*:
+```
+"changes to syllabus"
+"fixed stuff"
+"more updates"
+```
+
+✓ *Good*:
+```
+"Update grading policy to clarify participation points"
+"Add learning objectives aligned with program outcomes"
+"Reschedule midterm to accommodate accreditation visit"
+```
+
+### Step 5: Pushing to Remote (When Ready to Share)
+
+Once you've made several commits locally and you're ready to share your work or back it up to the cloud:
+
+```bash
+git push
+```
+
+This uploads your local commits to the remote repository, making them available to collaborators.
+
+### Workbook Exercise: Your First Commit
+
+Create a simple course material file and make your first commit.
+
+**Task**: Complete the workflow
+
+```bash
+# Create a new file
+echo "# Course Syllabus
+
+## Course Title: Your Course Name
+## Term: Spring 2026
+" > syllabus.md
+
+# Check the status
+git status
+
+# Stage the file
+git add syllabus.md
+
+# View what's staged
+git status
+
+# Commit with a message
+git commit -m "Add initial course syllabus"
+
+# View the commit history
+git log --oneline
+```
+
+**Verification Checklist**:
+- [ ] File `syllabus.md` created successfully
+- [ ] `git status` shows the file before staging, then staged
+- [ ] Commit created with your message
+- [ ] `git log` shows your commit with the message
+
+**Document your experience**:
+
+> **First commit message**: _________________________________
+> **Any challenges encountered**: _________________________________
+
+## Viewing History and Understanding Commits
+
+As your repository grows, you'll want to review what you've done and why.
+
+### Viewing the Commit Log
+
+```bash
+# Basic log view
+git log
+
+# Condensed one-line view
+git log --oneline
+
+# Show more details about each commit
+git log -p
+```
+
+The log shows the commit hash (unique identifier), author, date, and message. This history becomes invaluable when you need to understand how your course materials evolved.
+
+### Examining Specific Changes
+
+```bash
+# See what changed in the most recent commit
+git show HEAD
+
+# See what changed in a specific commit
+git show <commit-hash>
+
+# Compare two commits
+git diff <commit-hash1> <commit-hash2>
+```
+
+## Branching: Experimenting Safely
+
+One of Git's most powerful features for educators is branching. A branch is an independent line of development—a copy of your main materials where you can make changes without affecting the original.
+
+### Why Branches Matter for Teaching
+
+Imagine you want to try redesigning your course for the fall semester while the spring semester is underway. Rather than disrupting your current course materials, you create a branch called `fall-2026-redesign`. You work on this branch, making significant changes, reorganizing modules, and updating content. If it looks great, you merge it back into your main course. If it doesn't work out, you simply abandon the branch.
+
+Similarly, you might use branches for:
+- **Experimental teaching approaches**: `try-active-learning`, `test-flipped-classroom`
+- **Collaborative work**: One branch per instructor's assignment
+- **Version management**: `spring-2026`, `fall-2026`
+- **Bug fixes or improvements**: `fix-assignment-rubric`, `update-videos`
+
+### Creating and Switching Branches
+
+```bash
+# Create a new branch (based on current branch)
+git branch fall-2026-redesign
+
+# Switch to that branch
+git checkout fall-2026-redesign
+
+# Or create and switch in one command
+git checkout -b fall-2026-redesign
+
+# List all branches
+git branch
+```
+
+When you switch to a new branch, the files in your directory update to reflect that branch's state. Your work on other branches doesn't interfere.
+
+### Merging Branches Back
+
+Once your experimental branch is working well, merge it back into your main course materials:
+
+```bash
+# Switch to main
+git checkout main
+
+# Merge the branch
+git merge fall-2026-redesign
+```
+
+Git automatically combines the changes. If there are conflicts (both branches changed the same line), Git will prompt you to resolve them.
+
+### Workbook Exercise: Create and Experiment with Branches
+
+Let's practice creating and merging branches.
+
+**Task**: Create a branch and make an experimental change
+
+```bash
+# Create a new branch for experimenting with content
+git checkout -b experiment-interactive-content
+
+# Modify a file (or create a new one)
+echo "## Interactive Module Ideas
+
+- Incorporate more live coding demos
+- Add breakout discussion prompts
+- Create peer review assignments
+" >> syllabus.md
+
+# Stage and commit on the branch
+git add syllabus.md
+git commit -m "Add notes on interactive content ideas"
+
+# Switch back to main without merging
+git checkout main
+
+# Verify you're back on main (the file should be unchanged)
+git status
+
+# Look at your experiment branch
+git checkout experiment-interactive-content
+git log --oneline
+
+# Switch back to main
+git checkout main
+
+# Now merge the experimental branch
+git merge experiment-interactive-content
+git log --oneline
+```
+
+**Verification Checklist**:
+- [ ] Branch `experiment-interactive-content` created
+- [ ] Changes made and committed on the branch
+- [ ] Able to switch between main and branch
+- [ ] Files update correctly when switching branches
+- [ ] Branch merged successfully into main
+- [ ] Changes from branch appear in main
+
+**Reflection**:
+
+> **What would you use branches for in your teaching?** 
+> _________________________________
+
+## GitHub: Taking Your Repository to the Cloud
+
+GitHub is a web-based platform that hosts Git repositories. It adds collaboration, sharing, and visibility on top of Git's core functionality.
+
+### Why GitHub for Education
+
+GitHub provides several features that enhance teaching:
+
+1. **Visibility**: Share course materials with students, colleagues, or the public
+2. **Collaboration**: Students and colleagues can contribute directly to projects
+3. **Issues and Discussions**: Organize feedback, bugs, and feature requests
+4. **GitHub Classroom**: Automated assignment distribution and collection for students
+
+### Creating a GitHub Account and Repository
+
+1. Visit [github.com](https://github.com) and create a free account
+2. After signing in, click the "+" icon in the top right and select "New repository"
+3. Name your repository (e.g., `spring-2026-course-materials`)
+4. Add a description
+5. Choose to make it public or private
+6. Initialize with a README (we'll update this)
+7. Click "Create repository"
+
+### Connecting Your Local Repository to GitHub
+
+After creating an empty repository on GitHub, connect your local work:
+
+```bash
+# Add the remote repository
+git remote add origin https://github.com/your-username/repository-name.git
+
+# Rename the default branch to main (if needed)
+git branch -M main
+
+# Push your local commits to GitHub
+git push -u origin main
+```
+
+Now your course materials are backed up and visible on GitHub.
+
+### Workbook Exercise: Create a GitHub Repository and Push
+
+Let's get your work onto GitHub.
+
+**Task**: Create and connect a GitHub repository
+
+1. Go to [github.com](https://github.com) and log in
+2. Create a new repository named `my-course-materials`
+3. Choose "Public" so others can see your work
+4. Don't initialize with files yet (we'll push our local repo)
+5. Click "Create repository"
+
+Then in your terminal:
+
+```bash
+# Navigate to your course folder
+cd /path/to/my-course
+
+# Add GitHub as the remote
+git remote add origin https://github.com/YOUR-USERNAME/my-course-materials.git
+
+# Verify the connection
+git remote -v
+
+# Push your work to GitHub
+git push -u origin main
+```
+
+**Verification Checklist**:
+- [ ] GitHub account created
+- [ ] Repository created on GitHub
+- [ ] Local repository connected to GitHub
+- [ ] Files pushed successfully
+- [ ] Able to see files on github.com in your browser
+
+**Your GitHub repository URL**:
+
+> https://github.com/YOUR-USERNAME/my-course-materials
+
+## Collaboration: Working with Others
+
+Version control really shines when multiple people work on the same project. Let's explore the common collaboration patterns you'll use.
+
+### The Fork and Pull Request Workflow
+
+The most common way to collaborate on open-source projects—and increasingly in education—is through pull requests:
+
+1. **Fork**: Create your own copy of someone else's repository
+2. **Clone**: Download the fork to your computer
+3. **Branch**: Create a branch for your changes
+4. **Commit**: Make your changes and commit them
+5. **Push**: Upload your branch to your fork
+6. **Pull Request**: Request that the original repository accept your changes
+7. **Review**: The maintainer reviews and discusses your changes
+8. **Merge**: If approved, your changes are merged into the main project
+
+### Working on Shared Repositories
+
+If you have direct access to a repository (common for course team teaching):
+
+```bash
+# Pull latest changes from teammates
+git pull
+
+# Create a branch for your work
+git checkout -b my-assignment-updates
+
+# Make changes, stage, and commit
+git add .
+git commit -m "Update assignment rubric and submission instructions"
+
+# Push your branch
+git push -u origin my-assignment-updates
+```
+
+Then create a pull request on GitHub for review before merging.
+
+### Handling Conflicts
+
+Sometimes two people modify the same file, creating a conflict. Git is transparent about this:
+
+```bash
+git merge other-branch
+# If there's a conflict, Git tells you which files have conflicts
+```
+
+Open the conflicted file and you'll see markers:
+
+```
+<<<<<<< HEAD
+This is what you had
+=======
+This is what they changed
+>>>>>>> other-branch
+```
+
+Resolve the conflict by keeping the correct version (or a combination), then:
+
+```bash
+git add .
+git commit -m "Resolve merge conflict in syllabus.md"
+```
+
+### Workbook Exercise: Practice Conflict Resolution
+
+**Scenario**: You and a colleague both updated the same file. Let's simulate this and resolve the conflict.
+
+```bash
+# Create a file that will have a conflict
+echo "## Course Grading Scale
+
+A: 90-100
+B: 80-89
+C: 70-79
+D: 60-69
+F: Below 60
+" > grading.md
+
+git add grading.md
+git commit -m "Add initial grading scale"
+
+# Create a branch to simulate colleague's changes
+git checkout -b colleague-updates
+
+# Edit the file (colleague's version)
+echo "## Course Grading Scale
+
+A: 92-100
+B: 83-91
+C: 74-82
+D: 65-73
+F: Below 65
+" > grading.md
+
+git add grading.md
+git commit -m "Update grading scale with +/- modifiers"
+
+# Switch back to main and make different changes
+git checkout main
+
+echo "## Course Grading Scale
+
+A: 90-100
+B: 80-89
+C: 70-79
+D: 60-69
+F: Below 60
+Plus: Extra credit can add up to 2 points
+" > grading.md
+
+git add grading.md
+git commit -m "Add extra credit option"
+
+# Now try to merge—this will create a conflict
+git merge colleague-updates
+```
+
+**Verification Checklist**:
+- [ ] Conflict marker displayed in grading.md
+- [ ] Able to identify both versions
+- [ ] Resolved conflict by choosing a final version
+- [ ] Committed the resolution successfully
+
+**Reflection**:
+
+> **How would you handle this situation in real collaboration with a colleague?**
+> _________________________________
+
+## Best Practices for Version Control in Education
+
+### Commit Frequently
+
+Don't wait until the end of the semester to commit changes. Small, frequent commits are easier to understand and revert if needed. Think of commits as saving chapters of your course's story.
+
+### Write Clear Commit Messages
+
+Your future self will thank you. A good message explains *why* a change was made:
+
+```
+❌ "fix"
+✓ "Adjust assignment deadline to accommodate accreditation visit"
+
+❌ "updates"
+✓ "Add learning outcomes for Module 3 aligned with program assessment"
+```
+
+### Use Branches for Major Changes
+
+Never make radical changes directly on `main`. Use branches to experiment, then merge when you're confident.
+
+### Keep Large Files Out of Git
+
+Git is designed for text-based files. Large binary files (videos, huge datasets) should be stored elsewhere and referenced from your Git repository. Many educators use Git LFS (Large File Storage) or cloud storage services.
+
+### Review Before Merging
+
+If working with colleagues, use pull requests to review changes before merging. This creates a record of decisions and catches mistakes early.
+
+### Maintain a Good README
+
+Your README.md is the front door to your repository. It should explain:
+- What the course is about
+- How to use the materials
+- How to contribute (for open repositories)
+- Any technical requirements
+
+### Workbook Checklist: Set Up Your Teaching Repository
+
+Use this checklist to set up a professional, version-controlled course repository:
+
+**Phase 1: Local Setup**
+- [ ] Git installed and configured with your name and email
+- [ ] Course folder created
+- [ ] Git repository initialized (`git init`)
+- [ ] Initial syllabus or course materials created
+- [ ] First commit made with meaningful message
+
+**Phase 2: GitHub Setup**
+- [ ] GitHub account created
+- [ ] Repository created on GitHub
+- [ ] Local repository connected to GitHub
+- [ ] Initial commits pushed to GitHub
+- [ ] README.md written explaining the course
+
+**Phase 3: Documentation**
+- [ ] Added `.gitignore` file to exclude unnecessary files
+- [ ] Organized files in logical folders
+- [ ] Added licensing information (if appropriate)
+- [ ] Documented any setup instructions for students
+
+**Phase 4: Collaboration Ready**
+- [ ] Identified how colleagues/students will access materials
+- [ ] Set up any necessary collaborators on GitHub
+- [ ] Created initial branches for experimental features
+- [ ] Established a branching strategy for your team
+
+## Summary: Your Version Control Journey
+
+Version control is no longer optional for educators. Whether you're managing solo course development, collaborating with colleagues, or teaching students professional practices, Git and GitHub provide the infrastructure for organized, trackable, transparent work.
+
+Key takeaways:
+
+1. **Git tracks changes**: Every modification is recorded with metadata
+2. **Commits tell a story**: Your repository documents the evolution of your course
+3. **Branches enable experimentation**: Try new ideas safely without affecting production materials
+4. **GitHub enables collaboration**: Share and sync work with colleagues and students
+5. **Good practices matter**: Clear messages, frequent commits, and thoughtful branching make version control powerful
+
+As you apply these concepts in your teaching, you're not just managing files—you're modeling professional development practices for your students.
+
+## Knowledge Check: Verify Your Understanding
+
+Review what you've learned in this chapter:
+
+1. **Explain the three states of Git** (Modified, Staged, Committed)
+   
+   > _________________________________
+
+2. **What's the purpose of a branch?**
+   
+   > _________________________________
+
+3. **When should you make a commit?**
+   
+   > _________________________________
+
+4. **How would you share your course materials with a colleague?**
+   
+   > _________________________________
+
+5. **What's a good commit message, and why does it matter?**
+   
+   > _________________________________
+
+## Next Steps
+
+Now that you understand version control, you're ready to:
+
+- Set up your course repository (see Phase 1-4 checklist above)
+- Learn about GitHub Classroom for managing student assignments
+- Explore advanced Git features like rebasing, cherry-picking, and hooks
+- Teach your students version control as part of your curriculum
+
+Consider dedicating time this week to implementing what you've learned. Start with one course or project, get comfortable with the daily workflow, and then expand to other courses.

@@ -1,0 +1,1096 @@
+# Blackboard Ultra: Deploying Quarto Content to Your Course Shell
+
+## Introduction
+
+Blackboard Ultra is Boston University's learning management system. It serves as the hub where students access your course materials, submit assignments, engage in discussions, and check their grades. The power of Blackboard Ultra emerges when you integrate it with your professionally-designed course materials created in Quarto.
+
+This chapter guides you through the strategic integration of Quarto-generated course content with Blackboard Ultra's content collection system. Rather than manually creating and updating content in Blackboard, you'll develop your materials once in Quarto, generate HTML files, and deploy them as a complete package into Blackboard—making updates seamless and maintaining a single source of truth for your course materials.
+
+By the end of this chapter, you'll understand:
+- How Blackboard Ultra manages content and links to external resources
+- The workflow for packaging Quarto content into Blackboard-ready formats
+- The initial setup process with BU's Blackboard team
+- The specific folder structure that enables seamless content management
+- How to deploy updates throughout the semester without disrupting your course
+
+## Understanding Blackboard Ultra's Architecture
+
+Blackboard Ultra is structured around **courses**, **modules**, and **content**. Let's clarify each:
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: Blackboard Ultra course home screen showing the top-level navigation — course banner, left sidebar, and content area.
+
+*Temporary reference*: See the [Blackboard Ultra overview on the Syracuse support page](https://answers.atlassian.syr.edu/wiki/spaces/blackboard01/pages/154387917/Blackboard+Ultra?atlOrigin=eyJpIjoiMmNlNjExNmFjNWM4NGMzMDk3M2MxODQwOTQxYjQzMzgiLCJwIjoiYyJ9) for a comparable layout.
+
+```
+Replace with: images/ch07/bb-ultra-course-home.png
+```
+:::
+
+### Courses: Your Course Shell
+
+Your Blackboard course is the container for everything—all materials, assessments, discussions, and grades. Within Blackboard, you organize content into logical sections called modules.
+
+### Modules: Organizing Content into Units
+
+Modules correspond to weeks, units, or thematic sections of your course. Each module typically contains lectures, readings, assignments, and discussions related to a specific topic.
+
+### Content Collection: The File System
+
+Blackboard maintains a **content collection**—essentially a cloud file system where all your files are stored. Rather than embedding content directly in Blackboard's interface, you upload files (HTML, PDFs, images) to the content collection and then link to them from various course elements.
+
+This is where your Quarto-generated HTML files live. Once uploaded to the content collection, Blackboard displays them through its interface, maintaining consistent branding and navigation.
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: Blackboard content collection browser showing the folder hierarchy, upload button, and file listing with path breadcrumbs visible.
+
+```
+Replace with: images/ch07/bb-content-collection-browser.png
+```
+:::
+
+## The Strategic Advantage: Quarto + Blackboard Integration
+
+Rather than creating content in Word or directly in Blackboard's text editor, you'll:
+
+1. **Author in Quarto**: Create your course materials in clean, maintainable Quarto files (`.qmd`)
+2. **Generate HTML**: Export everything as a complete website with `quarto render`
+3. **Package as `_site.zip`**: Create a deployment-ready archive
+4. **Upload to Blackboard**: Use Blackboard's content collection to import the entire package
+5. **Link from Modules**: Create course module structures that point to your HTML content
+6. **Update Seamlessly**: When content changes, regenerate `_site.zip` and re-upload—Blackboard replaces old files with new versions
+
+### Why This Approach?
+
+**Single Source of Truth**: Your course materials exist in one place (your Quarto project). Both you and your students work from the same, authoritative version.
+
+**Professional Presentation**: Quarto produces clean, accessible HTML with consistent formatting. Your course looks polished without spending time on Blackboard's styling.
+
+**Version Control**: Your Quarto files live in Git, creating a complete history of how your course evolved.
+
+**Batch Updates**: Fix typos, update examples, or revise content, then deploy all changes at once—not one file at a time.
+
+**Consistency Across Semesters**: Template your course structure, then swap in new content for each term.
+
+## Initial Setup: Before You Deploy
+
+### Critical First Step: Quarto Course Approval
+
+Before you can effectively deploy Quarto content to Blackboard, your course structure must be officially approved at Boston University. This ensures compatibility with BU's Blackboard configuration and technical support can assist if issues arise.
+
+**Process**:
+
+1. **Contact Kim Crosta** (Instructional Designer/Course Development)
+   - Email: kim.crosta@bu.edu
+   - Purpose: Present your Quarto course structure and obtain approval
+   - Timing: Do this *before* you finalize your module structure
+   - Outcome: Kim will verify your approach aligns with BU standards
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: Example email or meeting summary showing the approval communication (redact personal details as needed).
+
+```
+Replace with: images/ch07/kim-crosta-approval-example.png
+```
+:::
+
+2. **Receive Approval Confirmation**
+   - Kim will confirm your Quarto course structure is approved
+   - She may provide recommendations for optimization
+   - You'll receive guidance on any BU-specific requirements
+
+### Second Step: Structure Review with Andy
+
+After Kim approves your Quarto approach, you'll coordinate with Andy on the Blackboard side:
+
+**Process**:
+
+1. **Schedule Meeting with Andy** (Blackboard Administrator/Technical Support)
+   - Contact: Reach out through BU Blackboard support
+   - Purpose: Present your proposed course structure and deployment plan
+   - Share: Your planned module organization and content hierarchy
+   - Discuss: How your Quarto structure will map to Blackboard modules
+
+2. **Propose Your Structure**
+   - Explain your module organization (number of modules, content per module)
+   - Detail your folder structure (see "Course Structure Template" below)
+   - Discuss: Submission workflows and assignment deadlines
+   - Plan: How you'll handle content updates during the semester
+
+3. **Trial Deployment**
+   - Andy will help you with your first upload of `_site.zip`
+   - He'll verify all links work correctly in Blackboard
+   - You'll test the student experience
+   - Make adjustments before the semester starts
+
+### Knowledge Check: Setup Prerequisites
+
+Before proceeding, verify you've completed the necessary groundwork:
+
+- [ ] You've created a preliminary Quarto project for your course
+- [ ] You've outlined your module structure (number of modules, topics)
+- [ ] You've contacted Kim Crosta and received approval
+- [ ] You've scheduled a meeting with Andy to review your structure
+- [ ] You've completed a trial deployment with Andy's assistance
+- [ ] You've tested the student-facing course experience
+
+**Status**: Document where you are in this process:
+
+> **Kim Crosta approval status**: _________________________________
+> **Andy meeting completed**: _________________________________
+
+## Course Structure Template: The Full-Year Model
+
+Now that you understand the setup process, let's detail the specific structure you've developed for your courses. This structure balances content organization with manageable maintenance and clear student navigation.
+
+### Overview of Your Structure
+
+Your model organizes each module around a core concept or unit, with distinct folders for content delivery, learning materials, and assignments:
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: Blackboard Ultra course content panel showing the full module list — all modules collapsed, so the reader can see the top-level naming convention ("Module 1 — Topic", "Module 2 — Topic", etc.).
+
+```
+Replace with: images/ch07/bb-module-list-overview.png
+```
+:::
+
+```
+Module [Number] - [Topic Name]/
+├── Wrap-Up Content (overview/summary file)
+├── Highlight Page (special HTML content)
+├── Module [X] Lecture 1/
+│   ├── Lecture Notes
+│   ├── Presentation
+│   └── Tutorial
+├── Module [X] Lecture 2/
+│   ├── Lecture Notes
+│   ├── Presentation
+│   └── Tutorial
+└── Deliverables/
+    ├── Assignment
+    ├── Lab 1
+    ├── Lab 2
+    ├── Participation 1
+    ├── Participation 2
+    └── Project Step [N]
+```
+
+### Understanding Each Component
+
+#### Wrap-Up Content
+
+**Purpose**: Provides a module overview, learning objectives, and synthesis of concepts.
+
+**Content Examples**:
+- Summary of key concepts
+- Module learning outcomes
+- Prerequisites
+- Recommended reading order
+- Time estimates for completion
+
+**In Quarto**: Create this as a dedicated `.qmd` file that renders as your module introduction. For example:
+
+```yaml
+# Module 3: Advanced Data Visualization
+
+## Learning Objectives
+
+By the end of this module, you will:
+- Understand principles of effective data visualization
+- Create interactive visualizations with D3.js
+- Apply color theory and accessibility standards
+
+## Module Overview
+
+This module explores how to transform raw data into compelling visual narratives...
+```
+
+**In Blackboard**: Link this as the first item in each module. Students see it immediately upon entering, setting context and expectations.
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: A single module expanded in Blackboard Ultra, with the Wrap-Up content item highlighted at the top — shows the "first item" position and the document icon.
+
+```
+Replace with: images/ch07/bb-module-expanded-wrapup.png
+```
+:::
+
+#### Highlight Page
+
+**Purpose**: A special HTML page highlighting a particular concept, real-world application, or student spotlight.
+
+**Examples**:
+- "Industry Spotlight: How Netflix Uses Data Science"
+- "Case Study: Successful Project Implementation"
+- "Student Spotlight: Award-Winning Project"
+- "Emerging Trends: AI in Healthcare"
+
+**Creation**: This can be a more visually-rich Quarto file, incorporating:
+- Images and diagrams
+- Embedded videos
+- Interactive elements
+- Special formatting or CSS customization
+
+**In Blackboard**: Link this prominently in the module, perhaps as a featured item students should see.
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: The Highlight Page as it renders inside Blackboard's content viewer — ideally showing a case study or industry spotlight with an image and formatted text.
+
+```
+Replace with: images/ch07/bb-highlight-page-rendered.png
+```
+:::
+
+#### Lecture Folders (Module [X] Lecture 1, Module [X] Lecture 2)
+
+Your course typically includes two lectures per module. Each lecture folder contains three standardized components:
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: One lecture folder expanded inside Blackboard Ultra, showing the three items — Lecture Notes, Presentation, and Tutorial — with their respective file icons.
+
+*Temporary reference*: See [Lesley University's Blackboard Quick Start Guide](https://support.lesley.edu/support/solutions/articles/4000185843-blackboard-ultra-course-view-faculty-quick-start-guide) for an example of content item layout inside a folder.
+
+```
+Replace with: images/ch07/bb-lecture-folder-expanded.png
+```
+:::
+
+##### Lecture Notes
+
+**Format**: Detailed written notes covering all lecture content.
+
+**In Quarto**: Create as a `.qmd` file with:
+```markdown
+# Lecture 1: Foundational Concepts
+
+## What You'll Learn
+- Core principle 1
+- Core principle 2
+- Core principle 3
+
+## Detailed Notes
+
+### Section 1: Background
+Provide context and explain why this matters...
+
+### Section 2: Methodology
+Step-by-step explanation...
+
+### Section 3: Examples
+Real-world applications...
+
+## Key Takeaways
+- Point 1
+- Point 2
+- Point 3
+```
+
+**Advantage**: Students can review the lecture asynchronously, search for specific content, and have a reference document throughout the course.
+
+##### Presentation
+
+**Format**: The slide presentation from your live lecture or a structured presentation of key concepts.
+
+**In Quarto**: Either:
+- Export slides as static HTML for viewing in the browser
+- Include links to PDF versions of presentations
+- Create interactive HTML presentations using Quarto's reveal.js integration
+
+**Tip**: Always provide both presentation and notes. Some students learn better from visuals; others prefer reading detailed explanations.
+
+##### Tutorial
+
+**Format**: Hands-on, step-by-step guidance for applying the lecture concepts.
+
+**In Quarto**: Create interactive tutorials with:
+- Code examples (with syntax highlighting)
+- Expected outputs
+- Common mistakes to avoid
+- Practice exercises
+
+Example structure:
+```markdown
+# Tutorial: Building Your First Interactive Visualization
+
+## Prerequisites
+- Completed Lecture 1 and 2
+- R or Python installed
+
+## Step 1: Set Up Your Environment
+```
+your code here
+```
+
+## Step 2: Load Your Data
+...
+
+## Practice Exercise
+Now you try! [Exercise prompt]
+
+## Solution
+[Revealed after students attempt]
+```
+
+#### Deliverables Folder
+
+This folder organizes all student assignments, labs, participation activities, and project milestones. Each item has an associated submission window.
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: The Deliverables folder expanded in Blackboard Ultra, showing all six item types — Assignment, Lab 1, Lab 2, Participation 1, Participation 2, and Project Step — with submission due dates visible.
+
+```
+Replace with: images/ch07/bb-deliverables-folder-expanded.png
+```
+:::
+
+##### Assignment
+
+**Purpose**: The primary assessment for the module, typically demonstrating mastery of core concepts.
+
+**Structure**:
+- Prompt or problem statement
+- Submission requirements
+- Grading rubric
+- Due date with submission window
+- Optional: Example solutions or rubrics
+
+**In Quarto**: Create as a `.qmd` file with clear sections:
+
+```markdown
+# Module 3 Assignment: Data Visualization Project
+
+## Overview
+Create an interactive visualization that tells a story with data.
+
+## Requirements
+1. ...
+2. ...
+3. ...
+
+## Submission
+- Format: HTML file or link to published visualization
+- Due: [Date] by 11:59 PM ET
+- Submit via Blackboard assignment tool
+
+## Grading Rubric
+[Detailed rubric with point allocations]
+
+## Resources
+- [Link to tutorial]
+- [Link to examples]
+- [Link to tool documentation]
+```
+
+**In Blackboard**: Set up a Blackboard Assignment with:
+- Same due date and submission window
+- Link to the assignment prompt (your HTML)
+- Grading rubric embedded or linked
+- Late submission policy
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: The Blackboard Ultra assignment creation screen showing the due date field, submission window settings, rubric attachment, and the content link field where the HTML prompt URL is pasted.
+
+```
+Replace with: images/ch07/bb-assignment-creation-screen.png
+```
+:::
+
+##### Labs (2 per module)
+
+**Purpose**: Shorter, focused practice activities reinforcing specific skills.
+
+**Structure**:
+- Clear objective
+- Guided steps
+- Verification or self-check mechanism
+
+**Example Topics**:
+- Lab 1: SQL Query Practice
+- Lab 2: Debugging Common Errors
+
+**Submission**: Either in-Blackboard submission or link to external system with submission tracking.
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: A lab item open in Blackboard showing the submission area — the text box, file attachment option, and submit button the student sees.
+
+```
+Replace with: images/ch07/bb-lab-submission-view.png
+```
+:::
+
+##### Participation Activities (2 per module)
+
+**Purpose**: Engagement activities that demonstrate attendance and involvement. These might include:
+
+**Types**:
+- Discussion board posts (peer feedback)
+- Reflection prompts (metacognitive activities)
+- Peer review assignments
+- Quiz-style quick checks
+- Live session engagement recording
+
+**Structure**:
+- Clear prompt
+- Expected participation level (e.g., "1 main post + 2 peer responses")
+- Grading criteria
+- Submission deadline
+
+**In Blackboard**: Implement as:
+- Discussion board forums
+- Assignment submissions (for reflections)
+- Quiz tool (for quick checks)
+- Attendance tracking (for synchronous sessions)
+
+**Tip**: Vary participation types throughout the semester to maintain engagement and accommodate different learning styles.
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: A Blackboard Ultra discussion board showing a participation prompt with student reply threads visible (blur student names if needed).
+
+```
+Replace with: images/ch07/bb-participation-discussion-board.png
+```
+:::
+
+##### Project Steps (progressive milestones)
+
+**Purpose**: For courses with semester-long or multi-module projects, break them into manageable steps with intermediate deadlines.
+
+**Structure**:
+- Project step number (e.g., "Project Step 1: Proposal")
+- What students should submit
+- Deliverables
+- Feedback timeline
+- Submission window
+
+**Example Project Progression**:
+- Step 1: Project Proposal (Module 1)
+- Step 2: Data Analysis & Exploration (Module 3)
+- Step 3: Preliminary Results & Visualization (Module 6)
+- Step 4: Final Report & Presentation (Module 8)
+
+**Advantage**: Milestones prevent students from leaving everything until the last minute and give you multiple checkpoints to provide feedback.
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: Project step submission in Blackboard showing the milestone title, point value, due date, and the submission window with "Opens" and "Due" dates both visible.
+
+```
+Replace with: images/ch07/bb-project-step-submission-window.png
+```
+:::
+
+### Workbook Exercise: Design Your Module Structure
+
+Take time to plan your course structure before building it in Quarto and Blackboard.
+
+**Task**: Map out your course modules and components.
+
+**Step 1**: Decide how many modules you'll have and what each covers
+
+```
+Module 1: _________________________________
+Module 2: _________________________________
+Module 3: _________________________________
+[Continue for all modules]
+```
+
+**Step 2**: For each module, plan the components
+
+```
+Module 1: [Topic Name]
+├── Wrap-Up Content: [What will you overview?]
+├── Highlight Page: [What special content/case study?]
+├── Lecture 1: ___________________________
+├── Lecture 2: ___________________________
+├── Assignment: __________________________
+├── Lab 1: ________________________________
+├── Lab 2: ________________________________
+├── Participation 1: _____________________
+├── Participation 2: _____________________
+└── Project Step: _________________________
+```
+
+**Step 3**: Count total deliverables
+
+- [ ] Number of lectures: _____
+- [ ] Number of assignments: _____
+- [ ] Number of labs: _____
+- [ ] Number of participation activities: _____
+- [ ] Number of project steps: _____
+
+**Verification Checklist**:
+- [ ] All modules have defined content
+- [ ] Each module follows the consistent structure
+- [ ] Deliverable count is realistic for your course load
+- [ ] You have feedback capacity for all assessments
+- [ ] Project steps align with semester timeline (if applicable)
+
+## Creating Content in Quarto for Blackboard Deployment
+
+Now that you have your structure planned, let's set up your Quarto project to generate deployable content.
+
+### Project Organization in Quarto
+
+Create a Quarto project with folders that mirror your Blackboard structure:
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: VS Code or your editor showing the Quarto project folder tree — all `module-01/` through `module-N/` folders open with the subfolders `lecture-1/`, `lecture-2/`, and `deliverables/` visible.
+
+```
+Replace with: images/ch07/quarto-project-folder-structure.png
+```
+:::
+
+```
+your-course/
+├── _quarto.yml
+├── README.md
+├── index.qmd
+├── module-01/
+│   ├── _module01.yml
+│   ├── wrap-up.qmd
+│   ├── highlight.qmd
+│   ├── lecture-1/
+│   │   ├── lecture-notes.qmd
+│   │   ├── presentation.qmd
+│   │   └── tutorial.qmd
+│   ├── lecture-2/
+│   │   ├── lecture-notes.qmd
+│   │   ├── presentation.qmd
+│   │   └── tutorial.qmd
+│   └── deliverables/
+│       ├── assignment.qmd
+│       ├── lab-1.qmd
+│       ├── lab-2.qmd
+│       ├── participation-1.qmd
+│       ├── participation-2.qmd
+│       └── project-step-1.qmd
+├── module-02/
+│   └── [same structure]
+└── images/
+    ├── module-01/
+    ├── module-02/
+    └── [shared images]
+```
+
+### Configuration: `_quarto.yml`
+
+Set up your `_quarto.yml` to generate a website structure compatible with Blackboard:
+
+```yaml
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "*/**.qmd"
+
+website:
+  title: "Your Course Title"
+  site-url: "https://pages.github.com/your-course"
+  repo-url: "https://github.com/your-org/your-course"
+  repo-actions: [edit, issue, source]
+  
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Course Modules
+        menu:
+          - href: module-01/wrap-up.qmd
+            text: "Module 1"
+          - href: module-02/wrap-up.qmd
+            text: "Module 2"
+          - text: "---"
+          - text: Resources
+          - href: resources.qmd
+            text: Course Resources
+
+format:
+  html:
+    theme: cosmo
+    css: custom.css
+    toc: true
+    toc-depth: 3
+    code-fold: false
+    code-copy: true
+```
+
+### Rendering and Packaging for Blackboard
+
+When you're ready to deploy content to Blackboard:
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: Terminal window showing the output of `quarto render` completing successfully — progress indicators, file counts, and the final "Output created: _site/" line.
+
+```
+Replace with: images/ch07/quarto-render-terminal-output.png
+```
+:::
+
+```bash
+# Render all Quarto files to HTML
+quarto render
+
+# This creates the _site/ folder with all HTML, CSS, images, etc.
+# Now package it for Blackboard upload
+```
+
+**Creating `_site.zip`**:
+
+```bash
+# On Windows (PowerShell)
+Compress-Archive -Path _site -DestinationPath _site.zip
+
+# On macOS/Linux
+zip -r _site.zip _site/
+```
+
+### Image References: Why They Persist
+
+One important note about image links: When you reference images in your Quarto files and they're included in `_site.zip`, Blackboard will import them along with the HTML. This means your image links will continue to work because:
+
+1. **Relative paths**: If your HTML files reference images with relative paths (e.g., `../images/diagram.png`), the image hierarchy is preserved
+2. **Content collection structure**: Blackboard maintains the folder structure when you import `_site.zip`
+3. **Automatic linking**: Blackboard's content collection system updates internal references automatically
+
+**Important**: Always use relative paths in your Quarto files, not absolute URLs:
+
+❌ *Don't do this*:
+```markdown
+![Diagram](https://example.com/images/diagram.png)
+```
+
+✓ *Do this*:
+```markdown
+![Diagram](../images/diagram.png)
+```
+
+## Uploading Content to Blackboard
+
+### Initial Setup: First-Time Upload
+
+For your first deployment (after approval from Kim and orientation from Andy):
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: File Explorer (Windows) or Finder (macOS) showing the `_site/` folder and the generated `_site.zip` file side by side, with file sizes visible.
+
+```
+Replace with: images/ch07/site-zip-file-explorer.png
+```
+:::
+
+1. **Generate `_site.zip`**
+   ```bash
+   quarto render
+   Compress-Archive -Path _site -DestinationPath _site.zip
+   ```
+
+2. **Access Blackboard Content Collection**
+   - Log into your Blackboard course
+   - Go to **Course Management** → **Content Collection**
+   - Create a folder structure mirroring your modules (or follow Andy's guidance)
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: Blackboard Ultra admin panel showing the path **Course Management → Content Collection**, with the navigation breadcrumb and folder view visible.
+
+*Temporary reference*: See [Syracuse's Blackboard Ultra guide](https://answers.atlassian.syr.edu/wiki/spaces/blackboard01/pages/154387917/Blackboard+Ultra?atlOrigin=eyJpIjoiMmNlNjExNmFjNWM4NGMzMDk3M2MxODQwOTQxYjQzMzgiLCJwIjoiYyJ9) for a comparable content collection view.
+
+```
+Replace with: images/ch07/bb-content-collection-nav.png
+```
+:::
+
+3. **Upload `_site.zip`**
+   - Click **Upload Files**
+   - Select `_site.zip`
+   - Blackboard extracts the contents and maintains folder structure
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: The Blackboard "Upload Files" dialog — showing the file picker with `_site.zip` selected and the progress/confirmation screen after upload.
+
+```
+Replace with: images/ch07/bb-upload-site-zip-dialog.png
+```
+:::
+
+4. **Create Module Links**
+   - Navigate to each course module in Blackboard
+   - For each content piece, create a link pointing to the corresponding HTML file in the content collection
+   - Example: Module 1 → Click to link → navigate to `content-collection/_site/module-01/wrap-up.html`
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed** *(2 images)*:
+
+- **4a** — The "Add Content" menu in Blackboard Ultra, with "Content Collection Item" or "Web Link" option highlighted.
+- **4b** — The file picker navigating the content collection to `_site/module-01/wrap-up.html`, with the file selected.
+
+```
+Replace with:
+  images/ch07/bb-add-content-menu.png
+  images/ch07/bb-content-collection-file-picker.png
+```
+:::
+
+5. **Test All Links**
+   - Click through every link as a student would
+   - Verify images display
+   - Verify any embedded videos or interactive content work
+   - Test on multiple browsers
+
+6. **Review with Andy**
+   - Demonstrate the working course to Andy
+   - Make any adjustments he recommends
+   - Get approval before launching to students
+
+### Subsequent Updates: Semester Deployment
+
+After your initial setup, updating content becomes straightforward:
+
+::: {.callout-note appearance="minimal"}
+**Screenshot needed**: Side-by-side of the content collection folder *before* and *after* re-uploading `_site.zip` — showing the "Date Modified" column updating to the new timestamp while links in Blackboard remain unchanged.
+
+```
+Replace with: images/ch07/bb-content-collection-before-after-update.png
+```
+:::
+
+1. **Make Changes in Quarto**
+   ```
+   Edit .qmd files as needed
+   ```
+
+2. **Render and Package**
+   ```bash
+   quarto render
+   Compress-Archive -Path _site -DestinationPath _site.zip
+   ```
+
+3. **Upload New `_site.zip`**
+   - Go to Blackboard **Content Collection**
+   - Choose **Upload Files** and select your new `_site.zip`
+   - Blackboard replaces old files with updated versions
+   - Existing links automatically point to the updated content
+
+**Important Caveat**: This replacement process works perfectly for content files (lectures, tutorials, materials). However, if you're changing your module structure (adding/removing modules, reordering sections), you'll need to create new links or adjust existing ones in Blackboard. This is why the initial setup with Andy is critical—lock in your structure before the semester starts.
+
+### Workbook Exercise: Prepare Your First Deployment
+
+**Task**: Package your Quarto content for deployment.
+
+**Step 1**: Verify your Quarto project structure
+
+```bash
+# Navigate to your course folder
+cd /path/to/your-course
+
+# List contents to verify structure
+Get-ChildItem -Recurse -Filter "*.qmd" | Select-Object FullName
+```
+
+**Step 2**: Render all content
+
+```bash
+# Render your Quarto project
+quarto render
+
+# Verify _site folder was created
+Test-Path _site
+```
+
+**Step 3**: Create deployment package
+
+```bash
+# Create _site.zip
+Compress-Archive -Path _site -DestinationPath _site.zip -Force
+
+# Verify the archive was created
+Get-Item _site.zip | Select-Object Name, Length
+```
+
+**Step 4**: Prepare deployment checklist
+
+- [ ] Quarto project renders without errors
+- [ ] All `.qmd` files convert to `.html` successfully
+- [ ] Images and assets included in `_site/`
+- [ ] `_site.zip` created successfully
+- [ ] File size is reasonable (typically 50MB-500MB depending on content)
+- [ ] All internal links use relative paths (not absolute URLs)
+
+**Step 5**: Documentation for Andy
+
+Create a brief document for your Blackboard administrator:
+
+> **Course**: _________________________________
+> **Number of modules**: _____
+> **Total files in package**: _____
+> **Approximate size**: _____
+> **Deployment date**: _________________________________
+> **Special requirements or notes**: _________________________________
+
+## Best Practices for Quarto + Blackboard Integration
+
+### File Naming Conventions
+
+Use clear, consistent naming that makes sense in both Quarto file systems and Blackboard:
+
+✓ *Good*:
+- `module-01-intro.qmd`
+- `lecture-1-foundations.qmd`
+- `assignment-project-proposal.qmd`
+- `lab-01-sql-basics.qmd`
+
+❌ *Avoid*:
+- `module1.qmd`
+- `lecture.qmd`
+- `assignment.qmd`
+- `lab.qmd`
+
+### URL/Link Strategy
+
+When creating cross-links in your course materials:
+
+**Linking within Blackboard**: Use relative paths that Blackboard can resolve:
+```markdown
+See [this tutorial](../lecture-1/tutorial.html)
+```
+
+**Linking to external resources**: Use full URLs:
+```markdown
+Check out [this guide](https://example.com/guide)
+```
+
+**Linking to assignments**: Reference Blackboard assignment links:
+```markdown
+Submit your work via [this Blackboard assignment link](https://blackboard.bu.edu/webapps/assignment/...)
+```
+
+### Maintenance During the Semester
+
+**Content Updates Without Redeployment**:
+- Small text corrections: Fix in Quarto, render, and re-upload `_site.zip`
+- Broken links: Test regularly, fix in Quarto, re-render
+- Typos in assignments: Fix immediately and update within 24 hours
+
+**When NOT to Re-upload `_site.zip`**:
+- After students have already submitted work on an assignment (the submission date might change if Blackboard refreshes)
+- If you're only updating one file (upload it individually instead)
+- During peak submission periods (upload during off-hours to avoid conflicts)
+
+**Communication with Students**:
+- If you make significant content changes, post an announcement: "Updated Module 3 lecture notes—please review the latest version"
+- Include version numbers in assignment prompts: "Submit your response to Assignment 3 (v1.1)"
+
+### Disaster Recovery and Rollback
+
+Because your Quarto files are in version control (Git):
+
+1. **Keep previous deployments**: Don't delete old `_site.zip` files
+2. **Tag stable versions**: In Git, tag releases after successful deployments
+   ```bash
+   git tag -a v1.0-spring-2026 -m "Spring 2026 course - first deployment"
+   ```
+3. **Rollback if needed**: If something breaks, restore from the previous version:
+   ```bash
+   git checkout v1.0-spring-2026
+   quarto render
+   Compress-Archive -Path _site -DestinationPath _site.zip
+   # Upload the previous version to Blackboard
+   ```
+
+## Reference Documentation: Official Resources
+
+### Boston University Blackboard Resources
+
+- **Blackboard Support at BU**: Contact your school's IT department or Blackboard support
+- **For this specific workflow**: Reach out to:
+  - **Kim Crosta** (Course Approval): kim.crosta@bu.edu
+  - **Andy** (Blackboard Technical Setup): [Contact through BU Blackboard support]
+
+### External Blackboard Resources
+
+**Syracuse University Module Generation Guide**:
+- [Blackboard Ultra Module Generation](https://answers.atlassian.syr.edu/wiki/spaces/blackboard01/pages/154387917/Blackboard+Ultra?atlOrigin=eyJpIjoiMmNlNjExNmFjNWM4NGMzMDk3M2MxODQwOTQxYjQzMzgiLCJwIjoiYyJ9)
+- Provides general Blackboard Ultra best practices that apply to BU's configuration
+
+**Lesley University Blackboard Quick Start**:
+- [Blackboard Ultra Course View Faculty Quick Start Guide](https://support.lesley.edu/support/solutions/articles/4000185843-blackboard-ultra-course-view-faculty-quick-start-guide)
+- Another institution's approach to course organization in Blackboard Ultra
+
+### Quarto for Education
+
+- [Quarto Official Documentation](https://quarto.org)
+- [Quarto for Teaching](https://quarto.org/docs/websites/publishing.html)
+- [Creating Quarto Websites](https://quarto.org/docs/websites/)
+
+## Workbook Checklist: Complete Blackboard Ultra Integration
+
+Use this comprehensive checklist to ensure you're ready for deployment:
+
+### Phase 1: Planning & Approval
+- [ ] Determined number of modules in your course
+- [ ] Mapped module structure and components
+- [ ] Contacted Kim Crosta with course plan
+- [ ] Received approval for Quarto approach
+- [ ] Scheduled meeting with Andy
+- [ ] Presented structure to Andy
+- [ ] Completed trial deployment with Andy's assistance
+
+### Phase 2: Quarto Project Setup
+- [ ] Created Quarto project with folder structure
+- [ ] Configured `_quarto.yml` for website output
+- [ ] Created template files for each module component
+- [ ] Populated all content files (.qmd)
+- [ ] Verified all images use relative paths
+- [ ] Tested Quarto rendering: `quarto render` succeeds
+- [ ] All HTML files generate correctly
+- [ ] Spot-checked rendered HTML for formatting
+
+### Phase 3: Content Preparation
+- [ ] Wrote wrap-up content for each module
+- [ ] Created highlight pages (special content)
+- [ ] Developed lecture notes (all lectures)
+- [ ] Prepared presentations (all lectures)
+- [ ] Created tutorials with practice exercises
+- [ ] Wrote assignment prompts with rubrics
+- [ ] Designed labs with clear objectives
+- [ ] Planned participation activities
+- [ ] Outlined project steps (if applicable)
+
+### Phase 4: Packaging & First Deployment
+- [ ] Generated `_site.zip` from Quarto
+- [ ] Verified archive contains all files
+- [ ] Uploaded `_site.zip` to Blackboard content collection
+- [ ] Created module structure in Blackboard
+- [ ] Linked all content files in Blackboard modules
+- [ ] Tested all links as student view
+- [ ] Verified images display correctly
+- [ ] Tested on multiple browsers
+- [ ] Demonstrated working course to Andy
+- [ ] Received final approval for student access
+
+### Phase 5: Ongoing Management
+- [ ] Established schedule for content updates
+- [ ] Documented version control workflow
+- [ ] Created backup/rollback procedures
+- [ ] Informed students of update schedule
+- [ ] Monitored for broken links (weekly)
+- [ ] Updated content as semester progresses
+- [ ] Re-deployed `_site.zip` for major updates
+- [ ] Communicated changes to students
+
+### Documentation
+- [ ] Created README explaining course structure
+- [ ] Documented file naming conventions
+- [ ] Created update procedures for teammates (if applicable)
+- [ ] Maintained version history in Git
+- [ ] Tagged stable deployments in Git
+
+## Troubleshooting Common Issues
+
+### Problem: Links Break After Uploading to Blackboard
+
+**Cause**: Absolute URLs in Quarto files or incorrect relative paths
+
+**Solution**:
+- Check all image and link references in your `.qmd` files
+- Use relative paths: `../images/logo.png` not `/images/logo.png`
+- Update any absolute URLs to relative paths
+- Re-render and re-upload
+
+### Problem: Images Don't Display in Blackboard
+
+**Cause**: Images not included in `_site/` folder or path references are wrong
+
+**Solution**:
+- Ensure images are in a subfolder of your Quarto project (e.g., `images/`)
+- Verify Quarto rendering includes images in `_site/`
+- Check that `_site.zip` includes image files
+- Verify relative paths in HTML match actual image locations
+
+### Problem: Content Collection Upload Fails
+
+**Cause**: File size too large or connection interrupted
+
+**Solution**:
+- If `_site.zip` is very large (>1GB), compress images
+  ```bash
+  # Reduce image quality in Quarto with CSS
+  img { max-width: 100%; height: auto; }
+  ```
+- Try uploading individual files instead of `_site.zip`
+- Contact Andy if technical issues persist
+
+### Problem: Students See Old Content After Re-upload
+
+**Cause**: Browser caching
+
+**Solution**:
+- Instruct students to clear browser cache or use Ctrl+Shift+Delete
+- Use browser-specific cache-busting in `_quarto.yml`
+- Announce updates in course announcements
+
+### Problem: Module Structure Changes Required Mid-Semester
+
+**Cause**: Didn't lock structure with Andy before launch
+
+**Solution**:
+- Contact Andy before making structural changes
+- Update both Quarto and Blackboard simultaneously
+- Communicate changes to students
+- Test thoroughly before making live
+
+## Summary: Mastering Quarto + Blackboard Integration
+
+You've learned how to:
+
+1. **Navigate the setup process**: Working with Kim Crosta and Andy before deploying
+2. **Design course structure**: Creating consistent, manageable module organization
+3. **Author in Quarto**: Creating professional, maintainable course materials
+4. **Deploy to Blackboard**: Packaging and uploading content for student access
+5. **Manage updates**: Keeping content current throughout the semester
+6. **Troubleshoot**: Solving common integration issues
+
+The power of this approach is that you're maintaining a professional, version-controlled course that produces beautiful HTML and integrates seamlessly with Blackboard. Your students get a polished experience, you have a single source of truth for your content, and updates become simple batch operations rather than manual file-by-file changes.
+
+## Knowledge Check: Verify Your Understanding
+
+1. **Explain the role of the content collection in Blackboard**:
+   
+   > _________________________________
+
+2. **Why is it important to approve your Quarto structure with Kim Crosta before deploying?**
+   
+   > _________________________________
+
+3. **What are the three components in each lecture folder, and what's their purpose?**
+   
+   > _________________________________
+
+4. **How do you prepare your Quarto project for deployment to Blackboard?**
+   
+   > _________________________________
+
+5. **What happens to images when you upload `_site.zip` to Blackboard?**
+   
+   > _________________________________
+
+6. **What should you do if you need to make structural changes after the course starts?**
+   
+   > _________________________________
+
+## Next Steps
+
+Ready to implement this workflow?
+
+1. **Schedule with Kim Crosta** to discuss your Quarto approach
+2. **Plan your module structure** using the workbook exercise above
+3. **Set up your Quarto project** with the directory structure provided
+4. **Create template files** for each component type
+5. **Schedule trial deployment** with Andy
+6. **Gather student feedback** on the experience
+7. **Document your lessons learned** for next semester
+
+This integration represents a professional approach to course management that scales beautifully across multiple semesters and teaching contexts. Your students will appreciate the polished, consistent presentation, and you'll appreciate the efficiency of managing your course through version control.

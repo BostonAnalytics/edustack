@@ -11,7 +11,8 @@ To achieve this, the book is organized into several core skill domains that buil
 Before creating any course materials or writing your first Quarto document, you will learn how to properly set up your development environment. This chapter guides you through installing and configuring:
 
 - Git, Git LFS, Github CLI, and GitHub
-- Antigravity IDE (Google’s VS Code–based environment with agents and extensions)
+- VS Code, Antigravity, or Cursor as the primary IDE
+- GitHub Copilot for inline code support and chat-based authoring help
 - Quarto CLI
 - Python 3.12
   - virtual environments
@@ -19,7 +20,9 @@ Before creating any course materials or writing your first Quarto document, you 
   - pandas, numpy, openpyxl, and matplotlib
 - R, RTools (Windows), and renv
 - Pandoc and Graphviz
-- Core Antigravity plugins for Jupyter, Quarto, Python, and remote development
+- Core VS Code / Antigravity extensions for Jupyter, Quarto, Python, and remote development
+- OpenAI / ChatGPT-connected coding tools where available in VS Code and Antigravity
+- Gemini connections and API workflows for automating course-production tasks
 
 By the end of this section, you will have a fully functional authoring environment where Quarto, Git, and Blackboard workflows run reliably.
 
@@ -101,6 +104,8 @@ By progressing through the chapters, you will develop the ability to:
 
 * Build, maintain, and publish an entire course website
 * Use version control confidently and professionally
+* Use GitHub Classroom to distribute and review coding assignments
+* Use GitHub Copilot and editor-based AI tools to speed up course preparation
 * Write reproducible, portable instructional materials
 * Integrate your website into a university LMS
 * Maintain a clean, scalable course development workflow

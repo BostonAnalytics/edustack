@@ -1774,7 +1774,7 @@
     "href": "04_creating_excel.html",
     "title": "5  Designing the Course Feeder Workbook",
     "section": "",
-    "text": "5.1 Workbook Overview\nThis chapter defines the standard feeder Excel workbook used to generate a complete Quarto-based course website. The workbook separates course content, delivery logistics, and grading structure into three clearly defined sheets.\nThis separation is intentional:\nThe feeder workbook must contain three sheets:\nOnly the first sheet is typically AI-generated. The other two are usually human-authored (or lightly assisted).",
+    "text": "5.1 Workbook Overview\nThis chapter defines the standard feeder Excel workbook used to generate a complete Quarto-based course website. The workbook separates course content, delivery logistics, and grading structure into clearly defined sheets.\nThis separation is intentional: * It mirrors how universities think about courses. * It allows partial automation with AI. * It prevents accidental coupling between pedagogy and logistics.\nBased on the official benchmark (Course-Schedule.xlsx), the feeder workbook contains several essential sheets. The primary ones you will interact with are:\n(Other supplementary sheets like Calendar, Day List, and Deliverables are used for mapping out specific term dates and schedules).",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Creating Excel Files</span>"
     ]
@@ -1784,7 +1784,7 @@
     "href": "04_creating_excel.html#workbook-overview",
     "title": "5  Designing the Course Feeder Workbook",
     "section": "",
-    "text": "Sheet Name\nPurpose\n\n\n\n\ncourse_details\nWhat is taught (modules, lectures, topics)\n\n\nsections\nHow and when it is taught\n\n\ngrading\nHow students are evaluated",
+    "text": "Sheet Name\nPurpose\n\n\n\n\nCourse Details\nWhat is taught (modules, lectures, topics)\n\n\nSections\nHow and when it is taught\n\n\nGrade\nHow students are evaluated",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Creating Excel Files</span>"
     ]
@@ -1803,8 +1803,8 @@
     "objectID": "04_creating_excel.html#sheet-2-sections-delivery-logistics",
     "href": "04_creating_excel.html#sheet-2-sections-delivery-logistics",
     "title": "5  Designing the Course Feeder Workbook",
-    "section": "5.3 Sheet 2 — sections (Delivery Logistics)",
-    "text": "5.3 Sheet 2 — sections (Delivery Logistics)\n\n5.3.1 Purpose\nThis sheet captures when and by whom the course is delivered. It is never used to generate .qmd files, but is used for:\n\nSyllabus tables\nSchedule pages\nAdministrative exports\n\n\n\n5.3.2 Required Columns\n\n\n\nColumn\nDescription\n\n\n\n\nSection\nSection identifier (e.g., A1, B1)\n\n\nTitle\nCourse title\n\n\nInstructor\nInstructor name\n\n\nDay\nDay of week\n\n\nTime\nStart time\n\n\n\n\n\n5.3.3 Blank Template\nSection | Title | Instructor | Day | Time\nA1 |  |  |  | \nThis is intentionally manual-first.",
+    "section": "5.3 Sheet 2 — Sections (Delivery Logistics)",
+    "text": "5.3 Sheet 2 — Sections (Delivery Logistics)\n\n5.3.1 Purpose\nThis sheet captures when and by whom the course is delivered. It is used for syllabus generation and schedule pages.\n\n\n5.3.2 Required Columns\n\n\n\nColumn\nDescription\n\n\n\n\nSection\nSection identifier (e.g., A1, B1)\n\n\nLocation\nClassroom or Zoom link\n\n\nInstructor\nInstructor name\n\n\nEmail @ bu\nInstructor’s BU email\n\n\nDay\nDay of week\n\n\nTime\nStart and end time",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Creating Excel Files</span>"
     ]
@@ -2567,6 +2567,126 @@
     "text": "8.5 importing relevant data from .xlsx files",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Automating with AI</span>"
+    ]
+  },
+  {
+    "objectID": "04_creating_excel.html#sheet-1-course-details-core-content-sheet",
+    "href": "04_creating_excel.html#sheet-1-course-details-core-content-sheet",
+    "title": "5  Designing the Course Feeder Workbook",
+    "section": "5.2 Sheet 1 — Course Details (Core Content Sheet)",
+    "text": "5.2 Sheet 1 — Course Details (Core Content Sheet)\n\n5.2.1 Purpose\nThis sheet defines the academic structure of the course. It is the only sheet required to generate Lecture Notes, Presentations, Labs, and Assignments using our Quarto workflow.\n\n\n5.2.2 Required Columns\nThe Course Details sheet must contain exactly the following columns:\n\n\n\nColumn\nDescription\n\n\n\n\nModules\nModule identifier (e.g. Module 0, Module 1)\n\n\nLecture\nLecture identifier (e.g. L0.1, L1.1)\n\n\nTitle\nLecture title\n\n\nDescription\nOne–two paragraph description\n\n\nOnline\nTRUE / FALSE or blank\n\n\nOn-Campus\nTRUE / FALSE or blank\n\n\n\n\n\n5.2.3 Example Rows\n\n\n\n\n\n\n\n\n\n\n\nModules\nLecture\nTitle\nDescription\nOnline\nOn-Campus\n\n\n\n\nModule 0\nL0.1\nGitHub Education and Student Account Creations\nGitHub, Github Classrooms; Jupyter Notebooks, Quarto overview.\n\n\n\n\nModule 1\nL1.1\nIntroduction to Big Data and Cloud\nCourse logistics, terminology, development setups.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Creating Excel Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_creating_excel.html#sheet-3-grade-evaluation-structure",
+    "href": "04_creating_excel.html#sheet-3-grade-evaluation-structure",
+    "title": "5  Designing the Course Feeder Workbook",
+    "section": "5.4 Sheet 3 — Grade (Evaluation Structure)",
+    "text": "5.4 Sheet 3 — Grade (Evaluation Structure)\n\n5.4.1 Purpose\nThis sheet defines the grading logic independently of content. It supports automatic syllabus grading tables.\n\n\n5.4.2 Required Columns (Key Elements)\n\n\n\nColumn\nDescription\n\n\n\n\nDeliverables\nCategory name (e.g. Class Activity, Assignments)\n\n\nCount_norman\nNumber of items\n\n\nMax_Points\nMax points per item or category",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Creating Excel Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_creating_excel.html#automating-the-workbook-generation",
+    "href": "04_creating_excel.html#automating-the-workbook-generation",
+    "title": "5  Designing the Course Feeder Workbook",
+    "section": "5.5 Automating the Workbook Generation",
+    "text": "5.5 Automating the Workbook Generation\nInstead of creating this Excel file by hand, you can use a Python script to automatically generate a blank template populated with these exact sheets and columns. This ensures you never have a typo in a column name that breaks the downstream Quarto generators.\n\n5.5.1 Workbook Generator Script\nCreate a file named generate_workbook.py and run it to produce a pristine Course-Schedule.xlsx file ready for you to fill in:\nimport pandas as pd\n\ndef generate_blank_workbook(filename=\"Course-Schedule.xlsx\"):\n    # Define the sheets and their exact columns\n    sheets = {\n        \"Course Details\": [\"Modules\", \"Lecture\", \"Title\", \"Description\", \"Online\", \"On-Campus\"],\n        \"Sections\": [\"Section\", \"Location\", \"Instructor\", \"Email @ bu\", \"Day\", \"Time\"],\n        \"Grade\": [\"Deliverables\", \"Count_norman\", \"Max_Points\", \"Class Activity\", \"Count\", \"Points\", \"Max Points\"],\n        \"Day List\": [\"A1\", \"A2\", \"A3\"],\n        \"Calendar\": [\"Term\", \"First Name\", \"Last Name\", \"BU email\", \"Weekday\", \"Time\", \"W01D1\", \"W02D1\"],\n        \"Deliverables\": [\"Term\", \"Deliverable type\", \"Weekday\", \"W01D6\", \"W02D6\"]\n    }\n\n    with pd.ExcelWriter(filename, engine='openpyxl') as writer:\n        for sheet_name, columns in sheets.items():\n            # Create an empty dataframe with the exact columns\n            df = pd.DataFrame(columns=columns)\n            \n            # For Course Details, we can optionally add a couple of blank module rows as a starter\n            if sheet_name == \"Course Details\":\n                df.loc[0] = [\"Module 0\", \"L0.1\", \"\", \"\", \"\", \"\"]\n                df.loc[1] = [\"Module 0\", \"L0.2\", \"\", \"\", \"\", \"\"]\n                \n            df.to_excel(writer, sheet_name=sheet_name, index=False)\n            \n    print(f\"✅ Successfully generated {filename} with all required sheets.\")\n\nif __name__ == \"__main__\":\n    generate_blank_workbook()",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Creating Excel Files</span>"
+    ]
+  },
+  {
+    "objectID": "04_creating_excel.html#ai-automation-optional",
+    "href": "04_creating_excel.html#ai-automation-optional",
+    "title": "5  Designing the Course Feeder Workbook",
+    "section": "5.6 AI Automation (Optional)",
+    "text": "5.6 AI Automation (Optional)\nOnce your Course Details sheet is generated, and you have filled in the Modules and Lecture columns, you can use the AI Metadata Scripts discussed in Chapter 8 (Automating with AI) to automatically populate the Title and Description columns using OpenAI or Gemini!",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Creating Excel Files</span>"
+    ]
+  },
+  {
+    "objectID": "06_github_classroom.html",
+    "href": "06_github_classroom.html",
+    "title": "7  GitHub Classroom",
+    "section": "",
+    "text": "8 Administering Coursework with GitHub Classroom\nAs you transition to a reproducible, version-controlled authoring workflow using Quarto and GitHub, managing student assignments becomes the next logical challenge. Traditional Learning Management Systems (LMS) like Blackboard are excellent for delivering content, but they can be cumbersome when distributing code templates, grading programming assignments, or managing student collaboration.\nThis is where GitHub Classroom shines. GitHub Classroom is a teaching tool designed to bridge the gap between professional version control and academic assignment management. By integrating GitHub Classroom into your course workflow, you can automate repository creation, distribute starter code seamlessly, and even implement autograding.\n(Placeholder: Add a screenshot of a GitHub Classroom dashboard here)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>GitHub Classroom</span>"
+    ]
+  },
+  {
+    "objectID": "06_github_classroom.html#core-features-for-educators",
+    "href": "06_github_classroom.html#core-features-for-educators",
+    "title": "7  GitHub Classroom",
+    "section": "8.1 Core Features for Educators",
+    "text": "8.1 Core Features for Educators\nGitHub Classroom offers several powerful features that simplify the teaching and learning experience, making it the perfect companion for a Quarto-based course.\n\n8.1.1 1. Template Repositories\nThe Quarto framework we established earlier involves generating a specific directory structure (M0, M1) with predefined lecture notes, labs, and assignment files (_A.qmd, _Proj.qmd). With GitHub Classroom, you can turn these generated directories into template repositories.\nWhen you create an assignment, you can link it to your template repository. GitHub Classroom will then automatically generate a private, boilerplate repository for every student (or group) who accepts the assignment. This ensures every student starts with the exact same file structure and Quarto configurations.\n (Placeholder: Add a screenshot showing the assignment creation screen with a template repository selected)\n\n\n8.1.2 2. Autograding\nFor courses that involve programming or reproducible data analysis, grading can be incredibly time-consuming. GitHub Classroom allows you to configure automated tests that run every time a student pushes a commit to their assignment repository.\nUsing GitHub Actions under the hood, these autograding scripts can check for syntax errors, verify that a Quarto document compiles correctly, or validate the output of a data analysis script.\n\n\n8.1.3 3. Feedback Pull Requests\nInstead of downloading zipped folders of student code from Blackboard, GitHub Classroom can automatically open a Feedback Pull Request in every student’s assignment repository. This allows you, or your teaching assistants, to leave line-by-line comments directly on the student’s code, mimicking a professional code review process.\n\n\n8.1.4 4. LMS Integration\nWhile we are using Blackboard Ultra as the primary content delivery platform, GitHub Classroom can connect directly to your LMS. By linking your Blackboard course to your GitHub Classroom, you can import your student roster directly. This ensures that every GitHub account is mapped to a specific student ID, preventing the common headache of figuring out which anonymous GitHub handle belongs to which student.\n (Placeholder: Add a screenshot of the roster sync feature linking GitHub to an LMS)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>GitHub Classroom</span>"
+    ]
+  },
+  {
+    "objectID": "06_github_classroom.html#integrating-classroom-with-your-quarto-workflow",
+    "href": "06_github_classroom.html#integrating-classroom-with-your-quarto-workflow",
+    "title": "7  GitHub Classroom",
+    "section": "8.2 Integrating Classroom with Your Quarto Workflow",
+    "text": "8.2 Integrating Classroom with Your Quarto Workflow\nTo implement GitHub Classroom effectively in this framework, consider the following workflow for each module:\n\nGenerate the Module: Use your module generation script (e.g., generate_modules.py) to create the M0 folder and its _Lab1.qmd or _A.qmd files.\nAuthor the Assignment: Write the assignment instructions and provide any starter data inside the data/ folder.\nCreate the Template: Push this module folder to a dedicated GitHub repository and mark it as a “Template Repository” in the repository settings.\nPublish the Assignment: In GitHub Classroom, create a new assignment, select your template repository, and generate an invitation link.\nPost to Blackboard: Finally, take the GitHub Classroom invitation link and embed it directly into your Blackboard Ultra learning module.\n\nWhen students click the link in Blackboard, they will be taken to GitHub Classroom, where their personal, version-controlled Quarto workspace will be instantly generated. This workflow completely eliminates the friction of file distribution and empowers students to work in the same professional environments they will use in their careers.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>GitHub Classroom</span>"
+    ]
+  },
+  {
+    "objectID": "08_automating_with_AI.html",
+    "href": "08_automating_with_AI.html",
+    "title": "9  Automating with AI",
+    "section": "",
+    "text": "10 Supercharging Course Production with GitHub Copilot & AI Tools\nAs an educator building out reproducible courses with Quarto, you are inherently writing code. Whether it is Markdown for lecture notes, Python or R for your data analysis labs, or simply writing Python scripts to automate your directory structures, you are functioning as a developer.\nTo assist you in this endeavor, GitHub Copilot serves as an indispensable AI pair programmer. Copilot is integrated directly into your IDE (like Antigravity or VS Code) and provides real-time autocomplete suggestions, conversational assistance, and code generation.\n(Placeholder: Add an animated GIF or screenshot of Copilot suggesting code in VS Code)",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Automating with AI</span>"
+    ]
+  },
+  {
+    "objectID": "08_automating_with_AI.html#copilot-for-course-organization-scripts",
+    "href": "08_automating_with_AI.html#copilot-for-course-organization-scripts",
+    "title": "9  Automating with AI",
+    "section": "10.1 Copilot for Course Organization Scripts",
+    "text": "10.1 Copilot for Course Organization Scripts\nOne of the most powerful uses of Copilot is automating the tedious parts of course administration.\nFor instance, consider the requirement of generating a consistent module structure (M0, M1) complete with boilerplate Quarto files for Lecture Notes, Labs, and Assignments. Instead of writing this entire generation script from scratch, you can provide Copilot with a prompt outlining your needs:\n\n“Write a Python script that generates directories named M0 through M7. Inside each directory, create the following empty Quarto files: _LN1.qmd, _LN2.qmd, _P1.qmd, _P2.qmd, _Lab1.qmd, _Lab2.qmd, _A.qmd, _Proj.qmd, _Part1.qmd, and _Part2.qmd.”\n\nCopilot will swiftly generate a generate_modules.py script that perfectly matches your requirements.\n\n10.1.1 The Module Generation Script\nIf you don’t want to use Copilot to generate it, you can simply copy the script below. Create a file named generate_modules.py in your project root, paste the following code, and run it via terminal (python generate_modules.py):\nimport os\nimport sys\nimport shutil\n\nNUM_MODULES = 8  # M0 - M7\n\ndef load_course_title(base_path):\n    config_path = os.path.join(base_path, \".course_config.env\")\n    if not os.path.exists(config_path):\n        return \"\"\n\n    with open(config_path, \"r\", encoding=\"utf-8\") as f:\n        for line in f:\n            line = line.strip()\n            if not line or line.startswith(\"#\") or \"=\" not in line:\n                continue\n            key, value = line.split(\"=\", 1)\n            if key.strip() == \"COURSE_TITLE\":\n                return value.strip().strip('\"').strip(\"'\")\n    return \"\"\n\ndef make_qmd(path, title):\n    with open(path, \"w\", encoding=\"utf-8\") as f:\n        f.write(f\"---\\ntitle: \\\"{title}\\\"\\n---\\n\\n# {title}\\n\")\n\ndef main():\n    base_path = sys.argv[1] if len(sys.argv) &gt; 1 else \".\"\n    base_path = os.path.abspath(base_path)\n\n    if not os.path.isdir(base_path):\n        print(f\"❌ Path does not exist: {base_path}\")\n        sys.exit(1)\n\n    force_reset = \"--force\" in sys.argv\n    print(f\"📂 Using project root: {base_path}\")\n    course_title = load_course_title(base_path)\n\n    for i in range(NUM_MODULES):\n        module = f\"M{i}\"\n        module_path = os.path.join(base_path, module)\n\n        if os.path.exists(module_path) and not force_reset:\n            print(f\"❌ Module folder already exists: {module_path}\")\n            print(\"👉 Run with --force to overwrite everything.\")\n            sys.exit(1)\n\n        if force_reset and os.path.isdir(module_path):\n            shutil.rmtree(module_path)\n\n        os.makedirs(module_path, exist_ok=True)\n\n        qmd_files = {\n            \"Lecture Note 1\": f\"{module}_LN1.qmd\",\n            \"Lecture Note 2\": f\"{module}_LN2.qmd\",\n            \"Presentation 1\": f\"{module}_P1.qmd\",\n            \"Presentation 2\": f\"{module}_P2.qmd\",\n            \"Lab 1\": f\"{module}_Lab1.qmd\",\n            \"Lab 2\": f\"{module}_Lab2.qmd\",\n            \"Assignment\": f\"{module}_A.qmd\",\n            \"Project\": f\"{module}_Proj.qmd\",\n            \"Participation 1\": f\"{module}_Part1.qmd\",\n            \"Participation 2\": f\"{module}_Part2.qmd\",\n        }\n\n        for label, fname in qmd_files.items():\n            file_path = os.path.join(module_path, fname)\n            page_title = course_title if course_title else f\"{module} {label}\"\n            make_qmd(file_path, page_title)\n\n        os.makedirs(os.path.join(module_path, \"data\"), exist_ok=True)\n        os.makedirs(os.path.join(module_path, f\"{module}_lecture01_figures\"), exist_ok=True)\n        os.makedirs(os.path.join(module_path, f\"{module}_lecture02_figures\"), exist_ok=True)\n        os.makedirs(os.path.join(module_path, \"output\"), exist_ok=True)\n\n    print(\"✅ All module folders and QMD skeletons generated.\")\n\nif __name__ == \"__main__\":\n    main()",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Automating with AI</span>"
+    ]
+  },
+  {
+    "objectID": "08_automating_with_AI.html#automating-metadata-with-llms-openai-gemini",
+    "href": "08_automating_with_AI.html#automating-metadata-with-llms-openai-gemini",
+    "title": "9  Automating with AI",
+    "section": "10.2 Automating Metadata with LLMs (OpenAI / Gemini)",
+    "text": "10.2 Automating Metadata with LLMs (OpenAI / Gemini)\nBeyond structural generation, you can use large language models (LLMs) via APIs to automatically populate the YAML metadata in your Quarto files. For example, a script can read your course outline (an Excel or CSV file) and prompt an AI to generate SEO-friendly keywords and summaries for each lecture note.\n\n10.2.1 Setting up API Keys (.env)\nBefore running API-dependent scripts, you must securely store your API keys. Never hardcode your keys into your Python scripts or commit them to GitHub. Instead, use a .env file.\nCreate a file named .env in the root of your project directory and add the following placeholder keys. Replace your_... with your actual keys.\n# .env\n\n# OpenAI API Key (Required for GPT-4 integrations)\nOPENAI_API_KEY=\"your_openai_api_key_here\"\n\n# Gemini API Key (Required if you use Google's models instead)\nGEMINI_API_KEY=\"your_gemini_api_key_here\"\n\n[!WARNING] Ensure your .gitignore file contains the line .env so your keys are not accidentally uploaded to your GitHub repository!\n\n\n\n10.2.2 The Metadata Population Script\nOnce your keys are configured, you can use the following script to automatically fill in the YAML frontmatter for your .qmd files. This script uses the OpenAI API to generate keywords and a short summary based on a provided CSV outline.\nSave this file as file_qmd_metadata.py:\nimport os\nimport sys\nimport pandas as pd\nfrom datetime import date\nimport openai \nimport random\nfrom dotenv import load_dotenv\n\n# Load the keys from our .env file!\nload_dotenv()\n\ndef generate_ai_content(title, subtitle, description, use_openai=True):\n    keywords = [\"Cloud\", \"Big Data\", \"Analytics\", \"Computing\"]\n    summary = description if description else \"Short description.\"\n    \n    if use_openai and \"OPENAI_API_KEY\" in os.environ:\n        try:\n            openai.api_key = os.getenv(\"OPENAI_API_KEY\")\n            prompt = f\"Generate 4 keywords and a 2-line summary for:\\nTitle: {title}\\nSubtitle: {subtitle}\\nDescription: {description}\"\n            resp = openai.ChatCompletion.create(\n                model=\"gpt-4o-mini\",\n                messages=[{\"role\": \"user\", \"content\": prompt}],\n                max_tokens=150,\n                temperature=0.7\n            )\n            text = resp[\"choices\"][0][\"message\"][\"content\"].strip()\n            parts = text.split(\"\\n\")\n            keywords = parts[0].replace(\"Keywords:\", \"\").split(\",\") if parts else keywords\n            summary = \" \".join(parts[1:]) if len(parts) &gt; 1 else summary\n        except Exception as e:\n            print(f\"⚠️ AI generation failed, using defaults: {e}\")\n    else:\n        words = title.split()\n        keywords = random.sample(words, min(4, len(words)))\n        summary = description[:150] if description else \"Short description.\"\n    \n    return [kw.strip() for kw in keywords], summary\n\n# Helper functions omitted for brevity (e.g. get_row_value, load_course_title)\n\ndef write_yaml(file_path, row, course_title=\"\"):\n    title = row.get(\"Title\", \"Course Content\")\n    subtitle = row.get(\"Subtitle\", \"\")\n    desc = row.get(\"Description\", \"\")\n    \n    keywords, summary = generate_ai_content(title, subtitle, desc)\n\n    yaml_lines = [\n        \"---\",\n        f'title: \"{title}\"',\n        f'subtitle: \"{subtitle}\"',\n        \"number-sections: true\",\n        f'date: \"{date.today()}\"',\n        f'categories: {keywords}',\n        f'description: \"{summary}\"',\n        \"---\"\n    ]\n\n    with open(file_path, \"w\", encoding=\"utf-8\") as f:\n        f.write(\"\\n\".join(yaml_lines) + \"\\n\")\n    print(f\"✅ Filled {file_path}\")\n\ndef main():\n    if len(sys.argv) &lt; 2:\n        print(\"Usage: python file_qmd_metadata.py &lt;outline.csv&gt;\")\n        sys.exit(1)\n\n    input_file = sys.argv[1]\n    df = pd.read_csv(input_file)\n    \n    for _, row in df.iterrows():\n        module = row.get(\"Module\")\n        filetype = row.get(\"FileType\")\n        fpath = os.path.join(\".\", module, f\"{module}_{filetype}.qmd\")\n\n        if os.path.exists(fpath):\n            write_yaml(fpath, row)\n\nif __name__ == \"__main__\":\n    main()",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Automating with AI</span>"
+    ]
+  },
+  {
+    "objectID": "08_automating_with_AI.html#copilot-for-authoring-quarto-content",
+    "href": "08_automating_with_AI.html#copilot-for-authoring-quarto-content",
+    "title": "9  Automating with AI",
+    "section": "10.3 Copilot for Authoring Quarto Content",
+    "text": "10.3 Copilot for Authoring Quarto Content\nCopilot is not just for Python scripts. Because Quarto is a text-based format (.qmd), Copilot understands the context of your lecture notes and can predict what you want to write next.\n\nGenerating Code Blocks: If you are writing a lab assignment and need to insert a code block showing how to plot a scatterplot using matplotlib or ggplot2, simply write the comment # create a scatterplot of x vs y and Copilot will suggest the exact code block.\nWriting Summaries: You can highlight a large chunk of text in your lecture notes and ask Copilot Chat to “Summarize this section for the introduction.”\nTranslating Content: If you are moving an old syllabus from Word to Quarto Markdown, you can prompt Copilot to convert your plain text into structured Markdown tables and formatted lists.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Automating with AI</span>"
+    ]
+  },
+  {
+    "objectID": "08_automating_with_AI.html#responsible-ai-use-in-education",
+    "href": "08_automating_with_AI.html#responsible-ai-use-in-education",
+    "title": "9  Automating with AI",
+    "section": "10.4 Responsible AI Use in Education",
+    "text": "10.4 Responsible AI Use in Education\nWhile GitHub Copilot is a powerful authoring assistant for you as an educator, it also introduces important discussions regarding responsible use in the classroom.\nIf you are using GitHub Classroom (discussed in Chapter 6), your students may also have access to Copilot through GitHub Education. It is critical to establish a clear policy in your syllabus regarding the acceptable use of Generative AI.\n\n[!TIP] Use Copilot to help you generate boilerplate code, format markdown, and troubleshoot errors. However, always review the generated content critically before publishing it to your Blackboard course shell to ensure pedagogical accuracy.\n\nIntegrating AI into your workflow does not replace your expertise; it simply accelerates the mechanics of course production, giving you more time to focus on teaching.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
   }
 ]
