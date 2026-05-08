@@ -298,11 +298,6 @@ python-dateutil==2.9.0.post0
     #   pandas
 python-json-logger==4.1.0
     # via jupyter-events
-pywinpty==3.0.3
-    # via
-    #   jupyter-server
-    #   jupyter-server-terminals
-    #   terminado
 pyyaml==6.0.3
     # via
     #   jupyter-events
