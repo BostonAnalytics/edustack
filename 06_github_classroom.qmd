@@ -8,20 +8,14 @@ As you transition to a reproducible, version-controlled authoring workflow using
 
 This is where **GitHub Classroom** shines. GitHub Classroom is a teaching tool designed to bridge the gap between professional version control and academic assignment management. By integrating GitHub Classroom into your course workflow, you can automate repository creation, distribute starter code seamlessly, and even implement autograding.
 
-![GitHub Classroom Dashboard](images/github_classroom_dashboard_placeholder.png)
-*(Placeholder: Add a screenshot of a GitHub Classroom dashboard here)*
-
 ## Core Features for Educators
 
 GitHub Classroom offers several powerful features that simplify the teaching and learning experience, making it the perfect companion for a Quarto-based course.
 
 ### Template Repositories
-The Quarto framework we established earlier involves generating a specific directory structure (`M0`, `M1`) with predefined lecture notes, labs, and assignment files (`_A.qmd`, `_Proj.qmd`). With GitHub Classroom, you can turn these generated directories into **template repositories**. 
+The Quarto framework we established earlier involves generating a specific directory structure (`M01`, `M02`) with predefined lecture notes, labs, assignments, projects, presentations, and participation files (`M01_A.qmd`, `M01_Proj.qmd`, `M01_Lab1.qmd`). With GitHub Classroom, you can turn these generated directories into **template repositories**. 
 
 When you create an assignment, you can link it to your template repository. GitHub Classroom will then automatically generate a private, boilerplate repository for every student (or group) who accepts the assignment. This ensures every student starts with the exact same file structure and Quarto configurations.
-
-![Creating an Assignment from a Template](images/github_template_assignment_placeholder.png)
-*(Placeholder: Add a screenshot showing the assignment creation screen with a template repository selected)*
 
 ### Autograding
 For courses that involve programming or reproducible data analysis, grading can be incredibly time-consuming. GitHub Classroom allows you to configure automated tests that run every time a student pushes a commit to their assignment repository. 
@@ -34,14 +28,11 @@ Instead of downloading zipped folders of student code from Blackboard, GitHub Cl
 ### LMS Integration
 While we are using Blackboard Ultra as the primary content delivery platform, GitHub Classroom can connect directly to your LMS. By linking your Blackboard course to your GitHub Classroom, you can import your student roster directly. This ensures that every GitHub account is mapped to a specific student ID, preventing the common headache of figuring out which anonymous GitHub handle belongs to which student.
 
-![LMS Roster Integration](images/lms_roster_sync_placeholder.png)
-*(Placeholder: Add a screenshot of the roster sync feature linking GitHub to an LMS)*
-
 ## Integrating Classroom with Your Quarto Workflow
 
 To implement GitHub Classroom effectively in this framework, consider the following workflow for each module:
 
-1. **Generate the Module**: Use your module generation script (e.g., `generate_modules.py`) to create the `M0` folder and its `_Lab1.qmd` or `_A.qmd` files.
+1. **Generate the Module**: Use `scripts/generate_modules.py` to create the `M01` folder and its `M01_Lab1.qmd`, `M01_A.qmd`, or `M01_Proj.qmd` files.
 2. **Author the Assignment**: Write the assignment instructions and provide any starter data inside the `data/` folder.
 3. **Create the Template**: Push this module folder to a dedicated GitHub repository and mark it as a "Template Repository" in the repository settings.
 4. **Publish the Assignment**: In GitHub Classroom, create a new assignment, select your template repository, and generate an invitation link.

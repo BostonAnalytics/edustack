@@ -115,11 +115,35 @@ If you encounter any issues, note them below and we'll address them:
 
 ## Creating Your First Repository
 
-A repository is a directory where Git tracks all the files and their history. Let's create one for a course or project.
+A repository is a directory where Git tracks all the files and their history. For course development, the recommended path is to create the repository on GitHub first, clone it locally, and then add the Quarto structure inside that cloned folder.
 
-### Starting Fresh: `git init`
+This is cleaner than building a local folder first because the remote repository, local folder, README, `.gitignore`, and collaboration settings all agree from the beginning.
 
-If you have an existing folder with course materials or a blank folder where you want to begin, you can initialize it as a Git repository:
+### Recommended Course Workflow: GitHub First
+
+1. Create a new repository on GitHub.
+2. Add a `README.md`.
+3. Add a Python `.gitignore`.
+4. Clone the repository locally.
+5. Pull once before adding files.
+6. Add the Quarto project structure.
+7. Commit and push.
+
+```bash
+git clone https://github.com/username/my-course.git
+cd my-course
+git pull
+quarto create project website .
+git add .
+git commit -m "Initialize Quarto course site"
+git push
+```
+
+### When to Use `git init`
+
+`git init` is still useful when you already have an existing local folder and need
+to start tracking it. For new courses, use the GitHub-first workflow above. If
+you do need to initialize an existing local folder, run:
 
 ```bash
 cd /path/to/your/course/folder
@@ -128,45 +152,50 @@ git init
 
 This creates a hidden `.git` folder (you might need to enable viewing hidden files in your file manager) that stores all version control information.
 
-### Cloning an Existing Repository: `git clone`
+### Cloning a Repository: `git clone`
 
-If you want to work with an existing repository (perhaps a template or a shared resource), clone it:
+Cloning creates a local copy of a GitHub repository, including its history and
+remote connection:
 
 ```bash
 git clone https://github.com/username/repository-name.git
 ```
 
-This creates a local copy of the entire repository, including all history, on your computer.
+For course development, this should usually happen before you create the Quarto
+site.
 
-### Workbook Exercise: Initialize Your Course Repository
+### Workbook Exercise: Create and Clone Your Course Repository
 
-Choose one of your courses or create a new folder for this exercise.
+Choose one of your courses and create a new GitHub repository for it.
 
-**Task**: Initialize a Git repository
+**Task**: Create the repository remotely, clone it locally, and pull before adding content.
 
 ```bash
-# Create a new folder (or navigate to an existing one)
-mkdir my-course
+# Clone the repository you created on GitHub
+git clone https://github.com/username/my-course.git
 cd my-course
 
-# Initialize Git
-git init
+# Pull before adding course files
+git pull
 
-# List hidden files to verify .git was created
+# List files and hidden Git metadata
 ls -la        # On macOS/Linux
 dir /a        # On Windows (Command Prompt)
 Get-ChildItem -Force  # On Windows (PowerShell)
 ```
 
 **Verification Checklist**:
-- [ ] Folder created or navigated to successfully
-- [ ] `git init` ran without errors
+- [ ] GitHub repository created
+- [ ] Repository cloned locally
+- [ ] `git pull` runs without errors
 - [ ] Hidden `.git` folder is visible
-- [ ] Repository is ready for tracking files
+- [ ] Repository is ready for Quarto files
 
 **Document your result**: 
 
-> **My repository location**: _________________________________
+> **My GitHub repository URL**: _________________________________
+
+> **My local repository location**: _________________________________
 
 ## Understanding the Git Workflow
 
@@ -462,57 +491,70 @@ GitHub provides several features that enhance teaching:
 3. Name your repository (e.g., `spring-2026-course-materials`)
 4. Add a description
 5. Choose to make it public or private
-6. Initialize with a README (we'll update this)
-7. Click "Create repository"
+6. Initialize with a README
+7. Add a Python `.gitignore`
+8. Click "Create repository"
 
-### Connecting Your Local Repository to GitHub
+### Cloning Your GitHub Repository Locally
 
-After creating an empty repository on GitHub, connect your local work:
+After creating the repository on GitHub, clone it before adding Quarto files:
 
 ```bash
-# Add the remote repository
+git clone https://github.com/your-username/repository-name.git
+cd repository-name
+git pull
+```
+
+Now your local course folder is already connected to GitHub. Add the Quarto
+structure here, then commit and push.
+
+### Connecting an Existing Local Repository
+
+If you already created a local repository with `git init`, you can still connect
+it to GitHub:
+
+```bash
 git remote add origin https://github.com/your-username/repository-name.git
-
-# Rename the default branch to main (if needed)
 git branch -M main
-
-# Push your local commits to GitHub
 git push -u origin main
 ```
 
-Now your course materials are backed up and visible on GitHub.
+For new courses, cloning first is usually cleaner.
 
-### Workbook Exercise: Create a GitHub Repository and Push
+### Workbook Exercise: Create, Clone, and Push
 
-Let's get your work onto GitHub.
+Let's create the GitHub repository first and then add work locally.
 
-**Task**: Create and connect a GitHub repository
+**Task**: Create and clone a GitHub repository
 
 1. Go to [github.com](https://github.com) and log in
 2. Create a new repository named `my-course-materials`
 3. Choose "Public" so others can see your work
-4. Don't initialize with files yet (we'll push our local repo)
-5. Click "Create repository"
+4. Initialize it with a README
+5. Add a Python `.gitignore`
+6. Click "Create repository"
 
 Then in your terminal:
 
 ```bash
-# Navigate to your course folder
-cd /path/to/my-course
+# Clone the repository
+git clone https://github.com/YOUR-USERNAME/my-course-materials.git
 
-# Add GitHub as the remote
-git remote add origin https://github.com/YOUR-USERNAME/my-course-materials.git
+# Enter the local repository
+cd my-course-materials
 
-# Verify the connection
+# Pull before adding course files
+git pull
+
+# Confirm the remote connection
 git remote -v
-
-# Push your work to GitHub
-git push -u origin main
 ```
 
 **Verification Checklist**:
 - [ ] GitHub account created
 - [ ] Repository created on GitHub
+- [ ] Repository cloned locally
+- [ ] `git pull` runs cleanly
 - [ ] Local repository connected to GitHub
 - [ ] Files pushed successfully
 - [ ] Able to see files on github.com in your browser
@@ -694,20 +736,17 @@ Use this checklist to set up a professional, version-controlled course repositor
 
 **Phase 1: Local Setup**
 - [ ] Git installed and configured with your name and email
-- [ ] Course folder created
-- [ ] Git repository initialized (`git init`)
-- [ ] Initial syllabus or course materials created
-- [ ] First commit made with meaningful message
+- [ ] GitHub repository created with README and `.gitignore`
+- [ ] Repository cloned locally
+- [ ] `git pull` runs cleanly before adding course files
 
-**Phase 2: GitHub Setup**
-- [ ] GitHub account created
-- [ ] Repository created on GitHub
-- [ ] Local repository connected to GitHub
-- [ ] Initial commits pushed to GitHub
-- [ ] README.md written explaining the course
+**Phase 2: Quarto Setup**
+- [ ] Quarto project created inside the cloned repository
+- [ ] Initial Quarto files committed with a meaningful message
+- [ ] Initial commit pushed to GitHub
+- [ ] README.md updated to explain the course
 
 **Phase 3: Documentation**
-- [ ] Added `.gitignore` file to exclude unnecessary files
 - [ ] Organized files in logical folders
 - [ ] Added licensing information (if appropriate)
 - [ ] Documented any setup instructions for students

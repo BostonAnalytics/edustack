@@ -6,9 +6,30 @@ The goal of this book is not only to show you *what* tools to use, but also *how
 
 To achieve this, the book is organized into several core skill domains that build on one another.
 
+## Setting Up Git, GitHub, and a Version-Controlled Workspace
+
+This book starts with Git because the cleanest course-building workflow is:
+
+1. create the GitHub repository
+2. clone it locally
+3. pull the latest remote state
+4. add the Quarto course structure inside the cloned folder
+5. commit and push each working milestone
+
+This chapter teaches the fundamentals of version control and how to use GitHub as your central repository for course materials. You will learn how to:
+
+* Create a GitHub account
+* Configure Git identity and SSH keys
+* Create a course repository
+* Clone, branch, commit, push, and pull changes
+* Use GitHub as a publishing platform and collaboration space
+* Apply version control to Quarto documents, slides, notebooks, and assets
+
+By the end of this chapter, users will understand how to maintain a clean, traceable version history for their course, and how to safely experiment and update materials without losing work.
+
 ## Tool Setup Essentials
 
-Before creating any course materials or writing your first Quarto document, you will learn how to properly set up your development environment. This chapter guides you through installing and configuring:
+After the Git-first workflow is clear, you will learn how to properly set up the rest of the development environment. This chapter guides you through installing and configuring:
 
 - Git, Git LFS, Github CLI, and GitHub
 - VS Code, Antigravity, or Cursor as the primary IDE
@@ -44,25 +65,11 @@ This chapter demystifies the underlying structure of Quarto and gives users conf
 
 Users will come away understanding not only *syntax*, but also the *philosophy* behind reproducible authoring.
 
-## Setting Up Git, GitHub, and a Version-Controlled Workspace
-
-This chapter teaches the fundamentals of version control and how to use GitHub as your central repository for course materials. You will learn how to:
-
-* Create a GitHub account
-* Configure Git identity and SSH keys
-* Create your first repository (`username.github.io`)
-* Clone, branch, commit, push, and pull changes
-* Use GitHub as a publishing platform and collaboration space
-* Apply version control to Quarto documents, slides, and assets
-
-By the end of this chapter, users will understand how to maintain a clean, traceable version history for their course, and how to safely experiment and update materials without losing work.
-
-
 ## Building a Quarto Website Structure from Scratch
 
-Once the tools and authoring skills are in place, this chapter walks through creating a complete Quarto site, including:
+Once GitHub is ready and the tools are installed, this chapter walks through creating a complete Quarto site inside a cloned course repository, including:
 
-* Initializing new projects
+* Initializing Quarto inside an existing GitHub repository
 * Creating navigation, pages, and assets
 * Organizing modules, slides, assignments, and labs
 * Using Reveal.js for presentations

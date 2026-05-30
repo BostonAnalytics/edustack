@@ -1,0 +1,208 @@
+# Capstone: Build a Course Like AD688
+
+This capstone turns the individual skills in the book into one complete
+course-building workflow. The goal is to create a small but realistic course
+repository that has the same operating model as AD688: a syllabus, schedule,
+deliverables, modules, labs, projects, presentations, Blackboard packaging, and
+an update workflow.
+
+## Capstone Goal
+
+Build a miniature course with:
+
+- one syllabus page
+- one schedule page
+- one deliverables page
+- one complete module folder
+- one lecture notes page
+- one presentation page
+- one lab
+- one assignment
+- one project milestone
+- one participation activity
+- one Blackboard deployment checklist
+
+This small course is the proof of concept. Once it works, repeat the pattern for
+the rest of the course.
+
+## Repository Shape
+
+Use this structure as the target:
+
+```text
+mini-course/
+  _quarto.yml
+  index.qmd
+  schedule.qmd
+  deliverables.qmd
+  references.bib
+  data/
+    Course-Schedule.xlsx
+    generated_schedule.csv
+  M01/
+    M01_LN1.qmd
+    M01_P1.qmd
+    M01_Lab1.qmd
+    M01_A.qmd
+    M01_Proj.qmd
+    M01_Participation1.qmd
+  classroom-organization/
+    blackboard-map.md
+  announcements/
+    week-01.md
+```
+
+## Step 1: Start From GitHub
+
+Create the GitHub repository first, then clone it locally:
+
+```bash
+git clone https://github.com/your-org/mini-course.git
+cd mini-course
+git pull
+```
+
+Initialize Quarto inside the cloned repository:
+
+```bash
+quarto create project website .
+git add .
+git commit -m "Initialize Quarto course site"
+git push
+```
+
+This sequence keeps the course source of truth on GitHub from the beginning.
+
+## Step 2: Add the Workbook
+
+Create and fill the workbook first. The workbook is the planning layer for the
+course.
+
+```bash
+python scripts/generate_course_workbook.py data/Course-Schedule.xlsx
+python scripts/validate_course_workbook.py data/Course-Schedule.xlsx
+```
+
+Use the `Course Details` sheet to define the academic flow:
+
+| Module | Lecture | Title | What It Drives |
+|---|---|---|---|
+| Module 1 | L1.1 | First lecture topic | `M01_LN1.qmd`, `M01_P1.qmd`, `M01_Lab1.qmd` |
+| Module 1 | L1.2 | Second lecture topic | `M01_LN2.qmd`, `M01_P2.qmd`, `M01_Lab2.qmd` |
+
+## Step 3: Generate the Course Structure
+
+Generate the standard folders and files:
+
+```bash
+python scripts/generate_modules.py . --start 1 --end 1
+python scripts/validate_course_structure.py . --start 1 --end 1
+```
+
+The generated files are intentionally small. Their job is to give each professor
+a consistent place to write.
+
+## Step 4: Create the Three Course Pages
+
+Create the root-level pages that students and Blackboard will reference most:
+
+```text
+index.qmd          syllabus and course overview
+schedule.qmd       weekly schedule and class rhythm
+deliverables.qmd   assignments, labs, project milestones, and grading
+```
+
+These pages should be concise, stable, and easy to update before each semester.
+
+## Step 5: Build One Complete Module
+
+For `M01`, fill in at least these files:
+
+| File | Purpose |
+|---|---|
+| `M01_LN1.qmd` | lecture notes with concepts, examples, and references |
+| `M01_P1.qmd` | presentation or reveal.js slide content |
+| `M01_Lab1.qmd` | guided practice with data, code, or analysis |
+| `M01_A.qmd` | graded assignment instructions |
+| `M01_Proj.qmd` | project milestone or running case step |
+| `M01_Participation1.qmd` | discussion, reflection, or in-class activity |
+
+Keep the module complete before scaling. A complete module is more valuable than
+seven empty folders.
+
+## Step 6: Add Blackboard Mapping
+
+Create `classroom-organization/blackboard-map.md` and map the Quarto files to
+Blackboard Ultra content areas:
+
+| Blackboard Area | Quarto Source |
+|---|---|
+| Module 1 Overview | `M01/M01_LN1.qmd` or module landing page |
+| Lecture 1 Slides | `M01/M01_P1.qmd` |
+| Lab 1 | `M01/M01_Lab1.qmd` |
+| Assignment | `M01/M01_A.qmd` |
+| Project Step | `M01/M01_Proj.qmd` |
+
+This map prevents the course website and LMS from drifting apart.
+
+## Step 7: Render, Review, Package
+
+Render the course:
+
+```bash
+quarto render
+```
+
+Review:
+
+- navigation
+- images
+- links
+- code output
+- assignment instructions
+- due dates
+- Blackboard alignment
+
+If the course is being uploaded as static HTML, zip the rendered site output and
+upload it through the process approved for your institution.
+
+## Step 8: Maintain the Course
+
+Use a predictable update loop:
+
+```bash
+git pull
+quarto render
+git status
+git add .
+git commit -m "Update module 1 materials"
+git push
+```
+
+For each semester:
+
+- update the workbook
+- regenerate the draft schedule
+- check module filenames
+- render locally
+- review Blackboard links
+- archive old term-specific files
+
+## Capstone Completion Checklist
+
+- [ ] GitHub repository exists
+- [ ] Repository is cloned locally
+- [ ] Quarto was initialized inside the cloned repository
+- [ ] Workbook exists and validates
+- [ ] One module exists and validates
+- [ ] Syllabus page exists
+- [ ] Schedule page exists
+- [ ] Deliverables page exists
+- [ ] One lecture notes page is complete
+- [ ] One presentation page is complete
+- [ ] One lab is complete
+- [ ] One assignment is complete
+- [ ] One project milestone is complete
+- [ ] Blackboard map exists
+- [ ] Site renders cleanly
+- [ ] Git workflow is active

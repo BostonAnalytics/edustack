@@ -11,13 +11,21 @@ This separation is intentional:
 
 Based on the official benchmark (`Course-Schedule.xlsx`), the feeder workbook contains several essential sheets. The primary ones you will interact with are:
 
-| Sheet Name       | Purpose                                    |
-| ---------------- | ------------------------------------------ |
-| `Course Details` | What is taught (modules, lectures, topics) |
-| `Sections`       | How and when it is taught                  |
-| `Grade`          | How students are evaluated                 |
+| Sheet Name       | Purpose                                    | What It Generates |
+| ---------------- | ------------------------------------------ | ----------------- |
+| `Course Details` | What is taught (modules, lectures, topics) | lecture notes, presentations, module pages, schedule rows |
+| `Sections`       | How and when it is taught                  | syllabus section table, schedule anchors |
+| `Grade`          | How students are evaluated                 | grading table, deliverables summary |
+| `Deliverables`   | What students submit                       | Blackboard assignment map, due-date planning |
 
-*(Other supplementary sheets like `Calendar`, `Day List`, and `Deliverables` are used for mapping out specific term dates and schedules).*
+Older course workbooks may also include supplementary sheets such as `Calendar`
+or `Day List` for institution-specific term mapping.
+
+:::{.callout-tip}
+Treat the workbook as the planning database for the course. Quarto files are the
+authoring layer; Blackboard is the delivery layer; the workbook is the structure
+that keeps them aligned.
+:::
 
 ## Sheet 1 — `Course Details` (Core Content Sheet)
 
@@ -25,23 +33,34 @@ Based on the official benchmark (`Course-Schedule.xlsx`), the feeder workbook co
 This sheet defines the **academic structure of the course**. It is the only sheet required to generate Lecture Notes, Presentations, Labs, and Assignments using our Quarto workflow.
 
 ### Required Columns
-The `Course Details` sheet **must contain exactly** the following columns:
+The `Course Details` sheet should contain these columns:
 
 | Column        | Description                      |
 | ------------- | -------------------------------- |
-| `Modules`     | Module identifier (e.g. `Module 0`, `Module 1`)|
+| `Module`      | Module identifier (e.g. `Module 1`)|
 | `Lecture`     | Lecture identifier (e.g. `L0.1`, `L1.1`)       |
 | `Title`       | Lecture title                    |
 | `Description` | One–two paragraph description    |
-| `Online`      | `TRUE` / `FALSE` or blank        |
-| `On-Campus`   | `TRUE` / `FALSE` or blank        |
+| `Mode`        | Delivery mode, such as `Online`, `On-Campus`, or both |
+| `Source File` | Quarto file that should hold the content |
 
 ### Example Rows
 
-| Modules | Lecture | Title | Description | Online | On-Campus |
-| ------- | ------- | ----- | ----------- | ------ | --------- |
-| Module 0| L0.1    | GitHub Education and Student Account Creations | GitHub, Github Classrooms; Jupyter Notebooks, Quarto overview. | | |
-| Module 1| L1.1    | Introduction to Big Data and Cloud | Course logistics, terminology, development setups. | | |
+| Module | Lecture | Title | Description | Mode | Source File |
+| ------- | ------- | ----- | ----------- | ---- | ----------- |
+| Module 1 | L1.1 | Course Foundations | Introduce the course workflow, tools, and first applied example. | Online; On-Campus | `M01/M01_LN1.qmd` |
+| Module 1 | L1.2 | Applied Workflow | Extend the first example into a lab, assignment, and project step. | Online; On-Campus | `M01/M01_LN2.qmd` |
+
+### What This Sheet Generates
+
+The `Course Details` sheet drives:
+
+- module folder planning
+- lecture note metadata
+- presentation titles
+- schedule rows
+- Blackboard module labels
+- AI-assisted summaries and keywords
 
 ## Sheet 2 — `Sections` (Delivery Logistics)
 
@@ -52,11 +71,22 @@ This sheet captures **when and by whom** the course is delivered. It is used for
 | Column         | Description                       |
 | -------------- | --------------------------------- |
 | `Section`      | Section identifier (e.g., A1, B1) |
+| `Modality`     | Online, On-Campus, Hybrid, or other local label |
 | `Location`     | Classroom or Zoom link            |
 | `Instructor`   | Instructor name                   |
-| `Email @ bu`   | Instructor's BU email             |
-| `Day`          | Day of week                       |
-| `Time`         | Start and end time                |
+| `Email`        | Instructor email                  |
+| `Start Date`   | First class date in `YYYY-MM-DD` format |
+| `Meeting Days` | Day or days of week               |
+| `Meeting Time` | Start and end time                |
+
+### What This Sheet Generates
+
+The `Sections` sheet drives:
+
+- syllabus instructor tables
+- schedule start dates
+- online/on-campus variants
+- Blackboard section-specific reminders
 
 ## Sheet 3 — `Grade` (Evaluation Structure)
 
@@ -66,50 +96,106 @@ This sheet defines the **grading logic** independently of content. It supports a
 ### Required Columns (Key Elements)
 | Column         | Description            |
 | -------------- | ---------------------- |
-| `Deliverables` | Category name (e.g. Class Activity, Assignments) |
-| `Count_norman` | Number of items        |
-| `Max_Points`   | Max points per item or category |
+| `Category`     | Category name, such as Labs, Assignments, Project, Participation |
+| `Count`        | Number of items        |
+| `Points Each`  | Points per item        |
+| `Total Points` | Total category points  |
+| `Weight`       | Syllabus weight, if used |
+
+### What This Sheet Generates
+
+The `Grade` sheet drives:
+
+- syllabus grading tables
+- points summaries
+- Blackboard category planning
+- assignment weighting checks
+
+## Sheet 4 — `Deliverables` (Student Submission Map)
+
+### Purpose
+
+This sheet connects the academic plan to student-facing submissions.
+
+### Required Columns
+
+| Column | Description |
+| ------ | ----------- |
+| `Module` | Module associated with the deliverable |
+| `Deliverable` | Student-facing name |
+| `Type` | Lab, Assignment, Project, Participation, Quiz, or Exam |
+| `Source File` | Quarto source file |
+| `Due Offset Days` | Days after the module start date |
+| `Points` | Points attached to the deliverable |
+
+### Example Rows
+
+| Module | Deliverable | Type | Source File | Due Offset Days | Points |
+| ------ | ----------- | ---- | ----------- | --------------- | ------ |
+| Module 1 | Lab 1 | Lab | `M01/M01_Lab1.qmd` | 5 | 10 |
+| Module 1 | Assignment | Assignment | `M01/M01_A.qmd` | 7 | 30 |
+| Module 1 | Project Step | Project | `M01/M01_Proj.qmd` | 10 | 40 |
+
+### What This Sheet Generates
+
+The `Deliverables` sheet drives:
+
+- Blackboard assignment setup
+- due-date planning
+- deliverables pages
+- project milestone tracking
+- grading workload estimates
+
+## Validation Rules
+
+Before using the workbook downstream, check these rules:
+
+- Every required sheet exists.
+- Every required column exists.
+- `Source File` values use the canonical `M01_*` convention.
+- Every deliverable has a type, source file, due offset, and points value.
+- Section start dates use `YYYY-MM-DD`.
+- Grade category totals are internally consistent.
+- Module labels in `Course Details` and `Deliverables` match.
+
+Run the validator:
+
+```bash
+python scripts/validate_course_workbook.py data/Course-Schedule.xlsx
+```
+
+Validation is deliberately strict about sheet and column names because small
+spreadsheet inconsistencies become broken automation later.
 
 ## Automating the Workbook Generation
 
-Instead of creating this Excel file by hand, you can use a Python script to automatically generate a blank template populated with these exact sheets and columns. This ensures you never have a typo in a column name that breaks the downstream Quarto generators.
+Instead of creating this Excel file by hand, use the included script to generate
+a template populated with the exact sheets, columns, and starter rows:
 
 ### Workbook Generator Script
 
-Create a file named `generate_workbook.py` and run it to produce a pristine `Course-Schedule.xlsx` file ready for you to fill in:
-
-```python
-import pandas as pd
-
-def generate_blank_workbook(filename="Course-Schedule.xlsx"):
-    # Define the sheets and their exact columns
-    sheets = {
-        "Course Details": ["Modules", "Lecture", "Title", "Description", "Online", "On-Campus"],
-        "Sections": ["Section", "Location", "Instructor", "Email @ bu", "Day", "Time"],
-        "Grade": ["Deliverables", "Count_norman", "Max_Points", "Class Activity", "Count", "Points", "Max Points"],
-        "Day List": ["A1", "A2", "A3"],
-        "Calendar": ["Term", "First Name", "Last Name", "BU email", "Weekday", "Time", "W01D1", "W02D1"],
-        "Deliverables": ["Term", "Deliverable type", "Weekday", "W01D6", "W02D6"]
-    }
-
-    with pd.ExcelWriter(filename, engine='openpyxl') as writer:
-        for sheet_name, columns in sheets.items():
-            # Create an empty dataframe with the exact columns
-            df = pd.DataFrame(columns=columns)
-            
-            # For Course Details, we can optionally add a couple of blank module rows as a starter
-            if sheet_name == "Course Details":
-                df.loc[0] = ["Module 0", "L0.1", "", "", "", ""]
-                df.loc[1] = ["Module 0", "L0.2", "", "", "", ""]
-                
-            df.to_excel(writer, sheet_name=sheet_name, index=False)
-            
-    print(f"✅ Successfully generated {filename} with all required sheets.")
-
-if __name__ == "__main__":
-    generate_blank_workbook()
+```bash
+python scripts/generate_course_workbook.py data/Course-Schedule.xlsx
 ```
+
+If you need to replace an existing workbook:
+
+```bash
+python scripts/generate_course_workbook.py data/Course-Schedule.xlsx --overwrite
+```
+
+## Generating a Draft Schedule
+
+Once `Course Details` and `Sections` are filled, generate a draft schedule CSV:
+
+```bash
+python scripts/generate_course_schedule.py data/Course-Schedule.xlsx data/generated_schedule.csv
+```
+
+This first schedule is intentionally simple. It gives you a clean table that can
+be refined into `schedule.qmd`, copied into Blackboard planning materials, or
+used as a quality-control view of the workbook.
 
 ## AI Automation (Optional)
 
-Once your `Course Details` sheet is generated, and you have filled in the `Modules` and `Lecture` columns, you can use the AI Metadata Scripts discussed in **Chapter 8 (Automating with AI)** to automatically populate the `Title` and `Description` columns using OpenAI or Gemini!
+Once your `Course Details` sheet is generated, and you have filled in the `Module`, `Lecture`, `Title`, `Description`, and `Source File` columns, you can use the metadata script discussed in **Chapter 8 (Automating with AI)** to populate YAML front matter in the generated Quarto files.

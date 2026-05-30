@@ -548,7 +548,7 @@ For many learners, Jupyter is the first exposure to combining code, explanation,
 
 :::{.columns}
 :::{.column width="30%"}
-![](./images/ch04/2egqlc.jpeg){height=350}
+![](./images/ch04/jupyter_notebook_demo.png){height=350}
 :::
 :::{.column width="70%"}
 
@@ -1045,8 +1045,9 @@ A typical entry looks like this:
   * `@article`
   * `@book`
   * `@unpublished`
-    :::
-    ::::
+
+:::
+::::
 
 ::: {.callout-important appearance="minimal"}
 You should generate these entries using a reference manager, not manually.

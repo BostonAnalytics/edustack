@@ -1,3 +1,21 @@
 # Summary
 
-In summary, this book has no content whatsoever.
+This book has walked through the full course-production workflow:
+
+- setting up the authoring environment
+- managing course materials with Git and GitHub
+- writing reproducible documents with Quarto
+- designing the course feeder workbook
+- building a Quarto microsite with a consistent `M01_*` module structure
+- using GitHub Classroom for code-based coursework
+- preparing content for Blackboard Ultra
+- automating repetitive course-building tasks with scripts and AI-assisted tools
+
+The goal is not just to create one attractive course website. The goal is to give
+professors a repeatable system they can reuse across semesters, sections, and
+courses.
+
+The recommended next step is to build a small pilot course using the same
+structure: one syllabus page, one schedule page, one deliverables page, and one
+complete module folder. Once that pilot renders cleanly and maps into Blackboard
+Ultra, the same pattern can scale to the full course.

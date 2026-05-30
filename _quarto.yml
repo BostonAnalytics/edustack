@@ -11,10 +11,12 @@ book:
   chapters:
     - href: index.qmd
       text: "Introduction"
+    - href: 02_version_control.qmd
+      text: "Git and GitHub"
+    - href: 00_professor_quickstart.qmd
+      text: "Professor Quickstart"
     - href: 01_tool_setup.qmd
       text: "Tool Setup"
-    - href: 02_version_control.qmd
-      text: "Version Control"
     - href: 03_working_with_quarto.qmd
       text: "Working with Quarto"
     - href: 04_creating_excel.qmd
@@ -27,6 +29,8 @@ book:
       text: "Blackboard Ultra"
     - href: 08_automating_with_AI.qmd
       text: "Automating with AI"
+    - href: 09_capstone_build_like_ad688.qmd
+      text: "Build a Course Like AD688"
     - summary.qmd
     - references.qmd
 
@@ -38,7 +42,7 @@ format:
     - cosmo
     - ./theme/book.scss
     code-overflow: wrap
-    embed-resources: true
+    embed-resources: false
     fontawesome: true
 
 execute:

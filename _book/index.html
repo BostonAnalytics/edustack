@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Designing a Course With Quarto</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -32,17 +35,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_tool_setup.html" rel="next">
+<link href="./02_version_control.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-cc6d6016adaf1c7a86dcaac46e77afcc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-681e3dc23ead584b9cb3676099af6d72.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ddf37bbadb34742b1bf0f0035092eb0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,38 +119,68 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_tool_setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tool Setup</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./02_version_control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Version Control</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git and GitHub</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_quarto_class_setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Quarto Class Setup</span></span></a>
+  <a href="./00_professor_quickstart.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Professor Quickstart</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_working_with_quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="./01_tool_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Tool Setup</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_working_with_quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Working with Quarto</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_blackboard_ultra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></span></a>
+  <a href="./04_creating_excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Creating Excel Files</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_quarto_class_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quarto Class Setup</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_github_classroom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">GitHub Classroom</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_blackboard_ultra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_automating_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Automating with AI</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_capstone_build_like_ad688.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -168,9 +201,9 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#tool-setup-essentials" id="toc-tool-setup-essentials" class="nav-link" data-scroll-target="#tool-setup-essentials"><span class="header-section-number">1.1</span> Tool Setup Essentials</a></li>
-  <li><a href="#understanding-the-authoring-layer-markdown-latex-and-quarto-syntax" id="toc-understanding-the-authoring-layer-markdown-latex-and-quarto-syntax" class="nav-link" data-scroll-target="#understanding-the-authoring-layer-markdown-latex-and-quarto-syntax"><span class="header-section-number">1.2</span> Understanding the Authoring Layer: Markdown, LaTeX, and Quarto Syntax</a></li>
-  <li><a href="#setting-up-git-github-and-a-version-controlled-workspace" id="toc-setting-up-git-github-and-a-version-controlled-workspace" class="nav-link" data-scroll-target="#setting-up-git-github-and-a-version-controlled-workspace"><span class="header-section-number">1.3</span> Setting Up Git, GitHub, and a Version-Controlled Workspace</a></li>
+  <li><a href="#setting-up-git-github-and-a-version-controlled-workspace" id="toc-setting-up-git-github-and-a-version-controlled-workspace" class="nav-link" data-scroll-target="#setting-up-git-github-and-a-version-controlled-workspace"><span class="header-section-number">1.1</span> Setting Up Git, GitHub, and a Version-Controlled Workspace</a></li>
+  <li><a href="#tool-setup-essentials" id="toc-tool-setup-essentials" class="nav-link" data-scroll-target="#tool-setup-essentials"><span class="header-section-number">1.2</span> Tool Setup Essentials</a></li>
+  <li><a href="#understanding-the-authoring-layer-markdown-latex-and-quarto-syntax" id="toc-understanding-the-authoring-layer-markdown-latex-and-quarto-syntax" class="nav-link" data-scroll-target="#understanding-the-authoring-layer-markdown-latex-and-quarto-syntax"><span class="header-section-number">1.3</span> Understanding the Authoring Layer: Markdown, LaTeX, and Quarto Syntax</a></li>
   <li><a href="#building-a-quarto-website-structure-from-scratch" id="toc-building-a-quarto-website-structure-from-scratch" class="nav-link" data-scroll-target="#building-a-quarto-website-structure-from-scratch"><span class="header-section-number">1.4</span> Building a Quarto Website Structure from Scratch</a></li>
   <li><a href="#designing-a-blackboard-ultra-course-structure" id="toc-designing-a-blackboard-ultra-course-structure" class="nav-link" data-scroll-target="#designing-a-blackboard-ultra-course-structure"><span class="header-section-number">1.5</span> Designing a Blackboard Ultra Course Structure</a></li>
   <li><a href="#integrating-quarto-deliverables-into-blackboard-ultra" id="toc-integrating-quarto-deliverables-into-blackboard-ultra" class="nav-link" data-scroll-target="#integrating-quarto-deliverables-into-blackboard-ultra"><span class="header-section-number">1.6</span> Integrating Quarto Deliverables into Blackboard Ultra</a></li>
@@ -218,12 +251,34 @@ ul.task-list li input[type="checkbox"] {
 <p>This book is a practical, end-to-end guide for educators, instructional designers, and academic technologists who want to modernize how they develop, organize, and deliver course materials. It brings together version control, reproducible documents, Quarto publishing, and Blackboard Ultra integration into a unified workflow that is scalable, maintainable, and future-proof.</p>
 <p>The goal of this book is not only to show you <em>what</em> tools to use, but also <em>how</em> these tools work together to form a complete course-production pipeline—one that enhances instructional quality while reducing long-term maintenance effort.</p>
 <p>To achieve this, the book is organized into several core skill domains that build on one another.</p>
-<section id="tool-setup-essentials" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="tool-setup-essentials"><span class="header-section-number">1.1</span> Tool Setup Essentials</h2>
-<p>Before creating any course materials or writing your first Quarto document, you will learn how to properly set up your development environment. This chapter guides you through installing and configuring:</p>
+<section id="setting-up-git-github-and-a-version-controlled-workspace" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="setting-up-git-github-and-a-version-controlled-workspace"><span class="header-section-number">1.1</span> Setting Up Git, GitHub, and a Version-Controlled Workspace</h2>
+<p>This book starts with Git because the cleanest course-building workflow is:</p>
+<ol type="1">
+<li>create the GitHub repository</li>
+<li>clone it locally</li>
+<li>pull the latest remote state</li>
+<li>add the Quarto course structure inside the cloned folder</li>
+<li>commit and push each working milestone</li>
+</ol>
+<p>This chapter teaches the fundamentals of version control and how to use GitHub as your central repository for course materials. You will learn how to:</p>
+<ul>
+<li>Create a GitHub account</li>
+<li>Configure Git identity and SSH keys</li>
+<li>Create a course repository</li>
+<li>Clone, branch, commit, push, and pull changes</li>
+<li>Use GitHub as a publishing platform and collaboration space</li>
+<li>Apply version control to Quarto documents, slides, notebooks, and assets</li>
+</ul>
+<p>By the end of this chapter, users will understand how to maintain a clean, traceable version history for their course, and how to safely experiment and update materials without losing work.</p>
+</section>
+<section id="tool-setup-essentials" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="tool-setup-essentials"><span class="header-section-number">1.2</span> Tool Setup Essentials</h2>
+<p>After the Git-first workflow is clear, you will learn how to properly set up the rest of the development environment. This chapter guides you through installing and configuring:</p>
 <ul>
 <li>Git, Git LFS, Github CLI, and GitHub</li>
-<li>Antigravity IDE (Google’s VS Code–based environment with agents and extensions)</li>
+<li>VS Code, Antigravity, or Cursor as the primary IDE</li>
+<li>GitHub Copilot for inline code support and chat-based authoring help</li>
 <li>Quarto CLI</li>
 <li>Python 3.12
 <ul>
@@ -233,13 +288,15 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li>R, RTools (Windows), and renv</li>
 <li>Pandoc and Graphviz</li>
-<li>Core Antigravity plugins for Jupyter, Quarto, Python, and remote development</li>
+<li>Core VS Code / Antigravity extensions for Jupyter, Quarto, Python, and remote development</li>
+<li>OpenAI / ChatGPT-connected coding tools where available in VS Code and Antigravity</li>
+<li>Gemini connections and API workflows for automating course-production tasks</li>
 </ul>
 <p>By the end of this section, you will have a fully functional authoring environment where Quarto, Git, and Blackboard workflows run reliably.</p>
 <p>This chapter ensures <strong>every user starts with a stable, consistent toolset</strong>, preventing configuration issues later in the course.</p>
 </section>
-<section id="understanding-the-authoring-layer-markdown-latex-and-quarto-syntax" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="understanding-the-authoring-layer-markdown-latex-and-quarto-syntax"><span class="header-section-number">1.2</span> Understanding the Authoring Layer: Markdown, LaTeX, and Quarto Syntax</h2>
+<section id="understanding-the-authoring-layer-markdown-latex-and-quarto-syntax" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="understanding-the-authoring-layer-markdown-latex-and-quarto-syntax"><span class="header-section-number">1.3</span> Understanding the Authoring Layer: Markdown, LaTeX, and Quarto Syntax</h2>
 <p>Before building full websites, it is essential to understand the authoring languages that Quarto builds upon. This chapter explains:</p>
 <ul>
 <li>The basics of Markdown formatting</li>
@@ -253,24 +310,11 @@ ul.task-list li input[type="checkbox"] {
 <p>This chapter demystifies the underlying structure of Quarto and gives users confidence in writing documents that are clean, readable, and publishable.</p>
 <p>Users will come away understanding not only <em>syntax</em>, but also the <em>philosophy</em> behind reproducible authoring.</p>
 </section>
-<section id="setting-up-git-github-and-a-version-controlled-workspace" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="setting-up-git-github-and-a-version-controlled-workspace"><span class="header-section-number">1.3</span> Setting Up Git, GitHub, and a Version-Controlled Workspace</h2>
-<p>This chapter teaches the fundamentals of version control and how to use GitHub as your central repository for course materials. You will learn how to:</p>
-<ul>
-<li>Create a GitHub account</li>
-<li>Configure Git identity and SSH keys</li>
-<li>Create your first repository (<code>username.github.io</code>)</li>
-<li>Clone, branch, commit, push, and pull changes</li>
-<li>Use GitHub as a publishing platform and collaboration space</li>
-<li>Apply version control to Quarto documents, slides, and assets</li>
-</ul>
-<p>By the end of this chapter, users will understand how to maintain a clean, traceable version history for their course, and how to safely experiment and update materials without losing work.</p>
-</section>
 <section id="building-a-quarto-website-structure-from-scratch" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="building-a-quarto-website-structure-from-scratch"><span class="header-section-number">1.4</span> Building a Quarto Website Structure from Scratch</h2>
-<p>Once the tools and authoring skills are in place, this chapter walks through creating a complete Quarto site, including:</p>
+<p>Once GitHub is ready and the tools are installed, this chapter walks through creating a complete Quarto site inside a cloned course repository, including:</p>
 <ul>
-<li>Initializing new projects</li>
+<li>Initializing Quarto inside an existing GitHub repository</li>
 <li>Creating navigation, pages, and assets</li>
 <li>Organizing modules, slides, assignments, and labs</li>
 <li>Using Reveal.js for presentations</li>
@@ -310,6 +354,8 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Build, maintain, and publish an entire course website</li>
 <li>Use version control confidently and professionally</li>
+<li>Use GitHub Classroom to distribute and review coding assignments</li>
+<li>Use GitHub Copilot and editor-based AI tools to speed up course preparation</li>
 <li>Write reproducible, portable instructional materials</li>
 <li>Integrate your website into a university LMS</li>
 <li>Maintain a clean, scalable course development workflow</li>
@@ -371,13 +417,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -723,8 +770,8 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_tool_setup.html" class="pagination-link" aria-label="Tool Setup">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tool Setup</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02_version_control.html" class="pagination-link" aria-label="Git and GitHub">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git and GitHub</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

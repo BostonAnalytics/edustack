@@ -1,0 +1,178 @@
+# Professor Quickstart
+
+This chapter is the shortest path from an empty folder to a course structure that
+can become a Quarto site, a GitHub Classroom template, and a Blackboard Ultra
+course package.
+
+Use this chapter when you already understand the goal and want the build order.
+The later chapters explain each tool in more detail.
+
+## What You Are Building
+
+By the end of this quickstart, you will have:
+
+- a Quarto course project
+- a feeder workbook named `Course-Schedule.xlsx`
+- a standard `M01_*` module structure
+- a draft schedule table
+- a rendered HTML site
+- a checklist for Blackboard Ultra upload
+
+The course project should eventually resemble this structure:
+
+```text
+my-course/
+  _quarto.yml
+  index.qmd
+  schedule.qmd
+  deliverables.qmd
+  references.bib
+  data/
+    Course-Schedule.xlsx
+    generated_schedule.csv
+  M01/
+    M01_A.qmd
+    M01_LN1.qmd
+    M01_LN2.qmd
+    M01_P1.qmd
+    M01_P2.qmd
+    M01_Proj.qmd
+    M01_Lab1.qmd
+    M01_Lab2.qmd
+    M01_Participation1.qmd
+    M01_Participation2.qmd
+```
+
+## Step 1: Create the GitHub Repository
+
+Start in GitHub, not on your local machine. Create a new repository for the
+course first. This gives the course a durable home before any Quarto files are
+added.
+
+Recommended repository settings:
+
+- Add a `README.md`.
+- Add a Python `.gitignore`.
+- Keep the repository private until the course is ready to share.
+- Use a short, stable name such as `AD688-Web-Analytics` or `my-course`.
+
+Clone the repository locally:
+
+```bash
+git clone https://github.com/your-org/my-course.git
+cd my-course
+```
+
+Pull before adding the Quarto structure:
+
+```bash
+git pull
+```
+
+## Step 2: Add the Quarto Structure
+
+Initialize the Quarto website inside the cloned repository:
+
+```bash
+quarto create project website .
+```
+
+Commit the starter site:
+
+```bash
+git add .
+git commit -m "Initialize Quarto course site"
+git push
+```
+
+## Step 3: Create the Feeder Workbook
+
+From this repository, run the workbook generator against your course project:
+
+```bash
+python scripts/generate_course_workbook.py my-course/data/Course-Schedule.xlsx
+```
+
+Then open `Course-Schedule.xlsx` and fill in the course details. At minimum,
+complete the `Course Details`, `Sections`, `Grade`, and `Deliverables` sheets.
+
+Validate the workbook before using it downstream:
+
+```bash
+python scripts/validate_course_workbook.py my-course/data/Course-Schedule.xlsx
+```
+
+## Step 4: Generate Module Folders
+
+Create the standard module scaffold:
+
+```bash
+python scripts/generate_modules.py my-course
+```
+
+If your course has an orientation or prerequisite module, include `M00`:
+
+```bash
+python scripts/generate_modules.py my-course --include-module-zero
+```
+
+Validate the structure:
+
+```bash
+python scripts/validate_course_structure.py my-course
+```
+
+## Step 5: Generate a Draft Schedule
+
+Use the workbook to generate a simple schedule table:
+
+```bash
+python scripts/generate_course_schedule.py my-course/data/Course-Schedule.xlsx my-course/data/generated_schedule.csv
+```
+
+This schedule is intentionally plain. It gives you a clean starting point for
+the course site, syllabus, and Blackboard due-date planning.
+
+## Step 6: Render the Site
+
+From inside the course project:
+
+```bash
+quarto render
+```
+
+Preview locally:
+
+```bash
+quarto preview
+```
+
+Fix broken links, missing images, or rendering errors before copying anything
+into Blackboard Ultra.
+
+## Step 7: Prepare Blackboard Ultra
+
+For Blackboard Ultra, the practical workflow is:
+
+1. Render the Quarto site.
+2. Confirm pages open locally.
+3. Upload or embed the rendered HTML content.
+4. Mirror the module structure in Blackboard.
+5. Add assignments, rubrics, due dates, and release rules.
+6. Keep Quarto as the source of truth for future updates.
+
+## Quickstart Checklist
+
+- [ ] GitHub repository created
+- [ ] Repository cloned locally
+- [ ] Latest remote changes pulled
+- [ ] Quarto project created inside the cloned repository
+- [ ] Starter Quarto site committed and pushed
+- [ ] `Course-Schedule.xlsx` generated and filled
+- [ ] Workbook validation passes
+- [ ] `M01_*` module folders generated
+- [ ] Module structure validation passes
+- [ ] Draft schedule generated
+- [ ] Site renders with `quarto render`
+- [ ] Blackboard module map prepared
+- [ ] First module tested end to end

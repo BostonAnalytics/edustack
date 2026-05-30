@@ -6,13 +6,13 @@ While GitHub is strongly recommended for version control and long-term course ma
 
 However, the GitHub-based workflow—especially when paired with Antigravity or VS Code—is highly preferred for reproducibility, collaboration, and maintaining a clean version history of your teaching materials.
 
-This recipe assumes no prior experience. Each step includes instructions, verification checks, and placeholders for screenshots.
+This recipe assumes no prior experience. Each step includes instructions and verification checks.
 
 ## Install Git
 
 Git is the version control system used throughout the recommended workflow. You can choose the platform from the installation on the [Git](https://git-scm.com/install) website.
 
-![Installing Git - Linux Screenshot Placeholder](images/ch01/toolsetup-git.png){width=80% fig-align="center" #fig-git}
+![Installing Git](images/ch01/toolsetup-git.png){width=80% fig-align="center" #fig-git}
 
 1. Install Git using your operating system:
    1. macOS:
@@ -151,8 +151,6 @@ Pull:
 git pull
 ```
 
-![Local Repo Clone](images/toolsetup-clone.png){width=80% fig-align="center" #fig-clone}
-
 # Install Quarto
 
 Quarto is the publishing framework used in this book.
@@ -166,8 +164,6 @@ Verify:
 ```bash
 quarto --version
 ```
-
-![Quarto Installation](images/toolsetup-quarto.png){width=80% fig-align="center" #fig-quarto}
 
 # Install Pandoc
 
@@ -187,8 +183,6 @@ Pandoc is required for document format conversion.
   ```
 
 Windows installer already includes Pandoc.
-
-![Pandoc Installation](images/toolsetup-pandoc.png){width=80% fig-align="center" #fig-pandoc}
 
 
 # Install Graphviz
@@ -237,8 +231,6 @@ Install R:
 Windows users install RTools:
 [https://cran.r-project.org/bin/windows/Rtools/](https://cran.r-project.org/bin/windows/Rtools/)
 
-![R Installation](images/toolsetup-r.png){width=80% fig-align="center" #fig-r}
-
 # Install VS Code, Antigravity, or Cursor
 
 You can use any of the following editors for this workflow:
@@ -267,8 +259,6 @@ Download:
 [https://antigravity.google/](https://antigravity.google/)
 
 Sign in with Google or GitHub.
-
-![Antigravity IDE Installer](images/toolsetup-antigravity.png){width=80% fig-align="center" #fig-antigravity}
 
 ---
 
@@ -329,8 +319,6 @@ renv::init()
 install.packages(c("tidyverse", "knitr", "rmarkdown"))
 renv::snapshot()
 ```
-
-![Environment Setup](images/ch01/toolsetup-env.png){width=80% fig-align="center" #fig-env}
 
 # Verification Checklist
 
