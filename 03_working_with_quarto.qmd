@@ -855,6 +855,70 @@ Most projects will naturally follow this pattern:
 
 You are encouraged to **move between tools**, not choose one forever.
 
+## A Course Module Pattern
+
+AD688 uses Quarto not only for individual reports, but as the organizing system
+for a whole course. A module is a small publishing unit: lecture notes,
+presentation material, labs, assignments, participation activities, project
+milestones, and wrap-up notes all live together.
+
+A compact module might look like this:
+
+```text
+M01/
+  M01_highlights.qmd
+  M01_LN1.qmd
+  M01_P1.qmd
+  M01_Lab1.qmd
+  M01_A.qmd
+  M01_Proj.qmd
+  M01_Wrapup.qmd
+```
+
+The filenames are intentionally boring. That is a feature. Students and
+instructors can predict where each piece belongs, and the LMS map can point to
+stable source files.
+
+| File | Purpose |
+|---|---|
+| `M01_highlights.qmd` | short module overview and learning objectives |
+| `M01_LN1.qmd` | lecture notes or reading material |
+| `M01_P1.qmd` | presentation or reveal.js slides |
+| `M01_Lab1.qmd` | guided practice |
+| `M01_A.qmd` | graded assignment |
+| `M01_Proj.qmd` | project milestone |
+| `M01_Wrapup.qmd` | reflection, reminders, and next steps |
+
+For a new course, build one complete module before scaling to the rest of the
+semester. One finished module teaches you more than seven empty folders.
+
+### Rendering the Module
+
+Render early, especially after adding images, citations, code, or cross
+references:
+
+```bash
+quarto render
+```
+
+Preview while editing:
+
+```bash
+quarto preview
+```
+
+Then commit the source files, not just the rendered output:
+
+```bash
+git status
+git add M01 _quarto.yml
+git commit -m "Add module 1 Quarto materials"
+git push
+```
+
+This is the core course-building loop: write in Quarto, render to check, commit
+the source, and push to GitHub.
+
 ## Summary table
 
 | Task                      | Recommended tool |
