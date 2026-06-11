@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; Capstone: Build a Course Like AD688 – Designing a Course With Quarto</title>
+<title>12&nbsp; Capstone: Build a Course Like AD688 – Designing a Course With Quarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_capstone_build_like_ad688.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_capstone_build_like_ad688.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -195,26 +195,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./10_cloud_analytics_with_aws.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cloud Analytics with AWS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./07_blackboard_ultra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_automating_with_AI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Automating with AI</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Automating with AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09_capstone_build_like_ad688.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -233,16 +239,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#capstone-goal" id="toc-capstone-goal" class="nav-link active" data-scroll-target="#capstone-goal"><span class="header-section-number">11.1</span> Capstone Goal</a></li>
-  <li><a href="#repository-shape" id="toc-repository-shape" class="nav-link" data-scroll-target="#repository-shape"><span class="header-section-number">11.2</span> Repository Shape</a></li>
-  <li><a href="#step-1-start-from-the-workbook" id="toc-step-1-start-from-the-workbook" class="nav-link" data-scroll-target="#step-1-start-from-the-workbook"><span class="header-section-number">11.3</span> Step 1: Start From the Workbook</a></li>
-  <li><a href="#step-2-generate-the-course-structure" id="toc-step-2-generate-the-course-structure" class="nav-link" data-scroll-target="#step-2-generate-the-course-structure"><span class="header-section-number">11.4</span> Step 2: Generate the Course Structure</a></li>
-  <li><a href="#step-3-create-the-three-course-pages" id="toc-step-3-create-the-three-course-pages" class="nav-link" data-scroll-target="#step-3-create-the-three-course-pages"><span class="header-section-number">11.5</span> Step 3: Create the Three Course Pages</a></li>
-  <li><a href="#step-4-build-one-complete-module" id="toc-step-4-build-one-complete-module" class="nav-link" data-scroll-target="#step-4-build-one-complete-module"><span class="header-section-number">11.6</span> Step 4: Build One Complete Module</a></li>
-  <li><a href="#step-5-add-blackboard-mapping" id="toc-step-5-add-blackboard-mapping" class="nav-link" data-scroll-target="#step-5-add-blackboard-mapping"><span class="header-section-number">11.7</span> Step 5: Add Blackboard Mapping</a></li>
-  <li><a href="#step-6-render-review-package" id="toc-step-6-render-review-package" class="nav-link" data-scroll-target="#step-6-render-review-package"><span class="header-section-number">11.8</span> Step 6: Render, Review, Package</a></li>
-  <li><a href="#step-7-maintain-the-course" id="toc-step-7-maintain-the-course" class="nav-link" data-scroll-target="#step-7-maintain-the-course"><span class="header-section-number">11.9</span> Step 7: Maintain the Course</a></li>
-  <li><a href="#capstone-completion-checklist" id="toc-capstone-completion-checklist" class="nav-link" data-scroll-target="#capstone-completion-checklist"><span class="header-section-number">11.10</span> Capstone Completion Checklist</a></li>
+  <li><a href="#capstone-goal" id="toc-capstone-goal" class="nav-link active" data-scroll-target="#capstone-goal"><span class="header-section-number">12.1</span> Capstone Goal</a></li>
+  <li><a href="#repository-shape" id="toc-repository-shape" class="nav-link" data-scroll-target="#repository-shape"><span class="header-section-number">12.2</span> Repository Shape</a></li>
+  <li><a href="#step-1-start-from-github" id="toc-step-1-start-from-github" class="nav-link" data-scroll-target="#step-1-start-from-github"><span class="header-section-number">12.3</span> Step 1: Start From GitHub</a></li>
+  <li><a href="#step-2-add-the-workbook" id="toc-step-2-add-the-workbook" class="nav-link" data-scroll-target="#step-2-add-the-workbook"><span class="header-section-number">12.4</span> Step 2: Add the Workbook</a></li>
+  <li><a href="#step-3-generate-the-course-structure" id="toc-step-3-generate-the-course-structure" class="nav-link" data-scroll-target="#step-3-generate-the-course-structure"><span class="header-section-number">12.5</span> Step 3: Generate the Course Structure</a></li>
+  <li><a href="#step-4-create-the-three-course-pages" id="toc-step-4-create-the-three-course-pages" class="nav-link" data-scroll-target="#step-4-create-the-three-course-pages"><span class="header-section-number">12.6</span> Step 4: Create the Three Course Pages</a></li>
+  <li><a href="#step-5-build-one-complete-module" id="toc-step-5-build-one-complete-module" class="nav-link" data-scroll-target="#step-5-build-one-complete-module"><span class="header-section-number">12.7</span> Step 5: Build One Complete Module</a></li>
+  <li><a href="#step-6-add-blackboard-mapping" id="toc-step-6-add-blackboard-mapping" class="nav-link" data-scroll-target="#step-6-add-blackboard-mapping"><span class="header-section-number">12.8</span> Step 6: Add Blackboard Mapping</a></li>
+  <li><a href="#step-7-render-review-package" id="toc-step-7-render-review-package" class="nav-link" data-scroll-target="#step-7-render-review-package"><span class="header-section-number">12.9</span> Step 7: Render, Review, Package</a></li>
+  <li><a href="#step-8-maintain-the-course" id="toc-step-8-maintain-the-course" class="nav-link" data-scroll-target="#step-8-maintain-the-course"><span class="header-section-number">12.10</span> Step 8: Maintain the Course</a></li>
+  <li><a href="#capstone-completion-checklist" id="toc-capstone-completion-checklist" class="nav-link" data-scroll-target="#capstone-completion-checklist"><span class="header-section-number">12.11</span> Capstone Completion Checklist</a></li>
   </ul>
 </nav>
     </div>
@@ -251,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Capstone: Build a Course Like AD688</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Capstone: Build a Course Like AD688</span></h1>
 </div>
 
 
@@ -269,8 +276,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This capstone turns the individual skills in the book into one complete course-building workflow. The goal is to create a small but realistic course repository that has the same operating model as AD688: a syllabus, schedule, deliverables, modules, labs, projects, presentations, Blackboard packaging, and an update workflow.</p>
-<section id="capstone-goal" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="capstone-goal"><span class="header-section-number">11.1</span> Capstone Goal</h2>
+<section id="capstone-goal" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="capstone-goal"><span class="header-section-number">12.1</span> Capstone Goal</h2>
 <p>Build a miniature course with:</p>
 <ul>
 <li>one syllabus page</li>
@@ -287,8 +294,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>This small course is the proof of concept. Once it works, repeat the pattern for the rest of the course.</p>
 </section>
-<section id="repository-shape" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="repository-shape"><span class="header-section-number">11.2</span> Repository Shape</h2>
+<section id="repository-shape" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="repository-shape"><span class="header-section-number">12.2</span> Repository Shape</h2>
 <p>Use this structure as the target:</p>
 <pre class="text"><code>mini-course/
   _quarto.yml
@@ -311,11 +318,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   announcements/
     week-01.md</code></pre>
 </section>
-<section id="step-1-start-from-the-workbook" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="step-1-start-from-the-workbook"><span class="header-section-number">11.3</span> Step 1: Start From the Workbook</h2>
+<section id="step-1-start-from-github" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="step-1-start-from-github"><span class="header-section-number">12.3</span> Step 1: Start From GitHub</h2>
+<p>Create the GitHub repository first, then clone it locally:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/your-org/mini-course.git</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> mini-course</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Initialize Quarto inside the cloned repository:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> create project website .</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initialize Quarto course site"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This sequence keeps the course source of truth on GitHub from the beginning.</p>
+</section>
+<section id="step-2-add-the-workbook" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="step-2-add-the-workbook"><span class="header-section-number">12.4</span> Step 2: Add the Workbook</h2>
 <p>Create and fill the workbook first. The workbook is the planning layer for the course.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_course_workbook.py mini-course/data/Course-Schedule.xlsx</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/validate_course_workbook.py mini-course/data/Course-Schedule.xlsx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_course_workbook.py data/Course-Schedule.xlsx</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/validate_course_workbook.py data/Course-Schedule.xlsx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Use the <code>Course Details</code> sheet to define the academic flow:</p>
 <table class="caption-top table">
 <colgroup>
@@ -348,23 +368,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="step-2-generate-the-course-structure" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="step-2-generate-the-course-structure"><span class="header-section-number">11.4</span> Step 2: Generate the Course Structure</h2>
+<section id="step-3-generate-the-course-structure" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="step-3-generate-the-course-structure"><span class="header-section-number">12.5</span> Step 3: Generate the Course Structure</h2>
 <p>Generate the standard folders and files:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_modules.py mini-course <span class="at">--start</span> 1 <span class="at">--end</span> 1</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/validate_course_structure.py mini-course <span class="at">--start</span> 1 <span class="at">--end</span> 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_modules.py . <span class="at">--start</span> 1 <span class="at">--end</span> 1</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/validate_course_structure.py . <span class="at">--start</span> 1 <span class="at">--end</span> 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The generated files are intentionally small. Their job is to give each professor a consistent place to write.</p>
 </section>
-<section id="step-3-create-the-three-course-pages" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="step-3-create-the-three-course-pages"><span class="header-section-number">11.5</span> Step 3: Create the Three Course Pages</h2>
+<section id="step-4-create-the-three-course-pages" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="step-4-create-the-three-course-pages"><span class="header-section-number">12.6</span> Step 4: Create the Three Course Pages</h2>
 <p>Create the root-level pages that students and Blackboard will reference most:</p>
 <pre class="text"><code>index.qmd          syllabus and course overview
 schedule.qmd       weekly schedule and class rhythm
 deliverables.qmd   assignments, labs, project milestones, and grading</code></pre>
 <p>These pages should be concise, stable, and easy to update before each semester.</p>
 </section>
-<section id="step-4-build-one-complete-module" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="step-4-build-one-complete-module"><span class="header-section-number">11.6</span> Step 4: Build One Complete Module</h2>
+<section id="step-5-build-one-complete-module" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="step-5-build-one-complete-module"><span class="header-section-number">12.7</span> Step 5: Build One Complete Module</h2>
 <p>For <code>M01</code>, fill in at least these files:</p>
 <table class="caption-top table">
 <colgroup>
@@ -406,8 +426,8 @@ deliverables.qmd   assignments, labs, project milestones, and grading</code></pr
 </table>
 <p>Keep the module complete before scaling. A complete module is more valuable than seven empty folders.</p>
 </section>
-<section id="step-5-add-blackboard-mapping" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="step-5-add-blackboard-mapping"><span class="header-section-number">11.7</span> Step 5: Add Blackboard Mapping</h2>
+<section id="step-6-add-blackboard-mapping" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="step-6-add-blackboard-mapping"><span class="header-section-number">12.8</span> Step 6: Add Blackboard Mapping</h2>
 <p>Create <code>classroom-organization/blackboard-map.md</code> and map the Quarto files to Blackboard Ultra content areas:</p>
 <table class="caption-top table">
 <thead>
@@ -441,10 +461,10 @@ deliverables.qmd   assignments, labs, project milestones, and grading</code></pr
 </table>
 <p>This map prevents the course website and LMS from drifting apart.</p>
 </section>
-<section id="step-6-render-review-package" class="level2" data-number="11.8">
-<h2 data-number="11.8" class="anchored" data-anchor-id="step-6-render-review-package"><span class="header-section-number">11.8</span> Step 6: Render, Review, Package</h2>
+<section id="step-7-render-review-package" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="step-7-render-review-package"><span class="header-section-number">12.9</span> Step 7: Render, Review, Package</h2>
 <p>Render the course:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Review:</p>
 <ul>
 <li>navigation</li>
@@ -457,15 +477,15 @@ deliverables.qmd   assignments, labs, project milestones, and grading</code></pr
 </ul>
 <p>If the course is being uploaded as static HTML, zip the rendered site output and upload it through the process approved for your institution.</p>
 </section>
-<section id="step-7-maintain-the-course" class="level2" data-number="11.9">
-<h2 data-number="11.9" class="anchored" data-anchor-id="step-7-maintain-the-course"><span class="header-section-number">11.9</span> Step 7: Maintain the Course</h2>
+<section id="step-8-maintain-the-course" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="step-8-maintain-the-course"><span class="header-section-number">12.10</span> Step 8: Maintain the Course</h2>
 <p>Use a predictable update loop:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Update module 1 materials"</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Update module 1 materials"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>For each semester:</p>
 <ul>
 <li>update the workbook</li>
@@ -476,9 +496,12 @@ deliverables.qmd   assignments, labs, project milestones, and grading</code></pr
 <li>archive old term-specific files</li>
 </ul>
 </section>
-<section id="capstone-completion-checklist" class="level2" data-number="11.10">
-<h2 data-number="11.10" class="anchored" data-anchor-id="capstone-completion-checklist"><span class="header-section-number">11.10</span> Capstone Completion Checklist</h2>
+<section id="capstone-completion-checklist" class="level2" data-number="12.11">
+<h2 data-number="12.11" class="anchored" data-anchor-id="capstone-completion-checklist"><span class="header-section-number">12.11</span> Capstone Completion Checklist</h2>
 <ul class="task-list">
+<li><label><input type="checkbox">GitHub repository exists</label></li>
+<li><label><input type="checkbox">Repository is cloned locally</label></li>
+<li><label><input type="checkbox">Quarto was initialized inside the cloned repository</label></li>
 <li><label><input type="checkbox">Workbook exists and validates</label></li>
 <li><label><input type="checkbox">One module exists and validates</label></li>
 <li><label><input type="checkbox">Syllabus page exists</label></li>
@@ -901,12 +924,12 @@ deliverables.qmd   assignments, labs, project milestones, and grading</code></pr
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./08_automating_with_AI.html" class="pagination-link" aria-label="Automating with AI">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Automating with AI</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Automating with AI</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

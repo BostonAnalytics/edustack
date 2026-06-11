@@ -154,7 +154,7 @@
     "href": "02_version_control.html#github-taking-your-repository-to-the-cloud",
     "title": "2  Version Control: Mastering the Foundation of Collaborative Development",
     "section": "2.9 GitHub: Taking Your Repository to the Cloud",
-    "text": "2.9 GitHub: Taking Your Repository to the Cloud\nGitHub is a web-based platform that hosts Git repositories. It adds collaboration, sharing, and visibility on top of Git’s core functionality.\n\n2.9.1 Why GitHub for Education\nGitHub provides several features that enhance teaching:\n\nVisibility: Share course materials with students, colleagues, or the public\nCollaboration: Students and colleagues can contribute directly to projects\nIssues and Discussions: Organize feedback, bugs, and feature requests\nGitHub Classroom: Automated assignment distribution and collection for students\n\n\n\n2.9.2 Creating a GitHub Account and Repository\n\nVisit github.com and create a free account\nAfter signing in, click the “+” icon in the top right and select “New repository”\nName your repository (e.g., spring-2026-course-materials)\nAdd a description\nChoose to make it public or private\nInitialize with a README\nAdd a Python .gitignore\nClick “Create repository”\n\n\n\n2.9.3 Cloning Your GitHub Repository Locally\nAfter creating the repository on GitHub, clone it before adding Quarto files:\ngit clone https://github.com/your-username/repository-name.git\ncd repository-name\ngit pull\nNow your local course folder is already connected to GitHub. Add the Quarto structure here, then commit and push.\n\n\n2.9.4 Connecting an Existing Local Repository\nIf you already created a local repository with git init, you can still connect it to GitHub:\ngit remote add origin https://github.com/your-username/repository-name.git\ngit branch -M main\ngit push -u origin main\nFor new courses, cloning first is usually cleaner.\n\n\n2.9.5 Workbook Exercise: Create, Clone, and Push\nLet’s create the GitHub repository first and then add work locally.\nTask: Create and clone a GitHub repository\n\nGo to github.com and log in\nCreate a new repository named my-course-materials\nChoose “Public” so others can see your work\nInitialize it with a README\nAdd a Python .gitignore\nClick “Create repository”\n\nThen in your terminal:\n# Clone the repository\ngit clone https://github.com/YOUR-USERNAME/my-course-materials.git\n\n# Enter the local repository\ncd my-course-materials\n\n# Pull before adding course files\ngit pull\n\n# Confirm the remote connection\ngit remote -v\nVerification Checklist: - [ ] GitHub account created - [ ] Repository created on GitHub - [ ] Repository cloned locally - [ ] git pull runs cleanly - [ ] Local repository connected to GitHub - [ ] Files pushed successfully - [ ] Able to see files on github.com in your browser\nYour GitHub repository URL:\n\nhttps://github.com/YOUR-USERNAME/my-course-materials",
+    "text": "2.9 GitHub: Taking Your Repository to the Cloud\nGitHub is a web-based platform that hosts Git repositories. It adds collaboration, sharing, and visibility on top of Git’s core functionality.\n\n2.9.1 Why GitHub for Education\nGitHub provides several features that enhance teaching:\n\nVisibility: Share course materials with students, colleagues, or the public\nCollaboration: Students and colleagues can contribute directly to projects\nIssues and Discussions: Organize feedback, bugs, and feature requests\nGitHub Classroom: Automated assignment distribution and collection for students\n\n\n\n2.9.2 Creating a GitHub Account and Repository\n\nVisit github.com and create a free account\nAfter signing in, click the “+” icon in the top right and select “New repository”\nName your repository (e.g., spring-2026-course-materials)\nAdd a description\nChoose to make it public or private\nInitialize with a README\nAdd a Python .gitignore\nClick “Create repository”\n\n\n\n2.9.3 Cloning Your GitHub Repository Locally\nAfter creating the repository on GitHub, clone it before adding Quarto files:\ngit clone https://github.com/your-username/repository-name.git\ncd repository-name\ngit pull\nNow your local course folder is already connected to GitHub. Add the Quarto structure here, then commit and push.\n\n\n2.9.4 AD688-Style First Repository Pattern\nIn AD688, the first repository is not treated as a throwaway Git exercise. It is the student’s durable workspace for the course. That changes the emphasis: students configure their identity, connect their editor, verify authentication, make a small README change, commit, push, and submit the repository link.\nUse this pattern when introducing GitHub to students:\n\nCreate a GitHub account with a name and email the instructor can recognize.\nEnable two-factor authentication.\nCreate a course repository using the required naming convention.\nClone the repository in VS Code or from the terminal.\nAdd or edit README.md.\nCommit with a meaningful message.\nPush to GitHub.\nRefresh the GitHub page and verify the commit appears.\nSubmit the repository URL through the LMS.\n\nThe point is to make GitHub feel like the normal place where course work lives, not an extra upload step at the end.\n\n\n2.9.5 SSH Keys for GitHub\nHTTPS cloning is often enough for a first course repository. SSH becomes useful when students are working repeatedly across a local computer, VS Code, and a cloud machine such as AWS EC2.\nStudents should understand the difference between the two key files:\n\n\n\nFile\nMeaning\nShare?\n\n\n\n\nid_ed25519\nprivate key\nNever share or upload\n\n\nid_ed25519.pub\npublic key\nAdd to GitHub\n\n\n\nGenerate a key:\nssh-keygen -t ed25519 -C \"your.email@example.com\"\nDisplay the public key:\ncat ~/.ssh/id_ed25519.pub\nThen add the public key to GitHub under SSH keys and test:\nssh -T git@github.com\nIf students later work on EC2, remind them not to place private keys in a Git repository or cloud-synced folder. Authentication files are part of the environment, not part of the assignment.\n\n\n2.9.6 Connecting an Existing Local Repository\nIf you already created a local repository with git init, you can still connect it to GitHub:\ngit remote add origin https://github.com/your-username/repository-name.git\ngit branch -M main\ngit push -u origin main\nFor new courses, cloning first is usually cleaner.\n\n\n2.9.7 Workbook Exercise: Create, Clone, and Push\nLet’s create the GitHub repository first and then add work locally.\nTask: Create and clone a GitHub repository\n\nGo to github.com and log in\nCreate a new repository named my-course-materials\nChoose “Public” so others can see your work\nInitialize it with a README\nAdd a Python .gitignore\nClick “Create repository”\n\nThen in your terminal:\n# Clone the repository\ngit clone https://github.com/YOUR-USERNAME/my-course-materials.git\n\n# Enter the local repository\ncd my-course-materials\n\n# Pull before adding course files\ngit pull\n\n# Confirm the remote connection\ngit remote -v\nVerification Checklist: - [ ] GitHub account created - [ ] Repository created on GitHub - [ ] Repository cloned locally - [ ] git pull runs cleanly - [ ] Local repository connected to GitHub - [ ] Files pushed successfully - [ ] Able to see files on github.com in your browser\nYour GitHub repository URL:\n\nhttps://github.com/YOUR-USERNAME/my-course-materials",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Git and GitHub</span>"
     ]
@@ -174,7 +174,7 @@
     "href": "02_version_control.html#best-practices-for-version-control-in-education",
     "title": "2  Version Control: Mastering the Foundation of Collaborative Development",
     "section": "2.11 Best Practices for Version Control in Education",
-    "text": "2.11 Best Practices for Version Control in Education\n\n2.11.1 Commit Frequently\nDon’t wait until the end of the semester to commit changes. Small, frequent commits are easier to understand and revert if needed. Think of commits as saving chapters of your course’s story.\n\n\n2.11.2 Write Clear Commit Messages\nYour future self will thank you. A good message explains why a change was made:\n❌ \"fix\"\n✓ \"Adjust assignment deadline to accommodate accreditation visit\"\n\n❌ \"updates\"\n✓ \"Add learning outcomes for Module 3 aligned with program assessment\"\n\n\n2.11.3 Use Branches for Major Changes\nNever make radical changes directly on main. Use branches to experiment, then merge when you’re confident.\n\n\n2.11.4 Keep Large Files Out of Git\nGit is designed for text-based files. Large binary files (videos, huge datasets) should be stored elsewhere and referenced from your Git repository. Many educators use Git LFS (Large File Storage) or cloud storage services.\n\n\n2.11.5 Review Before Merging\nIf working with colleagues, use pull requests to review changes before merging. This creates a record of decisions and catches mistakes early.\n\n\n2.11.6 Maintain a Good README\nYour README.md is the front door to your repository. It should explain: - What the course is about - How to use the materials - How to contribute (for open repositories) - Any technical requirements\n\n\n2.11.7 Workbook Checklist: Set Up Your Teaching Repository\nUse this checklist to set up a professional, version-controlled course repository:\nPhase 1: Local Setup - [ ] Git installed and configured with your name and email - [ ] GitHub repository created with README and .gitignore - [ ] Repository cloned locally - [ ] git pull runs cleanly before adding course files\nPhase 2: Quarto Setup - [ ] Quarto project created inside the cloned repository - [ ] Initial Quarto files committed with a meaningful message - [ ] Initial commit pushed to GitHub - [ ] README.md updated to explain the course\nPhase 3: Documentation - [ ] Organized files in logical folders - [ ] Added licensing information (if appropriate) - [ ] Documented any setup instructions for students\nPhase 4: Collaboration Ready - [ ] Identified how colleagues/students will access materials - [ ] Set up any necessary collaborators on GitHub - [ ] Created initial branches for experimental features - [ ] Established a branching strategy for your team",
+    "text": "2.11 Best Practices for Version Control in Education\n\n2.11.1 Commit Frequently\nDon’t wait until the end of the semester to commit changes. Small, frequent commits are easier to understand and revert if needed. Think of commits as saving chapters of your course’s story.\n\n\n2.11.2 Write Clear Commit Messages\nYour future self will thank you. A good message explains why a change was made:\n❌ \"fix\"\n✓ \"Adjust assignment deadline to accommodate accreditation visit\"\n\n❌ \"updates\"\n✓ \"Add learning outcomes for Module 3 aligned with program assessment\"\n\n\n2.11.3 Use Branches for Major Changes\nNever make radical changes directly on main. Use branches to experiment, then merge when you’re confident.\n\n\n2.11.4 Keep Large Files Out of Git\nGit is designed for text-based files. Large binary files (videos, huge datasets) should be stored elsewhere and referenced from your Git repository. Many educators use Git LFS (Large File Storage) or cloud storage services.\n\n\n2.11.5 Review Before Merging\nIf working with colleagues, use pull requests to review changes before merging. This creates a record of decisions and catches mistakes early.\n\n\n2.11.6 Maintain a Good README\nYour README.md is the front door to your repository. It should explain: - What the course is about - How to use the materials - How to contribute (for open repositories) - Any technical requirements\n\n\n2.11.7 Workbook Checklist: Set Up Your Teaching Repository\nUse this checklist to set up a professional, version-controlled course repository:\nPhase 1: Local Setup - [ ] Git installed and configured with your name and email - [ ] GitHub repository created with README and .gitignore - [ ] Repository cloned locally - [ ] git pull runs cleanly before adding course files\nPhase 2: Quarto Setup - [ ] Quarto project created inside the cloned repository - [ ] Initial Quarto files committed with a meaningful message - [ ] Initial commit pushed to GitHub - [ ] README.md updated to explain the course\nPhase 3: Documentation - [ ] Organized files in logical folders - [ ] Added licensing information (if appropriate) - [ ] Documented any setup instructions for students\nPhase 4: Collaboration Ready - [ ] Identified how colleagues/students will access materials - [ ] Set up any necessary collaborators on GitHub - [ ] Created initial branches for experimental features - [ ] Established a branching strategy for your team\nPhase 5: Cloud Ready - [ ] Repository can be cloned from a remote machine - [ ] Authentication method is documented: HTTPS, GitHub CLI, or SSH - [ ] Private keys and tokens are excluded from Git - [ ] Students know to commit and push before ending a cloud session - [ ] Repository URL is the primary submission artifact",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Git and GitHub</span>"
     ]
@@ -860,11 +860,21 @@
     ]
   },
   {
+    "objectID": "03_working_with_quarto.html#a-course-module-pattern",
+    "href": "03_working_with_quarto.html#a-course-module-pattern",
+    "title": "5  Reproducible Documents with Quarto",
+    "section": "5.39 A Course Module Pattern",
+    "text": "5.39 A Course Module Pattern\nAD688 uses Quarto not only for individual reports, but as the organizing system for a whole course. A module is a small publishing unit: lecture notes, presentation material, labs, assignments, participation activities, project milestones, and wrap-up notes all live together.\nA compact module might look like this:\nM01/\n  M01_highlights.qmd\n  M01_LN1.qmd\n  M01_P1.qmd\n  M01_Lab1.qmd\n  M01_A.qmd\n  M01_Proj.qmd\n  M01_Wrapup.qmd\nThe filenames are intentionally boring. That is a feature. Students and instructors can predict where each piece belongs, and the LMS map can point to stable source files.\n\n\n\nFile\nPurpose\n\n\n\n\nM01_highlights.qmd\nshort module overview and learning objectives\n\n\nM01_LN1.qmd\nlecture notes or reading material\n\n\nM01_P1.qmd\npresentation or reveal.js slides\n\n\nM01_Lab1.qmd\nguided practice\n\n\nM01_A.qmd\ngraded assignment\n\n\nM01_Proj.qmd\nproject milestone\n\n\nM01_Wrapup.qmd\nreflection, reminders, and next steps\n\n\n\nFor a new course, build one complete module before scaling to the rest of the semester. One finished module teaches you more than seven empty folders.\n\n5.39.1 Rendering the Module\nRender early, especially after adding images, citations, code, or cross references:\nquarto render\nPreview while editing:\nquarto preview\nThen commit the source files, not just the rendered output:\ngit status\ngit add M01 _quarto.yml\ngit commit -m \"Add module 1 Quarto materials\"\ngit push\nThis is the core course-building loop: write in Quarto, render to check, commit the source, and push to GitHub.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
+    ]
+  },
+  {
     "objectID": "03_working_with_quarto.html#summary-table",
     "href": "03_working_with_quarto.html#summary-table",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.39 Summary table",
-    "text": "5.39 Summary table\n\n\n\nTask\nRecommended tool\n\n\n\n\nRapid experimentation\nJupyter\n\n\nLearning and prototyping\nJupyter\n\n\nR-based reporting\nR Markdown\n\n\nReproducible assignments\nQuarto\n\n\nFinal reports and papers\nQuarto\n\n\nPresentations\nQuarto\n\n\nWebsites and portfolios\nQuarto\n\n\nMixed R + Python projects\nQuarto",
+    "section": "5.40 Summary table",
+    "text": "5.40 Summary table\n\n\n\nTask\nRecommended tool\n\n\n\n\nRapid experimentation\nJupyter\n\n\nLearning and prototyping\nJupyter\n\n\nR-based reporting\nR Markdown\n\n\nReproducible assignments\nQuarto\n\n\nFinal reports and papers\nQuarto\n\n\nPresentations\nQuarto\n\n\nWebsites and portfolios\nQuarto\n\n\nMixed R + Python projects\nQuarto",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -873,8 +883,8 @@
     "objectID": "03_working_with_quarto.html#final-takeaway",
     "href": "03_working_with_quarto.html#final-takeaway",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.40 Final takeaway",
-    "text": "5.40 Final takeaway\nThink in terms of intent, not software.\n\nJupyter helps you think\nR Markdown helps you analyze\nQuarto helps you communicate\n\nThe most important skill you will develop is not proficiency with a tool, but the ability to move cleanly from exploration to explanation.",
+    "section": "5.41 Final takeaway",
+    "text": "5.41 Final takeaway\nThink in terms of intent, not software.\n\nJupyter helps you think\nR Markdown helps you analyze\nQuarto helps you communicate\n\nThe most important skill you will develop is not proficiency with a tool, but the ability to move cleanly from exploration to explanation.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -883,8 +893,8 @@
     "objectID": "03_working_with_quarto.html#course-requirements-and-practical-quarto-usage",
     "href": "03_working_with_quarto.html#course-requirements-and-practical-quarto-usage",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.41 Course requirements and practical Quarto usage",
-    "text": "5.41 Course requirements and practical Quarto usage\nThis course uses Quarto as the standard publishing system for websites, reports, and presentations.\n\n5.41.1 Course requirements\n\nAll project websites and presentations must be built using Quarto\nYou are strongly encouraged to use .qmd files, not .ipynb, for published content\nJupyter notebooks are fine for exploration, but Quarto is required for final deliverables\n\nFunctionally, .qmd and .ipynb files are similar: both are Markdown + executable code.\nThe key difference is execution behavior:\n\n.ipynb stores outputs inside the file\n.qmd re-runs code during rendering\n\nThis improves reproducibility\nCaching options exist for expensive computations\n\n\nIf a .qmd file contains no code, it behaves like a standard Markdown file.",
+    "section": "5.42 Course requirements and practical Quarto usage",
+    "text": "5.42 Course requirements and practical Quarto usage\nThis course uses Quarto as the standard publishing system for websites, reports, and presentations.\n\n5.42.1 Course requirements\n\nAll project websites and presentations must be built using Quarto\nYou are strongly encouraged to use .qmd files, not .ipynb, for published content\nJupyter notebooks are fine for exploration, but Quarto is required for final deliverables\n\nFunctionally, .qmd and .ipynb files are similar: both are Markdown + executable code.\nThe key difference is execution behavior:\n\n.ipynb stores outputs inside the file\n.qmd re-runs code during rendering\n\nThis improves reproducibility\nCaching options exist for expensive computations\n\n\nIf a .qmd file contains no code, it behaves like a standard Markdown file.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -893,8 +903,8 @@
     "objectID": "03_working_with_quarto.html#what-quarto-gives-you-at-a-glance",
     "href": "03_working_with_quarto.html#what-quarto-gives-you-at-a-glance",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.42 What Quarto gives you (at a glance)",
-    "text": "5.42 What Quarto gives you (at a glance)\nQuarto allows you to combine, in one source file:\n\nNarrative text (Markdown)\nMathematical notation (LaTeX-style math)\nCode (R, Python, or other kernels)\nFigures, tables, and diagrams\nInteractive and static outputs\n\nFrom that single source, you can generate:\n\nHTML documents and websites\nPDF reports\nWord or PowerPoint files\nPresentations\nBooks and blogs\n\nThis is the “single source, many outputs” principle.",
+    "section": "5.43 What Quarto gives you (at a glance)",
+    "text": "5.43 What Quarto gives you (at a glance)\nQuarto allows you to combine, in one source file:\n\nNarrative text (Markdown)\nMathematical notation (LaTeX-style math)\nCode (R, Python, or other kernels)\nFigures, tables, and diagrams\nInteractive and static outputs\n\nFrom that single source, you can generate:\n\nHTML documents and websites\nPDF reports\nWord or PowerPoint files\nPresentations\nBooks and blogs\n\nThis is the “single source, many outputs” principle.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -903,8 +913,8 @@
     "objectID": "03_working_with_quarto.html#a-minimal-quarto-example",
     "href": "03_working_with_quarto.html#a-minimal-quarto-example",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.43 A minimal Quarto example",
-    "text": "5.43 A minimal Quarto example\n- Inline math example: $f(x)=\\frac{e^{x^2}}{2}$\n\n$$\n\\begin{align}\ng(x) &= x^n \\\\\n\\frac{\\partial g}{\\partial x} &= n x^{n-1}\n\\end{align}\n$$\nIf you understand this, you already understand the core of Quarto authoring.",
+    "section": "5.44 A minimal Quarto example",
+    "text": "5.44 A minimal Quarto example\n- Inline math example: $f(x)=\\frac{e^{x^2}}{2}$\n\n$$\n\\begin{align}\ng(x) &= x^n \\\\\n\\frac{\\partial g}{\\partial x} &= n x^{n-1}\n\\end{align}\n$$\nIf you understand this, you already understand the core of Quarto authoring.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -913,8 +923,8 @@
     "objectID": "03_working_with_quarto.html#beyond-the-basics",
     "href": "03_working_with_quarto.html#beyond-the-basics",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.44 Beyond the basics",
-    "text": "5.44 Beyond the basics\nQuarto also supports:\n\nMulti-column layouts\nFigure grids\nDiagrams (Mermaid, Graphviz)\nEmbedded video\nRich document metadata via YAML\n\nYou will learn these incrementally through labs and examples. You are not expected to memorize syntax at this stage.",
+    "section": "5.45 Beyond the basics",
+    "text": "5.45 Beyond the basics\nQuarto also supports:\n\nMulti-column layouts\nFigure grids\nDiagrams (Mermaid, Graphviz)\nEmbedded video\nRich document metadata via YAML\n\nYou will learn these incrementally through labs and examples. You are not expected to memorize syntax at this stage.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -923,8 +933,8 @@
     "objectID": "03_working_with_quarto.html#key-takeaway",
     "href": "03_working_with_quarto.html#key-takeaway",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.45 Key takeaway",
-    "text": "5.45 Key takeaway\n\nUse Jupyter to explore Use Quarto to communicate\n\nYour goal is not to master every feature immediately, but to develop a clean, reproducible publishing habit that scales from homework to research to professional work.",
+    "section": "5.46 Key takeaway",
+    "text": "5.46 Key takeaway\n\nUse Jupyter to explore Use Quarto to communicate\n\nYour goal is not to master every feature immediately, but to develop a clean, reproducible publishing habit that scales from homework to research to professional work.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -933,8 +943,8 @@
     "objectID": "03_working_with_quarto.html#citations-and-bibliographies",
     "href": "03_working_with_quarto.html#citations-and-bibliographies",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.46 Citations and bibliographies",
-    "text": "5.46 Citations and bibliographies\nCorrect citation and attribution are non-negotiable in academic and professional work.\nThis is not only about avoiding plagiarism; it is about:\n\nintellectual honesty\nreproducibility\ntraceability of ideas and evidence\n\nIn analytics and research, managing citations early saves significant time later.",
+    "section": "5.47 Citations and bibliographies",
+    "text": "5.47 Citations and bibliographies\nCorrect citation and attribution are non-negotiable in academic and professional work.\nThis is not only about avoiding plagiarism; it is about:\n\nintellectual honesty\nreproducibility\ntraceability of ideas and evidence\n\nIn analytics and research, managing citations early saves significant time later.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -943,8 +953,8 @@
     "objectID": "03_working_with_quarto.html#how-citations-work-in-modern-workflows",
     "href": "03_working_with_quarto.html#how-citations-work-in-modern-workflows",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.47 How citations work in modern workflows",
-    "text": "5.47 How citations work in modern workflows\nIn Quarto (and other Pandoc-based systems), citations are data, not formatting.\nThe workflow is:\n\nStore references in a reference manager\nExport them to a citation file (usually .bib)\nCite sources using short citation keys\nLet Quarto generate the bibliography automatically\n\nYou never format references by hand.",
+    "section": "5.48 How citations work in modern workflows",
+    "text": "5.48 How citations work in modern workflows\nIn Quarto (and other Pandoc-based systems), citations are data, not formatting.\nThe workflow is:\n\nStore references in a reference manager\nExport them to a citation file (usually .bib)\nCite sources using short citation keys\nLet Quarto generate the bibliography automatically\n\nYou never format references by hand.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -953,8 +963,8 @@
     "objectID": "03_working_with_quarto.html#reference-management-tools",
     "href": "03_working_with_quarto.html#reference-management-tools",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.48 Reference management tools",
-    "text": "5.48 Reference management tools\nA reference manager stores, organizes, and exports citations.\nMost reference managers can:\n\nsearch online databases\nimport PDFs and metadata\nannotate and organize papers\ngenerate citation files\ninsert citations into documents\n\nTwo widely used free options are:\n\nZotero — https://www.zotero.org\nMendeley — https://www.mendeley.com\n\nBoth:\n\nstore references in a single library\nattach PDFs and notes\nprovide browser extensions for one-click import\nexport .bib files compatible with Quarto\nautomatically generate citation keys\n\n\n\n\n\n\n\nZotero is one of the citation tools recommended by many university libraries.",
+    "section": "5.49 Reference management tools",
+    "text": "5.49 Reference management tools\nA reference manager stores, organizes, and exports citations.\nMost reference managers can:\n\nsearch online databases\nimport PDFs and metadata\nannotate and organize papers\ngenerate citation files\ninsert citations into documents\n\nTwo widely used free options are:\n\nZotero — https://www.zotero.org\nMendeley — https://www.mendeley.com\n\nBoth:\n\nstore references in a single library\nattach PDFs and notes\nprovide browser extensions for one-click import\nexport .bib files compatible with Quarto\nautomatically generate citation keys\n\n\n\n\n\n\n\nZotero is one of the citation tools recommended by many university libraries.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -963,8 +973,8 @@
     "objectID": "03_working_with_quarto.html#bibtex-what-you-need-to-know",
     "href": "03_working_with_quarto.html#bibtex-what-you-need-to-know",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.49 BibTeX (what you need to know)",
-    "text": "5.49 BibTeX (what you need to know)\nBibTeX is a reference file format originally developed with LaTeX and now widely used across Markdown and Pandoc workflows.\nYou do not need to write BibTeX entries by hand, but you should understand their structure.\nA typical entry looks like this:\n\n\n@article{article_key,\n  author  = {Peter Adams}, \n  title   = {The title of the work},\n  journal = {The name of the journal},\n  year    = 1993,\n  volume  = 4,\n  number  = 2,\n  pages   = {201--213}\n}\n\n\nThe most important part is the citation key (article_key)\nThis is what you use to cite the work in your document\nCommon entry types include:\n\n@article\n@book\n@unpublished\n\n\n\n\n\n\n\n\n\n\nYou should generate these entries using a reference manager, not manually.",
+    "section": "5.50 BibTeX (what you need to know)",
+    "text": "5.50 BibTeX (what you need to know)\nBibTeX is a reference file format originally developed with LaTeX and now widely used across Markdown and Pandoc workflows.\nYou do not need to write BibTeX entries by hand, but you should understand their structure.\nA typical entry looks like this:\n\n\n@article{article_key,\n  author  = {Peter Adams}, \n  title   = {The title of the work},\n  journal = {The name of the journal},\n  year    = 1993,\n  volume  = 4,\n  number  = 2,\n  pages   = {201--213}\n}\n\n\nThe most important part is the citation key (article_key)\nThis is what you use to cite the work in your document\nCommon entry types include:\n\n@article\n@book\n@unpublished\n\n\n\n\n\n\n\n\n\n\nYou should generate these entries using a reference manager, not manually.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -973,8 +983,8 @@
     "objectID": "03_working_with_quarto.html#citations-in-quarto",
     "href": "03_working_with_quarto.html#citations-in-quarto",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.50 Citations in Quarto",
-    "text": "5.50 Citations in Quarto\nQuarto supports multiple citation file formats via Pandoc.\n\n\n\nFormat\nFile extension\n\n\n\n\nBibTeX\n.bib\n\n\nBibLaTeX\n.bibtex\n\n\nCSL JSON\n.json\n\n\nCSL YAML\n.yaml\n\n\nRIS\n.ris\n\n\n\nMost students will use BibTeX (.bib).",
+    "section": "5.51 Citations in Quarto",
+    "text": "5.51 Citations in Quarto\nQuarto supports multiple citation file formats via Pandoc.\n\n\n\nFormat\nFile extension\n\n\n\n\nBibTeX\n.bib\n\n\nBibLaTeX\n.bibtex\n\n\nCSL JSON\n.json\n\n\nCSL YAML\n.yaml\n\n\nRIS\n.ris\n\n\n\nMost students will use BibTeX (.bib).",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -983,8 +993,8 @@
     "objectID": "03_working_with_quarto.html#adding-citations-to-a-quarto-document",
     "href": "03_working_with_quarto.html#adding-citations-to-a-quarto-document",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.51 Adding citations to a Quarto document",
-    "text": "5.51 Adding citations to a Quarto document\n\n5.51.1 Step 1: Point to your bibliography file\nIn the YAML header of your .qmd file:\n---\nbibliography: references.bib\n---\n\n\n5.51.2 Step 2: (Optional) Specify a citation style\nCitation styles are defined using CSL (Citation Style Language) files.\nStyles can be downloaded from:\n\nhttps://www.zotero.org/styles\n\nAdd the style to your YAML:\n---\ncsl: nature.csl\n---\nPlace the .csl file in the same folder as your document.",
+    "section": "5.52 Adding citations to a Quarto document",
+    "text": "5.52 Adding citations to a Quarto document\n\n5.52.1 Step 1: Point to your bibliography file\nIn the YAML header of your .qmd file:\n---\nbibliography: references.bib\n---\n\n\n5.52.2 Step 2: (Optional) Specify a citation style\nCitation styles are defined using CSL (Citation Style Language) files.\nStyles can be downloaded from:\n\nhttps://www.zotero.org/styles\n\nAdd the style to your YAML:\n---\ncsl: nature.csl\n---\nPlace the .csl file in the same folder as your document.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -993,8 +1003,8 @@
     "objectID": "03_working_with_quarto.html#citing-sources-in-the-text",
     "href": "03_working_with_quarto.html#citing-sources-in-the-text",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.52 Citing sources in the text",
-    "text": "5.52 Citing sources in the text\nCitations are written using Pandoc syntax:\n\nSingle citation: [@citation_key]\nMultiple citations: [@key1; @key2]\n\nExample:\n\nQuarto automatically:\n\nformats in-text citations\ngenerates the bibliography\napplies the selected citation style",
+    "section": "5.53 Citing sources in the text",
+    "text": "5.53 Citing sources in the text\nCitations are written using Pandoc syntax:\n\nSingle citation: [@citation_key]\nMultiple citations: [@key1; @key2]\n\nExample:\n\nQuarto automatically:\n\nformats in-text citations\ngenerates the bibliography\napplies the selected citation style",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1003,8 +1013,8 @@
     "objectID": "03_working_with_quarto.html#where-the-bibliography-appears",
     "href": "03_working_with_quarto.html#where-the-bibliography-appears",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.53 Where the bibliography appears",
-    "text": "5.53 Where the bibliography appears\nPandoc places the bibliography:\n\ninside a div with id refs if it exists\notherwise at the end of the document\n\nTo control placement:\n### References\n\n::: {#refs}\n:::",
+    "section": "5.54 Where the bibliography appears",
+    "text": "5.54 Where the bibliography appears\nPandoc places the bibliography:\n\ninside a div with id refs if it exists\notherwise at the end of the document\n\nTo control placement:\n### References\n\n::: {#refs}\n:::",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1013,8 +1023,8 @@
     "objectID": "03_working_with_quarto.html#citation-styles",
     "href": "03_working_with_quarto.html#citation-styles",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.54 Citation styles",
-    "text": "5.54 Citation styles\nDifferent fields require different citation styles.\nExamples:\n\n\n\n\n\n\nAmerican Statistical Association\n\n\n\n\n\n\n\nNature\n\n\n\n\n\n\n\nChicago\n\n\n\n\n\nThe same source file can be rendered in different styles simply by switching the .csl file.",
+    "section": "5.55 Citation styles",
+    "text": "5.55 Citation styles\nDifferent fields require different citation styles.\nExamples:\n\n\n\n\n\n\nAmerican Statistical Association\n\n\n\n\n\n\n\nNature\n\n\n\n\n\n\n\nChicago\n\n\n\n\n\nThe same source file can be rendered in different styles simply by switching the .csl file.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1023,8 +1033,8 @@
     "objectID": "03_working_with_quarto.html#key-takeaway-1",
     "href": "03_working_with_quarto.html#key-takeaway-1",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.55 Key takeaway",
-    "text": "5.55 Key takeaway\n\nWrite once. Cite with keys. Let the system format everything.\n\nIf you maintain a clean reference library and a single .bib file, citations become infrastructure, not overhead.",
+    "section": "5.56 Key takeaway",
+    "text": "5.56 Key takeaway\n\nWrite once. Cite with keys. Let the system format everything.\n\nIf you maintain a clean reference library and a single .bib file, citations become infrastructure, not overhead.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1290,433 +1300,533 @@
     ]
   },
   {
+    "objectID": "10_cloud_analytics_with_aws.html",
+    "href": "10_cloud_analytics_with_aws.html",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "",
+    "text": "9.1 Why Add a Cloud Workflow?\nThis chapter adapts the AD688 Module 0 cloud workflow into a reusable teaching pattern. The goal is not to turn every course into an AWS course. The goal is to give students a predictable way to work in a remote Linux environment, keep their work under version control, and produce reproducible Quarto deliverables.\nUse this chapter when a course needs students to work with tools that are hard to install locally, require more compute than a laptop can provide, or benefit from a shared cloud environment.\nA cloud workflow is useful when students need to:\nFor instructors, the cloud environment becomes a common baseline. When students say “it works on my machine,” the course has a shared machine to compare against.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#why-add-a-cloud-workflow",
+    "href": "10_cloud_analytics_with_aws.html#why-add-a-cloud-workflow",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "",
+    "text": "run Linux commands consistently across Windows, macOS, and Linux laptops\nuse the same Python, Jupyter, Quarto, or Spark environment\npractice SSH and remote development\nprotect course work by pushing to GitHub frequently\nlearn the connection between local tools, cloud compute, and published outputs",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#the-operating-model",
+    "href": "10_cloud_analytics_with_aws.html#the-operating-model",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.2 The Operating Model",
+    "text": "9.2 The Operating Model\nThe AD688-style pattern connects four pieces:\nflowchart LR\n  A[\"GitHub repository\"] --&gt; B[\"Local editor\"]\n  B --&gt; C[\"AWS EC2 instance\"]\n  C --&gt; D[\"Jupyter or shell work\"]\n  D --&gt; E[\"Quarto deliverable\"]\n  E --&gt; A\nStudents begin with a GitHub repository, connect to a cloud machine, do their work in a controlled environment, render or prepare the deliverable, and push the result back to GitHub.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#instructor-setup-checklist",
+    "href": "10_cloud_analytics_with_aws.html#instructor-setup-checklist",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.3 Instructor Setup Checklist",
+    "text": "9.3 Instructor Setup Checklist\nBefore assigning a cloud lab, confirm the pieces students will need.\n\nAWS Academy course or approved AWS environment is available\nStudent access instructions have been distributed\nA budget or usage limit is visible to students\nRequired instance type, operating system, and storage size are specified\nSSH key instructions are clear for Windows, macOS, and Linux\nRequired VS Code extensions are listed\nGitHub repository naming convention is defined\nSubmission format is explicit: repository URL, rendered file, screenshot, or LMS upload\nData files and starter code are reachable from the cloud environment\n\nFor AWS Academy Learner Lab courses, students should also read the learner lab guide and complete any required security or compliance modules before launching resources.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#student-workflow",
+    "href": "10_cloud_analytics_with_aws.html#student-workflow",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.4 Student Workflow",
+    "text": "9.4 Student Workflow\nThe student-facing sequence should stay short and repeatable.\n\nAccept the AWS Academy or course cloud invitation.\nStart the lab environment.\nLaunch an EC2 instance using the course-approved settings.\nDownload or locate the SSH private key.\nConnect from VS Code Remote-SSH or a terminal.\nInstall or verify the required software.\nClone the assignment repository from GitHub.\nWork in the repository.\nCommit and push often.\nSubmit the required link or artifact.\n\nThis structure matters because cloud sessions can stop, instances can be restarted, and budgets can expire. GitHub is the durable record of student work.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#ec2-launch-decisions",
+    "href": "10_cloud_analytics_with_aws.html#ec2-launch-decisions",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.5 EC2 Launch Decisions",
+    "text": "9.5 EC2 Launch Decisions\nGive students exact choices instead of asking them to interpret the AWS console from scratch.\n\n\n\n\n\n\n\nDecision\nCourse Guidance\n\n\n\n\nInstance name\nUse a predictable course name, such as ad688-lab01\n\n\nOperating system\nUse the course-approved Linux image\n\n\nInstance type\nUse the smallest approved type that supports the assignment\n\n\nKey pair\nUse the course-provided key pair or the required generated key\n\n\nNetwork access\nAllow only the ports required by the assignment\n\n\nStorage\nUse the course-approved size and avoid unnecessary volumes\n\n\nRegion or subnet\nKeep all course resources in the same approved location\n\n\n\nWhen students are new to cloud computing, the most important lesson is not “click every option.” It is “change only the settings the course asks you to change.”",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#ssh-key-handling",
+    "href": "10_cloud_analytics_with_aws.html#ssh-key-handling",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.6 SSH Key Handling",
+    "text": "9.6 SSH Key Handling\nSSH keys deserve their own emphasis because mistakes here are common and risky.\nStudents should keep private keys:\n\nout of GitHub\nout of OneDrive, Google Drive, Dropbox, and other synced folders\nin a local .ssh folder or a course-specific secure folder\nreadable only by the user account that needs the key\n\nOn macOS, Linux, or WSL:\nmv ~/Downloads/labsuser.pem ~/.ssh/vockey.pem\nchmod 400 ~/.ssh/vockey.pem\nThen connect with:\nssh -i ~/.ssh/vockey.pem ubuntu@PUBLIC_DNS_OR_IP\nOn Windows PowerShell, OpenSSH can also be used, but permissions sometimes need extra care:\nicacls vockey.pem /inheritance:r\nicacls vockey.pem /grant \"$env:USERNAME:R\"\nssh -i .\\vockey.pem ubuntu@PUBLIC_DNS_OR_IP\nFor Windows students who are comfortable with Linux commands, WSL usually gives the smoothest SSH experience.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#vs-code-remote-ssh",
+    "href": "10_cloud_analytics_with_aws.html#vs-code-remote-ssh",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.7 VS Code Remote-SSH",
+    "text": "9.7 VS Code Remote-SSH\nVS Code Remote-SSH gives students a familiar editor while running commands and code on the EC2 instance.\nRecommended extensions:\n\nRemote - SSH\nPython\nJupyter\nQuarto\nGitHub Pull Requests or GitHub integration tools\n\nA simple SSH config entry looks like this:\nHost course-ec2\n  HostName PUBLIC_DNS_OR_IP\n  User ubuntu\n  IdentityFile ~/.ssh/vockey.pem\nAfter this is saved, students can connect to course-ec2 from the Remote Explorer. Once connected, the terminal, file browser, Python interpreter, and Quarto commands run on the remote machine.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#software-baseline",
+    "href": "10_cloud_analytics_with_aws.html#software-baseline",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.8 Software Baseline",
+    "text": "9.8 Software Baseline\nFor an analytics course, the remote machine usually needs:\n\nsystem package updates\nGit\nPython and pip\nvirtual environment support\nJupyter\nQuarto\nany course-specific libraries\n\nA minimal Ubuntu setup is:\nsudo apt update\nsudo apt install -y git python3 python3-pip python3-venv\npython3 -m venv .venv\nsource .venv/bin/activate\npython -m pip install --upgrade pip\npython -m pip install jupyter pandas matplotlib\nThen verify:\ngit --version\npython --version\njupyter --version\nquarto --version\nIf Quarto is not preinstalled, give students one course-approved installation method. Avoid asking beginners to mix package managers unless there is a clear reason.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#working-with-github-from-ec2",
+    "href": "10_cloud_analytics_with_aws.html#working-with-github-from-ec2",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.9 Working With GitHub From EC2",
+    "text": "9.9 Working With GitHub From EC2\nStudents should clone their repository on the EC2 instance and push changes from there:\ngit clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git\ncd YOUR-REPOSITORY\ngit status\nDuring work:\ngit status\ngit add .\ngit commit -m \"Complete cloud environment setup\"\ngit push\nIf students use SSH remotes, their GitHub SSH key must be available on the EC2 instance. For many beginner labs, HTTPS authentication or GitHub CLI authentication is simpler to support.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#running-jupyter-safely",
+    "href": "10_cloud_analytics_with_aws.html#running-jupyter-safely",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.10 Running Jupyter Safely",
+    "text": "9.10 Running Jupyter Safely\nWhen Jupyter is needed on EC2, prefer SSH port forwarding over opening broad public access.\nFrom the local machine:\nssh -i ~/.ssh/vockey.pem -L 8000:localhost:8888 ubuntu@PUBLIC_DNS_OR_IP\nOn the EC2 instance:\njupyter notebook --no-browser --ip=127.0.0.1 --port=8888\nThen open the forwarded local URL in the browser. This keeps the notebook server bound to the remote machine and accessed through the SSH tunnel.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#using-quarto-on-ec2",
+    "href": "10_cloud_analytics_with_aws.html#using-quarto-on-ec2",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.11 Using Quarto on EC2",
+    "text": "9.11 Using Quarto on EC2\nQuarto fits naturally into the cloud workflow because the same source file can be edited remotely and rendered into a report, website, or slide deck.\nInside the repository:\nquarto preview\nquarto render\ngit status\ngit add .\ngit commit -m \"Render Quarto deliverable\"\ngit push\nIf a document depends on code execution, students should render it on the same environment where the required packages and data are available. This avoids the classic problem where a report renders locally but fails in the cloud, or the reverse.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#file-transfer",
+    "href": "10_cloud_analytics_with_aws.html#file-transfer",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.12 File Transfer",
+    "text": "9.12 File Transfer\nMost student work should move through GitHub. For one-off files, use scp from the local machine to copy a file from EC2:\nscp -i ~/.ssh/vockey.pem ubuntu@PUBLIC_DNS_OR_IP:/home/ubuntu/path/to/file .\nStudents should run this from their own computer. Running scp from EC2 back to a laptop usually fails because the laptop is behind a home, campus, or public network that is not directly addressable.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#budget-and-shutdown-habits",
+    "href": "10_cloud_analytics_with_aws.html#budget-and-shutdown-habits",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.13 Budget and Shutdown Habits",
+    "text": "9.13 Budget and Shutdown Habits\nCloud labs add a professional responsibility: students must manage resources.\nRecommended course policy:\n\ncheck the lab budget before and after each work session\nstop instances when finished\ndo not create extra resources unless the assignment requires them\npush to GitHub before ending a session\nnever store secrets, private keys, access tokens, or passwords in the repository\n\nFor AWS Academy environments, remind students that budget displays can lag behind actual usage. The safe habit is to stop early, push often, and avoid unnecessary resources.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#cloud-lab-template",
+    "href": "10_cloud_analytics_with_aws.html#cloud-lab-template",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.14 Cloud Lab Template",
+    "text": "9.14 Cloud Lab Template\nUse this structure when writing a cloud lab.\n# Lab Title\n\n## Goal\nWhat students will be able to do by the end.\n\n## Required Environment\nAWS Academy Learner Lab, EC2, VS Code Remote-SSH, GitHub repository.\n\n## Setup\nStart the lab, launch EC2, connect by SSH, clone the repository.\n\n## Tasks\n1. Verify the operating system and tools.\n2. Install or activate the course environment.\n3. Complete the analysis or build task.\n4. Render the Quarto deliverable.\n5. Commit and push.\n\n## Deliverables\nRepository URL, rendered HTML/PDF, command output, and reflection.\n\n## Shutdown\nPush work, stop the instance, confirm budget.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#completion-checklist",
+    "href": "10_cloud_analytics_with_aws.html#completion-checklist",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.15 Completion Checklist",
+    "text": "9.15 Completion Checklist\n\nCloud account or AWS Academy access works\nEC2 instance launches with the required settings\nSSH connection works\nVS Code Remote-SSH connection works\nGitHub repository is cloned on EC2\nPython or course runtime is verified\nJupyter starts only through a safe access pattern\nQuarto renders successfully\nWork is committed and pushed\nInstance is stopped when work is complete",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
+    "objectID": "10_cloud_analytics_with_aws.html#instructor-notes",
+    "href": "10_cloud_analytics_with_aws.html#instructor-notes",
+    "title": "9  Cloud Analytics with AWS",
+    "section": "9.16 Instructor Notes",
+    "text": "9.16 Instructor Notes\nStart with one small cloud lab before using cloud infrastructure for a major assignment. The first lab should focus on access, SSH, GitHub, and rendering a tiny Quarto file. Once that workflow is reliable, later labs can focus on the analytics content instead of environment repair.\nThe best cloud assignment is boring at the infrastructure layer: students know where to click, where to type, where to save, and where to submit. That lets the course spend its energy on analysis, interpretation, and communication.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Analytics with AWS</span>"
+    ]
+  },
+  {
     "objectID": "07_blackboard_ultra.html",
     "href": "07_blackboard_ultra.html",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
     "section": "",
-    "text": "9.1 Introduction\nBlackboard Ultra is Boston University’s learning management system. It serves as the hub where students access your course materials, submit assignments, engage in discussions, and check their grades. The power of Blackboard Ultra emerges when you integrate it with your professionally-designed course materials created in Quarto.\nThis chapter guides you through the strategic integration of Quarto-generated course content with Blackboard Ultra’s content collection system. Rather than manually creating and updating content in Blackboard, you’ll develop your materials once in Quarto, generate HTML files, and deploy them as a complete package into Blackboard—making updates seamless and maintaining a single source of truth for your course materials.\nBy the end of this chapter, you’ll understand: - How Blackboard Ultra manages content and links to external resources - The workflow for packaging Quarto content into Blackboard-ready formats - The initial setup process with BU’s Blackboard team - The specific folder structure that enables seamless content management - How to deploy updates throughout the semester without disrupting your course",
+    "text": "10.1 Introduction\nBlackboard Ultra is Boston University’s learning management system. It serves as the hub where students access your course materials, submit assignments, engage in discussions, and check their grades. The power of Blackboard Ultra emerges when you integrate it with your professionally-designed course materials created in Quarto.\nThis chapter guides you through the strategic integration of Quarto-generated course content with Blackboard Ultra’s content collection system. Rather than manually creating and updating content in Blackboard, you’ll develop your materials once in Quarto, generate HTML files, and deploy them as a complete package into Blackboard—making updates seamless and maintaining a single source of truth for your course materials.\nBy the end of this chapter, you’ll understand: - How Blackboard Ultra manages content and links to external resources - The workflow for packaging Quarto content into Blackboard-ready formats - The initial setup process with BU’s Blackboard team - The specific folder structure that enables seamless content management - How to deploy updates throughout the semester without disrupting your course",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#understanding-blackboard-ultras-architecture",
     "href": "07_blackboard_ultra.html#understanding-blackboard-ultras-architecture",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.2 Understanding Blackboard Ultra’s Architecture",
-    "text": "9.2 Understanding Blackboard Ultra’s Architecture\nBlackboard Ultra is structured around courses, modules, and content. Let’s clarify each:\n\n\n\n\n\n\nScreenshot needed: Blackboard Ultra course home screen showing the top-level navigation — course banner, left sidebar, and content area.\nTemporary reference: See the Blackboard Ultra overview on the Syracuse support page for a comparable layout.\nReplace with: images/ch07/bb-ultra-course-home.png\n\n\n\n\n9.2.1 Courses: Your Course Shell\nYour Blackboard course is the container for everything—all materials, assessments, discussions, and grades. Within Blackboard, you organize content into logical sections called modules.\n\n\n9.2.2 Modules: Organizing Content into Units\nModules correspond to weeks, units, or thematic sections of your course. Each module typically contains lectures, readings, assignments, and discussions related to a specific topic.\n\n\n9.2.3 Content Collection: The File System\nBlackboard maintains a content collection—essentially a cloud file system where all your files are stored. Rather than embedding content directly in Blackboard’s interface, you upload files (HTML, PDFs, images) to the content collection and then link to them from various course elements.\nThis is where your Quarto-generated HTML files live. Once uploaded to the content collection, Blackboard displays them through its interface, maintaining consistent branding and navigation.\n\n\n\n\n\n\nScreenshot needed: Blackboard content collection browser showing the folder hierarchy, upload button, and file listing with path breadcrumbs visible.\nReplace with: images/ch07/bb-content-collection-browser.png",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.2 Understanding Blackboard Ultra’s Architecture",
+    "text": "10.2 Understanding Blackboard Ultra’s Architecture\nBlackboard Ultra is structured around courses, modules, and content. Let’s clarify each:\n\n\n\n\n\n\nScreenshot needed: Blackboard Ultra course home screen showing the top-level navigation — course banner, left sidebar, and content area.\nTemporary reference: See the Blackboard Ultra overview on the Syracuse support page for a comparable layout.\nReplace with: images/ch07/bb-ultra-course-home.png\n\n\n\n\n10.2.1 Courses: Your Course Shell\nYour Blackboard course is the container for everything—all materials, assessments, discussions, and grades. Within Blackboard, you organize content into logical sections called modules.\n\n\n10.2.2 Modules: Organizing Content into Units\nModules correspond to weeks, units, or thematic sections of your course. Each module typically contains lectures, readings, assignments, and discussions related to a specific topic.\n\n\n10.2.3 Content Collection: The File System\nBlackboard maintains a content collection—essentially a cloud file system where all your files are stored. Rather than embedding content directly in Blackboard’s interface, you upload files (HTML, PDFs, images) to the content collection and then link to them from various course elements.\nThis is where your Quarto-generated HTML files live. Once uploaded to the content collection, Blackboard displays them through its interface, maintaining consistent branding and navigation.\n\n\n\n\n\n\nScreenshot needed: Blackboard content collection browser showing the folder hierarchy, upload button, and file listing with path breadcrumbs visible.\nReplace with: images/ch07/bb-content-collection-browser.png",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#the-strategic-advantage-quarto-blackboard-integration",
     "href": "07_blackboard_ultra.html#the-strategic-advantage-quarto-blackboard-integration",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.3 The Strategic Advantage: Quarto + Blackboard Integration",
-    "text": "9.3 The Strategic Advantage: Quarto + Blackboard Integration\nRather than creating content in Word or directly in Blackboard’s text editor, you’ll:\n\nAuthor in Quarto: Create your course materials in clean, maintainable Quarto files (.qmd)\nGenerate HTML: Export everything as a complete website with quarto render\nPackage as _site.zip: Create a deployment-ready archive\nUpload to Blackboard: Use Blackboard’s content collection to import the entire package\nLink from Modules: Create course module structures that point to your HTML content\nUpdate Seamlessly: When content changes, regenerate _site.zip and re-upload—Blackboard replaces old files with new versions\n\n\n9.3.1 Why This Approach?\nSingle Source of Truth: Your course materials exist in one place (your Quarto project). Both you and your students work from the same, authoritative version.\nProfessional Presentation: Quarto produces clean, accessible HTML with consistent formatting. Your course looks polished without spending time on Blackboard’s styling.\nVersion Control: Your Quarto files live in Git, creating a complete history of how your course evolved.\nBatch Updates: Fix typos, update examples, or revise content, then deploy all changes at once—not one file at a time.\nConsistency Across Semesters: Template your course structure, then swap in new content for each term.",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.3 The Strategic Advantage: Quarto + Blackboard Integration",
+    "text": "10.3 The Strategic Advantage: Quarto + Blackboard Integration\nRather than creating content in Word or directly in Blackboard’s text editor, you’ll:\n\nAuthor in Quarto: Create your course materials in clean, maintainable Quarto files (.qmd)\nGenerate HTML: Export everything as a complete website with quarto render\nPackage as _site.zip: Create a deployment-ready archive\nUpload to Blackboard: Use Blackboard’s content collection to import the entire package\nLink from Modules: Create course module structures that point to your HTML content\nUpdate Seamlessly: When content changes, regenerate _site.zip and re-upload—Blackboard replaces old files with new versions\n\n\n10.3.1 Why This Approach?\nSingle Source of Truth: Your course materials exist in one place (your Quarto project). Both you and your students work from the same, authoritative version.\nProfessional Presentation: Quarto produces clean, accessible HTML with consistent formatting. Your course looks polished without spending time on Blackboard’s styling.\nVersion Control: Your Quarto files live in Git, creating a complete history of how your course evolved.\nBatch Updates: Fix typos, update examples, or revise content, then deploy all changes at once—not one file at a time.\nConsistency Across Semesters: Template your course structure, then swap in new content for each term.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#initial-setup-before-you-deploy",
     "href": "07_blackboard_ultra.html#initial-setup-before-you-deploy",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.4 Initial Setup: Before You Deploy",
-    "text": "9.4 Initial Setup: Before You Deploy\n\n9.4.1 Critical First Step: Quarto Course Approval\nBefore you can effectively deploy Quarto content to Blackboard, your course structure must be officially approved at Boston University. This ensures compatibility with BU’s Blackboard configuration and technical support can assist if issues arise.\nProcess:\n\nContact Kim Crosta (Instructional Designer/Course Development)\n\nEmail: kim.crosta@bu.edu\nPurpose: Present your Quarto course structure and obtain approval\nTiming: Do this before you finalize your module structure\nOutcome: Kim will verify your approach aligns with BU standards\n\n\n\n\n\n\n\n\nScreenshot needed: Example email or meeting summary showing the approval communication (redact personal details as needed).\nReplace with: images/ch07/kim-crosta-approval-example.png\n\n\n\n\nReceive Approval Confirmation\n\nKim will confirm your Quarto course structure is approved\nShe may provide recommendations for optimization\nYou’ll receive guidance on any BU-specific requirements\n\n\n\n\n9.4.2 Second Step: Structure Review with Andy\nAfter Kim approves your Quarto approach, you’ll coordinate with Andy on the Blackboard side:\nProcess:\n\nSchedule Meeting with Andy (Blackboard Administrator/Technical Support)\n\nContact: Reach out through BU Blackboard support\nPurpose: Present your proposed course structure and deployment plan\nShare: Your planned module organization and content hierarchy\nDiscuss: How your Quarto structure will map to Blackboard modules\n\nPropose Your Structure\n\nExplain your module organization (number of modules, content per module)\nDetail your folder structure (see “Course Structure Template” below)\nDiscuss: Submission workflows and assignment deadlines\nPlan: How you’ll handle content updates during the semester\n\nTrial Deployment\n\nAndy will help you with your first upload of _site.zip\nHe’ll verify all links work correctly in Blackboard\nYou’ll test the student experience\nMake adjustments before the semester starts\n\n\n\n\n9.4.3 Knowledge Check: Setup Prerequisites\nBefore proceeding, verify you’ve completed the necessary groundwork:\n\nYou’ve created a preliminary Quarto project for your course\nYou’ve outlined your module structure (number of modules, topics)\nYou’ve contacted Kim Crosta and received approval\nYou’ve scheduled a meeting with Andy to review your structure\nYou’ve completed a trial deployment with Andy’s assistance\nYou’ve tested the student-facing course experience\n\nStatus: Document where you are in this process:\n\nKim Crosta approval status: _________________________________ Andy meeting completed: _________________________________",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.4 Initial Setup: Before You Deploy",
+    "text": "10.4 Initial Setup: Before You Deploy\n\n10.4.1 Critical First Step: Quarto Course Approval\nBefore you can effectively deploy Quarto content to Blackboard, your course structure must be officially approved at Boston University. This ensures compatibility with BU’s Blackboard configuration and technical support can assist if issues arise.\nProcess:\n\nContact Kim Crosta (Instructional Designer/Course Development)\n\nEmail: kim.crosta@bu.edu\nPurpose: Present your Quarto course structure and obtain approval\nTiming: Do this before you finalize your module structure\nOutcome: Kim will verify your approach aligns with BU standards\n\n\n\n\n\n\n\n\nScreenshot needed: Example email or meeting summary showing the approval communication (redact personal details as needed).\nReplace with: images/ch07/kim-crosta-approval-example.png\n\n\n\n\nReceive Approval Confirmation\n\nKim will confirm your Quarto course structure is approved\nShe may provide recommendations for optimization\nYou’ll receive guidance on any BU-specific requirements\n\n\n\n\n10.4.2 Second Step: Structure Review with Andy\nAfter Kim approves your Quarto approach, you’ll coordinate with Andy on the Blackboard side:\nProcess:\n\nSchedule Meeting with Andy (Blackboard Administrator/Technical Support)\n\nContact: Reach out through BU Blackboard support\nPurpose: Present your proposed course structure and deployment plan\nShare: Your planned module organization and content hierarchy\nDiscuss: How your Quarto structure will map to Blackboard modules\n\nPropose Your Structure\n\nExplain your module organization (number of modules, content per module)\nDetail your folder structure (see “Course Structure Template” below)\nDiscuss: Submission workflows and assignment deadlines\nPlan: How you’ll handle content updates during the semester\n\nTrial Deployment\n\nAndy will help you with your first upload of _site.zip\nHe’ll verify all links work correctly in Blackboard\nYou’ll test the student experience\nMake adjustments before the semester starts\n\n\n\n\n10.4.3 Knowledge Check: Setup Prerequisites\nBefore proceeding, verify you’ve completed the necessary groundwork:\n\nYou’ve created a preliminary Quarto project for your course\nYou’ve outlined your module structure (number of modules, topics)\nYou’ve contacted Kim Crosta and received approval\nYou’ve scheduled a meeting with Andy to review your structure\nYou’ve completed a trial deployment with Andy’s assistance\nYou’ve tested the student-facing course experience\n\nStatus: Document where you are in this process:\n\nKim Crosta approval status: _________________________________ Andy meeting completed: _________________________________",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#course-structure-template-the-full-year-model",
     "href": "07_blackboard_ultra.html#course-structure-template-the-full-year-model",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.5 Course Structure Template: The Full-Year Model",
-    "text": "9.5 Course Structure Template: The Full-Year Model\nNow that you understand the setup process, let’s detail the specific structure you’ve developed for your courses. This structure balances content organization with manageable maintenance and clear student navigation.\n\n9.5.1 Overview of Your Structure\nYour model organizes each module around a core concept or unit, with distinct folders for content delivery, learning materials, and assignments:\n\n\n\n\n\n\nScreenshot needed: Blackboard Ultra course content panel showing the full module list — all modules collapsed, so the reader can see the top-level naming convention (“Module 1 — Topic”, “Module 2 — Topic”, etc.).\nReplace with: images/ch07/bb-module-list-overview.png\n\n\n\nModule [Number] - [Topic Name]/\n├── Wrap-Up Content (overview/summary file)\n├── Highlight Page (special HTML content)\n├── Module [X] Lecture 1/\n│   ├── Lecture Notes\n│   ├── Presentation\n│   └── Tutorial\n├── Module [X] Lecture 2/\n│   ├── Lecture Notes\n│   ├── Presentation\n│   └── Tutorial\n└── Deliverables/\n    ├── Assignment\n    ├── Lab 1\n    ├── Lab 2\n    ├── Participation 1\n    ├── Participation 2\n    └── Project Step [N]\n\n\n9.5.2 Understanding Each Component\n\n9.5.2.1 Wrap-Up Content\nPurpose: Provides a module overview, learning objectives, and synthesis of concepts.\nContent Examples: - Summary of key concepts - Module learning outcomes - Prerequisites - Recommended reading order - Time estimates for completion\nIn Quarto: Create this as a dedicated .qmd file that renders as your module introduction. For example:\n# Module 3: Advanced Data Visualization\n\n## Learning Objectives\n\nBy the end of this module, you will:\n- Understand principles of effective data visualization\n- Create interactive visualizations with D3.js\n- Apply color theory and accessibility standards\n\n## Module Overview\n\nThis module explores how to transform raw data into compelling visual narratives...\nIn Blackboard: Link this as the first item in each module. Students see it immediately upon entering, setting context and expectations.\n\n\n\n\n\n\nScreenshot needed: A single module expanded in Blackboard Ultra, with the Wrap-Up content item highlighted at the top — shows the “first item” position and the document icon.\nReplace with: images/ch07/bb-module-expanded-wrapup.png\n\n\n\n\n\n9.5.2.2 Highlight Page\nPurpose: A special HTML page highlighting a particular concept, real-world application, or student spotlight.\nExamples: - “Industry Spotlight: How Netflix Uses Data Science” - “Case Study: Successful Project Implementation” - “Student Spotlight: Award-Winning Project” - “Emerging Trends: AI in Healthcare”\nCreation: This can be a more visually-rich Quarto file, incorporating: - Images and diagrams - Embedded videos - Interactive elements - Special formatting or CSS customization\nIn Blackboard: Link this prominently in the module, perhaps as a featured item students should see.\n\n\n\n\n\n\nScreenshot needed: The Highlight Page as it renders inside Blackboard’s content viewer — ideally showing a case study or industry spotlight with an image and formatted text.\nReplace with: images/ch07/bb-highlight-page-rendered.png\n\n\n\n\n\n9.5.2.3 Lecture Folders (Module [X] Lecture 1, Module [X] Lecture 2)\nYour course typically includes two lectures per module. Each lecture folder contains three standardized components:\n\n\n\n\n\n\nScreenshot needed: One lecture folder expanded inside Blackboard Ultra, showing the three items — Lecture Notes, Presentation, and Tutorial — with their respective file icons.\nTemporary reference: See Lesley University’s Blackboard Quick Start Guide for an example of content item layout inside a folder.\nReplace with: images/ch07/bb-lecture-folder-expanded.png\n\n\n\n\n9.5.2.3.1 Lecture Notes\nFormat: Detailed written notes covering all lecture content.\nIn Quarto: Create as a .qmd file with:\n# Lecture 1: Foundational Concepts\n\n## What You'll Learn\n- Core principle 1\n- Core principle 2\n- Core principle 3\n\n## Detailed Notes\n\n### Section 1: Background\nProvide context and explain why this matters...\n\n### Section 2: Methodology\nStep-by-step explanation...\n\n### Section 3: Examples\nReal-world applications...\n\n## Key Takeaways\n- Point 1\n- Point 2\n- Point 3\nAdvantage: Students can review the lecture asynchronously, search for specific content, and have a reference document throughout the course.\n\n\n9.5.2.3.2 Presentation\nFormat: The slide presentation from your live lecture or a structured presentation of key concepts.\nIn Quarto: Either: - Export slides as static HTML for viewing in the browser - Include links to PDF versions of presentations - Create interactive HTML presentations using Quarto’s reveal.js integration\nTip: Always provide both presentation and notes. Some students learn better from visuals; others prefer reading detailed explanations.\n\n\n9.5.2.3.3 Tutorial\nFormat: Hands-on, step-by-step guidance for applying the lecture concepts.\nIn Quarto: Create interactive tutorials with: - Code examples (with syntax highlighting) - Expected outputs - Common mistakes to avoid - Practice exercises\nExample structure:\n# Tutorial: Building Your First Interactive Visualization\n\n## Prerequisites\n- Completed Lecture 1 and 2\n- R or Python installed\n\n## Step 1: Set Up Your Environment\nyour code here\n\n## Step 2: Load Your Data\n...\n\n## Practice Exercise\nNow you try! [Exercise prompt]\n\n## Solution\n[Revealed after students attempt]\n\n\n\n9.5.2.4 Deliverables Folder\nThis folder organizes all student assignments, labs, participation activities, and project milestones. Each item has an associated submission window.\n\n\n\n\n\n\nScreenshot needed: The Deliverables folder expanded in Blackboard Ultra, showing all six item types — Assignment, Lab 1, Lab 2, Participation 1, Participation 2, and Project Step — with submission due dates visible.\nReplace with: images/ch07/bb-deliverables-folder-expanded.png\n\n\n\n\n9.5.2.4.1 Assignment\nPurpose: The primary assessment for the module, typically demonstrating mastery of core concepts.\nStructure: - Prompt or problem statement - Submission requirements - Grading rubric - Due date with submission window - Optional: Example solutions or rubrics\nIn Quarto: Create as a .qmd file with clear sections:\n# Module 3 Assignment: Data Visualization Project\n\n## Overview\nCreate an interactive visualization that tells a story with data.\n\n## Requirements\n1. ...\n2. ...\n3. ...\n\n## Submission\n- Format: HTML file or link to published visualization\n- Due: [Date] by 11:59 PM ET\n- Submit via Blackboard assignment tool\n\n## Grading Rubric\n[Detailed rubric with point allocations]\n\n## Resources\n- [Link to tutorial]\n- [Link to examples]\n- [Link to tool documentation]\nIn Blackboard: Set up a Blackboard Assignment with: - Same due date and submission window - Link to the assignment prompt (your HTML) - Grading rubric embedded or linked - Late submission policy\n\n\n\n\n\n\nScreenshot needed: The Blackboard Ultra assignment creation screen showing the due date field, submission window settings, rubric attachment, and the content link field where the HTML prompt URL is pasted.\nReplace with: images/ch07/bb-assignment-creation-screen.png\n\n\n\n\n\n9.5.2.4.2 Labs (2 per module)\nPurpose: Shorter, focused practice activities reinforcing specific skills.\nStructure: - Clear objective - Guided steps - Verification or self-check mechanism\nExample Topics: - Lab 1: SQL Query Practice - Lab 2: Debugging Common Errors\nSubmission: Either in-Blackboard submission or link to external system with submission tracking.\n\n\n\n\n\n\nScreenshot needed: A lab item open in Blackboard showing the submission area — the text box, file attachment option, and submit button the student sees.\nReplace with: images/ch07/bb-lab-submission-view.png\n\n\n\n\n\n9.5.2.4.3 Participation Activities (2 per module)\nPurpose: Engagement activities that demonstrate attendance and involvement. These might include:\nTypes: - Discussion board posts (peer feedback) - Reflection prompts (metacognitive activities) - Peer review assignments - Quiz-style quick checks - Live session engagement recording\nStructure: - Clear prompt - Expected participation level (e.g., “1 main post + 2 peer responses”) - Grading criteria - Submission deadline\nIn Blackboard: Implement as: - Discussion board forums - Assignment submissions (for reflections) - Quiz tool (for quick checks) - Attendance tracking (for synchronous sessions)\nTip: Vary participation types throughout the semester to maintain engagement and accommodate different learning styles.\n\n\n\n\n\n\nScreenshot needed: A Blackboard Ultra discussion board showing a participation prompt with student reply threads visible (blur student names if needed).\nReplace with: images/ch07/bb-participation-discussion-board.png\n\n\n\n\n\n9.5.2.4.4 Project Steps (progressive milestones)\nPurpose: For courses with semester-long or multi-module projects, break them into manageable steps with intermediate deadlines.\nStructure: - Project step number (e.g., “Project Step 1: Proposal”) - What students should submit - Deliverables - Feedback timeline - Submission window\nExample Project Progression: - Step 1: Project Proposal (Module 1) - Step 2: Data Analysis & Exploration (Module 3) - Step 3: Preliminary Results & Visualization (Module 6) - Step 4: Final Report & Presentation (Module 8)\nAdvantage: Milestones prevent students from leaving everything until the last minute and give you multiple checkpoints to provide feedback.\n\n\n\n\n\n\nScreenshot needed: Project step submission in Blackboard showing the milestone title, point value, due date, and the submission window with “Opens” and “Due” dates both visible.\nReplace with: images/ch07/bb-project-step-submission-window.png\n\n\n\n\n\n\n\n9.5.3 Workbook Exercise: Design Your Module Structure\nTake time to plan your course structure before building it in Quarto and Blackboard.\nTask: Map out your course modules and components.\nStep 1: Decide how many modules you’ll have and what each covers\nModule 1: _________________________________\nModule 2: _________________________________\nModule 3: _________________________________\n[Continue for all modules]\nStep 2: For each module, plan the components\nModule 1: [Topic Name]\n├── Wrap-Up Content: [What will you overview?]\n├── Highlight Page: [What special content/case study?]\n├── Lecture 1: ___________________________\n├── Lecture 2: ___________________________\n├── Assignment: __________________________\n├── Lab 1: ________________________________\n├── Lab 2: ________________________________\n├── Participation 1: _____________________\n├── Participation 2: _____________________\n└── Project Step: _________________________\nStep 3: Count total deliverables\n\nNumber of lectures: _____\nNumber of assignments: _____\nNumber of labs: _____\nNumber of participation activities: _____\nNumber of project steps: _____\n\nVerification Checklist: - [ ] All modules have defined content - [ ] Each module follows the consistent structure - [ ] Deliverable count is realistic for your course load - [ ] You have feedback capacity for all assessments - [ ] Project steps align with semester timeline (if applicable)",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.5 Course Structure Template: The Full-Year Model",
+    "text": "10.5 Course Structure Template: The Full-Year Model\nNow that you understand the setup process, let’s detail the specific structure you’ve developed for your courses. This structure balances content organization with manageable maintenance and clear student navigation.\n\n10.5.1 Overview of Your Structure\nYour model organizes each module around a core concept or unit, with distinct folders for content delivery, learning materials, and assignments:\n\n\n\n\n\n\nScreenshot needed: Blackboard Ultra course content panel showing the full module list — all modules collapsed, so the reader can see the top-level naming convention (“Module 1 — Topic”, “Module 2 — Topic”, etc.).\nReplace with: images/ch07/bb-module-list-overview.png\n\n\n\nModule [Number] - [Topic Name]/\n├── Wrap-Up Content (overview/summary file)\n├── Highlight Page (special HTML content)\n├── Module [X] Lecture 1/\n│   ├── Lecture Notes\n│   ├── Presentation\n│   └── Tutorial\n├── Module [X] Lecture 2/\n│   ├── Lecture Notes\n│   ├── Presentation\n│   └── Tutorial\n└── Deliverables/\n    ├── Assignment\n    ├── Lab 1\n    ├── Lab 2\n    ├── Participation 1\n    ├── Participation 2\n    └── Project Step [N]\n\n\n10.5.2 Understanding Each Component\n\n10.5.2.1 Wrap-Up Content\nPurpose: Provides a module overview, learning objectives, and synthesis of concepts.\nContent Examples: - Summary of key concepts - Module learning outcomes - Prerequisites - Recommended reading order - Time estimates for completion\nIn Quarto: Create this as a dedicated .qmd file that renders as your module introduction. For example:\n# Module 3: Advanced Data Visualization\n\n## Learning Objectives\n\nBy the end of this module, you will:\n- Understand principles of effective data visualization\n- Create interactive visualizations with D3.js\n- Apply color theory and accessibility standards\n\n## Module Overview\n\nThis module explores how to transform raw data into compelling visual narratives...\nIn Blackboard: Link this as the first item in each module. Students see it immediately upon entering, setting context and expectations.\n\n\n\n\n\n\nScreenshot needed: A single module expanded in Blackboard Ultra, with the Wrap-Up content item highlighted at the top — shows the “first item” position and the document icon.\nReplace with: images/ch07/bb-module-expanded-wrapup.png\n\n\n\n\n\n10.5.2.2 Highlight Page\nPurpose: A special HTML page highlighting a particular concept, real-world application, or student spotlight.\nExamples: - “Industry Spotlight: How Netflix Uses Data Science” - “Case Study: Successful Project Implementation” - “Student Spotlight: Award-Winning Project” - “Emerging Trends: AI in Healthcare”\nCreation: This can be a more visually-rich Quarto file, incorporating: - Images and diagrams - Embedded videos - Interactive elements - Special formatting or CSS customization\nIn Blackboard: Link this prominently in the module, perhaps as a featured item students should see.\n\n\n\n\n\n\nScreenshot needed: The Highlight Page as it renders inside Blackboard’s content viewer — ideally showing a case study or industry spotlight with an image and formatted text.\nReplace with: images/ch07/bb-highlight-page-rendered.png\n\n\n\n\n\n10.5.2.3 Lecture Folders (Module [X] Lecture 1, Module [X] Lecture 2)\nYour course typically includes two lectures per module. Each lecture folder contains three standardized components:\n\n\n\n\n\n\nScreenshot needed: One lecture folder expanded inside Blackboard Ultra, showing the three items — Lecture Notes, Presentation, and Tutorial — with their respective file icons.\nTemporary reference: See Lesley University’s Blackboard Quick Start Guide for an example of content item layout inside a folder.\nReplace with: images/ch07/bb-lecture-folder-expanded.png\n\n\n\n\n10.5.2.3.1 Lecture Notes\nFormat: Detailed written notes covering all lecture content.\nIn Quarto: Create as a .qmd file with:\n# Lecture 1: Foundational Concepts\n\n## What You'll Learn\n- Core principle 1\n- Core principle 2\n- Core principle 3\n\n## Detailed Notes\n\n### Section 1: Background\nProvide context and explain why this matters...\n\n### Section 2: Methodology\nStep-by-step explanation...\n\n### Section 3: Examples\nReal-world applications...\n\n## Key Takeaways\n- Point 1\n- Point 2\n- Point 3\nAdvantage: Students can review the lecture asynchronously, search for specific content, and have a reference document throughout the course.\n\n\n10.5.2.3.2 Presentation\nFormat: The slide presentation from your live lecture or a structured presentation of key concepts.\nIn Quarto: Either: - Export slides as static HTML for viewing in the browser - Include links to PDF versions of presentations - Create interactive HTML presentations using Quarto’s reveal.js integration\nTip: Always provide both presentation and notes. Some students learn better from visuals; others prefer reading detailed explanations.\n\n\n10.5.2.3.3 Tutorial\nFormat: Hands-on, step-by-step guidance for applying the lecture concepts.\nIn Quarto: Create interactive tutorials with: - Code examples (with syntax highlighting) - Expected outputs - Common mistakes to avoid - Practice exercises\nExample structure:\n# Tutorial: Building Your First Interactive Visualization\n\n## Prerequisites\n- Completed Lecture 1 and 2\n- R or Python installed\n\n## Step 1: Set Up Your Environment\nyour code here\n\n## Step 2: Load Your Data\n...\n\n## Practice Exercise\nNow you try! [Exercise prompt]\n\n## Solution\n[Revealed after students attempt]\n\n\n\n10.5.2.4 Deliverables Folder\nThis folder organizes all student assignments, labs, participation activities, and project milestones. Each item has an associated submission window.\n\n\n\n\n\n\nScreenshot needed: The Deliverables folder expanded in Blackboard Ultra, showing all six item types — Assignment, Lab 1, Lab 2, Participation 1, Participation 2, and Project Step — with submission due dates visible.\nReplace with: images/ch07/bb-deliverables-folder-expanded.png\n\n\n\n\n10.5.2.4.1 Assignment\nPurpose: The primary assessment for the module, typically demonstrating mastery of core concepts.\nStructure: - Prompt or problem statement - Submission requirements - Grading rubric - Due date with submission window - Optional: Example solutions or rubrics\nIn Quarto: Create as a .qmd file with clear sections:\n# Module 3 Assignment: Data Visualization Project\n\n## Overview\nCreate an interactive visualization that tells a story with data.\n\n## Requirements\n1. ...\n2. ...\n3. ...\n\n## Submission\n- Format: HTML file or link to published visualization\n- Due: [Date] by 11:59 PM ET\n- Submit via Blackboard assignment tool\n\n## Grading Rubric\n[Detailed rubric with point allocations]\n\n## Resources\n- [Link to tutorial]\n- [Link to examples]\n- [Link to tool documentation]\nIn Blackboard: Set up a Blackboard Assignment with: - Same due date and submission window - Link to the assignment prompt (your HTML) - Grading rubric embedded or linked - Late submission policy\n\n\n\n\n\n\nScreenshot needed: The Blackboard Ultra assignment creation screen showing the due date field, submission window settings, rubric attachment, and the content link field where the HTML prompt URL is pasted.\nReplace with: images/ch07/bb-assignment-creation-screen.png\n\n\n\n\n\n10.5.2.4.2 Labs (2 per module)\nPurpose: Shorter, focused practice activities reinforcing specific skills.\nStructure: - Clear objective - Guided steps - Verification or self-check mechanism\nExample Topics: - Lab 1: SQL Query Practice - Lab 2: Debugging Common Errors\nSubmission: Either in-Blackboard submission or link to external system with submission tracking.\n\n\n\n\n\n\nScreenshot needed: A lab item open in Blackboard showing the submission area — the text box, file attachment option, and submit button the student sees.\nReplace with: images/ch07/bb-lab-submission-view.png\n\n\n\n\n\n10.5.2.4.3 Participation Activities (2 per module)\nPurpose: Engagement activities that demonstrate attendance and involvement. These might include:\nTypes: - Discussion board posts (peer feedback) - Reflection prompts (metacognitive activities) - Peer review assignments - Quiz-style quick checks - Live session engagement recording\nStructure: - Clear prompt - Expected participation level (e.g., “1 main post + 2 peer responses”) - Grading criteria - Submission deadline\nIn Blackboard: Implement as: - Discussion board forums - Assignment submissions (for reflections) - Quiz tool (for quick checks) - Attendance tracking (for synchronous sessions)\nTip: Vary participation types throughout the semester to maintain engagement and accommodate different learning styles.\n\n\n\n\n\n\nScreenshot needed: A Blackboard Ultra discussion board showing a participation prompt with student reply threads visible (blur student names if needed).\nReplace with: images/ch07/bb-participation-discussion-board.png\n\n\n\n\n\n10.5.2.4.4 Project Steps (progressive milestones)\nPurpose: For courses with semester-long or multi-module projects, break them into manageable steps with intermediate deadlines.\nStructure: - Project step number (e.g., “Project Step 1: Proposal”) - What students should submit - Deliverables - Feedback timeline - Submission window\nExample Project Progression: - Step 1: Project Proposal (Module 1) - Step 2: Data Analysis & Exploration (Module 3) - Step 3: Preliminary Results & Visualization (Module 6) - Step 4: Final Report & Presentation (Module 8)\nAdvantage: Milestones prevent students from leaving everything until the last minute and give you multiple checkpoints to provide feedback.\n\n\n\n\n\n\nScreenshot needed: Project step submission in Blackboard showing the milestone title, point value, due date, and the submission window with “Opens” and “Due” dates both visible.\nReplace with: images/ch07/bb-project-step-submission-window.png\n\n\n\n\n\n\n\n10.5.3 Workbook Exercise: Design Your Module Structure\nTake time to plan your course structure before building it in Quarto and Blackboard.\nTask: Map out your course modules and components.\nStep 1: Decide how many modules you’ll have and what each covers\nModule 1: _________________________________\nModule 2: _________________________________\nModule 3: _________________________________\n[Continue for all modules]\nStep 2: For each module, plan the components\nModule 1: [Topic Name]\n├── Wrap-Up Content: [What will you overview?]\n├── Highlight Page: [What special content/case study?]\n├── Lecture 1: ___________________________\n├── Lecture 2: ___________________________\n├── Assignment: __________________________\n├── Lab 1: ________________________________\n├── Lab 2: ________________________________\n├── Participation 1: _____________________\n├── Participation 2: _____________________\n└── Project Step: _________________________\nStep 3: Count total deliverables\n\nNumber of lectures: _____\nNumber of assignments: _____\nNumber of labs: _____\nNumber of participation activities: _____\nNumber of project steps: _____\n\nVerification Checklist: - [ ] All modules have defined content - [ ] Each module follows the consistent structure - [ ] Deliverable count is realistic for your course load - [ ] You have feedback capacity for all assessments - [ ] Project steps align with semester timeline (if applicable)",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#creating-content-in-quarto-for-blackboard-deployment",
     "href": "07_blackboard_ultra.html#creating-content-in-quarto-for-blackboard-deployment",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.6 Creating Content in Quarto for Blackboard Deployment",
-    "text": "9.6 Creating Content in Quarto for Blackboard Deployment\nNow that you have your structure planned, let’s set up your Quarto project to generate deployable content.\n\n9.6.1 Project Organization in Quarto\nCreate a Quarto project with folders that mirror your Blackboard structure:\n\n\n\n\n\n\nScreenshot needed: VS Code or your editor showing the Quarto project folder tree — all module-01/ through module-N/ folders open with the subfolders lecture-1/, lecture-2/, and deliverables/ visible.\nReplace with: images/ch07/quarto-project-folder-structure.png\n\n\n\nyour-course/\n├── _quarto.yml\n├── README.md\n├── index.qmd\n├── module-01/\n│   ├── _module01.yml\n│   ├── wrap-up.qmd\n│   ├── highlight.qmd\n│   ├── lecture-1/\n│   │   ├── lecture-notes.qmd\n│   │   ├── presentation.qmd\n│   │   └── tutorial.qmd\n│   ├── lecture-2/\n│   │   ├── lecture-notes.qmd\n│   │   ├── presentation.qmd\n│   │   └── tutorial.qmd\n│   └── deliverables/\n│       ├── assignment.qmd\n│       ├── lab-1.qmd\n│       ├── lab-2.qmd\n│       ├── participation-1.qmd\n│       ├── participation-2.qmd\n│       └── project-step-1.qmd\n├── module-02/\n│   └── [same structure]\n└── images/\n    ├── module-01/\n    ├── module-02/\n    └── [shared images]\n\n\n9.6.2 Configuration: _quarto.yml\nSet up your _quarto.yml to generate a website structure compatible with Blackboard:\nproject:\n  type: website\n  output-dir: _site\n  render:\n    - \"*.qmd\"\n    - \"*/**.qmd\"\n\nwebsite:\n  title: \"Your Course Title\"\n  site-url: \"https://pages.github.com/your-course\"\n  repo-url: \"https://github.com/your-org/your-course\"\n  repo-actions: [edit, issue, source]\n  \n  navbar:\n    background: primary\n    search: true\n    left:\n      - href: index.qmd\n        text: Home\n      - text: Course Modules\n        menu:\n          - href: module-01/wrap-up.qmd\n            text: \"Module 1\"\n          - href: module-02/wrap-up.qmd\n            text: \"Module 2\"\n          - text: \"---\"\n          - text: Resources\n          - href: resources.qmd\n            text: Course Resources\n\nformat:\n  html:\n    theme: cosmo\n    css: custom.css\n    toc: true\n    toc-depth: 3\n    code-fold: false\n    code-copy: true\n\n\n9.6.3 Rendering and Packaging for Blackboard\nWhen you’re ready to deploy content to Blackboard:\n\n\n\n\n\n\nScreenshot needed: Terminal window showing the output of quarto render completing successfully — progress indicators, file counts, and the final “Output created: _site/” line.\nReplace with: images/ch07/quarto-render-terminal-output.png\n\n\n\n# Render all Quarto files to HTML\nquarto render\n\n# This creates the _site/ folder with all HTML, CSS, images, etc.\n# Now package it for Blackboard upload\nCreating _site.zip:\n# On Windows (PowerShell)\nCompress-Archive -Path _site -DestinationPath _site.zip\n\n# On macOS/Linux\nzip -r _site.zip _site/\n\n\n9.6.4 Image References: Why They Persist\nOne important note about image links: When you reference images in your Quarto files and they’re included in _site.zip, Blackboard will import them along with the HTML. This means your image links will continue to work because:\n\nRelative paths: If your HTML files reference images with relative paths (e.g., ../images/diagram.png), the image hierarchy is preserved\nContent collection structure: Blackboard maintains the folder structure when you import _site.zip\nAutomatic linking: Blackboard’s content collection system updates internal references automatically\n\nImportant: Always use relative paths in your Quarto files, not absolute URLs:\n❌ Don’t do this:\n![Diagram](https://example.com/images/diagram.png)\n✓ Do this:\n![Diagram](../images/diagram.png)",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.6 Creating Content in Quarto for Blackboard Deployment",
+    "text": "10.6 Creating Content in Quarto for Blackboard Deployment\nNow that you have your structure planned, let’s set up your Quarto project to generate deployable content.\n\n10.6.1 Project Organization in Quarto\nCreate a Quarto project with folders that mirror your Blackboard structure:\n\n\n\n\n\n\nScreenshot needed: VS Code or your editor showing the Quarto project folder tree — all module-01/ through module-N/ folders open with the subfolders lecture-1/, lecture-2/, and deliverables/ visible.\nReplace with: images/ch07/quarto-project-folder-structure.png\n\n\n\nyour-course/\n├── _quarto.yml\n├── README.md\n├── index.qmd\n├── module-01/\n│   ├── _module01.yml\n│   ├── wrap-up.qmd\n│   ├── highlight.qmd\n│   ├── lecture-1/\n│   │   ├── lecture-notes.qmd\n│   │   ├── presentation.qmd\n│   │   └── tutorial.qmd\n│   ├── lecture-2/\n│   │   ├── lecture-notes.qmd\n│   │   ├── presentation.qmd\n│   │   └── tutorial.qmd\n│   └── deliverables/\n│       ├── assignment.qmd\n│       ├── lab-1.qmd\n│       ├── lab-2.qmd\n│       ├── participation-1.qmd\n│       ├── participation-2.qmd\n│       └── project-step-1.qmd\n├── module-02/\n│   └── [same structure]\n└── images/\n    ├── module-01/\n    ├── module-02/\n    └── [shared images]\n\n\n10.6.2 Configuration: _quarto.yml\nSet up your _quarto.yml to generate a website structure compatible with Blackboard:\nproject:\n  type: website\n  output-dir: _site\n  render:\n    - \"*.qmd\"\n    - \"*/**.qmd\"\n\nwebsite:\n  title: \"Your Course Title\"\n  site-url: \"https://pages.github.com/your-course\"\n  repo-url: \"https://github.com/your-org/your-course\"\n  repo-actions: [edit, issue, source]\n  \n  navbar:\n    background: primary\n    search: true\n    left:\n      - href: index.qmd\n        text: Home\n      - text: Course Modules\n        menu:\n          - href: module-01/wrap-up.qmd\n            text: \"Module 1\"\n          - href: module-02/wrap-up.qmd\n            text: \"Module 2\"\n          - text: \"---\"\n          - text: Resources\n          - href: resources.qmd\n            text: Course Resources\n\nformat:\n  html:\n    theme: cosmo\n    css: custom.css\n    toc: true\n    toc-depth: 3\n    code-fold: false\n    code-copy: true\n\n\n10.6.3 Rendering and Packaging for Blackboard\nWhen you’re ready to deploy content to Blackboard:\n\n\n\n\n\n\nScreenshot needed: Terminal window showing the output of quarto render completing successfully — progress indicators, file counts, and the final “Output created: _site/” line.\nReplace with: images/ch07/quarto-render-terminal-output.png\n\n\n\n# Render all Quarto files to HTML\nquarto render\n\n# This creates the _site/ folder with all HTML, CSS, images, etc.\n# Now package it for Blackboard upload\nCreating _site.zip:\n# On Windows (PowerShell)\nCompress-Archive -Path _site -DestinationPath _site.zip\n\n# On macOS/Linux\nzip -r _site.zip _site/\n\n\n10.6.4 Image References: Why They Persist\nOne important note about image links: When you reference images in your Quarto files and they’re included in _site.zip, Blackboard will import them along with the HTML. This means your image links will continue to work because:\n\nRelative paths: If your HTML files reference images with relative paths (e.g., ../images/diagram.png), the image hierarchy is preserved\nContent collection structure: Blackboard maintains the folder structure when you import _site.zip\nAutomatic linking: Blackboard’s content collection system updates internal references automatically\n\nImportant: Always use relative paths in your Quarto files, not absolute URLs:\n❌ Don’t do this:\n![Diagram](https://example.com/images/diagram.png)\n✓ Do this:\n![Diagram](../images/diagram.png)",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#uploading-content-to-blackboard",
     "href": "07_blackboard_ultra.html#uploading-content-to-blackboard",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.7 Uploading Content to Blackboard",
-    "text": "9.7 Uploading Content to Blackboard\n\n9.7.1 Initial Setup: First-Time Upload\nFor your first deployment (after approval from Kim and orientation from Andy):\n\n\n\n\n\n\nScreenshot needed: File Explorer (Windows) or Finder (macOS) showing the _site/ folder and the generated _site.zip file side by side, with file sizes visible.\nReplace with: images/ch07/site-zip-file-explorer.png\n\n\n\n\nGenerate _site.zip\nquarto render\nCompress-Archive -Path _site -DestinationPath _site.zip\nAccess Blackboard Content Collection\n\nLog into your Blackboard course\nGo to Course Management → Content Collection\nCreate a folder structure mirroring your modules (or follow Andy’s guidance)\n\n\n\n\n\n\n\n\nScreenshot needed: Blackboard Ultra admin panel showing the path Course Management → Content Collection, with the navigation breadcrumb and folder view visible.\nTemporary reference: See Syracuse’s Blackboard Ultra guide for a comparable content collection view.\nReplace with: images/ch07/bb-content-collection-nav.png\n\n\n\n\nUpload _site.zip\n\nClick Upload Files\nSelect _site.zip\nBlackboard extracts the contents and maintains folder structure\n\n\n\n\n\n\n\n\nScreenshot needed: The Blackboard “Upload Files” dialog — showing the file picker with _site.zip selected and the progress/confirmation screen after upload.\nReplace with: images/ch07/bb-upload-site-zip-dialog.png\n\n\n\n\nCreate Module Links\n\nNavigate to each course module in Blackboard\nFor each content piece, create a link pointing to the corresponding HTML file in the content collection\nExample: Module 1 → Click to link → navigate to content-collection/_site/module-01/wrap-up.html\n\n\n\n\n\n\n\n\nScreenshot needed (2 images):\n\n4a — The “Add Content” menu in Blackboard Ultra, with “Content Collection Item” or “Web Link” option highlighted.\n4b — The file picker navigating the content collection to _site/module-01/wrap-up.html, with the file selected.\n\nReplace with:\n  images/ch07/bb-add-content-menu.png\n  images/ch07/bb-content-collection-file-picker.png\n\n\n\n\nTest All Links\n\nClick through every link as a student would\nVerify images display\nVerify any embedded videos or interactive content work\nTest on multiple browsers\n\nReview with Andy\n\nDemonstrate the working course to Andy\nMake any adjustments he recommends\nGet approval before launching to students\n\n\n\n\n9.7.2 Subsequent Updates: Semester Deployment\nAfter your initial setup, updating content becomes straightforward:\n\n\n\n\n\n\nScreenshot needed: Side-by-side of the content collection folder before and after re-uploading _site.zip — showing the “Date Modified” column updating to the new timestamp while links in Blackboard remain unchanged.\nReplace with: images/ch07/bb-content-collection-before-after-update.png\n\n\n\n\nMake Changes in Quarto\nEdit .qmd files as needed\nRender and Package\nquarto render\nCompress-Archive -Path _site -DestinationPath _site.zip\nUpload New _site.zip\n\nGo to Blackboard Content Collection\nChoose Upload Files and select your new _site.zip\nBlackboard replaces old files with updated versions\nExisting links automatically point to the updated content\n\n\nImportant Caveat: This replacement process works perfectly for content files (lectures, tutorials, materials). However, if you’re changing your module structure (adding/removing modules, reordering sections), you’ll need to create new links or adjust existing ones in Blackboard. This is why the initial setup with Andy is critical—lock in your structure before the semester starts.\n\n\n9.7.3 Workbook Exercise: Prepare Your First Deployment\nTask: Package your Quarto content for deployment.\nStep 1: Verify your Quarto project structure\n# Navigate to your course folder\ncd /path/to/your-course\n\n# List contents to verify structure\nGet-ChildItem -Recurse -Filter \"*.qmd\" | Select-Object FullName\nStep 2: Render all content\n# Render your Quarto project\nquarto render\n\n# Verify _site folder was created\nTest-Path _site\nStep 3: Create deployment package\n# Create _site.zip\nCompress-Archive -Path _site -DestinationPath _site.zip -Force\n\n# Verify the archive was created\nGet-Item _site.zip | Select-Object Name, Length\nStep 4: Prepare deployment checklist\n\nQuarto project renders without errors\nAll .qmd files convert to .html successfully\nImages and assets included in _site/\n_site.zip created successfully\nFile size is reasonable (typically 50MB-500MB depending on content)\nAll internal links use relative paths (not absolute URLs)\n\nStep 5: Documentation for Andy\nCreate a brief document for your Blackboard administrator:\n\nCourse: _________________________________ Number of modules: _____ Total files in package: _____ Approximate size: _____ Deployment date: _________________________________ Special requirements or notes: _________________________________",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.7 Uploading Content to Blackboard",
+    "text": "10.7 Uploading Content to Blackboard\n\n10.7.1 Initial Setup: First-Time Upload\nFor your first deployment (after approval from Kim and orientation from Andy):\n\n\n\n\n\n\nScreenshot needed: File Explorer (Windows) or Finder (macOS) showing the _site/ folder and the generated _site.zip file side by side, with file sizes visible.\nReplace with: images/ch07/site-zip-file-explorer.png\n\n\n\n\nGenerate _site.zip\nquarto render\nCompress-Archive -Path _site -DestinationPath _site.zip\nAccess Blackboard Content Collection\n\nLog into your Blackboard course\nGo to Course Management → Content Collection\nCreate a folder structure mirroring your modules (or follow Andy’s guidance)\n\n\n\n\n\n\n\n\nScreenshot needed: Blackboard Ultra admin panel showing the path Course Management → Content Collection, with the navigation breadcrumb and folder view visible.\nTemporary reference: See Syracuse’s Blackboard Ultra guide for a comparable content collection view.\nReplace with: images/ch07/bb-content-collection-nav.png\n\n\n\n\nUpload _site.zip\n\nClick Upload Files\nSelect _site.zip\nBlackboard extracts the contents and maintains folder structure\n\n\n\n\n\n\n\n\nScreenshot needed: The Blackboard “Upload Files” dialog — showing the file picker with _site.zip selected and the progress/confirmation screen after upload.\nReplace with: images/ch07/bb-upload-site-zip-dialog.png\n\n\n\n\nCreate Module Links\n\nNavigate to each course module in Blackboard\nFor each content piece, create a link pointing to the corresponding HTML file in the content collection\nExample: Module 1 → Click to link → navigate to content-collection/_site/module-01/wrap-up.html\n\n\n\n\n\n\n\n\nScreenshot needed (2 images):\n\n4a — The “Add Content” menu in Blackboard Ultra, with “Content Collection Item” or “Web Link” option highlighted.\n4b — The file picker navigating the content collection to _site/module-01/wrap-up.html, with the file selected.\n\nReplace with:\n  images/ch07/bb-add-content-menu.png\n  images/ch07/bb-content-collection-file-picker.png\n\n\n\n\nTest All Links\n\nClick through every link as a student would\nVerify images display\nVerify any embedded videos or interactive content work\nTest on multiple browsers\n\nReview with Andy\n\nDemonstrate the working course to Andy\nMake any adjustments he recommends\nGet approval before launching to students\n\n\n\n\n10.7.2 Subsequent Updates: Semester Deployment\nAfter your initial setup, updating content becomes straightforward:\n\n\n\n\n\n\nScreenshot needed: Side-by-side of the content collection folder before and after re-uploading _site.zip — showing the “Date Modified” column updating to the new timestamp while links in Blackboard remain unchanged.\nReplace with: images/ch07/bb-content-collection-before-after-update.png\n\n\n\n\nMake Changes in Quarto\nEdit .qmd files as needed\nRender and Package\nquarto render\nCompress-Archive -Path _site -DestinationPath _site.zip\nUpload New _site.zip\n\nGo to Blackboard Content Collection\nChoose Upload Files and select your new _site.zip\nBlackboard replaces old files with updated versions\nExisting links automatically point to the updated content\n\n\nImportant Caveat: This replacement process works perfectly for content files (lectures, tutorials, materials). However, if you’re changing your module structure (adding/removing modules, reordering sections), you’ll need to create new links or adjust existing ones in Blackboard. This is why the initial setup with Andy is critical—lock in your structure before the semester starts.\n\n\n10.7.3 Workbook Exercise: Prepare Your First Deployment\nTask: Package your Quarto content for deployment.\nStep 1: Verify your Quarto project structure\n# Navigate to your course folder\ncd /path/to/your-course\n\n# List contents to verify structure\nGet-ChildItem -Recurse -Filter \"*.qmd\" | Select-Object FullName\nStep 2: Render all content\n# Render your Quarto project\nquarto render\n\n# Verify _site folder was created\nTest-Path _site\nStep 3: Create deployment package\n# Create _site.zip\nCompress-Archive -Path _site -DestinationPath _site.zip -Force\n\n# Verify the archive was created\nGet-Item _site.zip | Select-Object Name, Length\nStep 4: Prepare deployment checklist\n\nQuarto project renders without errors\nAll .qmd files convert to .html successfully\nImages and assets included in _site/\n_site.zip created successfully\nFile size is reasonable (typically 50MB-500MB depending on content)\nAll internal links use relative paths (not absolute URLs)\n\nStep 5: Documentation for Andy\nCreate a brief document for your Blackboard administrator:\n\nCourse: _________________________________ Number of modules: _____ Total files in package: _____ Approximate size: _____ Deployment date: _________________________________ Special requirements or notes: _________________________________",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#best-practices-for-quarto-blackboard-integration",
     "href": "07_blackboard_ultra.html#best-practices-for-quarto-blackboard-integration",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.8 Best Practices for Quarto + Blackboard Integration",
-    "text": "9.8 Best Practices for Quarto + Blackboard Integration\n\n9.8.1 File Naming Conventions\nUse clear, consistent naming that makes sense in both Quarto file systems and Blackboard:\n✓ Good: - module-01-intro.qmd - lecture-1-foundations.qmd - assignment-project-proposal.qmd - lab-01-sql-basics.qmd\n❌ Avoid: - module1.qmd - lecture.qmd - assignment.qmd - lab.qmd\n\n\n9.8.2 URL/Link Strategy\nWhen creating cross-links in your course materials:\nLinking within Blackboard: Use relative paths that Blackboard can resolve:\nSee [this tutorial](../lecture-1/tutorial.html)\nLinking to external resources: Use full URLs:\nCheck out [this guide](https://example.com/guide)\nLinking to assignments: Reference Blackboard assignment links:\nSubmit your work via [this Blackboard assignment link](https://blackboard.bu.edu/webapps/assignment/...)\n\n\n9.8.3 Maintenance During the Semester\nContent Updates Without Redeployment: - Small text corrections: Fix in Quarto, render, and re-upload _site.zip - Broken links: Test regularly, fix in Quarto, re-render - Typos in assignments: Fix immediately and update within 24 hours\nWhen NOT to Re-upload _site.zip: - After students have already submitted work on an assignment (the submission date might change if Blackboard refreshes) - If you’re only updating one file (upload it individually instead) - During peak submission periods (upload during off-hours to avoid conflicts)\nCommunication with Students: - If you make significant content changes, post an announcement: “Updated Module 3 lecture notes—please review the latest version” - Include version numbers in assignment prompts: “Submit your response to Assignment 3 (v1.1)”\n\n\n9.8.4 Disaster Recovery and Rollback\nBecause your Quarto files are in version control (Git):\n\nKeep previous deployments: Don’t delete old _site.zip files\nTag stable versions: In Git, tag releases after successful deployments\ngit tag -a v1.0-spring-2026 -m \"Spring 2026 course - first deployment\"\nRollback if needed: If something breaks, restore from the previous version:\ngit checkout v1.0-spring-2026\nquarto render\nCompress-Archive -Path _site -DestinationPath _site.zip\n# Upload the previous version to Blackboard",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.8 Best Practices for Quarto + Blackboard Integration",
+    "text": "10.8 Best Practices for Quarto + Blackboard Integration\n\n10.8.1 File Naming Conventions\nUse clear, consistent naming that makes sense in both Quarto file systems and Blackboard:\n✓ Good: - module-01-intro.qmd - lecture-1-foundations.qmd - assignment-project-proposal.qmd - lab-01-sql-basics.qmd\n❌ Avoid: - module1.qmd - lecture.qmd - assignment.qmd - lab.qmd\n\n\n10.8.2 URL/Link Strategy\nWhen creating cross-links in your course materials:\nLinking within Blackboard: Use relative paths that Blackboard can resolve:\nSee [this tutorial](../lecture-1/tutorial.html)\nLinking to external resources: Use full URLs:\nCheck out [this guide](https://example.com/guide)\nLinking to assignments: Reference Blackboard assignment links:\nSubmit your work via [this Blackboard assignment link](https://blackboard.bu.edu/webapps/assignment/...)\n\n\n10.8.3 Maintenance During the Semester\nContent Updates Without Redeployment: - Small text corrections: Fix in Quarto, render, and re-upload _site.zip - Broken links: Test regularly, fix in Quarto, re-render - Typos in assignments: Fix immediately and update within 24 hours\nWhen NOT to Re-upload _site.zip: - After students have already submitted work on an assignment (the submission date might change if Blackboard refreshes) - If you’re only updating one file (upload it individually instead) - During peak submission periods (upload during off-hours to avoid conflicts)\nCommunication with Students: - If you make significant content changes, post an announcement: “Updated Module 3 lecture notes—please review the latest version” - Include version numbers in assignment prompts: “Submit your response to Assignment 3 (v1.1)”\n\n\n10.8.4 Disaster Recovery and Rollback\nBecause your Quarto files are in version control (Git):\n\nKeep previous deployments: Don’t delete old _site.zip files\nTag stable versions: In Git, tag releases after successful deployments\ngit tag -a v1.0-spring-2026 -m \"Spring 2026 course - first deployment\"\nRollback if needed: If something breaks, restore from the previous version:\ngit checkout v1.0-spring-2026\nquarto render\nCompress-Archive -Path _site -DestinationPath _site.zip\n# Upload the previous version to Blackboard",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#reference-documentation-official-resources",
     "href": "07_blackboard_ultra.html#reference-documentation-official-resources",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.9 Reference Documentation: Official Resources",
-    "text": "9.9 Reference Documentation: Official Resources\n\n9.9.1 Boston University Blackboard Resources\n\nBlackboard Support at BU: Contact your school’s IT department or Blackboard support\nFor this specific workflow: Reach out to:\n\nKim Crosta (Course Approval): kim.crosta@bu.edu\nAndy (Blackboard Technical Setup): [Contact through BU Blackboard support]\n\n\n\n\n9.9.2 External Blackboard Resources\nSyracuse University Module Generation Guide: - Blackboard Ultra Module Generation - Provides general Blackboard Ultra best practices that apply to BU’s configuration\nLesley University Blackboard Quick Start: - Blackboard Ultra Course View Faculty Quick Start Guide - Another institution’s approach to course organization in Blackboard Ultra\n\n\n9.9.3 Quarto for Education\n\nQuarto Official Documentation\nQuarto for Teaching\nCreating Quarto Websites",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.9 Reference Documentation: Official Resources",
+    "text": "10.9 Reference Documentation: Official Resources\n\n10.9.1 Boston University Blackboard Resources\n\nBlackboard Support at BU: Contact your school’s IT department or Blackboard support\nFor this specific workflow: Reach out to:\n\nKim Crosta (Course Approval): kim.crosta@bu.edu\nAndy (Blackboard Technical Setup): [Contact through BU Blackboard support]\n\n\n\n\n10.9.2 External Blackboard Resources\nSyracuse University Module Generation Guide: - Blackboard Ultra Module Generation - Provides general Blackboard Ultra best practices that apply to BU’s configuration\nLesley University Blackboard Quick Start: - Blackboard Ultra Course View Faculty Quick Start Guide - Another institution’s approach to course organization in Blackboard Ultra\n\n\n10.9.3 Quarto for Education\n\nQuarto Official Documentation\nQuarto for Teaching\nCreating Quarto Websites",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#workbook-checklist-complete-blackboard-ultra-integration",
     "href": "07_blackboard_ultra.html#workbook-checklist-complete-blackboard-ultra-integration",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.10 Workbook Checklist: Complete Blackboard Ultra Integration",
-    "text": "9.10 Workbook Checklist: Complete Blackboard Ultra Integration\nUse this comprehensive checklist to ensure you’re ready for deployment:\n\n9.10.1 Phase 1: Planning & Approval\n\nDetermined number of modules in your course\nMapped module structure and components\nContacted Kim Crosta with course plan\nReceived approval for Quarto approach\nScheduled meeting with Andy\nPresented structure to Andy\nCompleted trial deployment with Andy’s assistance\n\n\n\n9.10.2 Phase 2: Quarto Project Setup\n\nCreated Quarto project with folder structure\nConfigured _quarto.yml for website output\nCreated template files for each module component\nPopulated all content files (.qmd)\nVerified all images use relative paths\nTested Quarto rendering: quarto render succeeds\nAll HTML files generate correctly\nSpot-checked rendered HTML for formatting\n\n\n\n9.10.3 Phase 3: Content Preparation\n\nWrote wrap-up content for each module\nCreated highlight pages (special content)\nDeveloped lecture notes (all lectures)\nPrepared presentations (all lectures)\nCreated tutorials with practice exercises\nWrote assignment prompts with rubrics\nDesigned labs with clear objectives\nPlanned participation activities\nOutlined project steps (if applicable)\n\n\n\n9.10.4 Phase 4: Packaging & First Deployment\n\nGenerated _site.zip from Quarto\nVerified archive contains all files\nUploaded _site.zip to Blackboard content collection\nCreated module structure in Blackboard\nLinked all content files in Blackboard modules\nTested all links as student view\nVerified images display correctly\nTested on multiple browsers\nDemonstrated working course to Andy\nReceived final approval for student access\n\n\n\n9.10.5 Phase 5: Ongoing Management\n\nEstablished schedule for content updates\nDocumented version control workflow\nCreated backup/rollback procedures\nInformed students of update schedule\nMonitored for broken links (weekly)\nUpdated content as semester progresses\nRe-deployed _site.zip for major updates\nCommunicated changes to students\n\n\n\n9.10.6 Documentation\n\nCreated README explaining course structure\nDocumented file naming conventions\nCreated update procedures for teammates (if applicable)\nMaintained version history in Git\nTagged stable deployments in Git",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.10 Workbook Checklist: Complete Blackboard Ultra Integration",
+    "text": "10.10 Workbook Checklist: Complete Blackboard Ultra Integration\nUse this comprehensive checklist to ensure you’re ready for deployment:\n\n10.10.1 Phase 1: Planning & Approval\n\nDetermined number of modules in your course\nMapped module structure and components\nContacted Kim Crosta with course plan\nReceived approval for Quarto approach\nScheduled meeting with Andy\nPresented structure to Andy\nCompleted trial deployment with Andy’s assistance\n\n\n\n10.10.2 Phase 2: Quarto Project Setup\n\nCreated Quarto project with folder structure\nConfigured _quarto.yml for website output\nCreated template files for each module component\nPopulated all content files (.qmd)\nVerified all images use relative paths\nTested Quarto rendering: quarto render succeeds\nAll HTML files generate correctly\nSpot-checked rendered HTML for formatting\n\n\n\n10.10.3 Phase 3: Content Preparation\n\nWrote wrap-up content for each module\nCreated highlight pages (special content)\nDeveloped lecture notes (all lectures)\nPrepared presentations (all lectures)\nCreated tutorials with practice exercises\nWrote assignment prompts with rubrics\nDesigned labs with clear objectives\nPlanned participation activities\nOutlined project steps (if applicable)\n\n\n\n10.10.4 Phase 4: Packaging & First Deployment\n\nGenerated _site.zip from Quarto\nVerified archive contains all files\nUploaded _site.zip to Blackboard content collection\nCreated module structure in Blackboard\nLinked all content files in Blackboard modules\nTested all links as student view\nVerified images display correctly\nTested on multiple browsers\nDemonstrated working course to Andy\nReceived final approval for student access\n\n\n\n10.10.5 Phase 5: Ongoing Management\n\nEstablished schedule for content updates\nDocumented version control workflow\nCreated backup/rollback procedures\nInformed students of update schedule\nMonitored for broken links (weekly)\nUpdated content as semester progresses\nRe-deployed _site.zip for major updates\nCommunicated changes to students\n\n\n\n10.10.6 Documentation\n\nCreated README explaining course structure\nDocumented file naming conventions\nCreated update procedures for teammates (if applicable)\nMaintained version history in Git\nTagged stable deployments in Git",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#troubleshooting-common-issues",
     "href": "07_blackboard_ultra.html#troubleshooting-common-issues",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.11 Troubleshooting Common Issues",
-    "text": "9.11 Troubleshooting Common Issues\n\n9.11.1 Problem: Links Break After Uploading to Blackboard\nCause: Absolute URLs in Quarto files or incorrect relative paths\nSolution: - Check all image and link references in your .qmd files - Use relative paths: ../images/logo.png not /images/logo.png - Update any absolute URLs to relative paths - Re-render and re-upload\n\n\n9.11.2 Problem: Images Don’t Display in Blackboard\nCause: Images not included in _site/ folder or path references are wrong\nSolution: - Ensure images are in a subfolder of your Quarto project (e.g., images/) - Verify Quarto rendering includes images in _site/ - Check that _site.zip includes image files - Verify relative paths in HTML match actual image locations\n\n\n9.11.3 Problem: Content Collection Upload Fails\nCause: File size too large or connection interrupted\nSolution: - If _site.zip is very large (&gt;1GB), compress images bash   # Reduce image quality in Quarto with CSS   img { max-width: 100%; height: auto; } - Try uploading individual files instead of _site.zip - Contact Andy if technical issues persist\n\n\n9.11.4 Problem: Students See Old Content After Re-upload\nCause: Browser caching\nSolution: - Instruct students to clear browser cache or use Ctrl+Shift+Delete - Use browser-specific cache-busting in _quarto.yml - Announce updates in course announcements\n\n\n9.11.5 Problem: Module Structure Changes Required Mid-Semester\nCause: Didn’t lock structure with Andy before launch\nSolution: - Contact Andy before making structural changes - Update both Quarto and Blackboard simultaneously - Communicate changes to students - Test thoroughly before making live",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.11 Troubleshooting Common Issues",
+    "text": "10.11 Troubleshooting Common Issues\n\n10.11.1 Problem: Links Break After Uploading to Blackboard\nCause: Absolute URLs in Quarto files or incorrect relative paths\nSolution: - Check all image and link references in your .qmd files - Use relative paths: ../images/logo.png not /images/logo.png - Update any absolute URLs to relative paths - Re-render and re-upload\n\n\n10.11.2 Problem: Images Don’t Display in Blackboard\nCause: Images not included in _site/ folder or path references are wrong\nSolution: - Ensure images are in a subfolder of your Quarto project (e.g., images/) - Verify Quarto rendering includes images in _site/ - Check that _site.zip includes image files - Verify relative paths in HTML match actual image locations\n\n\n10.11.3 Problem: Content Collection Upload Fails\nCause: File size too large or connection interrupted\nSolution: - If _site.zip is very large (&gt;1GB), compress images bash   # Reduce image quality in Quarto with CSS   img { max-width: 100%; height: auto; } - Try uploading individual files instead of _site.zip - Contact Andy if technical issues persist\n\n\n10.11.4 Problem: Students See Old Content After Re-upload\nCause: Browser caching\nSolution: - Instruct students to clear browser cache or use Ctrl+Shift+Delete - Use browser-specific cache-busting in _quarto.yml - Announce updates in course announcements\n\n\n10.11.5 Problem: Module Structure Changes Required Mid-Semester\nCause: Didn’t lock structure with Andy before launch\nSolution: - Contact Andy before making structural changes - Update both Quarto and Blackboard simultaneously - Communicate changes to students - Test thoroughly before making live",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#summary-mastering-quarto-blackboard-integration",
     "href": "07_blackboard_ultra.html#summary-mastering-quarto-blackboard-integration",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.12 Summary: Mastering Quarto + Blackboard Integration",
-    "text": "9.12 Summary: Mastering Quarto + Blackboard Integration\nYou’ve learned how to:\n\nNavigate the setup process: Working with Kim Crosta and Andy before deploying\nDesign course structure: Creating consistent, manageable module organization\nAuthor in Quarto: Creating professional, maintainable course materials\nDeploy to Blackboard: Packaging and uploading content for student access\nManage updates: Keeping content current throughout the semester\nTroubleshoot: Solving common integration issues\n\nThe power of this approach is that you’re maintaining a professional, version-controlled course that produces beautiful HTML and integrates seamlessly with Blackboard. Your students get a polished experience, you have a single source of truth for your content, and updates become simple batch operations rather than manual file-by-file changes.",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.12 Summary: Mastering Quarto + Blackboard Integration",
+    "text": "10.12 Summary: Mastering Quarto + Blackboard Integration\nYou’ve learned how to:\n\nNavigate the setup process: Working with Kim Crosta and Andy before deploying\nDesign course structure: Creating consistent, manageable module organization\nAuthor in Quarto: Creating professional, maintainable course materials\nDeploy to Blackboard: Packaging and uploading content for student access\nManage updates: Keeping content current throughout the semester\nTroubleshoot: Solving common integration issues\n\nThe power of this approach is that you’re maintaining a professional, version-controlled course that produces beautiful HTML and integrates seamlessly with Blackboard. Your students get a polished experience, you have a single source of truth for your content, and updates become simple batch operations rather than manual file-by-file changes.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#knowledge-check-verify-your-understanding",
     "href": "07_blackboard_ultra.html#knowledge-check-verify-your-understanding",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.13 Knowledge Check: Verify Your Understanding",
-    "text": "9.13 Knowledge Check: Verify Your Understanding\n\nExplain the role of the content collection in Blackboard:\n\n\n\nWhy is it important to approve your Quarto structure with Kim Crosta before deploying?\n\n\n\nWhat are the three components in each lecture folder, and what’s their purpose?\n\n\n\nHow do you prepare your Quarto project for deployment to Blackboard?\n\n\n\nWhat happens to images when you upload _site.zip to Blackboard?\n\n\n\nWhat should you do if you need to make structural changes after the course starts?",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.13 Knowledge Check: Verify Your Understanding",
+    "text": "10.13 Knowledge Check: Verify Your Understanding\n\nExplain the role of the content collection in Blackboard:\n\n\n\nWhy is it important to approve your Quarto structure with Kim Crosta before deploying?\n\n\n\nWhat are the three components in each lecture folder, and what’s their purpose?\n\n\n\nHow do you prepare your Quarto project for deployment to Blackboard?\n\n\n\nWhat happens to images when you upload _site.zip to Blackboard?\n\n\n\nWhat should you do if you need to make structural changes after the course starts?",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "07_blackboard_ultra.html#next-steps",
     "href": "07_blackboard_ultra.html#next-steps",
-    "title": "9  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
-    "section": "9.14 Next Steps",
-    "text": "9.14 Next Steps\nReady to implement this workflow?\n\nSchedule with Kim Crosta to discuss your Quarto approach\nPlan your module structure using the workbook exercise above\nSet up your Quarto project with the directory structure provided\nCreate template files for each component type\nSchedule trial deployment with Andy\nGather student feedback on the experience\nDocument your lessons learned for next semester\n\nThis integration represents a professional approach to course management that scales beautifully across multiple semesters and teaching contexts. Your students will appreciate the polished, consistent presentation, and you’ll appreciate the efficiency of managing your course through version control.",
+    "title": "10  Blackboard Ultra: Deploying Quarto Content to Your Course Shell",
+    "section": "10.14 Next Steps",
+    "text": "10.14 Next Steps\nReady to implement this workflow?\n\nSchedule with Kim Crosta to discuss your Quarto approach\nPlan your module structure using the workbook exercise above\nSet up your Quarto project with the directory structure provided\nCreate template files for each component type\nSchedule trial deployment with Andy\nGather student feedback on the experience\nDocument your lessons learned for next semester\n\nThis integration represents a professional approach to course management that scales beautifully across multiple semesters and teaching contexts. Your students will appreciate the polished, consistent presentation, and you’ll appreciate the efficiency of managing your course through version control.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Blackboard Ultra</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Blackboard Ultra</span>"
     ]
   },
   {
     "objectID": "08_automating_with_AI.html",
     "href": "08_automating_with_AI.html",
-    "title": "10  Automating with AI",
+    "title": "11  Automating with AI",
     "section": "",
-    "text": "11 Supercharging Course Production with GitHub Copilot & AI Tools\nAs an educator building out reproducible courses with Quarto, you are inherently writing code. Whether it is Markdown for lecture notes, Python or R for your data analysis labs, or simply writing Python scripts to automate your directory structures, you are functioning as a developer.\nTo assist you in this endeavor, GitHub Copilot serves as an indispensable AI pair programmer. Copilot is integrated directly into your IDE (like Antigravity or VS Code) and provides real-time autocomplete suggestions, conversational assistance, and code generation.",
+    "text": "12 Supercharging Course Production with GitHub Copilot & AI Tools\nAs an educator building out reproducible courses with Quarto, you are inherently writing code. Whether it is Markdown for lecture notes, Python or R for your data analysis labs, or simply writing Python scripts to automate your directory structures, you are functioning as a developer.\nTo assist you in this endeavor, GitHub Copilot serves as an indispensable AI pair programmer. Copilot is integrated directly into your IDE (like Antigravity or VS Code) and provides real-time autocomplete suggestions, conversational assistance, and code generation.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automating with AI</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
   },
   {
     "objectID": "08_automating_with_AI.html#the-ai-editor-stack",
     "href": "08_automating_with_AI.html#the-ai-editor-stack",
-    "title": "10  Automating with AI",
-    "section": "11.1 The AI Editor Stack",
-    "text": "11.1 The AI Editor Stack\nFor day-to-day course production, the most practical setup is a combination of:\n\nGitHub for repositories, version history, and publishing\nGitHub Copilot for inline suggestions and chat support while writing code or Quarto\nGitHub Classroom for distributing coding assignments and collecting student work\nVS Code or Antigravity when using ChatGPT-connected coding tools for drafting scripts, revising content, and debugging\nCursor when project-wide AI editing and rapid refactoring are useful\nGemini and OpenAI APIs when you want scripts to generate metadata, summaries, or structured course assets at scale\n\nUsed together, these tools reduce setup time, help standardize materials, and make it easier to maintain course content across semesters.",
+    "title": "11  Automating with AI",
+    "section": "12.1 The AI Editor Stack",
+    "text": "12.1 The AI Editor Stack\nFor day-to-day course production, the most practical setup is a combination of:\n\nGitHub for repositories, version history, and publishing\nGitHub Copilot for inline suggestions and chat support while writing code or Quarto\nGitHub Classroom for distributing coding assignments and collecting student work\nVS Code or Antigravity when using ChatGPT-connected coding tools for drafting scripts, revising content, and debugging\nCursor when project-wide AI editing and rapid refactoring are useful\nGemini and OpenAI APIs when you want scripts to generate metadata, summaries, or structured course assets at scale\n\nUsed together, these tools reduce setup time, help standardize materials, and make it easier to maintain course content across semesters.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automating with AI</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
   },
   {
     "objectID": "08_automating_with_AI.html#additional-platforms-and-resources",
     "href": "08_automating_with_AI.html#additional-platforms-and-resources",
-    "title": "10  Automating with AI",
-    "section": "11.2 Additional Platforms and Resources",
-    "text": "11.2 Additional Platforms and Resources\nThe following tools are also useful in analytics and AI-focused teaching workflows:\n\nRemotion for generating videos programmatically from code: https://www.remotion.dev/\nManim for mathematical and technical animations in Python: https://docs.manim.community/en/stable/examples.html\nHugging Face Inference Providers for testing and comparing hosted models and APIs: https://huggingface.co/inference/models\nHugging Face Academia Hub for institution-level research, teaching, and infrastructure workflows: https://huggingface.co/docs/hub/en/academia-hub",
+    "title": "11  Automating with AI",
+    "section": "12.2 Additional Platforms and Resources",
+    "text": "12.2 Additional Platforms and Resources\nThe following tools are also useful in analytics and AI-focused teaching workflows:\n\nRemotion for generating videos programmatically from code: https://www.remotion.dev/\nManim for mathematical and technical animations in Python: https://docs.manim.community/en/stable/examples.html\nHugging Face Inference Providers for testing and comparing hosted models and APIs: https://huggingface.co/inference/models\nHugging Face Academia Hub for institution-level research, teaching, and infrastructure workflows: https://huggingface.co/docs/hub/en/academia-hub",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automating with AI</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
   },
   {
     "objectID": "08_automating_with_AI.html#copilot-for-course-organization-scripts",
     "href": "08_automating_with_AI.html#copilot-for-course-organization-scripts",
-    "title": "10  Automating with AI",
-    "section": "11.3 Copilot for Course Organization Scripts",
-    "text": "11.3 Copilot for Course Organization Scripts\nOne of the most powerful uses of Copilot is automating the tedious parts of course administration.\nFor instance, consider the requirement of generating a consistent module structure (M01, M02, M03) complete with boilerplate Quarto files for lecture notes, presentations, labs, assignments, projects, and participation activities. Instead of creating each file by hand, you can use the generator script included with this book.\nIf you want Copilot to help you adapt the script, give it this prompt:\n\n“Modify this Quarto course scaffold script so it generates modules named M01 through M07. Each module should include M01_A.qmd, M01_LN1.qmd, M01_LN2.qmd, M01_P1.qmd, M01_P2.qmd, M01_Proj.qmd, M01_Lab1.qmd, M01_Lab2.qmd, M01_Participation1.qmd, and M01_Participation2.qmd.”\n\n\n11.3.1 The Module Generation Script\nThe reusable version of the script is included in this repository at scripts/generate_modules.py. Run it from the root of a course project:\npython scripts/generate_modules.py .\nBy default, the script creates modules M01 through M07. If your course has an orientation module, add M00:\npython scripts/generate_modules.py . --include-module-zero\nThe first generated module will look like this:\nM01/\n  M01_A.qmd\n  M01_LN1.qmd\n  M01_LN2.qmd\n  M01_P1.qmd\n  M01_P2.qmd\n  M01_Proj.qmd\n  M01_Lab1.qmd\n  M01_Lab2.qmd\n  M01_Participation1.qmd\n  M01_Participation2.qmd\n  data/\n  output/\n  M01_lecture01_figures/\n  M01_lecture02_figures/\n  M01_presentation01_files/\n  M01_presentation02_files/\n  M01_P1_files/\n  M01_P2_files/\nExisting files are left untouched unless you explicitly pass --overwrite.\n\n\n11.3.2 Validating the Module Structure\nAfter generating or editing the scaffold, run the validation script:\npython scripts/validate_course_structure.py .\nThe validator checks that every module contains the required M01_* files and support folders. This is useful before building Blackboard content because broken naming conventions often become broken links later.",
+    "title": "11  Automating with AI",
+    "section": "12.3 Copilot for Course Organization Scripts",
+    "text": "12.3 Copilot for Course Organization Scripts\nOne of the most powerful uses of Copilot is automating the tedious parts of course administration.\nFor instance, consider the requirement of generating a consistent module structure (M01, M02, M03) complete with boilerplate Quarto files for lecture notes, presentations, labs, assignments, projects, and participation activities. Instead of creating each file by hand, you can use the generator script included with this book.\nIf you want Copilot to help you adapt the script, give it this prompt:\n\n“Modify this Quarto course scaffold script so it generates modules named M01 through M07. Each module should include M01_A.qmd, M01_LN1.qmd, M01_LN2.qmd, M01_P1.qmd, M01_P2.qmd, M01_Proj.qmd, M01_Lab1.qmd, M01_Lab2.qmd, M01_Participation1.qmd, and M01_Participation2.qmd.”\n\n\n12.3.1 The Module Generation Script\nThe reusable version of the script is included in this repository at scripts/generate_modules.py. Run it from the root of a course project:\npython scripts/generate_modules.py .\nBy default, the script creates modules M01 through M07. If your course has an orientation module, add M00:\npython scripts/generate_modules.py . --include-module-zero\nThe first generated module will look like this:\nM01/\n  M01_A.qmd\n  M01_LN1.qmd\n  M01_LN2.qmd\n  M01_P1.qmd\n  M01_P2.qmd\n  M01_Proj.qmd\n  M01_Lab1.qmd\n  M01_Lab2.qmd\n  M01_Participation1.qmd\n  M01_Participation2.qmd\n  data/\n  output/\n  M01_lecture01_figures/\n  M01_lecture02_figures/\n  M01_presentation01_files/\n  M01_presentation02_files/\n  M01_P1_files/\n  M01_P2_files/\nExisting files are left untouched unless you explicitly pass --overwrite.\n\n\n12.3.2 Validating the Module Structure\nAfter generating or editing the scaffold, run the validation script:\npython scripts/validate_course_structure.py .\nThe validator checks that every module contains the required M01_* files and support folders. This is useful before building Blackboard content because broken naming conventions often become broken links later.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automating with AI</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
   },
   {
     "objectID": "08_automating_with_AI.html#automating-metadata-with-llms-openai-gemini",
     "href": "08_automating_with_AI.html#automating-metadata-with-llms-openai-gemini",
-    "title": "10  Automating with AI",
-    "section": "11.4 Automating Metadata with LLMs (OpenAI / Gemini)",
-    "text": "11.4 Automating Metadata with LLMs (OpenAI / Gemini)\nBeyond structural generation, you can use large language models (LLMs) via APIs to automatically populate the YAML metadata in your Quarto files. For example, a script can read your course outline (an Excel or CSV file) and prompt an AI to generate SEO-friendly keywords and summaries for each lecture note.\n\n11.4.1 Setting up API Keys (.env)\nBefore running API-dependent scripts, you must securely store your API keys. Never hardcode your keys into your Python scripts or commit them to GitHub. Instead, use a .env file.\nCreate a file named .env in the root of your project directory and add the following placeholder keys. Replace your_... with your actual keys.\n# .env\n\n# OpenAI API Key (Required for OpenAI integrations)\nOPENAI_API_KEY=\"your_openai_api_key_here\"\n\n# Gemini API Key (Required if you use Google's models instead)\nGEMINI_API_KEY=\"your_gemini_api_key_here\"\n\n\n\n\n\n\nWarning\n\n\n\nEnsure your .gitignore file contains the line .env so your keys are not accidentally uploaded to your GitHub repository!\n\n\n\n\n11.4.2 The Metadata Population Script\nOnce your keys are configured, use the included metadata script to fill YAML front matter in generated .qmd files from a CSV outline:\npython scripts/populate_qmd_metadata.py data/generated_schedule.csv --root .\nThe script reads Source File, Title, Lecture, and Description columns. If OPENAI_API_KEY is present, it asks the OpenAI API for a concise page description. If no key is present, it falls back to the workbook description, so the workflow still works offline.",
+    "title": "11  Automating with AI",
+    "section": "12.4 Automating Metadata with LLMs (OpenAI / Gemini)",
+    "text": "12.4 Automating Metadata with LLMs (OpenAI / Gemini)\nBeyond structural generation, you can use large language models (LLMs) via APIs to automatically populate the YAML metadata in your Quarto files. For example, a script can read your course outline (an Excel or CSV file) and prompt an AI to generate SEO-friendly keywords and summaries for each lecture note.\n\n12.4.1 Setting up API Keys (.env)\nBefore running API-dependent scripts, you must securely store your API keys. Never hardcode your keys into your Python scripts or commit them to GitHub. Instead, use a .env file.\nCreate a file named .env in the root of your project directory and add the following placeholder keys. Replace your_... with your actual keys.\n# .env\n\n# OpenAI API Key (Required for OpenAI integrations)\nOPENAI_API_KEY=\"your_openai_api_key_here\"\n\n# Gemini API Key (Required if you use Google's models instead)\nGEMINI_API_KEY=\"your_gemini_api_key_here\"\n\n\n\n\n\n\nWarning\n\n\n\nEnsure your .gitignore file contains the line .env so your keys are not accidentally uploaded to your GitHub repository!\n\n\n\n\n12.4.2 The Metadata Population Script\nOnce your keys are configured, use the included metadata script to fill YAML front matter in generated .qmd files from a CSV outline:\npython scripts/populate_qmd_metadata.py data/generated_schedule.csv --root .\nThe script reads Source File, Title, Lecture, and Description columns. If OPENAI_API_KEY is present, it asks the OpenAI API for a concise page description. If no key is present, it falls back to the workbook description, so the workflow still works offline.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automating with AI</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
   },
   {
     "objectID": "08_automating_with_AI.html#additional-automation-scripts",
     "href": "08_automating_with_AI.html#additional-automation-scripts",
-    "title": "10  Automating with AI",
-    "section": "11.5 Additional Automation Scripts",
-    "text": "11.5 Additional Automation Scripts\nThe book repository includes these reusable scripts:\n\n\n\n\n\n\n\nScript\nPurpose\n\n\n\n\nscripts/generate_course_workbook.py\nCreate the standard Course-Schedule.xlsx workbook\n\n\nscripts/validate_course_workbook.py\nCheck required workbook sheets and columns\n\n\nscripts/generate_modules.py\nCreate canonical M01_* module folders and files\n\n\nscripts/validate_course_structure.py\nCheck required module files and folders\n\n\nscripts/generate_course_schedule.py\nProduce a draft schedule CSV from the workbook\n\n\nscripts/populate_qmd_metadata.py\nPopulate YAML metadata in generated .qmd files\n\n\n\nTogether, these scripts turn the course-building workflow into a repeatable pipeline: workbook, structure, schedule, metadata, render, Blackboard.",
+    "title": "11  Automating with AI",
+    "section": "12.5 Additional Automation Scripts",
+    "text": "12.5 Additional Automation Scripts\nThe book repository includes these reusable scripts:\n\n\n\n\n\n\n\nScript\nPurpose\n\n\n\n\nscripts/generate_course_workbook.py\nCreate the standard Course-Schedule.xlsx workbook\n\n\nscripts/validate_course_workbook.py\nCheck required workbook sheets and columns\n\n\nscripts/generate_modules.py\nCreate canonical M01_* module folders and files\n\n\nscripts/validate_course_structure.py\nCheck required module files and folders\n\n\nscripts/generate_course_schedule.py\nProduce a draft schedule CSV from the workbook\n\n\nscripts/populate_qmd_metadata.py\nPopulate YAML metadata in generated .qmd files\n\n\n\nTogether, these scripts turn the course-building workflow into a repeatable pipeline: workbook, structure, schedule, metadata, render, Blackboard.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automating with AI</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
   },
   {
     "objectID": "08_automating_with_AI.html#copilot-for-authoring-quarto-content",
     "href": "08_automating_with_AI.html#copilot-for-authoring-quarto-content",
-    "title": "10  Automating with AI",
-    "section": "11.6 Copilot for Authoring Quarto Content",
-    "text": "11.6 Copilot for Authoring Quarto Content\nCopilot is not just for Python scripts. Because Quarto is a text-based format (.qmd), Copilot understands the context of your lecture notes and can predict what you want to write next.\n\nGenerating Code Blocks: If you are writing a lab assignment and need to insert a code block showing how to plot a scatterplot using matplotlib or ggplot2, simply write the comment # create a scatterplot of x vs y and Copilot will suggest the exact code block.\nWriting Summaries: You can highlight a large chunk of text in your lecture notes and ask Copilot Chat to “Summarize this section for the introduction.”\nTranslating Content: If you are moving an old syllabus from Word to Quarto Markdown, you can prompt Copilot to convert your plain text into structured Markdown tables and formatted lists.",
+    "title": "11  Automating with AI",
+    "section": "12.6 Copilot for Authoring Quarto Content",
+    "text": "12.6 Copilot for Authoring Quarto Content\nCopilot is not just for Python scripts. Because Quarto is a text-based format (.qmd), Copilot understands the context of your lecture notes and can predict what you want to write next.\n\nGenerating Code Blocks: If you are writing a lab assignment and need to insert a code block showing how to plot a scatterplot using matplotlib or ggplot2, simply write the comment # create a scatterplot of x vs y and Copilot will suggest the exact code block.\nWriting Summaries: You can highlight a large chunk of text in your lecture notes and ask Copilot Chat to “Summarize this section for the introduction.”\nTranslating Content: If you are moving an old syllabus from Word to Quarto Markdown, you can prompt Copilot to convert your plain text into structured Markdown tables and formatted lists.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automating with AI</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
   },
   {
     "objectID": "08_automating_with_AI.html#responsible-ai-use-in-education",
     "href": "08_automating_with_AI.html#responsible-ai-use-in-education",
-    "title": "10  Automating with AI",
-    "section": "11.7 Responsible AI Use in Education",
-    "text": "11.7 Responsible AI Use in Education\nWhile GitHub Copilot is a powerful authoring assistant for you as an educator, it also introduces important discussions regarding responsible use in the classroom.\nIf you are using GitHub Classroom (discussed in Chapter 6), your students may also have access to Copilot through GitHub Education. Verified students can get free access to GitHub Copilot, and Copilot Chat can be used with repository context to answer questions about the codebase. It is critical to establish a clear policy in your syllabus regarding the acceptable use of Generative AI.\n\n\n\n\n\n\nTip\n\n\n\nUse Copilot to help you generate boilerplate code, format markdown, and troubleshoot errors. However, always review the generated content critically before publishing it to your Blackboard course shell to ensure pedagogical accuracy.\n\n\nIntegrating AI into your workflow does not replace your expertise; it simply accelerates the mechanics of course production, giving you more time to focus on teaching.",
+    "title": "11  Automating with AI",
+    "section": "12.7 Responsible AI Use in Education",
+    "text": "12.7 Responsible AI Use in Education\nWhile GitHub Copilot is a powerful authoring assistant for you as an educator, it also introduces important discussions regarding responsible use in the classroom.\nIf you are using GitHub Classroom (discussed in Chapter 6), your students may also have access to Copilot through GitHub Education. Verified students can get free access to GitHub Copilot, and Copilot Chat can be used with repository context to answer questions about the codebase. It is critical to establish a clear policy in your syllabus regarding the acceptable use of Generative AI.\n\n\n\n\n\n\nTip\n\n\n\nUse Copilot to help you generate boilerplate code, format markdown, and troubleshoot errors. However, always review the generated content critically before publishing it to your Blackboard course shell to ensure pedagogical accuracy.\n\n\nIntegrating AI into your workflow does not replace your expertise; it simply accelerates the mechanics of course production, giving you more time to focus on teaching.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automating with AI</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
   },
   {
     "objectID": "08_automating_with_AI.html#integrating-these-tools-in-an-analytics-class",
     "href": "08_automating_with_AI.html#integrating-these-tools-in-an-analytics-class",
-    "title": "10  Automating with AI",
-    "section": "11.8 Integrating These Tools in an Analytics Class",
-    "text": "11.8 Integrating These Tools in an Analytics Class\nIn an analytics class, these tools can speed up the parts of course design that are repetitive but still technical. GitHub and GitHub Classroom help organize materials, distribute assignments, and keep submissions structured. GitHub Copilot, Cursor, and ChatGPT-connected coding tools help draft scripts, clean up Quarto files, troubleshoot issues, and generate boilerplate more quickly.\nFor larger automation tasks, OpenAI or Gemini APIs can be used from Python scripts to generate metadata, summaries, or other structured content. Remotion and Manim can support technical video creation, while Hugging Face can support model experimentation or institution-scale AI workflows. The main value is not replacing instructional judgment, but reducing the time spent on setup, formatting, and iteration.",
+    "title": "11  Automating with AI",
+    "section": "12.8 Integrating These Tools in an Analytics Class",
+    "text": "12.8 Integrating These Tools in an Analytics Class\nIn an analytics class, these tools can speed up the parts of course design that are repetitive but still technical. GitHub and GitHub Classroom help organize materials, distribute assignments, and keep submissions structured. GitHub Copilot, Cursor, and ChatGPT-connected coding tools help draft scripts, clean up Quarto files, troubleshoot issues, and generate boilerplate more quickly.\nFor larger automation tasks, OpenAI or Gemini APIs can be used from Python scripts to generate metadata, summaries, or other structured content. Remotion and Manim can support technical video creation, while Hugging Face can support model experimentation or institution-scale AI workflows. The main value is not replacing instructional judgment, but reducing the time spent on setup, formatting, and iteration.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automating with AI</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html",
     "href": "09_capstone_build_like_ad688.html",
-    "title": "11  Capstone: Build a Course Like AD688",
+    "title": "12  Capstone: Build a Course Like AD688",
     "section": "",
-    "text": "11.1 Capstone Goal\nThis capstone turns the individual skills in the book into one complete course-building workflow. The goal is to create a small but realistic course repository that has the same operating model as AD688: a syllabus, schedule, deliverables, modules, labs, projects, presentations, Blackboard packaging, and an update workflow.\nBuild a miniature course with:\nThis small course is the proof of concept. Once it works, repeat the pattern for the rest of the course.",
+    "text": "12.1 Capstone Goal\nThis capstone turns the individual skills in the book into one complete course-building workflow. The goal is to create a small but realistic course repository that has the same operating model as AD688: a syllabus, schedule, deliverables, modules, labs, projects, presentations, Blackboard packaging, and an update workflow.\nBuild a miniature course with:\nThis small course is the proof of concept. Once it works, repeat the pattern for the rest of the course.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#capstone-goal",
     "href": "09_capstone_build_like_ad688.html#capstone-goal",
-    "title": "11  Capstone: Build a Course Like AD688",
+    "title": "12  Capstone: Build a Course Like AD688",
     "section": "",
     "text": "one syllabus page\none schedule page\none deliverables page\none complete module folder\none lecture notes page\none presentation page\none lab\none assignment\none project milestone\none participation activity\none Blackboard deployment checklist",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#repository-shape",
     "href": "09_capstone_build_like_ad688.html#repository-shape",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.2 Repository Shape",
-    "text": "11.2 Repository Shape\nUse this structure as the target:\nmini-course/\n  _quarto.yml\n  index.qmd\n  schedule.qmd\n  deliverables.qmd\n  references.bib\n  data/\n    Course-Schedule.xlsx\n    generated_schedule.csv\n  M01/\n    M01_LN1.qmd\n    M01_P1.qmd\n    M01_Lab1.qmd\n    M01_A.qmd\n    M01_Proj.qmd\n    M01_Participation1.qmd\n  classroom-organization/\n    blackboard-map.md\n  announcements/\n    week-01.md",
+    "title": "12  Capstone: Build a Course Like AD688",
+    "section": "12.2 Repository Shape",
+    "text": "12.2 Repository Shape\nUse this structure as the target:\nmini-course/\n  _quarto.yml\n  index.qmd\n  schedule.qmd\n  deliverables.qmd\n  references.bib\n  data/\n    Course-Schedule.xlsx\n    generated_schedule.csv\n  M01/\n    M01_LN1.qmd\n    M01_P1.qmd\n    M01_Lab1.qmd\n    M01_A.qmd\n    M01_Proj.qmd\n    M01_Participation1.qmd\n  classroom-organization/\n    blackboard-map.md\n  announcements/\n    week-01.md",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#step-1-start-from-github",
     "href": "09_capstone_build_like_ad688.html#step-1-start-from-github",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.3 Step 1: Start From GitHub",
-    "text": "11.3 Step 1: Start From GitHub\nCreate the GitHub repository first, then clone it locally:\ngit clone https://github.com/your-org/mini-course.git\ncd mini-course\ngit pull\nInitialize Quarto inside the cloned repository:\nquarto create project website .\ngit add .\ngit commit -m \"Initialize Quarto course site\"\ngit push\nThis sequence keeps the course source of truth on GitHub from the beginning.",
+    "title": "12  Capstone: Build a Course Like AD688",
+    "section": "12.3 Step 1: Start From GitHub",
+    "text": "12.3 Step 1: Start From GitHub\nCreate the GitHub repository first, then clone it locally:\ngit clone https://github.com/your-org/mini-course.git\ncd mini-course\ngit pull\nInitialize Quarto inside the cloned repository:\nquarto create project website .\ngit add .\ngit commit -m \"Initialize Quarto course site\"\ngit push\nThis sequence keeps the course source of truth on GitHub from the beginning.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#step-2-add-the-workbook",
     "href": "09_capstone_build_like_ad688.html#step-2-add-the-workbook",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.4 Step 2: Add the Workbook",
-    "text": "11.4 Step 2: Add the Workbook\nCreate and fill the workbook first. The workbook is the planning layer for the course.\npython scripts/generate_course_workbook.py data/Course-Schedule.xlsx\npython scripts/validate_course_workbook.py data/Course-Schedule.xlsx\nUse the Course Details sheet to define the academic flow:\n\n\n\n\n\n\n\n\n\nModule\nLecture\nTitle\nWhat It Drives\n\n\n\n\nModule 1\nL1.1\nFirst lecture topic\nM01_LN1.qmd, M01_P1.qmd, M01_Lab1.qmd\n\n\nModule 1\nL1.2\nSecond lecture topic\nM01_LN2.qmd, M01_P2.qmd, M01_Lab2.qmd",
+    "title": "12  Capstone: Build a Course Like AD688",
+    "section": "12.4 Step 2: Add the Workbook",
+    "text": "12.4 Step 2: Add the Workbook\nCreate and fill the workbook first. The workbook is the planning layer for the course.\npython scripts/generate_course_workbook.py data/Course-Schedule.xlsx\npython scripts/validate_course_workbook.py data/Course-Schedule.xlsx\nUse the Course Details sheet to define the academic flow:\n\n\n\n\n\n\n\n\n\nModule\nLecture\nTitle\nWhat It Drives\n\n\n\n\nModule 1\nL1.1\nFirst lecture topic\nM01_LN1.qmd, M01_P1.qmd, M01_Lab1.qmd\n\n\nModule 1\nL1.2\nSecond lecture topic\nM01_LN2.qmd, M01_P2.qmd, M01_Lab2.qmd",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#step-3-generate-the-course-structure",
     "href": "09_capstone_build_like_ad688.html#step-3-generate-the-course-structure",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.5 Step 3: Generate the Course Structure",
-    "text": "11.5 Step 3: Generate the Course Structure\nGenerate the standard folders and files:\npython scripts/generate_modules.py . --start 1 --end 1\npython scripts/validate_course_structure.py . --start 1 --end 1\nThe generated files are intentionally small. Their job is to give each professor a consistent place to write.",
+    "title": "12  Capstone: Build a Course Like AD688",
+    "section": "12.5 Step 3: Generate the Course Structure",
+    "text": "12.5 Step 3: Generate the Course Structure\nGenerate the standard folders and files:\npython scripts/generate_modules.py . --start 1 --end 1\npython scripts/validate_course_structure.py . --start 1 --end 1\nThe generated files are intentionally small. Their job is to give each professor a consistent place to write.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#step-4-create-the-three-course-pages",
     "href": "09_capstone_build_like_ad688.html#step-4-create-the-three-course-pages",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.6 Step 4: Create the Three Course Pages",
-    "text": "11.6 Step 4: Create the Three Course Pages\nCreate the root-level pages that students and Blackboard will reference most:\nindex.qmd          syllabus and course overview\nschedule.qmd       weekly schedule and class rhythm\ndeliverables.qmd   assignments, labs, project milestones, and grading\nThese pages should be concise, stable, and easy to update before each semester.",
+    "title": "12  Capstone: Build a Course Like AD688",
+    "section": "12.6 Step 4: Create the Three Course Pages",
+    "text": "12.6 Step 4: Create the Three Course Pages\nCreate the root-level pages that students and Blackboard will reference most:\nindex.qmd          syllabus and course overview\nschedule.qmd       weekly schedule and class rhythm\ndeliverables.qmd   assignments, labs, project milestones, and grading\nThese pages should be concise, stable, and easy to update before each semester.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#step-5-build-one-complete-module",
     "href": "09_capstone_build_like_ad688.html#step-5-build-one-complete-module",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.7 Step 5: Build One Complete Module",
-    "text": "11.7 Step 5: Build One Complete Module\nFor M01, fill in at least these files:\n\n\n\n\n\n\n\nFile\nPurpose\n\n\n\n\nM01_LN1.qmd\nlecture notes with concepts, examples, and references\n\n\nM01_P1.qmd\npresentation or reveal.js slide content\n\n\nM01_Lab1.qmd\nguided practice with data, code, or analysis\n\n\nM01_A.qmd\ngraded assignment instructions\n\n\nM01_Proj.qmd\nproject milestone or running case step\n\n\nM01_Participation1.qmd\ndiscussion, reflection, or in-class activity\n\n\n\nKeep the module complete before scaling. A complete module is more valuable than seven empty folders.",
+    "title": "12  Capstone: Build a Course Like AD688",
+    "section": "12.7 Step 5: Build One Complete Module",
+    "text": "12.7 Step 5: Build One Complete Module\nFor M01, fill in at least these files:\n\n\n\n\n\n\n\nFile\nPurpose\n\n\n\n\nM01_LN1.qmd\nlecture notes with concepts, examples, and references\n\n\nM01_P1.qmd\npresentation or reveal.js slide content\n\n\nM01_Lab1.qmd\nguided practice with data, code, or analysis\n\n\nM01_A.qmd\ngraded assignment instructions\n\n\nM01_Proj.qmd\nproject milestone or running case step\n\n\nM01_Participation1.qmd\ndiscussion, reflection, or in-class activity\n\n\n\nKeep the module complete before scaling. A complete module is more valuable than seven empty folders.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#step-6-add-blackboard-mapping",
     "href": "09_capstone_build_like_ad688.html#step-6-add-blackboard-mapping",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.8 Step 6: Add Blackboard Mapping",
-    "text": "11.8 Step 6: Add Blackboard Mapping\nCreate classroom-organization/blackboard-map.md and map the Quarto files to Blackboard Ultra content areas:\n\n\n\nBlackboard Area\nQuarto Source\n\n\n\n\nModule 1 Overview\nM01/M01_LN1.qmd or module landing page\n\n\nLecture 1 Slides\nM01/M01_P1.qmd\n\n\nLab 1\nM01/M01_Lab1.qmd\n\n\nAssignment\nM01/M01_A.qmd\n\n\nProject Step\nM01/M01_Proj.qmd\n\n\n\nThis map prevents the course website and LMS from drifting apart.",
+    "title": "12  Capstone: Build a Course Like AD688",
+    "section": "12.8 Step 6: Add Blackboard Mapping",
+    "text": "12.8 Step 6: Add Blackboard Mapping\nCreate classroom-organization/blackboard-map.md and map the Quarto files to Blackboard Ultra content areas:\n\n\n\nBlackboard Area\nQuarto Source\n\n\n\n\nModule 1 Overview\nM01/M01_LN1.qmd or module landing page\n\n\nLecture 1 Slides\nM01/M01_P1.qmd\n\n\nLab 1\nM01/M01_Lab1.qmd\n\n\nAssignment\nM01/M01_A.qmd\n\n\nProject Step\nM01/M01_Proj.qmd\n\n\n\nThis map prevents the course website and LMS from drifting apart.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#step-7-render-review-package",
     "href": "09_capstone_build_like_ad688.html#step-7-render-review-package",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.9 Step 7: Render, Review, Package",
-    "text": "11.9 Step 7: Render, Review, Package\nRender the course:\nquarto render\nReview:\n\nnavigation\nimages\nlinks\ncode output\nassignment instructions\ndue dates\nBlackboard alignment\n\nIf the course is being uploaded as static HTML, zip the rendered site output and upload it through the process approved for your institution.",
+    "title": "12  Capstone: Build a Course Like AD688",
+    "section": "12.9 Step 7: Render, Review, Package",
+    "text": "12.9 Step 7: Render, Review, Package\nRender the course:\nquarto render\nReview:\n\nnavigation\nimages\nlinks\ncode output\nassignment instructions\ndue dates\nBlackboard alignment\n\nIf the course is being uploaded as static HTML, zip the rendered site output and upload it through the process approved for your institution.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#step-8-maintain-the-course",
     "href": "09_capstone_build_like_ad688.html#step-8-maintain-the-course",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.10 Step 8: Maintain the Course",
-    "text": "11.10 Step 8: Maintain the Course\nUse a predictable update loop:\ngit pull\nquarto render\ngit status\ngit add .\ngit commit -m \"Update module 1 materials\"\ngit push\nFor each semester:\n\nupdate the workbook\nregenerate the draft schedule\ncheck module filenames\nrender locally\nreview Blackboard links\narchive old term-specific files",
+    "title": "12  Capstone: Build a Course Like AD688",
+    "section": "12.10 Step 8: Maintain the Course",
+    "text": "12.10 Step 8: Maintain the Course\nUse a predictable update loop:\ngit pull\nquarto render\ngit status\ngit add .\ngit commit -m \"Update module 1 materials\"\ngit push\nFor each semester:\n\nupdate the workbook\nregenerate the draft schedule\ncheck module filenames\nrender locally\nreview Blackboard links\narchive old term-specific files",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "09_capstone_build_like_ad688.html#capstone-completion-checklist",
     "href": "09_capstone_build_like_ad688.html#capstone-completion-checklist",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.10 Capstone Completion Checklist",
-    "text": "11.10 Capstone Completion Checklist\n\nWorkbook exists and validates\nOne module exists and validates\nSyllabus page exists\nSchedule page exists\nDeliverables page exists\nOne lecture notes page is complete\nOne presentation page is complete\nOne lab is complete\nOne assignment is complete\nOne project milestone is complete\nBlackboard map exists\nSite renders cleanly\nGit workflow is active",
+    "title": "12  Capstone: Build a Course Like AD688",
+    "section": "12.11 Capstone Completion Checklist",
+    "text": "12.11 Capstone Completion Checklist\n\nGitHub repository exists\nRepository is cloned locally\nQuarto was initialized inside the cloned repository\nWorkbook exists and validates\nOne module exists and validates\nSyllabus page exists\nSchedule page exists\nDeliverables page exists\nOne lecture notes page is complete\nOne presentation page is complete\nOne lab is complete\nOne assignment is complete\nOne project milestone is complete\nBlackboard map exists\nSite renders cleanly\nGit workflow is active",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
     ]
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "12  Summary",
+    "title": "13  Summary",
     "section": "",
     "text": "This book has walked through the full course-production workflow:\n\nsetting up the authoring environment\nmanaging course materials with Git and GitHub\nwriting reproducible documents with Quarto\ndesigning the course feeder workbook\nbuilding a Quarto microsite with a consistent M01_* module structure\nusing GitHub Classroom for code-based coursework\npreparing content for Blackboard Ultra\nautomating repetitive course-building tasks with scripts and AI-assisted tools\n\nThe goal is not just to create one attractive course website. The goal is to give professors a repeatable system they can reuse across semesters, sections, and courses.\nThe recommended next step is to build a small pilot course using the same structure: one syllabus page, one schedule page, one deliverables page, and one complete module folder. Once that pilot renders cleanly and maps into Blackboard Ultra, the same pattern can scale to the full course.",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "09_capstone_build_like_ad688.html#step-1-start-from-the-workbook",
-    "href": "09_capstone_build_like_ad688.html#step-1-start-from-the-workbook",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.3 Step 1: Start From the Workbook",
-    "text": "11.3 Step 1: Start From the Workbook\nCreate and fill the workbook first. The workbook is the planning layer for the course.\npython scripts/generate_course_workbook.py mini-course/data/Course-Schedule.xlsx\npython scripts/validate_course_workbook.py mini-course/data/Course-Schedule.xlsx\nUse the Course Details sheet to define the academic flow:\n\n\n\n\n\n\n\n\n\nModule\nLecture\nTitle\nWhat It Drives\n\n\n\n\nModule 1\nL1.1\nFirst lecture topic\nM01_LN1.qmd, M01_P1.qmd, M01_Lab1.qmd\n\n\nModule 1\nL1.2\nSecond lecture topic\nM01_LN2.qmd, M01_P2.qmd, M01_Lab2.qmd",
-    "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
-    ]
-  },
-  {
-    "objectID": "09_capstone_build_like_ad688.html#step-2-generate-the-course-structure",
-    "href": "09_capstone_build_like_ad688.html#step-2-generate-the-course-structure",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.4 Step 2: Generate the Course Structure",
-    "text": "11.4 Step 2: Generate the Course Structure\nGenerate the standard folders and files:\npython scripts/generate_modules.py mini-course --start 1 --end 1\npython scripts/validate_course_structure.py mini-course --start 1 --end 1\nThe generated files are intentionally small. Their job is to give each professor a consistent place to write.",
-    "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
-    ]
-  },
-  {
-    "objectID": "09_capstone_build_like_ad688.html#step-3-create-the-three-course-pages",
-    "href": "09_capstone_build_like_ad688.html#step-3-create-the-three-course-pages",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.5 Step 3: Create the Three Course Pages",
-    "text": "11.5 Step 3: Create the Three Course Pages\nCreate the root-level pages that students and Blackboard will reference most:\nindex.qmd          syllabus and course overview\nschedule.qmd       weekly schedule and class rhythm\ndeliverables.qmd   assignments, labs, project milestones, and grading\nThese pages should be concise, stable, and easy to update before each semester.",
-    "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
-    ]
-  },
-  {
-    "objectID": "09_capstone_build_like_ad688.html#step-4-build-one-complete-module",
-    "href": "09_capstone_build_like_ad688.html#step-4-build-one-complete-module",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.6 Step 4: Build One Complete Module",
-    "text": "11.6 Step 4: Build One Complete Module\nFor M01, fill in at least these files:\n\n\n\n\n\n\n\nFile\nPurpose\n\n\n\n\nM01_LN1.qmd\nlecture notes with concepts, examples, and references\n\n\nM01_P1.qmd\npresentation or reveal.js slide content\n\n\nM01_Lab1.qmd\nguided practice with data, code, or analysis\n\n\nM01_A.qmd\ngraded assignment instructions\n\n\nM01_Proj.qmd\nproject milestone or running case step\n\n\nM01_Participation1.qmd\ndiscussion, reflection, or in-class activity\n\n\n\nKeep the module complete before scaling. A complete module is more valuable than seven empty folders.",
-    "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
-    ]
-  },
-  {
-    "objectID": "09_capstone_build_like_ad688.html#step-5-add-blackboard-mapping",
-    "href": "09_capstone_build_like_ad688.html#step-5-add-blackboard-mapping",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.7 Step 5: Add Blackboard Mapping",
-    "text": "11.7 Step 5: Add Blackboard Mapping\nCreate classroom-organization/blackboard-map.md and map the Quarto files to Blackboard Ultra content areas:\n\n\n\nBlackboard Area\nQuarto Source\n\n\n\n\nModule 1 Overview\nM01/M01_LN1.qmd or module landing page\n\n\nLecture 1 Slides\nM01/M01_P1.qmd\n\n\nLab 1\nM01/M01_Lab1.qmd\n\n\nAssignment\nM01/M01_A.qmd\n\n\nProject Step\nM01/M01_Proj.qmd\n\n\n\nThis map prevents the course website and LMS from drifting apart.",
-    "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
-    ]
-  },
-  {
-    "objectID": "09_capstone_build_like_ad688.html#step-6-render-review-package",
-    "href": "09_capstone_build_like_ad688.html#step-6-render-review-package",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.8 Step 6: Render, Review, Package",
-    "text": "11.8 Step 6: Render, Review, Package\nRender the course:\nquarto render\nReview:\n\nnavigation\nimages\nlinks\ncode output\nassignment instructions\ndue dates\nBlackboard alignment\n\nIf the course is being uploaded as static HTML, zip the rendered site output and upload it through the process approved for your institution.",
-    "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
-    ]
-  },
-  {
-    "objectID": "09_capstone_build_like_ad688.html#step-7-maintain-the-course",
-    "href": "09_capstone_build_like_ad688.html#step-7-maintain-the-course",
-    "title": "11  Capstone: Build a Course Like AD688",
-    "section": "11.9 Step 7: Maintain the Course",
-    "text": "11.9 Step 7: Maintain the Course\nUse a predictable update loop:\ngit pull\nquarto render\ngit status\ngit add .\ngit commit -m \"Update module 1 materials\"\ngit push\nFor each semester:\n\nupdate the workbook\nregenerate the draft schedule\ncheck module filenames\nrender locally\nreview Blackboard links\narchive old term-specific files",
-    "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Build a Course Like AD688</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Summary</span>"
     ]
   }
 ]
