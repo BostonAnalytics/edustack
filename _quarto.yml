@@ -6,32 +6,33 @@ project:
 
 book:
   title: "Designing a Course With Quarto"
-  author: "Norah Jones"
+  author: "Nakul R. Padalkar"
   date: "12/9/2025"
+  date-format: long
   chapters:
     - href: index.qmd
       text: "Introduction"
-    - href: 02_version_control.qmd
-      text: "Git and GitHub"
-    - href: 00_professor_quickstart.qmd
+    - href: 02_professor_quickstart.qmd
       text: "Professor Quickstart"
-    - href: 01_tool_setup.qmd
+    - href: 03_tool_setup.qmd
       text: "Tool Setup"
-    - href: 03_working_with_quarto.qmd
+    - href: 04_version_control.qmd
+      text: "Git and GitHub"
+    - href: 05_working_with_quarto.qmd
       text: "Working with Quarto"
-    - href: 04_creating_excel.qmd
+    - href: 06_creating_excel.qmd
       text: "Creating Excel Files"
-    - href: 05_quarto_class_setup.qmd
+    - href: 07_quarto_class_setup.qmd
       text: "Quarto Class Setup"
-    - href: 06_github_classroom.qmd
+    - href: 08_github_classroom.qmd
       text: "GitHub Classroom"
-    - href: 10_cloud_analytics_with_aws.qmd
+    - href: 09_cloud_analytics_with_aws.qmd
       text: "Cloud Analytics with AWS"
-    - href: 07_blackboard_ultra.qmd
+    - href: 10_blackboard_ultra.qmd
       text: "Blackboard Ultra"
-    - href: 08_automating_with_AI.qmd
+    - href: 11_automating_with_AI.qmd
       text: "Automating with AI"
-    - href: 09_capstone_build_like_ad688.qmd
+    - href: 12_capstone_build_like_ad688.qmd
       text: "Build a Course Like AD688"
     - summary.qmd
     - references.qmd
