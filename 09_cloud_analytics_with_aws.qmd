@@ -9,6 +9,26 @@ Use this chapter when a course needs students to work with tools that are hard
 to install locally, require more compute than a laptop can provide, or benefit
 from a shared cloud environment.
 
+## The cloud as the course build room
+
+In a Quarto course, the local repository is the source of truth. The cloud
+environment is the shared build room: a consistent place where students can run
+the same tools, execute the same code, render the same documents, and push the
+result back to GitHub.
+
+This mirrors the larger Quarto publishing logic:
+
+- source files stay in GitHub
+- code and outputs stay connected
+- the environment is documented and repeatable
+- rendered materials are checked before submission or publication
+- the workflow can be rebuilt by another student, instructor, or future version of the course
+
+AWS is useful here because it gives students a common Linux machine. But the
+pedagogical point is broader than AWS: do not let the environment become an
+invisible, personal setup that only works once. Treat it as part of the course
+publishing system.
+
 ## Why Add a Cloud Workflow?
 
 A cloud workflow is useful when students need to:
@@ -39,6 +59,8 @@ Students begin with a GitHub repository, connect to a cloud machine, do their
 work in a controlled environment, render or prepare the deliverable, and push the
 result back to GitHub.
 
+![Cloud computing provides the remote layer where students can run shared analytics tooling.](./images/ch10/aws-cloud.avif){width="70%" fig-align="center"}
+
 ## Instructor Setup Checklist
 
 Before assigning a cloud lab, confirm the pieces students will need.
@@ -56,6 +78,8 @@ Before assigning a cloud lab, confirm the pieces students will need.
 For AWS Academy Learner Lab courses, students should also read the learner lab
 guide and complete any required security or compliance modules before launching
 resources.
+
+![AWS Academy modules give students a controlled entry point into the learner lab environment.](./images/ch10/AWS-academy-001.png){width="62%" fig-align="center"}
 
 ## Student Workflow
 
@@ -75,6 +99,12 @@ The student-facing sequence should stay short and repeatable.
 This structure matters because cloud sessions can stop, instances can be
 restarted, and budgets can expire. GitHub is the durable record of student work.
 
+::: {layout-ncol=2}
+![Start the AWS Academy lab session from the learner interface.](./images/ch10/AWS-academy-002.png)
+
+![Confirm the learner lab is active and watch the session timer and budget.](./images/ch10/AWS-academy-003.png)
+:::
+
 ## EC2 Launch Decisions
 
 Give students exact choices instead of asking them to interpret the AWS console
@@ -93,6 +123,27 @@ from scratch.
 When students are new to cloud computing, the most important lesson is not
 "click every option." It is "change only the settings the course asks you to
 change."
+
+### Visual EC2 Launch Path
+
+The AD688 lab uses a very explicit launch sequence. The screenshots below show
+the path students should recognize before they work independently.
+
+![Open EC2 from the AWS console after the learner lab starts.](./images/ch10/AWS-academy-004.png){width="82%" fig-align="center"}
+
+![Choose **Launch instances** to begin creating a virtual machine.](./images/ch10/AWS-academy-005.png){width="82%" fig-align="center"}
+
+![Name the instance, choose the course-approved Ubuntu image, and launch one instance.](./images/ch10/AWS-academy-006.png){width="82%" fig-align="center"}
+
+![Select the approved instance type for the course workload.](./images/ch10/AWS-academy-007.png){width="82%" fig-align="center"}
+
+![Choose the required SSH key pair so students can log in remotely.](./images/ch10/AWS-academy-008.png){width="72%" fig-align="center"}
+
+![Enable only the web access options required by the course task.](./images/ch10/AWS-academy-009.png){width="82%" fig-align="center"}
+
+![Use the course-approved storage size and avoid extra volumes unless assigned.](./images/ch10/AWS-academy-010.png){width="82%" fig-align="center"}
+
+![Launch the instance after reviewing the configuration.](./images/ch10/AWS-academy-011.png){width="48%" fig-align="center"}
 
 ## SSH Key Handling
 
@@ -130,6 +181,12 @@ ssh -i .\vockey.pem ubuntu@PUBLIC_DNS_OR_IP
 For Windows students who are comfortable with Linux commands, WSL usually gives
 the smoothest SSH experience.
 
+::: {layout-ncol=2}
+![Download the PEM key from AWS Academy details when instructed.](./images/ch10/AWS-academy-015.png)
+
+![Use the EC2 connection screen to find the public address and login command.](./images/ch10/AWS-academy-014.png)
+:::
+
 ## VS Code Remote-SSH
 
 VS Code Remote-SSH gives students a familiar editor while running commands and
@@ -155,6 +212,8 @@ Host course-ec2
 After this is saved, students can connect to `course-ec2` from the Remote
 Explorer. Once connected, the terminal, file browser, Python interpreter, and
 Quarto commands run on the remote machine.
+
+![Install the local and remote VS Code extensions needed for GitHub, Remote-SSH, Jupyter, Python, and Quarto.](./images/ch10/AWS-academy-016.png){width="82%" fig-align="center"}
 
 ## Software Baseline
 
@@ -236,10 +295,16 @@ jupyter notebook --no-browser --ip=127.0.0.1 --port=8888
 Then open the forwarded local URL in the browser. This keeps the notebook server
 bound to the remote machine and accessed through the SSH tunnel.
 
+![A notebook running through the controlled remote environment.](./images/ch10/jupyter_notebook_demo.png){width="76%" fig-align="center"}
+
 ## Using Quarto on EC2
 
 Quarto fits naturally into the cloud workflow because the same source file can
 be edited remotely and rendered into a report, website, or slide deck.
+
+The cloud machine should never become the only place where the work exists. It
+is where students build, test, and render; GitHub is where the course source and
+student submissions persist.
 
 Inside the repository:
 
@@ -256,6 +321,13 @@ If a document depends on code execution, students should render it on the same
 environment where the required packages and data are available. This avoids the
 classic problem where a report renders locally but fails in the cloud, or the
 reverse.
+
+For cloud-based Quarto assignments, ask students to submit evidence that connects
+all three layers:
+
+- the GitHub repository URL
+- the rendered Quarto output
+- a short note describing the EC2 environment used to render it
 
 ## File Transfer
 
