@@ -508,6 +508,63 @@ git pull
 Now your local course folder is already connected to GitHub. Add the Quarto
 structure here, then commit and push.
 
+### AD688-Style First Repository Pattern
+
+In AD688, the first repository is not treated as a throwaway Git exercise. It is
+the student's durable workspace for the course. That changes the emphasis:
+students configure their identity, connect their editor, verify authentication,
+make a small README change, commit, push, and submit the repository link.
+
+Use this pattern when introducing GitHub to students:
+
+1. Create a GitHub account with a name and email the instructor can recognize.
+2. Enable two-factor authentication.
+3. Create a course repository using the required naming convention.
+4. Clone the repository in VS Code or from the terminal.
+5. Add or edit `README.md`.
+6. Commit with a meaningful message.
+7. Push to GitHub.
+8. Refresh the GitHub page and verify the commit appears.
+9. Submit the repository URL through the LMS.
+
+The point is to make GitHub feel like the normal place where course work lives,
+not an extra upload step at the end.
+
+### SSH Keys for GitHub
+
+HTTPS cloning is often enough for a first course repository. SSH becomes useful
+when students are working repeatedly across a local computer, VS Code, and a
+cloud machine such as AWS EC2.
+
+Students should understand the difference between the two key files:
+
+| File | Meaning | Share? |
+|---|---|---|
+| `id_ed25519` | private key | Never share or upload |
+| `id_ed25519.pub` | public key | Add to GitHub |
+
+Generate a key:
+
+```bash
+ssh-keygen -t ed25519 -C "your.email@example.com"
+```
+
+Display the public key:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Then add the public key to GitHub under SSH keys and test:
+
+```bash
+ssh -T git@github.com
+```
+
+If students later work on EC2, remind them not to place private keys in a Git
+repository or cloud-synced folder. Authentication files are part of the
+environment, not part of the assignment.
+
 ### Connecting an Existing Local Repository
 
 If you already created a local repository with `git init`, you can still connect
@@ -756,6 +813,13 @@ Use this checklist to set up a professional, version-controlled course repositor
 - [ ] Set up any necessary collaborators on GitHub
 - [ ] Created initial branches for experimental features
 - [ ] Established a branching strategy for your team
+
+**Phase 5: Cloud Ready**
+- [ ] Repository can be cloned from a remote machine
+- [ ] Authentication method is documented: HTTPS, GitHub CLI, or SSH
+- [ ] Private keys and tokens are excluded from Git
+- [ ] Students know to commit and push before ending a cloud session
+- [ ] Repository URL is the primary submission artifact
 
 ## Summary: Your Version Control Journey
 
