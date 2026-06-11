@@ -1,229 +1,360 @@
 /*-- scss:defaults --*/
-$font-family-serif: "Merriweather",
-Georgia,
-serif;
-$font-family-sans: "Lato",
-"Helvetica Neue",
-sans-serif;
+$font-family-serif: Georgia, "Times New Roman", serif;
+$font-family-sans: "Lato", "Aptos", "Segoe UI", Arial, sans-serif;
+$font-family-monospace: "Fira Code", "Cascadia Mono", Consolas, monospace;
 
-$rosewood: #7A3E48; // warm burgundy
-$buttercream: #EECD86; // soft yellow-beige
-$tangerine: #E18942; // light orange
-$cinnamon: #B95835; // rich clay
-$eggplant: #3D3242; // muted violet black
+$paper: #fffdf8;
+$paper-muted: #f5f1e8;
+$ink: #202832;
+$ink-muted: #53606d;
+$border: #d8d1c2;
+$oxford: #17324d;
+$burgundy: #7b2e3a;
+$gold: #b08d57;
+$sage: #4f6f63;
+$code-panel: #f3f0ea;
 
+$body-bg: $paper;
+$body-color: $ink;
 $body-font-family: $font-family-serif;
-$heading-font-family: $font-family-sans;
-$font-size-base: 14px;
-$line-height-base: 1.6;
+$headings-font-family: $font-family-sans;
+$font-size-base: 15px;
+$line-height-base: 1.72;
+$link-color: $burgundy;
+$link-hover-color: $oxford;
+$code-color: $burgundy;
+$code-bg: $code-panel;
+$border-radius: 0.25rem;
+$border-radius-lg: 0.35rem;
 
 /*-- scss:rules --*/
 
 body {
-    font-family: $body-font-family;
-    color: $eggplant;
-    background-color: $buttercream;
-    counter-reset: chapter;
-    line-height: 2.05;
+  background:
+    linear-gradient(90deg, rgba(23, 50, 77, 0.035), transparent 18rem),
+    $paper;
+  color: $ink;
+  font-family: $body-font-family;
+  line-height: $line-height-base;
+  text-rendering: optimizeLegibility;
+}
+
+#quarto-content {
+  background: transparent;
+}
+
+main.content {
+  max-width: 780px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $oxford;
+  font-family: $headings-font-family;
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.25;
 }
 
 h1.title {
-    font-size: 2.2rem;
-    font-family: $heading-font-family;
-    color: $rosewood;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    border-bottom: 3px solid $tangerine;
-    padding-bottom: 0.5rem;
+  color: $oxford;
+  font-size: 2.25rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid $border;
 }
 
 h1:not(.title) {
-    font-size: 1.6rem;
-    font-family: $heading-font-family;
-    color: $rosewood;
-    font-weight: 700;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid $tangerine;
-    padding-bottom: 0.3em;
-    counter-increment: chapter;
+  color: $oxford;
+  font-size: 1.85rem;
+  margin-top: 2.4rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid rgba($gold, 0.65);
 }
 
 h2 {
-    font-size: 1.4rem;
-    font-family: $heading-font-family;
-    color: $cinnamon;
-    font-weight: 600;
-    font-style: italic;
-    counter-increment: section;
+  color: $burgundy;
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-top: 0.15rem;
 }
 
-
 h3 {
-    font-size: 1.2rem;
-    color: $eggplant;
-    font-style: italic;
-    font-family: $heading-font-family;
+  color: $oxford;
+  font-size: 1.08rem;
+  margin-top: 1.5rem;
+}
+
+.subtitle,
+.author,
+.date {
+  color: $ink-muted;
+  font-family: $font-family-sans;
+}
+
+a {
+  color: $link-color;
+  text-decoration-color: rgba($burgundy, 0.35);
+  text-underline-offset: 0.16em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+
+  &:hover {
+    color: $link-hover-color;
+    text-decoration-color: rgba($oxford, 0.65);
+  }
+
+  &:visited {
+    color: #63406a;
+  }
+}
+
+blockquote {
+  margin: 1.4rem 0;
+  padding: 0.85rem 1.1rem;
+  color: $ink-muted;
+  background: rgba($paper-muted, 0.7);
+  border-left: 4px solid $gold;
+}
+
+ul,
+ol {
+  margin: 0.85rem 0 1.1rem;
+  padding-left: 1.35rem;
+  color: $ink;
+  line-height: 1.58;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.35rem;
+  margin-bottom: 0.4rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $border;
+  margin: 2rem 0;
 }
 
 pre,
 code {
-    font-family: "Fira Code", monospace;
-    background-color: #f6f2ea;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-    color: $eggplant;
+  font-family: $font-family-monospace;
+  font-size: 0.92em;
 }
 
-a {
-    color: #B95835; // base link color
-    text-decoration: underline;
-    transition: color 0.2s ease;
-
-    &:hover {
-        color: #8B2C0F; // darker reddish-brown for hover
-    }
-
-    &:visited {
-        color: #6E3B1F; // muted brown for visited links
-    }
-
-    &:active {
-        color: #D97941; // brighter orange when actively clicked
-    }
+code {
+  color: $burgundy;
+  background-color: rgba($code-panel, 0.9);
+  border: 1px solid rgba($border, 0.7);
+  border-radius: 0.2rem;
+  padding: 0.08em 0.28em;
 }
 
+pre {
+  background: $code-panel;
+  border: 1px solid $border;
+  border-left: 4px solid $sage;
+  border-radius: 0.3rem;
+  padding: 0.9rem 1rem;
+  box-shadow: none;
+}
+
+pre code {
+  color: $ink;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+table {
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+  border-color: $border;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-color: $border;
+}
+
+thead th {
+  color: $oxford;
+  background: $paper-muted;
+  font-family: $font-family-sans;
+  font-weight: 700;
+  border-bottom: 2px solid rgba($gold, 0.7);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba($paper-muted, 0.45);
+}
+
+.navbar {
+  background: $oxford;
+  border-bottom: 3px solid $gold;
+  font-family: $font-family-sans;
+}
+
+.navbar-title,
+.navbar .nav-link {
+  color: #fffdf8 !important;
+}
+
+.navbar .nav-link:hover,
+.navbar-title:hover {
+  color: #f0d9a6 !important;
+}
+
+.sidebar {
+  background: rgba(245, 241, 232, 0.82);
+}
 
 .nav-sidebar {
-    background-color: #fffef9;
-    border-right: 1px solid $cinnamon;
+  background: rgba(245, 241, 232, 0.82);
+  border-right: 1px solid $border;
+  font-family: $font-family-sans;
 }
 
-.nav-sidebar a {
-    color: $eggplant;
+.nav-sidebar .nav-link,
+.sidebar nav[role="doc-toc"] ul > li > a {
+  color: $ink-muted;
+  border-radius: 0.25rem;
 }
 
-.nav-sidebar a:hover {
-    color: $tangerine;
+.nav-sidebar .nav-link.active,
+.nav-sidebar .nav-link:hover,
+.sidebar nav[role="doc-toc"] ul > li > a.active,
+.sidebar nav[role="doc-toc"] ul > li > a:hover {
+  color: $oxford;
+  background: rgba($gold, 0.14);
 }
 
-// Target Quarto figures
+#TOC {
+  font-family: $font-family-sans;
+}
+
+#TOC .active {
+  color: $burgundy !important;
+  border-left-color: $burgundy;
+}
+
+.chapter-number,
+.header-section-number {
+  color: $ink-muted;
+  font-weight: 500;
+}
+
+.quarto-title-meta {
+  color: $ink-muted;
+  font-family: $font-family-sans;
+  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
+  padding: 0.85rem 0;
+}
+
+.callout {
+  border-radius: 0.3rem;
+  border-color: $border;
+  box-shadow: none;
+}
+
+.callout.callout-style-default > .callout-header {
+  font-family: $font-family-sans;
+  font-weight: 700;
+}
+
+.callout-note {
+  border-left-color: $oxford;
+}
+
+.callout-tip {
+  border-left-color: $sage;
+}
+
+.callout-warning,
+.callout-important {
+  border-left-color: $burgundy;
+}
+
 .quarto-figure {
-    display: flex; // use flexbox
-    flex-direction: column; // stack image and caption vertically
-    align-items: center; // center horizontally
-    justify-content: center; // center vertically if needed
-    margin: 2rem auto; // auto margins center the block itself
-    text-align: center; // ensure caption text is centered
-    max-width: 100%; // prevent overflow
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 100%;
 }
 
-// Style the image
 .quarto-figure img.figure-img {
-    display: block;
-    margin: 0 auto; // center image
-    max-width: 80%; // keep responsive sizing
+  display: block;
+  margin: 0 auto;
+  max-width: 86%;
+  border: 1px solid rgba($border, 0.7);
+  background: white;
 }
 
-// Style the caption
 .quarto-float-caption {
-    text-align: center; // center caption text
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 0.5rem;
-    font-style: normal; // removes italic
-    font-weight: bold; // makes text bold
+  max-width: 72ch;
+  text-align: center;
+  font-family: $font-family-sans;
+  font-size: 0.86rem;
+  color: $ink-muted;
+  margin-top: 0.55rem;
+  font-style: normal;
+  font-weight: 500;
 }
 
-
-// Base styles for lists
-ul,
-ol {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-    font-family: $body-font-family;
-    line-height: 1.50;
+.panel-tabset .nav-tabs {
+  border-bottom-color: $border;
+  font-family: $font-family-sans;
 }
 
-// Ordered list styles
-ol {
-    list-style-type: decimal;
-    color: #34495e;
-
-    // First-level items
-    >li {
-        margin-bottom: 0.5rem;
-
-        // Second-level items
-        >ol>li,
-        >ul>li {
-            font-style: italic; // bold italic
-            margin-bottom: 0.3rem;
-
-            // Third-level items
-            >ol>li,
-            >ul>li {
-                font-weight: normal;
-                font-style: italic; // italic only
-                margin-bottom: 0.2rem;
-            }
-        }
-    }
+.panel-tabset .nav-tabs .nav-link {
+  color: $ink-muted;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
-// Unordered list styles
-ul {
-    list-style-type: disc;
-    color: #34495e;
-
-    // First-level items
-    >li {
-        font-weight: bold; // bold
-        margin-bottom: 0.5rem;
-
-        // Second-level items
-        >ul>li,
-        >ol>li {
-            font-style: italic; // bold italic
-            margin-bottom: 0.3rem;
-
-            // Third-level items
-            >ul>li,
-            >ol>li {
-                font-weight: normal;
-                font-style: italic; // italic only
-                margin-bottom: 0.2rem;
-            }
-        }
-    }
+.panel-tabset .nav-tabs .nav-link.active {
+  color: $oxford;
+  background: $paper;
+  border-color: $border $border $paper;
 }
-
-/* Force code wrapping inside <pre><code> blocks */
-pre code {
-    white-space: pre-wrap; // allow wrapping
-    word-wrap: break-word; // break long words if needed
-    overflow-x: auto; // keep scroll if absolutely necessary
-    max-width: 65ch; // wrap at ~65 characters (ch = width of "0")
-}
-
-
 
 .bloodred-bold {
-    color: #601f00; // This sets the text color to the specified hexadecimal value
-    font-weight: bold; // This makes the text bold
+  color: #6d1f24;
+  font-weight: 700;
 }
 
 .uured-bold {
-    color: #942f00; // This sets the text color to the specified hexadecimal value
-    font-weight: bold; // This makes the text bold
+  color: $burgundy;
+  font-weight: 700;
 }
 
 .uugreen-bold {
-    color: #009479; // This sets the text color to the specified hexadecimal value
-    font-weight: bold; // This makes the text bold
+  color: $sage;
+  font-weight: 700;
 }
 
 .uublue-bold {
-    color: #006594; // This sets the text color to the specified hexadecimal value
-    font-weight: bold; // This makes the text bold
+  color: $oxford;
+  font-weight: 700;
 }
