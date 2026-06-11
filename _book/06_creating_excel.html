@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; Automating with AI – Designing a Course With Quarto</title>
+<title>6&nbsp; Designing the Course Feeder Workbook – Designing a Course With Quarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,18 +68,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./09_capstone_build_like_ad688.html" rel="next">
-<link href="./07_blackboard_ultra.html" rel="prev">
+<link href="./07_quarto_class_setup.html" rel="next">
+<link href="./05_working_with_quarto.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-cc6d6016adaf1c7a86dcaac46e77afcc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-eeb267a803765868668a61b027eedbda.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ddf37bbadb34742b1bf0f0035092eb0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-573d30bc00ee93df498cde31fe2dd389.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08_automating_with_AI.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Automating with AI</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_creating_excel.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Creating Excel Files</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -153,67 +153,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_version_control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git and GitHub</span></span></a>
+  <a href="./02_professor_quickstart.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Professor Quickstart</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_professor_quickstart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Professor Quickstart</span></span></a>
+  <a href="./03_tool_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tool Setup</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_tool_setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Tool Setup</span></span></a>
+  <a href="./04_version_control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Git and GitHub</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_working_with_quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="./05_working_with_quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Working with Quarto</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_creating_excel.html" class="sidebar-item-text sidebar-link">
+  <a href="./06_creating_excel.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Creating Excel Files</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_quarto_class_setup.html" class="sidebar-item-text sidebar-link">
+  <a href="./07_quarto_class_setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quarto Class Setup</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_github_classroom.html" class="sidebar-item-text sidebar-link">
+  <a href="./08_github_classroom.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">GitHub Classroom</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_cloud_analytics_with_aws.html" class="sidebar-item-text sidebar-link">
+  <a href="./09_cloud_analytics_with_aws.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cloud Analytics with AWS</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_blackboard_ultra.html" class="sidebar-item-text sidebar-link">
+  <a href="./10_blackboard_ultra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_automating_with_AI.html" class="sidebar-item-text sidebar-link active">
+  <a href="./11_automating_with_AI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Automating with AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_capstone_build_like_ad688.html" class="sidebar-item-text sidebar-link">
+  <a href="./12_capstone_build_like_ad688.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></span></a>
   </div>
 </li>
@@ -239,25 +239,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#supercharging-course-production-with-github-copilot-ai-tools" id="toc-supercharging-course-production-with-github-copilot-ai-tools" class="nav-link active" data-scroll-target="#supercharging-course-production-with-github-copilot-ai-tools"><span class="header-section-number">12</span> Supercharging Course Production with GitHub Copilot &amp; AI Tools</a>
+  <li><a href="#workbook-overview" id="toc-workbook-overview" class="nav-link active" data-scroll-target="#workbook-overview"><span class="header-section-number">6.1</span> Workbook Overview</a></li>
+  <li><a href="#sheet-1-course-details-core-content-sheet" id="toc-sheet-1-course-details-core-content-sheet" class="nav-link" data-scroll-target="#sheet-1-course-details-core-content-sheet"><span class="header-section-number">6.2</span> Sheet 1 — <code>Course Details</code> (Core Content Sheet)</a>
   <ul class="collapse">
-  <li><a href="#the-ai-editor-stack" id="toc-the-ai-editor-stack" class="nav-link" data-scroll-target="#the-ai-editor-stack"><span class="header-section-number">12.1</span> The AI Editor Stack</a></li>
-  <li><a href="#additional-platforms-and-resources" id="toc-additional-platforms-and-resources" class="nav-link" data-scroll-target="#additional-platforms-and-resources"><span class="header-section-number">12.2</span> Additional Platforms and Resources</a></li>
-  <li><a href="#copilot-for-course-organization-scripts" id="toc-copilot-for-course-organization-scripts" class="nav-link" data-scroll-target="#copilot-for-course-organization-scripts"><span class="header-section-number">12.3</span> Copilot for Course Organization Scripts</a>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose"><span class="header-section-number">6.2.1</span> Purpose</a></li>
+  <li><a href="#required-columns" id="toc-required-columns" class="nav-link" data-scroll-target="#required-columns"><span class="header-section-number">6.2.2</span> Required Columns</a></li>
+  <li><a href="#example-rows" id="toc-example-rows" class="nav-link" data-scroll-target="#example-rows"><span class="header-section-number">6.2.3</span> Example Rows</a></li>
+  <li><a href="#what-this-sheet-generates" id="toc-what-this-sheet-generates" class="nav-link" data-scroll-target="#what-this-sheet-generates"><span class="header-section-number">6.2.4</span> What This Sheet Generates</a></li>
+  </ul></li>
+  <li><a href="#sheet-2-sections-delivery-logistics" id="toc-sheet-2-sections-delivery-logistics" class="nav-link" data-scroll-target="#sheet-2-sections-delivery-logistics"><span class="header-section-number">6.3</span> Sheet 2 — <code>Sections</code> (Delivery Logistics)</a>
   <ul class="collapse">
-  <li><a href="#the-module-generation-script" id="toc-the-module-generation-script" class="nav-link" data-scroll-target="#the-module-generation-script"><span class="header-section-number">12.3.1</span> The Module Generation Script</a></li>
-  <li><a href="#validating-the-module-structure" id="toc-validating-the-module-structure" class="nav-link" data-scroll-target="#validating-the-module-structure"><span class="header-section-number">12.3.2</span> Validating the Module Structure</a></li>
+  <li><a href="#purpose-1" id="toc-purpose-1" class="nav-link" data-scroll-target="#purpose-1"><span class="header-section-number">6.3.1</span> Purpose</a></li>
+  <li><a href="#required-columns-1" id="toc-required-columns-1" class="nav-link" data-scroll-target="#required-columns-1"><span class="header-section-number">6.3.2</span> Required Columns</a></li>
+  <li><a href="#what-this-sheet-generates-1" id="toc-what-this-sheet-generates-1" class="nav-link" data-scroll-target="#what-this-sheet-generates-1"><span class="header-section-number">6.3.3</span> What This Sheet Generates</a></li>
   </ul></li>
-  <li><a href="#automating-metadata-with-llms-openai-gemini" id="toc-automating-metadata-with-llms-openai-gemini" class="nav-link" data-scroll-target="#automating-metadata-with-llms-openai-gemini"><span class="header-section-number">12.4</span> Automating Metadata with LLMs (OpenAI / Gemini)</a>
+  <li><a href="#sheet-3-grade-evaluation-structure" id="toc-sheet-3-grade-evaluation-structure" class="nav-link" data-scroll-target="#sheet-3-grade-evaluation-structure"><span class="header-section-number">6.4</span> Sheet 3 — <code>Grade</code> (Evaluation Structure)</a>
   <ul class="collapse">
-  <li><a href="#setting-up-api-keys-.env" id="toc-setting-up-api-keys-.env" class="nav-link" data-scroll-target="#setting-up-api-keys-.env"><span class="header-section-number">12.4.1</span> Setting up API Keys (<code>.env</code>)</a></li>
-  <li><a href="#the-metadata-population-script" id="toc-the-metadata-population-script" class="nav-link" data-scroll-target="#the-metadata-population-script"><span class="header-section-number">12.4.2</span> The Metadata Population Script</a></li>
+  <li><a href="#purpose-2" id="toc-purpose-2" class="nav-link" data-scroll-target="#purpose-2"><span class="header-section-number">6.4.1</span> Purpose</a></li>
+  <li><a href="#required-columns-key-elements" id="toc-required-columns-key-elements" class="nav-link" data-scroll-target="#required-columns-key-elements"><span class="header-section-number">6.4.2</span> Required Columns (Key Elements)</a></li>
+  <li><a href="#what-this-sheet-generates-2" id="toc-what-this-sheet-generates-2" class="nav-link" data-scroll-target="#what-this-sheet-generates-2"><span class="header-section-number">6.4.3</span> What This Sheet Generates</a></li>
   </ul></li>
-  <li><a href="#additional-automation-scripts" id="toc-additional-automation-scripts" class="nav-link" data-scroll-target="#additional-automation-scripts"><span class="header-section-number">12.5</span> Additional Automation Scripts</a></li>
-  <li><a href="#copilot-for-authoring-quarto-content" id="toc-copilot-for-authoring-quarto-content" class="nav-link" data-scroll-target="#copilot-for-authoring-quarto-content"><span class="header-section-number">12.6</span> Copilot for Authoring Quarto Content</a></li>
-  <li><a href="#responsible-ai-use-in-education" id="toc-responsible-ai-use-in-education" class="nav-link" data-scroll-target="#responsible-ai-use-in-education"><span class="header-section-number">12.7</span> Responsible AI Use in Education</a></li>
-  <li><a href="#integrating-these-tools-in-an-analytics-class" id="toc-integrating-these-tools-in-an-analytics-class" class="nav-link" data-scroll-target="#integrating-these-tools-in-an-analytics-class"><span class="header-section-number">12.8</span> Integrating These Tools in an Analytics Class</a></li>
+  <li><a href="#sheet-4-deliverables-student-submission-map" id="toc-sheet-4-deliverables-student-submission-map" class="nav-link" data-scroll-target="#sheet-4-deliverables-student-submission-map"><span class="header-section-number">6.5</span> Sheet 4 — <code>Deliverables</code> (Student Submission Map)</a>
+  <ul class="collapse">
+  <li><a href="#purpose-3" id="toc-purpose-3" class="nav-link" data-scroll-target="#purpose-3"><span class="header-section-number">6.5.1</span> Purpose</a></li>
+  <li><a href="#required-columns-2" id="toc-required-columns-2" class="nav-link" data-scroll-target="#required-columns-2"><span class="header-section-number">6.5.2</span> Required Columns</a></li>
+  <li><a href="#example-rows-1" id="toc-example-rows-1" class="nav-link" data-scroll-target="#example-rows-1"><span class="header-section-number">6.5.3</span> Example Rows</a></li>
+  <li><a href="#what-this-sheet-generates-3" id="toc-what-this-sheet-generates-3" class="nav-link" data-scroll-target="#what-this-sheet-generates-3"><span class="header-section-number">6.5.4</span> What This Sheet Generates</a></li>
   </ul></li>
+  <li><a href="#validation-rules" id="toc-validation-rules" class="nav-link" data-scroll-target="#validation-rules"><span class="header-section-number">6.6</span> Validation Rules</a></li>
+  <li><a href="#automating-the-workbook-generation" id="toc-automating-the-workbook-generation" class="nav-link" data-scroll-target="#automating-the-workbook-generation"><span class="header-section-number">6.7</span> Automating the Workbook Generation</a>
+  <ul class="collapse">
+  <li><a href="#workbook-generator-script" id="toc-workbook-generator-script" class="nav-link" data-scroll-target="#workbook-generator-script"><span class="header-section-number">6.7.1</span> Workbook Generator Script</a></li>
+  </ul></li>
+  <li><a href="#generating-a-draft-schedule" id="toc-generating-a-draft-schedule" class="nav-link" data-scroll-target="#generating-a-draft-schedule"><span class="header-section-number">6.8</span> Generating a Draft Schedule</a></li>
+  <li><a href="#ai-automation-optional" id="toc-ai-automation-optional" class="nav-link" data-scroll-target="#ai-automation-optional"><span class="header-section-number">6.9</span> AI Automation (Optional)</a></li>
   </ul>
 </nav>
     </div>
@@ -266,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Automating with AI</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Designing the Course Feeder Workbook</span></h1>
 </div>
 
 
@@ -283,167 +298,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="supercharging-course-production-with-github-copilot-ai-tools" class="level1" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> Supercharging Course Production with GitHub Copilot &amp; AI Tools</h1>
-<p>As an educator building out reproducible courses with Quarto, you are inherently writing code. Whether it is Markdown for lecture notes, Python or R for your data analysis labs, or simply writing Python scripts to automate your directory structures, you are functioning as a developer.</p>
-<p>To assist you in this endeavor, <strong>GitHub Copilot</strong> serves as an indispensable AI pair programmer. Copilot is integrated directly into your IDE (like Antigravity or VS Code) and provides real-time autocomplete suggestions, conversational assistance, and code generation.</p>
-<section id="the-ai-editor-stack" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="the-ai-editor-stack"><span class="header-section-number">12.1</span> The AI Editor Stack</h2>
-<p>For day-to-day course production, the most practical setup is a combination of:</p>
-<ul>
-<li><strong>GitHub</strong> for repositories, version history, and publishing</li>
-<li><strong>GitHub Copilot</strong> for inline suggestions and chat support while writing code or Quarto</li>
-<li><strong>GitHub Classroom</strong> for distributing coding assignments and collecting student work</li>
-<li><strong>VS Code</strong> or <strong>Antigravity</strong> when using ChatGPT-connected coding tools for drafting scripts, revising content, and debugging</li>
-<li><strong>Cursor</strong> when project-wide AI editing and rapid refactoring are useful</li>
-<li><strong>Gemini and OpenAI APIs</strong> when you want scripts to generate metadata, summaries, or structured course assets at scale</li>
-</ul>
-<p>Used together, these tools reduce setup time, help standardize materials, and make it easier to maintain course content across semesters.</p>
-</section>
-<section id="additional-platforms-and-resources" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="additional-platforms-and-resources"><span class="header-section-number">12.2</span> Additional Platforms and Resources</h2>
-<p>The following tools are also useful in analytics and AI-focused teaching workflows:</p>
-<ul>
-<li><strong>Remotion</strong> for generating videos programmatically from code: <a href="https://www.remotion.dev/">https://www.remotion.dev/</a></li>
-<li><strong>Manim</strong> for mathematical and technical animations in Python: <a href="https://docs.manim.community/en/stable/examples.html">https://docs.manim.community/en/stable/examples.html</a></li>
-<li><strong>Hugging Face Inference Providers</strong> for testing and comparing hosted models and APIs: <a href="https://huggingface.co/inference/models">https://huggingface.co/inference/models</a></li>
-<li><strong>Hugging Face Academia Hub</strong> for institution-level research, teaching, and infrastructure workflows: <a href="https://huggingface.co/docs/hub/en/academia-hub">https://huggingface.co/docs/hub/en/academia-hub</a></li>
-</ul>
-</section>
-<section id="copilot-for-course-organization-scripts" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="copilot-for-course-organization-scripts"><span class="header-section-number">12.3</span> Copilot for Course Organization Scripts</h2>
-<p>One of the most powerful uses of Copilot is automating the tedious parts of course administration.</p>
-<p>For instance, consider the requirement of generating a consistent module structure (<code>M01</code>, <code>M02</code>, <code>M03</code>) complete with boilerplate Quarto files for lecture notes, presentations, labs, assignments, projects, and participation activities. Instead of creating each file by hand, you can use the generator script included with this book.</p>
-<p>If you want Copilot to help you adapt the script, give it this prompt:</p>
-<blockquote class="blockquote">
-<p>“Modify this Quarto course scaffold script so it generates modules named M01 through M07. Each module should include M01_A.qmd, M01_LN1.qmd, M01_LN2.qmd, M01_P1.qmd, M01_P2.qmd, M01_Proj.qmd, M01_Lab1.qmd, M01_Lab2.qmd, M01_Participation1.qmd, and M01_Participation2.qmd.”</p>
-</blockquote>
-<section id="the-module-generation-script" class="level3" data-number="12.3.1">
-<h3 data-number="12.3.1" class="anchored" data-anchor-id="the-module-generation-script"><span class="header-section-number">12.3.1</span> The Module Generation Script</h3>
-<p>The reusable version of the script is included in this repository at <code>scripts/generate_modules.py</code>. Run it from the root of a course project:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_modules.py .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>By default, the script creates modules <code>M01</code> through <code>M07</code>. If your course has an orientation module, add <code>M00</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_modules.py . <span class="at">--include-module-zero</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The first generated module will look like this:</p>
-<pre class="text"><code>M01/
-  M01_A.qmd
-  M01_LN1.qmd
-  M01_LN2.qmd
-  M01_P1.qmd
-  M01_P2.qmd
-  M01_Proj.qmd
-  M01_Lab1.qmd
-  M01_Lab2.qmd
-  M01_Participation1.qmd
-  M01_Participation2.qmd
-  data/
-  output/
-  M01_lecture01_figures/
-  M01_lecture02_figures/
-  M01_presentation01_files/
-  M01_presentation02_files/
-  M01_P1_files/
-  M01_P2_files/</code></pre>
-<p>Existing files are left untouched unless you explicitly pass <code>--overwrite</code>.</p>
-</section>
-<section id="validating-the-module-structure" class="level3" data-number="12.3.2">
-<h3 data-number="12.3.2" class="anchored" data-anchor-id="validating-the-module-structure"><span class="header-section-number">12.3.2</span> Validating the Module Structure</h3>
-<p>After generating or editing the scaffold, run the validation script:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/validate_course_structure.py .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The validator checks that every module contains the required <code>M01_*</code> files and support folders. This is useful before building Blackboard content because broken naming conventions often become broken links later.</p>
-</section>
-</section>
-<section id="automating-metadata-with-llms-openai-gemini" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="automating-metadata-with-llms-openai-gemini"><span class="header-section-number">12.4</span> Automating Metadata with LLMs (OpenAI / Gemini)</h2>
-<p>Beyond structural generation, you can use large language models (LLMs) via APIs to automatically populate the YAML metadata in your Quarto files. For example, a script can read your course outline (an Excel or CSV file) and prompt an AI to generate SEO-friendly keywords and summaries for each lecture note.</p>
-<section id="setting-up-api-keys-.env" class="level3" data-number="12.4.1">
-<h3 data-number="12.4.1" class="anchored" data-anchor-id="setting-up-api-keys-.env"><span class="header-section-number">12.4.1</span> Setting up API Keys (<code>.env</code>)</h3>
-<p>Before running API-dependent scripts, you must securely store your API keys. <strong>Never</strong> hardcode your keys into your Python scripts or commit them to GitHub. Instead, use a <code>.env</code> file.</p>
-<p>Create a file named <code>.env</code> in the root of your project directory and add the following placeholder keys. Replace <code>your_...</code> with your actual keys.</p>
-<pre class="env"><code># .env
-
-# OpenAI API Key (Required for OpenAI integrations)
-OPENAI_API_KEY="your_openai_api_key_here"
-
-# Gemini API Key (Required if you use Google's models instead)
-GEMINI_API_KEY="your_gemini_api_key_here"</code></pre>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Ensure your <code>.gitignore</code> file contains the line <code>.env</code> so your keys are not accidentally uploaded to your GitHub repository!</p>
-</div>
-</div>
-</section>
-<section id="the-metadata-population-script" class="level3" data-number="12.4.2">
-<h3 data-number="12.4.2" class="anchored" data-anchor-id="the-metadata-population-script"><span class="header-section-number">12.4.2</span> The Metadata Population Script</h3>
-<p>Once your keys are configured, use the included metadata script to fill YAML front matter in generated <code>.qmd</code> files from a CSV outline:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/populate_qmd_metadata.py data/generated_schedule.csv <span class="at">--root</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The script reads <code>Source File</code>, <code>Title</code>, <code>Lecture</code>, and <code>Description</code> columns. If <code>OPENAI_API_KEY</code> is present, it asks the OpenAI API for a concise page description. If no key is present, it falls back to the workbook description, so the workflow still works offline.</p>
-</section>
-</section>
-<section id="additional-automation-scripts" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="additional-automation-scripts"><span class="header-section-number">12.5</span> Additional Automation Scripts</h2>
-<p>The book repository includes these reusable scripts:</p>
+<p>This chapter defines the <strong>standard feeder Excel workbook</strong> used to generate a complete Quarto-based course website. The workbook separates <strong>course content</strong>, <strong>delivery logistics</strong>, and <strong>grading structure</strong> into clearly defined sheets.</p>
+<p>This separation is intentional: * It mirrors how universities think about courses. * It allows partial automation with AI. * It prevents accidental coupling between pedagogy and logistics.</p>
+<section id="workbook-overview" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="workbook-overview"><span class="header-section-number">6.1</span> Workbook Overview</h2>
+<p>Based on the official benchmark (<code>Course-Schedule.xlsx</code>), the feeder workbook contains several essential sheets. The primary ones you will interact with are:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 46%">
-<col style="width: 53%">
+<col style="width: 21%">
+<col style="width: 56%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Script</th>
+<th>Sheet Name</th>
 <th>Purpose</th>
+<th>What It Generates</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>scripts/generate_course_workbook.py</code></td>
-<td>Create the standard <code>Course-Schedule.xlsx</code> workbook</td>
+<td><code>Course Details</code></td>
+<td>What is taught (modules, lectures, topics)</td>
+<td>lecture notes, presentations, module pages, schedule rows</td>
 </tr>
 <tr class="even">
-<td><code>scripts/validate_course_workbook.py</code></td>
-<td>Check required workbook sheets and columns</td>
+<td><code>Sections</code></td>
+<td>How and when it is taught</td>
+<td>syllabus section table, schedule anchors</td>
 </tr>
 <tr class="odd">
-<td><code>scripts/generate_modules.py</code></td>
-<td>Create canonical <code>M01_*</code> module folders and files</td>
+<td><code>Grade</code></td>
+<td>How students are evaluated</td>
+<td>grading table, deliverables summary</td>
 </tr>
 <tr class="even">
-<td><code>scripts/validate_course_structure.py</code></td>
-<td>Check required module files and folders</td>
-</tr>
-<tr class="odd">
-<td><code>scripts/generate_course_schedule.py</code></td>
-<td>Produce a draft schedule CSV from the workbook</td>
-</tr>
-<tr class="even">
-<td><code>scripts/populate_qmd_metadata.py</code></td>
-<td>Populate YAML metadata in generated <code>.qmd</code> files</td>
+<td><code>Deliverables</code></td>
+<td>What students submit</td>
+<td>Blackboard assignment map, due-date planning</td>
 </tr>
 </tbody>
 </table>
-<p>Together, these scripts turn the course-building workflow into a repeatable pipeline: workbook, structure, schedule, metadata, render, Blackboard.</p>
-</section>
-<section id="copilot-for-authoring-quarto-content" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="copilot-for-authoring-quarto-content"><span class="header-section-number">12.6</span> Copilot for Authoring Quarto Content</h2>
-<p>Copilot is not just for Python scripts. Because Quarto is a text-based format (<code>.qmd</code>), Copilot understands the context of your lecture notes and can predict what you want to write next.</p>
-<ul>
-<li><strong>Generating Code Blocks</strong>: If you are writing a lab assignment and need to insert a code block showing how to plot a scatterplot using <code>matplotlib</code> or <code>ggplot2</code>, simply write the comment <code># create a scatterplot of x vs y</code> and Copilot will suggest the exact code block.</li>
-<li><strong>Writing Summaries</strong>: You can highlight a large chunk of text in your lecture notes and ask Copilot Chat to “Summarize this section for the introduction.”</li>
-<li><strong>Translating Content</strong>: If you are moving an old syllabus from Word to Quarto Markdown, you can prompt Copilot to convert your plain text into structured Markdown tables and formatted lists.</li>
-</ul>
-</section>
-<section id="responsible-ai-use-in-education" class="level2" data-number="12.7">
-<h2 data-number="12.7" class="anchored" data-anchor-id="responsible-ai-use-in-education"><span class="header-section-number">12.7</span> Responsible AI Use in Education</h2>
-<p>While GitHub Copilot is a powerful authoring assistant for you as an educator, it also introduces important discussions regarding responsible use in the classroom.</p>
-<p>If you are using GitHub Classroom (discussed in Chapter 6), your students may also have access to Copilot through GitHub Education. Verified students can get free access to GitHub Copilot, and Copilot Chat can be used with repository context to answer questions about the codebase. It is critical to establish a clear policy in your syllabus regarding the acceptable use of Generative AI.</p>
+<p>Older course workbooks may also include supplementary sheets such as <code>Calendar</code> or <code>Day List</code> for institution-specific term mapping.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -454,18 +350,361 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use Copilot to help you generate boilerplate code, format markdown, and troubleshoot errors. However, always review the generated content critically before publishing it to your Blackboard course shell to ensure pedagogical accuracy.</p>
+<p>Treat the workbook as the planning database for the course. Quarto files are the authoring layer; Blackboard is the delivery layer; the workbook is the structure that keeps them aligned.</p>
 </div>
 </div>
-<p>Integrating AI into your workflow does not replace your expertise; it simply accelerates the mechanics of course production, giving you more time to focus on teaching.</p>
 </section>
-<section id="integrating-these-tools-in-an-analytics-class" class="level2" data-number="12.8">
-<h2 data-number="12.8" class="anchored" data-anchor-id="integrating-these-tools-in-an-analytics-class"><span class="header-section-number">12.8</span> Integrating These Tools in an Analytics Class</h2>
-<p>In an analytics class, these tools can speed up the parts of course design that are repetitive but still technical. GitHub and GitHub Classroom help organize materials, distribute assignments, and keep submissions structured. GitHub Copilot, Cursor, and ChatGPT-connected coding tools help draft scripts, clean up Quarto files, troubleshoot issues, and generate boilerplate more quickly.</p>
-<p>For larger automation tasks, OpenAI or Gemini APIs can be used from Python scripts to generate metadata, summaries, or other structured content. Remotion and Manim can support technical video creation, while Hugging Face can support model experimentation or institution-scale AI workflows. The main value is not replacing instructional judgment, but reducing the time spent on setup, formatting, and iteration.</p>
+<section id="sheet-1-course-details-core-content-sheet" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sheet-1-course-details-core-content-sheet"><span class="header-section-number">6.2</span> Sheet 1 — <code>Course Details</code> (Core Content Sheet)</h2>
+<section id="purpose" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="purpose"><span class="header-section-number">6.2.1</span> Purpose</h3>
+<p>This sheet defines the <strong>academic structure of the course</strong>. It is the only sheet required to generate Lecture Notes, Presentations, Labs, and Assignments using our Quarto workflow.</p>
+</section>
+<section id="required-columns" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="required-columns"><span class="header-section-number">6.2.2</span> Required Columns</h3>
+<p>The <code>Course Details</code> sheet should contain these columns:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Module</code></td>
+<td>Module identifier (e.g.&nbsp;<code>Module 1</code>)</td>
+</tr>
+<tr class="even">
+<td><code>Lecture</code></td>
+<td>Lecture identifier (e.g.&nbsp;<code>L0.1</code>, <code>L1.1</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>Title</code></td>
+<td>Lecture title</td>
+</tr>
+<tr class="even">
+<td><code>Description</code></td>
+<td>One–two paragraph description</td>
+</tr>
+<tr class="odd">
+<td><code>Mode</code></td>
+<td>Delivery mode, such as <code>Online</code>, <code>On-Campus</code>, or both</td>
+</tr>
+<tr class="even">
+<td><code>Source File</code></td>
+<td>Quarto file that should hold the content</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-rows" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="example-rows"><span class="header-section-number">6.2.3</span> Example Rows</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 24%">
+<col style="width: 8%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Module</th>
+<th>Lecture</th>
+<th>Title</th>
+<th>Description</th>
+<th>Mode</th>
+<th>Source File</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Module 1</td>
+<td>L1.1</td>
+<td>Course Foundations</td>
+<td>Introduce the course workflow, tools, and first applied example.</td>
+<td>Online; On-Campus</td>
+<td><code>M01/M01_LN1.qmd</code></td>
+</tr>
+<tr class="even">
+<td>Module 1</td>
+<td>L1.2</td>
+<td>Applied Workflow</td>
+<td>Extend the first example into a lab, assignment, and project step.</td>
+<td>Online; On-Campus</td>
+<td><code>M01/M01_LN2.qmd</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-this-sheet-generates" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="what-this-sheet-generates"><span class="header-section-number">6.2.4</span> What This Sheet Generates</h3>
+<p>The <code>Course Details</code> sheet drives:</p>
+<ul>
+<li>module folder planning</li>
+<li>lecture note metadata</li>
+<li>presentation titles</li>
+<li>schedule rows</li>
+<li>Blackboard module labels</li>
+<li>AI-assisted summaries and keywords</li>
+</ul>
+</section>
+</section>
+<section id="sheet-2-sections-delivery-logistics" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sheet-2-sections-delivery-logistics"><span class="header-section-number">6.3</span> Sheet 2 — <code>Sections</code> (Delivery Logistics)</h2>
+<section id="purpose-1" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="purpose-1"><span class="header-section-number">6.3.1</span> Purpose</h3>
+<p>This sheet captures <strong>when and by whom</strong> the course is delivered. It is used for syllabus generation and schedule pages.</p>
+</section>
+<section id="required-columns-1" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="required-columns-1"><span class="header-section-number">6.3.2</span> Required Columns</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Section</code></td>
+<td>Section identifier (e.g., A1, B1)</td>
+</tr>
+<tr class="even">
+<td><code>Modality</code></td>
+<td>Online, On-Campus, Hybrid, or other local label</td>
+</tr>
+<tr class="odd">
+<td><code>Location</code></td>
+<td>Classroom or Zoom link</td>
+</tr>
+<tr class="even">
+<td><code>Instructor</code></td>
+<td>Instructor name</td>
+</tr>
+<tr class="odd">
+<td><code>Email</code></td>
+<td>Instructor email</td>
+</tr>
+<tr class="even">
+<td><code>Start Date</code></td>
+<td>First class date in <code>YYYY-MM-DD</code> format</td>
+</tr>
+<tr class="odd">
+<td><code>Meeting Days</code></td>
+<td>Day or days of week</td>
+</tr>
+<tr class="even">
+<td><code>Meeting Time</code></td>
+<td>Start and end time</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-this-sheet-generates-1" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="what-this-sheet-generates-1"><span class="header-section-number">6.3.3</span> What This Sheet Generates</h3>
+<p>The <code>Sections</code> sheet drives:</p>
+<ul>
+<li>syllabus instructor tables</li>
+<li>schedule start dates</li>
+<li>online/on-campus variants</li>
+<li>Blackboard section-specific reminders</li>
+</ul>
+</section>
+</section>
+<section id="sheet-3-grade-evaluation-structure" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sheet-3-grade-evaluation-structure"><span class="header-section-number">6.4</span> Sheet 3 — <code>Grade</code> (Evaluation Structure)</h2>
+<section id="purpose-2" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="purpose-2"><span class="header-section-number">6.4.1</span> Purpose</h3>
+<p>This sheet defines the <strong>grading logic</strong> independently of content. It supports automatic syllabus grading tables.</p>
+</section>
+<section id="required-columns-key-elements" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="required-columns-key-elements"><span class="header-section-number">6.4.2</span> Required Columns (Key Elements)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Category</code></td>
+<td>Category name, such as Labs, Assignments, Project, Participation</td>
+</tr>
+<tr class="even">
+<td><code>Count</code></td>
+<td>Number of items</td>
+</tr>
+<tr class="odd">
+<td><code>Points Each</code></td>
+<td>Points per item</td>
+</tr>
+<tr class="even">
+<td><code>Total Points</code></td>
+<td>Total category points</td>
+</tr>
+<tr class="odd">
+<td><code>Weight</code></td>
+<td>Syllabus weight, if used</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-this-sheet-generates-2" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="what-this-sheet-generates-2"><span class="header-section-number">6.4.3</span> What This Sheet Generates</h3>
+<p>The <code>Grade</code> sheet drives:</p>
+<ul>
+<li>syllabus grading tables</li>
+<li>points summaries</li>
+<li>Blackboard category planning</li>
+<li>assignment weighting checks</li>
+</ul>
+</section>
+</section>
+<section id="sheet-4-deliverables-student-submission-map" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="sheet-4-deliverables-student-submission-map"><span class="header-section-number">6.5</span> Sheet 4 — <code>Deliverables</code> (Student Submission Map)</h2>
+<section id="purpose-3" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="purpose-3"><span class="header-section-number">6.5.1</span> Purpose</h3>
+<p>This sheet connects the academic plan to student-facing submissions.</p>
+</section>
+<section id="required-columns-2" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="required-columns-2"><span class="header-section-number">6.5.2</span> Required Columns</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Module</code></td>
+<td>Module associated with the deliverable</td>
+</tr>
+<tr class="even">
+<td><code>Deliverable</code></td>
+<td>Student-facing name</td>
+</tr>
+<tr class="odd">
+<td><code>Type</code></td>
+<td>Lab, Assignment, Project, Participation, Quiz, or Exam</td>
+</tr>
+<tr class="even">
+<td><code>Source File</code></td>
+<td>Quarto source file</td>
+</tr>
+<tr class="odd">
+<td><code>Due Offset Days</code></td>
+<td>Days after the module start date</td>
+</tr>
+<tr class="even">
+<td><code>Points</code></td>
+<td>Points attached to the deliverable</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-rows-1" class="level3" data-number="6.5.3">
+<h3 data-number="6.5.3" class="anchored" data-anchor-id="example-rows-1"><span class="header-section-number">6.5.3</span> Example Rows</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Module</th>
+<th>Deliverable</th>
+<th>Type</th>
+<th>Source File</th>
+<th>Due Offset Days</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Module 1</td>
+<td>Lab 1</td>
+<td>Lab</td>
+<td><code>M01/M01_Lab1.qmd</code></td>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>Module 1</td>
+<td>Assignment</td>
+<td>Assignment</td>
+<td><code>M01/M01_A.qmd</code></td>
+<td>7</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>Module 1</td>
+<td>Project Step</td>
+<td>Project</td>
+<td><code>M01/M01_Proj.qmd</code></td>
+<td>10</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-this-sheet-generates-3" class="level3" data-number="6.5.4">
+<h3 data-number="6.5.4" class="anchored" data-anchor-id="what-this-sheet-generates-3"><span class="header-section-number">6.5.4</span> What This Sheet Generates</h3>
+<p>The <code>Deliverables</code> sheet drives:</p>
+<ul>
+<li>Blackboard assignment setup</li>
+<li>due-date planning</li>
+<li>deliverables pages</li>
+<li>project milestone tracking</li>
+<li>grading workload estimates</li>
+</ul>
+</section>
+</section>
+<section id="validation-rules" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="validation-rules"><span class="header-section-number">6.6</span> Validation Rules</h2>
+<p>Before using the workbook downstream, check these rules:</p>
+<ul>
+<li>Every required sheet exists.</li>
+<li>Every required column exists.</li>
+<li><code>Source File</code> values use the canonical <code>M01_*</code> convention.</li>
+<li>Every deliverable has a type, source file, due offset, and points value.</li>
+<li>Section start dates use <code>YYYY-MM-DD</code>.</li>
+<li>Grade category totals are internally consistent.</li>
+<li>Module labels in <code>Course Details</code> and <code>Deliverables</code> match.</li>
+</ul>
+<p>Run the validator:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/validate_course_workbook.py data/Course-Schedule.xlsx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Validation is deliberately strict about sheet and column names because small spreadsheet inconsistencies become broken automation later.</p>
+</section>
+<section id="automating-the-workbook-generation" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="automating-the-workbook-generation"><span class="header-section-number">6.7</span> Automating the Workbook Generation</h2>
+<p>Instead of creating this Excel file by hand, use the included script to generate a template populated with the exact sheets, columns, and starter rows:</p>
+<section id="workbook-generator-script" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="workbook-generator-script"><span class="header-section-number">6.7.1</span> Workbook Generator Script</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_course_workbook.py data/Course-Schedule.xlsx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you need to replace an existing workbook:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_course_workbook.py data/Course-Schedule.xlsx <span class="at">--overwrite</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="generating-a-draft-schedule" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="generating-a-draft-schedule"><span class="header-section-number">6.8</span> Generating a Draft Schedule</h2>
+<p>Once <code>Course Details</code> and <code>Sections</code> are filled, generate a draft schedule CSV:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_course_schedule.py data/Course-Schedule.xlsx data/generated_schedule.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This first schedule is intentionally simple. It gives you a clean table that can be refined into <code>schedule.qmd</code>, copied into Blackboard planning materials, or used as a quality-control view of the workbook.</p>
+</section>
+<section id="ai-automation-optional" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="ai-automation-optional"><span class="header-section-number">6.9</span> AI Automation (Optional)</h2>
+<p>Once your <code>Course Details</code> sheet is generated, and you have filled in the <code>Module</code>, <code>Lecture</code>, <code>Title</code>, <code>Description</code>, and <code>Source File</code> columns, you can use the metadata script discussed in <strong>Chapter 8 (Automating with AI)</strong> to populate YAML front matter in the generated Quarto files.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -871,13 +1110,13 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07_blackboard_ultra.html" class="pagination-link" aria-label="Blackboard Ultra">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></span>
+      <a href="./05_working_with_quarto.html" class="pagination-link" aria-label="Working with Quarto">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Working with Quarto</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09_capstone_build_like_ad688.html" class="pagination-link" aria-label="Build a Course Like AD688">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07_quarto_class_setup.html" class="pagination-link" aria-label="Quarto Class Setup">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quarto Class Setup</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
