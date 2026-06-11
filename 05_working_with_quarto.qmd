@@ -1,7 +1,5 @@
 # Reproducible Documents with Quarto
 
-Here is a cleaned, consolidated version written as **notes + instructions**, with redundant headings merged, flow improved, and intent made clearer for students. All existing images/embeds and their locations are preserved exactly.
-
 ## Overview & definitions
 
 A **reproducible document** is a file (or a small collection of files) that combines written content—text, tables, figures, equations—with **the code or instructions required to generate that content**. The goal is simple but powerful: given the same data and the same code, the document can be regenerated with identical results.
@@ -12,6 +10,46 @@ Closely related is the idea of **literate programming**, a way of writing progra
 
 The modern reproducible workflow blends these two ideas:
 you write explanations in natural language, embed executable code, and generate polished outputs from a single source.
+
+## A Quarto course as a publishing project
+
+A Quarto course is best understood as a book-like publishing project: a folder
+of plain-text source files, code, images, references, data, and configuration
+that can be repeatedly rendered into student-facing materials.
+
+This framing is adapted from Kieran Healy's discussion of using Quarto to write
+a book, where he emphasizes a set of practical demands for long-form,
+code-supported writing: keep the manuscript in plain text, generate figures from
+the code that explains them, let the publishing system handle numbering and
+references, and make it easy to render finished outputs repeatedly.
+
+For a course, the same demands become:
+
+- keep the course source in `.qmd`, `.yml`, `.bib`, `.py`, `.R`, `.csv`, and other versionable files
+- avoid copy-pasting figures, outputs, and tables when they can be generated from source
+- let Quarto handle navigation, chapter numbering, figure numbering, cross-references, citations, and bibliographies
+- render the course repeatedly as the semester evolves
+- use one source folder to produce the website, handouts, slides, assignment pages, and archives
+
+This is why Quarto matters for teaching. It is not just a nicer Markdown format.
+It is the system that keeps course explanation, computation, evidence, and
+publication in one coherent workflow.
+
+## Reasonable demands for a Quarto course
+
+Before choosing tools, define what the course workflow should be able to do.
+
+| Demand | Course Meaning |
+|---|---|
+| Plain-text source | Materials can be searched, reviewed, diffed, and version controlled |
+| Generated figures and tables | Course examples stay connected to the code or data that produced them |
+| Automatic structure | Numbering, navigation, cross-references, and citations do not drift by hand |
+| Repeatable rendering | The instructor can rebuild the site after every meaningful update |
+| Multiple outputs | The same source can produce web pages, slides, PDFs, and archives |
+| Shareable package | Colleagues and future instructors can understand how the course was made |
+
+These demands are modest, but they are powerful. They move the course away from
+a folder of disconnected files and toward a reproducible teaching artifact.
 
 
 ## Literate programming in practice
@@ -37,6 +75,8 @@ Today, **Quarto** supersedes these tools across both R and Python ecosystems. It
 * Polyglot documents that mix languages in a single file
 
 For this course, Quarto is the unifying layer that connects analysis, writing, and publishing.
+
+![Quarto coordinates authoring, execution, conversion, and publishing across the analytics workflow.](./images/ch03/quarto-steps.png){width="78%" fig-align="center"}
 
 
 ## Reproducible documents
@@ -386,7 +426,7 @@ R Markdown was built on top of Yihui Xie’s **knitr** package and inherited mos
 
 :::{.columns}
 :::{.column width="30%"}
-![](./images/ch04/rmarkdown.png){width=300}
+![](./images/ch03/rmarkdown.png){width=300}
 :::
 
 :::{.column width="70%"}
@@ -415,7 +455,7 @@ R Markdown relies on **Pandoc**, a universal document converter that makes Markd
 
 Pandoc allows a single source document to be converted into many output formats without rewriting content.
 
-![](./images/ch04/pandoc.png){height=55%}
+![](./images/ch03/pandoc.png){height=55%}
 
 Pandoc supports a wide range of formats.
 
@@ -439,7 +479,7 @@ The structure of an R Markdown document typically includes:
 
 The image below shows how code, output, and narrative coexist naturally in a single document.
 
-![Andrew Bray, rstudio::conf(2022)](./images/ch04/paste-00475E59.png)
+![Andrew Bray, rstudio::conf(2022)](./images/ch03/paste-00475E59.png)
 
 ## The R Markdown ecosystem
 
@@ -603,7 +643,7 @@ Quarto treats documents as **products**, not notebooks or scripts.
 
 #### IDEs and programming languages
 
-![](./images/ch04/quarto_logo.svg){width=20% fig-align="center"}
+![](./images/ch03/quarto_logo.svg){width=20% fig-align="center"}
 
 :::
 
@@ -611,7 +651,7 @@ Quarto treats documents as **products**, not notebooks or scripts.
 
 :::{.column width=45%}
 
-![](./images/ch04/RStudio_logo.svg){width=30% fig-align="center"}
+![](./images/ch03/RStudio_logo.svg){width=30% fig-align="center"}
 
 * IDE commonly used with R
 * Runs **code chunks** inside `.qmd` files
@@ -632,7 +672,7 @@ Quarto treats documents as **products**, not notebooks or scripts.
 
 :::{.column width=45%}
 
-![](./images/ch04/jupyter_logo.svg){width=30% fig-align="center"}
+![](./images/ch03/jupyter_logo.svg){width=30% fig-align="center"}
 
 * IDE commonly used with Python
 * Runs **cells** inside `.ipynb` notebooks
@@ -673,10 +713,10 @@ Additional notes:
 
 ::: {.r-stack}
 :::{.fragment .fade-left}
-![ ](./images/ch04/paste-0860D360.png){fig-align="center" width="65%"}
+![ ](./images/ch03/paste-0860D360.png){fig-align="center" width="65%"}
 :::
 :::{.fragment .fade-right}
-![ ](./images/ch04/paste-CC007B93.png){.fragment .fade-left fig-align="center" width="65%"}
+![ ](./images/ch03/paste-CC007B93.png){.fragment .fade-left fig-align="center" width="65%"}
 :::
 :::
 
@@ -726,7 +766,7 @@ Installation instructions:
 
 * [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
 
-![](./images/ch04/quarto-steps.png){width="80%" fig-align="center"}
+![](./images/ch03/quarto-steps.png){width="80%" fig-align="center"}
 
 
 ## So, do we like Quarto?
@@ -918,6 +958,10 @@ git push
 
 This is the core course-building loop: write in Quarto, render to check, commit
 the source, and push to GitHub.
+
+![A course website workflow connects source files, rendering, review, and publication.](./images/ch03/Class-Website-Workflow.png){width="84%" fig-align="center"}
+
+![A rendered Quarto site gives instructors a concrete artifact to inspect before publishing.](./images/ch03/quarto-classsetup-render.png){width="82%" fig-align="center"}
 
 ## Summary table
 
