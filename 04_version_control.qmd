@@ -6,6 +6,27 @@ Version control is one of the most critical skills you'll develop as an educator
 
 In this chapter, we'll explore what version control is, why it matters for educational contexts, and how to use Git and GitHub effectively in your teaching practice. By the end of this chapter, you'll understand not just how to use these tools, but *why* they matter and how to teach them to your students in a meaningful way.
 
+## Why Git matters for a Quarto course
+
+If a Quarto course is a publishing project, Git is the memory of that project.
+It records how the course changes: when a lab was revised, why an assignment was
+clarified, which screenshots were replaced, and how the published site relates
+to the source files that generated it.
+
+This matters because course materials are not static. They evolve before the
+semester, during teaching, and after student feedback. Git gives that evolution a
+structure:
+
+- `.qmd` files hold the readable course source
+- images and data live in predictable folders
+- `_quarto.yml` defines the book structure
+- commits explain meaningful changes
+- branches make experiments safe
+- GitHub backs up the work and makes collaboration visible
+
+The practical goal is simple: the repository should be the source of truth for
+the course, not a temporary staging area before uploading files somewhere else.
+
 ## What Is Version Control?
 
 At its heart, version control is a system that tracks changes to files over time. Imagine editing a Word document and having the ability to see every modification made, by whom, when, and why. Now imagine being able to instantly revert to any previous version if something goes wrong, or merge changes from multiple people working simultaneously. That's what version control does.
@@ -35,6 +56,8 @@ If you checked any of these boxes, version control will solve these problems for
 ## Understanding Git: The Version Control System
 
 Git is a distributed version control system created by Linus Torvalds in 2005. Unlike older centralized version control systems, Git allows every contributor to have a complete copy of the project history. This makes it resilient, flexible, and perfect for both individual projects and large collaborative efforts.
+
+![A simple Git workflow: work locally, commit snapshots, and push/pull with the remote repository.](./images/ch02/git-workflow-simple-vers.webp){width="72%" fig-align="center"}
 
 ### The Core Concept: Commits
 
@@ -495,6 +518,8 @@ GitHub provides several features that enhance teaching:
 7. Add a Python `.gitignore`
 8. Click "Create repository"
 
+![Create the repository on GitHub first so the remote source of truth exists before students add course files.](./images/ch02/gitflow-create-repo.jpg){width="78%" fig-align="center"}
+
 ### Cloning Your GitHub Repository Locally
 
 After creating the repository on GitHub, clone it before adding Quarto files:
@@ -530,6 +555,31 @@ Use this pattern when introducing GitHub to students:
 The point is to make GitHub feel like the normal place where course work lives,
 not an extra upload step at the end.
 
+::: {layout-ncol=3}
+![A new empty repository is ready for its first files.](./images/ch02/github_empty_repo.png)
+
+![After students push, GitHub shows the repository contents.](./images/ch02/github_repo.png)
+
+![The push step confirms the local work reached GitHub.](./images/ch02/github_push.png)
+:::
+
+### GitHub Pages as a Course Publishing Target
+
+For portfolio-style assignments or small public course sites, GitHub Pages can
+publish a repository directly. In an education workflow, this works best after
+students already understand commits and pushes.
+
+Two common patterns are:
+
+- a user site repository named `yourusername.github.io`
+- a project site that publishes from a `docs/` folder or configured branch
+
+::: {layout-ncol=2}
+![A GitHub Pages user site repository follows the `username.github.io` convention.](./images/ch02/gh-pages-user-site.png)
+
+![A project site can publish from a configured folder such as `docs/`.](./images/ch02/gh-pages-docs-dir.png)
+:::
+
 ### SSH Keys for GitHub
 
 HTTPS cloning is often enough for a first course repository. SSH becomes useful
@@ -560,6 +610,8 @@ Then add the public key to GitHub under SSH keys and test:
 ```bash
 ssh -T git@github.com
 ```
+
+![The SSH key-generation step creates a private key and a public key. Only the public key goes to GitHub.](./images/ch02/sshkeygen.png){width="70%" fig-align="center"}
 
 If students later work on EC2, remind them not to place private keys in a Git
 repository or cloud-synced folder. Authentication files are part of the
@@ -755,6 +807,14 @@ git merge colleague-updates
 
 Don't wait until the end of the semester to commit changes. Small, frequent commits are easier to understand and revert if needed. Think of commits as saving chapters of your course's story.
 
+For Quarto course development, commit when the course reaches a coherent state:
+
+- a chapter renders cleanly
+- a new lab has its data, screenshots, and instructions
+- a figure or table now comes from source code instead of manual copying
+- the navigation in `_quarto.yml` changes
+- the rendered `_book` output has been rebuilt and checked
+
 ### Write Clear Commit Messages
 
 Your future self will thank you. A good message explains *why* a change was made:
@@ -786,6 +846,17 @@ Your README.md is the front door to your repository. It should explain:
 - How to use the materials
 - How to contribute (for open repositories)
 - Any technical requirements
+
+For a Quarto course, the README should also explain how to rebuild the course:
+
+```bash
+quarto render
+```
+
+If the course uses Python or R dependencies, link to the relevant environment
+file (`requirements.txt`, `pyproject.toml`, `renv.lock`, or similar). A course is
+much easier to maintain when a colleague can clone it, install the environment,
+render it, and understand the folder structure without asking for a private tour.
 
 ### Workbook Checklist: Set Up Your Teaching Repository
 
