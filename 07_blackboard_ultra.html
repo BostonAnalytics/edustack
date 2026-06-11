@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Blackboard Ultra: Deploying Quarto Content to Your Course Shell – Designing a Course With Quarto</title>
+<title>10&nbsp; Blackboard Ultra: Deploying Quarto Content to Your Course Shell – Designing a Course With Quarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./08_automating_with_AI.html" rel="next">
-<link href="./06_github_classroom.html" rel="prev">
+<link href="./10_cloud_analytics_with_aws.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dcd75b25a744b280d7d00bef4930cf07.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4a2a86f50aa1d1e0d31e1f3b9bf7fc60.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07_blackboard_ultra.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07_blackboard_ultra.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -195,26 +195,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./10_cloud_analytics_with_aws.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cloud Analytics with AWS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./07_blackboard_ultra.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_automating_with_AI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Automating with AI</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Automating with AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09_capstone_build_like_ad688.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -233,75 +239,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">9.1</span> Introduction</a></li>
-  <li><a href="#understanding-blackboard-ultras-architecture" id="toc-understanding-blackboard-ultras-architecture" class="nav-link" data-scroll-target="#understanding-blackboard-ultras-architecture"><span class="header-section-number">9.2</span> Understanding Blackboard Ultra’s Architecture</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">10.1</span> Introduction</a></li>
+  <li><a href="#understanding-blackboard-ultras-architecture" id="toc-understanding-blackboard-ultras-architecture" class="nav-link" data-scroll-target="#understanding-blackboard-ultras-architecture"><span class="header-section-number">10.2</span> Understanding Blackboard Ultra’s Architecture</a>
   <ul class="collapse">
-  <li><a href="#courses-your-course-shell" id="toc-courses-your-course-shell" class="nav-link" data-scroll-target="#courses-your-course-shell"><span class="header-section-number">9.2.1</span> Courses: Your Course Shell</a></li>
-  <li><a href="#modules-organizing-content-into-units" id="toc-modules-organizing-content-into-units" class="nav-link" data-scroll-target="#modules-organizing-content-into-units"><span class="header-section-number">9.2.2</span> Modules: Organizing Content into Units</a></li>
-  <li><a href="#content-collection-the-file-system" id="toc-content-collection-the-file-system" class="nav-link" data-scroll-target="#content-collection-the-file-system"><span class="header-section-number">9.2.3</span> Content Collection: The File System</a></li>
+  <li><a href="#courses-your-course-shell" id="toc-courses-your-course-shell" class="nav-link" data-scroll-target="#courses-your-course-shell"><span class="header-section-number">10.2.1</span> Courses: Your Course Shell</a></li>
+  <li><a href="#modules-organizing-content-into-units" id="toc-modules-organizing-content-into-units" class="nav-link" data-scroll-target="#modules-organizing-content-into-units"><span class="header-section-number">10.2.2</span> Modules: Organizing Content into Units</a></li>
+  <li><a href="#content-collection-the-file-system" id="toc-content-collection-the-file-system" class="nav-link" data-scroll-target="#content-collection-the-file-system"><span class="header-section-number">10.2.3</span> Content Collection: The File System</a></li>
   </ul></li>
-  <li><a href="#the-strategic-advantage-quarto-blackboard-integration" id="toc-the-strategic-advantage-quarto-blackboard-integration" class="nav-link" data-scroll-target="#the-strategic-advantage-quarto-blackboard-integration"><span class="header-section-number">9.3</span> The Strategic Advantage: Quarto + Blackboard Integration</a>
+  <li><a href="#the-strategic-advantage-quarto-blackboard-integration" id="toc-the-strategic-advantage-quarto-blackboard-integration" class="nav-link" data-scroll-target="#the-strategic-advantage-quarto-blackboard-integration"><span class="header-section-number">10.3</span> The Strategic Advantage: Quarto + Blackboard Integration</a>
   <ul class="collapse">
-  <li><a href="#why-this-approach" id="toc-why-this-approach" class="nav-link" data-scroll-target="#why-this-approach"><span class="header-section-number">9.3.1</span> Why This Approach?</a></li>
+  <li><a href="#why-this-approach" id="toc-why-this-approach" class="nav-link" data-scroll-target="#why-this-approach"><span class="header-section-number">10.3.1</span> Why This Approach?</a></li>
   </ul></li>
-  <li><a href="#initial-setup-before-you-deploy" id="toc-initial-setup-before-you-deploy" class="nav-link" data-scroll-target="#initial-setup-before-you-deploy"><span class="header-section-number">9.4</span> Initial Setup: Before You Deploy</a>
+  <li><a href="#initial-setup-before-you-deploy" id="toc-initial-setup-before-you-deploy" class="nav-link" data-scroll-target="#initial-setup-before-you-deploy"><span class="header-section-number">10.4</span> Initial Setup: Before You Deploy</a>
   <ul class="collapse">
-  <li><a href="#critical-first-step-quarto-course-approval" id="toc-critical-first-step-quarto-course-approval" class="nav-link" data-scroll-target="#critical-first-step-quarto-course-approval"><span class="header-section-number">9.4.1</span> Critical First Step: Quarto Course Approval</a></li>
-  <li><a href="#second-step-structure-review-with-andy" id="toc-second-step-structure-review-with-andy" class="nav-link" data-scroll-target="#second-step-structure-review-with-andy"><span class="header-section-number">9.4.2</span> Second Step: Structure Review with Andy</a></li>
-  <li><a href="#knowledge-check-setup-prerequisites" id="toc-knowledge-check-setup-prerequisites" class="nav-link" data-scroll-target="#knowledge-check-setup-prerequisites"><span class="header-section-number">9.4.3</span> Knowledge Check: Setup Prerequisites</a></li>
+  <li><a href="#critical-first-step-quarto-course-approval" id="toc-critical-first-step-quarto-course-approval" class="nav-link" data-scroll-target="#critical-first-step-quarto-course-approval"><span class="header-section-number">10.4.1</span> Critical First Step: Quarto Course Approval</a></li>
+  <li><a href="#second-step-structure-review-with-andy" id="toc-second-step-structure-review-with-andy" class="nav-link" data-scroll-target="#second-step-structure-review-with-andy"><span class="header-section-number">10.4.2</span> Second Step: Structure Review with Andy</a></li>
+  <li><a href="#knowledge-check-setup-prerequisites" id="toc-knowledge-check-setup-prerequisites" class="nav-link" data-scroll-target="#knowledge-check-setup-prerequisites"><span class="header-section-number">10.4.3</span> Knowledge Check: Setup Prerequisites</a></li>
   </ul></li>
-  <li><a href="#course-structure-template-the-full-year-model" id="toc-course-structure-template-the-full-year-model" class="nav-link" data-scroll-target="#course-structure-template-the-full-year-model"><span class="header-section-number">9.5</span> Course Structure Template: The Full-Year Model</a>
+  <li><a href="#course-structure-template-the-full-year-model" id="toc-course-structure-template-the-full-year-model" class="nav-link" data-scroll-target="#course-structure-template-the-full-year-model"><span class="header-section-number">10.5</span> Course Structure Template: The Full-Year Model</a>
   <ul class="collapse">
-  <li><a href="#overview-of-your-structure" id="toc-overview-of-your-structure" class="nav-link" data-scroll-target="#overview-of-your-structure"><span class="header-section-number">9.5.1</span> Overview of Your Structure</a></li>
-  <li><a href="#understanding-each-component" id="toc-understanding-each-component" class="nav-link" data-scroll-target="#understanding-each-component"><span class="header-section-number">9.5.2</span> Understanding Each Component</a></li>
-  <li><a href="#workbook-exercise-design-your-module-structure" id="toc-workbook-exercise-design-your-module-structure" class="nav-link" data-scroll-target="#workbook-exercise-design-your-module-structure"><span class="header-section-number">9.5.3</span> Workbook Exercise: Design Your Module Structure</a></li>
+  <li><a href="#overview-of-your-structure" id="toc-overview-of-your-structure" class="nav-link" data-scroll-target="#overview-of-your-structure"><span class="header-section-number">10.5.1</span> Overview of Your Structure</a></li>
+  <li><a href="#understanding-each-component" id="toc-understanding-each-component" class="nav-link" data-scroll-target="#understanding-each-component"><span class="header-section-number">10.5.2</span> Understanding Each Component</a></li>
+  <li><a href="#workbook-exercise-design-your-module-structure" id="toc-workbook-exercise-design-your-module-structure" class="nav-link" data-scroll-target="#workbook-exercise-design-your-module-structure"><span class="header-section-number">10.5.3</span> Workbook Exercise: Design Your Module Structure</a></li>
   </ul></li>
-  <li><a href="#creating-content-in-quarto-for-blackboard-deployment" id="toc-creating-content-in-quarto-for-blackboard-deployment" class="nav-link" data-scroll-target="#creating-content-in-quarto-for-blackboard-deployment"><span class="header-section-number">9.6</span> Creating Content in Quarto for Blackboard Deployment</a>
+  <li><a href="#creating-content-in-quarto-for-blackboard-deployment" id="toc-creating-content-in-quarto-for-blackboard-deployment" class="nav-link" data-scroll-target="#creating-content-in-quarto-for-blackboard-deployment"><span class="header-section-number">10.6</span> Creating Content in Quarto for Blackboard Deployment</a>
   <ul class="collapse">
-  <li><a href="#project-organization-in-quarto" id="toc-project-organization-in-quarto" class="nav-link" data-scroll-target="#project-organization-in-quarto"><span class="header-section-number">9.6.1</span> Project Organization in Quarto</a></li>
-  <li><a href="#configuration-_quarto.yml" id="toc-configuration-_quarto.yml" class="nav-link" data-scroll-target="#configuration-_quarto.yml"><span class="header-section-number">9.6.2</span> Configuration: <code>_quarto.yml</code></a></li>
-  <li><a href="#rendering-and-packaging-for-blackboard" id="toc-rendering-and-packaging-for-blackboard" class="nav-link" data-scroll-target="#rendering-and-packaging-for-blackboard"><span class="header-section-number">9.6.3</span> Rendering and Packaging for Blackboard</a></li>
-  <li><a href="#image-references-why-they-persist" id="toc-image-references-why-they-persist" class="nav-link" data-scroll-target="#image-references-why-they-persist"><span class="header-section-number">9.6.4</span> Image References: Why They Persist</a></li>
+  <li><a href="#project-organization-in-quarto" id="toc-project-organization-in-quarto" class="nav-link" data-scroll-target="#project-organization-in-quarto"><span class="header-section-number">10.6.1</span> Project Organization in Quarto</a></li>
+  <li><a href="#configuration-_quarto.yml" id="toc-configuration-_quarto.yml" class="nav-link" data-scroll-target="#configuration-_quarto.yml"><span class="header-section-number">10.6.2</span> Configuration: <code>_quarto.yml</code></a></li>
+  <li><a href="#rendering-and-packaging-for-blackboard" id="toc-rendering-and-packaging-for-blackboard" class="nav-link" data-scroll-target="#rendering-and-packaging-for-blackboard"><span class="header-section-number">10.6.3</span> Rendering and Packaging for Blackboard</a></li>
+  <li><a href="#image-references-why-they-persist" id="toc-image-references-why-they-persist" class="nav-link" data-scroll-target="#image-references-why-they-persist"><span class="header-section-number">10.6.4</span> Image References: Why They Persist</a></li>
   </ul></li>
-  <li><a href="#uploading-content-to-blackboard" id="toc-uploading-content-to-blackboard" class="nav-link" data-scroll-target="#uploading-content-to-blackboard"><span class="header-section-number">9.7</span> Uploading Content to Blackboard</a>
+  <li><a href="#uploading-content-to-blackboard" id="toc-uploading-content-to-blackboard" class="nav-link" data-scroll-target="#uploading-content-to-blackboard"><span class="header-section-number">10.7</span> Uploading Content to Blackboard</a>
   <ul class="collapse">
-  <li><a href="#initial-setup-first-time-upload" id="toc-initial-setup-first-time-upload" class="nav-link" data-scroll-target="#initial-setup-first-time-upload"><span class="header-section-number">9.7.1</span> Initial Setup: First-Time Upload</a></li>
-  <li><a href="#subsequent-updates-semester-deployment" id="toc-subsequent-updates-semester-deployment" class="nav-link" data-scroll-target="#subsequent-updates-semester-deployment"><span class="header-section-number">9.7.2</span> Subsequent Updates: Semester Deployment</a></li>
-  <li><a href="#workbook-exercise-prepare-your-first-deployment" id="toc-workbook-exercise-prepare-your-first-deployment" class="nav-link" data-scroll-target="#workbook-exercise-prepare-your-first-deployment"><span class="header-section-number">9.7.3</span> Workbook Exercise: Prepare Your First Deployment</a></li>
+  <li><a href="#initial-setup-first-time-upload" id="toc-initial-setup-first-time-upload" class="nav-link" data-scroll-target="#initial-setup-first-time-upload"><span class="header-section-number">10.7.1</span> Initial Setup: First-Time Upload</a></li>
+  <li><a href="#subsequent-updates-semester-deployment" id="toc-subsequent-updates-semester-deployment" class="nav-link" data-scroll-target="#subsequent-updates-semester-deployment"><span class="header-section-number">10.7.2</span> Subsequent Updates: Semester Deployment</a></li>
+  <li><a href="#workbook-exercise-prepare-your-first-deployment" id="toc-workbook-exercise-prepare-your-first-deployment" class="nav-link" data-scroll-target="#workbook-exercise-prepare-your-first-deployment"><span class="header-section-number">10.7.3</span> Workbook Exercise: Prepare Your First Deployment</a></li>
   </ul></li>
-  <li><a href="#best-practices-for-quarto-blackboard-integration" id="toc-best-practices-for-quarto-blackboard-integration" class="nav-link" data-scroll-target="#best-practices-for-quarto-blackboard-integration"><span class="header-section-number">9.8</span> Best Practices for Quarto + Blackboard Integration</a>
+  <li><a href="#best-practices-for-quarto-blackboard-integration" id="toc-best-practices-for-quarto-blackboard-integration" class="nav-link" data-scroll-target="#best-practices-for-quarto-blackboard-integration"><span class="header-section-number">10.8</span> Best Practices for Quarto + Blackboard Integration</a>
   <ul class="collapse">
-  <li><a href="#file-naming-conventions" id="toc-file-naming-conventions" class="nav-link" data-scroll-target="#file-naming-conventions"><span class="header-section-number">9.8.1</span> File Naming Conventions</a></li>
-  <li><a href="#urllink-strategy" id="toc-urllink-strategy" class="nav-link" data-scroll-target="#urllink-strategy"><span class="header-section-number">9.8.2</span> URL/Link Strategy</a></li>
-  <li><a href="#maintenance-during-the-semester" id="toc-maintenance-during-the-semester" class="nav-link" data-scroll-target="#maintenance-during-the-semester"><span class="header-section-number">9.8.3</span> Maintenance During the Semester</a></li>
-  <li><a href="#disaster-recovery-and-rollback" id="toc-disaster-recovery-and-rollback" class="nav-link" data-scroll-target="#disaster-recovery-and-rollback"><span class="header-section-number">9.8.4</span> Disaster Recovery and Rollback</a></li>
+  <li><a href="#file-naming-conventions" id="toc-file-naming-conventions" class="nav-link" data-scroll-target="#file-naming-conventions"><span class="header-section-number">10.8.1</span> File Naming Conventions</a></li>
+  <li><a href="#urllink-strategy" id="toc-urllink-strategy" class="nav-link" data-scroll-target="#urllink-strategy"><span class="header-section-number">10.8.2</span> URL/Link Strategy</a></li>
+  <li><a href="#maintenance-during-the-semester" id="toc-maintenance-during-the-semester" class="nav-link" data-scroll-target="#maintenance-during-the-semester"><span class="header-section-number">10.8.3</span> Maintenance During the Semester</a></li>
+  <li><a href="#disaster-recovery-and-rollback" id="toc-disaster-recovery-and-rollback" class="nav-link" data-scroll-target="#disaster-recovery-and-rollback"><span class="header-section-number">10.8.4</span> Disaster Recovery and Rollback</a></li>
   </ul></li>
-  <li><a href="#reference-documentation-official-resources" id="toc-reference-documentation-official-resources" class="nav-link" data-scroll-target="#reference-documentation-official-resources"><span class="header-section-number">9.9</span> Reference Documentation: Official Resources</a>
+  <li><a href="#reference-documentation-official-resources" id="toc-reference-documentation-official-resources" class="nav-link" data-scroll-target="#reference-documentation-official-resources"><span class="header-section-number">10.9</span> Reference Documentation: Official Resources</a>
   <ul class="collapse">
-  <li><a href="#boston-university-blackboard-resources" id="toc-boston-university-blackboard-resources" class="nav-link" data-scroll-target="#boston-university-blackboard-resources"><span class="header-section-number">9.9.1</span> Boston University Blackboard Resources</a></li>
-  <li><a href="#external-blackboard-resources" id="toc-external-blackboard-resources" class="nav-link" data-scroll-target="#external-blackboard-resources"><span class="header-section-number">9.9.2</span> External Blackboard Resources</a></li>
-  <li><a href="#quarto-for-education" id="toc-quarto-for-education" class="nav-link" data-scroll-target="#quarto-for-education"><span class="header-section-number">9.9.3</span> Quarto for Education</a></li>
+  <li><a href="#boston-university-blackboard-resources" id="toc-boston-university-blackboard-resources" class="nav-link" data-scroll-target="#boston-university-blackboard-resources"><span class="header-section-number">10.9.1</span> Boston University Blackboard Resources</a></li>
+  <li><a href="#external-blackboard-resources" id="toc-external-blackboard-resources" class="nav-link" data-scroll-target="#external-blackboard-resources"><span class="header-section-number">10.9.2</span> External Blackboard Resources</a></li>
+  <li><a href="#quarto-for-education" id="toc-quarto-for-education" class="nav-link" data-scroll-target="#quarto-for-education"><span class="header-section-number">10.9.3</span> Quarto for Education</a></li>
   </ul></li>
-  <li><a href="#workbook-checklist-complete-blackboard-ultra-integration" id="toc-workbook-checklist-complete-blackboard-ultra-integration" class="nav-link" data-scroll-target="#workbook-checklist-complete-blackboard-ultra-integration"><span class="header-section-number">9.10</span> Workbook Checklist: Complete Blackboard Ultra Integration</a>
+  <li><a href="#workbook-checklist-complete-blackboard-ultra-integration" id="toc-workbook-checklist-complete-blackboard-ultra-integration" class="nav-link" data-scroll-target="#workbook-checklist-complete-blackboard-ultra-integration"><span class="header-section-number">10.10</span> Workbook Checklist: Complete Blackboard Ultra Integration</a>
   <ul class="collapse">
-  <li><a href="#phase-1-planning-approval" id="toc-phase-1-planning-approval" class="nav-link" data-scroll-target="#phase-1-planning-approval"><span class="header-section-number">9.10.1</span> Phase 1: Planning &amp; Approval</a></li>
-  <li><a href="#phase-2-quarto-project-setup" id="toc-phase-2-quarto-project-setup" class="nav-link" data-scroll-target="#phase-2-quarto-project-setup"><span class="header-section-number">9.10.2</span> Phase 2: Quarto Project Setup</a></li>
-  <li><a href="#phase-3-content-preparation" id="toc-phase-3-content-preparation" class="nav-link" data-scroll-target="#phase-3-content-preparation"><span class="header-section-number">9.10.3</span> Phase 3: Content Preparation</a></li>
-  <li><a href="#phase-4-packaging-first-deployment" id="toc-phase-4-packaging-first-deployment" class="nav-link" data-scroll-target="#phase-4-packaging-first-deployment"><span class="header-section-number">9.10.4</span> Phase 4: Packaging &amp; First Deployment</a></li>
-  <li><a href="#phase-5-ongoing-management" id="toc-phase-5-ongoing-management" class="nav-link" data-scroll-target="#phase-5-ongoing-management"><span class="header-section-number">9.10.5</span> Phase 5: Ongoing Management</a></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation"><span class="header-section-number">9.10.6</span> Documentation</a></li>
+  <li><a href="#phase-1-planning-approval" id="toc-phase-1-planning-approval" class="nav-link" data-scroll-target="#phase-1-planning-approval"><span class="header-section-number">10.10.1</span> Phase 1: Planning &amp; Approval</a></li>
+  <li><a href="#phase-2-quarto-project-setup" id="toc-phase-2-quarto-project-setup" class="nav-link" data-scroll-target="#phase-2-quarto-project-setup"><span class="header-section-number">10.10.2</span> Phase 2: Quarto Project Setup</a></li>
+  <li><a href="#phase-3-content-preparation" id="toc-phase-3-content-preparation" class="nav-link" data-scroll-target="#phase-3-content-preparation"><span class="header-section-number">10.10.3</span> Phase 3: Content Preparation</a></li>
+  <li><a href="#phase-4-packaging-first-deployment" id="toc-phase-4-packaging-first-deployment" class="nav-link" data-scroll-target="#phase-4-packaging-first-deployment"><span class="header-section-number">10.10.4</span> Phase 4: Packaging &amp; First Deployment</a></li>
+  <li><a href="#phase-5-ongoing-management" id="toc-phase-5-ongoing-management" class="nav-link" data-scroll-target="#phase-5-ongoing-management"><span class="header-section-number">10.10.5</span> Phase 5: Ongoing Management</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation"><span class="header-section-number">10.10.6</span> Documentation</a></li>
   </ul></li>
-  <li><a href="#troubleshooting-common-issues" id="toc-troubleshooting-common-issues" class="nav-link" data-scroll-target="#troubleshooting-common-issues"><span class="header-section-number">9.11</span> Troubleshooting Common Issues</a>
+  <li><a href="#troubleshooting-common-issues" id="toc-troubleshooting-common-issues" class="nav-link" data-scroll-target="#troubleshooting-common-issues"><span class="header-section-number">10.11</span> Troubleshooting Common Issues</a>
   <ul class="collapse">
-  <li><a href="#problem-links-break-after-uploading-to-blackboard" id="toc-problem-links-break-after-uploading-to-blackboard" class="nav-link" data-scroll-target="#problem-links-break-after-uploading-to-blackboard"><span class="header-section-number">9.11.1</span> Problem: Links Break After Uploading to Blackboard</a></li>
-  <li><a href="#problem-images-dont-display-in-blackboard" id="toc-problem-images-dont-display-in-blackboard" class="nav-link" data-scroll-target="#problem-images-dont-display-in-blackboard"><span class="header-section-number">9.11.2</span> Problem: Images Don’t Display in Blackboard</a></li>
-  <li><a href="#problem-content-collection-upload-fails" id="toc-problem-content-collection-upload-fails" class="nav-link" data-scroll-target="#problem-content-collection-upload-fails"><span class="header-section-number">9.11.3</span> Problem: Content Collection Upload Fails</a></li>
-  <li><a href="#problem-students-see-old-content-after-re-upload" id="toc-problem-students-see-old-content-after-re-upload" class="nav-link" data-scroll-target="#problem-students-see-old-content-after-re-upload"><span class="header-section-number">9.11.4</span> Problem: Students See Old Content After Re-upload</a></li>
-  <li><a href="#problem-module-structure-changes-required-mid-semester" id="toc-problem-module-structure-changes-required-mid-semester" class="nav-link" data-scroll-target="#problem-module-structure-changes-required-mid-semester"><span class="header-section-number">9.11.5</span> Problem: Module Structure Changes Required Mid-Semester</a></li>
+  <li><a href="#problem-links-break-after-uploading-to-blackboard" id="toc-problem-links-break-after-uploading-to-blackboard" class="nav-link" data-scroll-target="#problem-links-break-after-uploading-to-blackboard"><span class="header-section-number">10.11.1</span> Problem: Links Break After Uploading to Blackboard</a></li>
+  <li><a href="#problem-images-dont-display-in-blackboard" id="toc-problem-images-dont-display-in-blackboard" class="nav-link" data-scroll-target="#problem-images-dont-display-in-blackboard"><span class="header-section-number">10.11.2</span> Problem: Images Don’t Display in Blackboard</a></li>
+  <li><a href="#problem-content-collection-upload-fails" id="toc-problem-content-collection-upload-fails" class="nav-link" data-scroll-target="#problem-content-collection-upload-fails"><span class="header-section-number">10.11.3</span> Problem: Content Collection Upload Fails</a></li>
+  <li><a href="#problem-students-see-old-content-after-re-upload" id="toc-problem-students-see-old-content-after-re-upload" class="nav-link" data-scroll-target="#problem-students-see-old-content-after-re-upload"><span class="header-section-number">10.11.4</span> Problem: Students See Old Content After Re-upload</a></li>
+  <li><a href="#problem-module-structure-changes-required-mid-semester" id="toc-problem-module-structure-changes-required-mid-semester" class="nav-link" data-scroll-target="#problem-module-structure-changes-required-mid-semester"><span class="header-section-number">10.11.5</span> Problem: Module Structure Changes Required Mid-Semester</a></li>
   </ul></li>
-  <li><a href="#summary-mastering-quarto-blackboard-integration" id="toc-summary-mastering-quarto-blackboard-integration" class="nav-link" data-scroll-target="#summary-mastering-quarto-blackboard-integration"><span class="header-section-number">9.12</span> Summary: Mastering Quarto + Blackboard Integration</a></li>
-  <li><a href="#knowledge-check-verify-your-understanding" id="toc-knowledge-check-verify-your-understanding" class="nav-link" data-scroll-target="#knowledge-check-verify-your-understanding"><span class="header-section-number">9.13</span> Knowledge Check: Verify Your Understanding</a></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">9.14</span> Next Steps</a></li>
+  <li><a href="#summary-mastering-quarto-blackboard-integration" id="toc-summary-mastering-quarto-blackboard-integration" class="nav-link" data-scroll-target="#summary-mastering-quarto-blackboard-integration"><span class="header-section-number">10.12</span> Summary: Mastering Quarto + Blackboard Integration</a></li>
+  <li><a href="#knowledge-check-verify-your-understanding" id="toc-knowledge-check-verify-your-understanding" class="nav-link" data-scroll-target="#knowledge-check-verify-your-understanding"><span class="header-section-number">10.13</span> Knowledge Check: Verify Your Understanding</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">10.14</span> Next Steps</a></li>
   </ul>
 </nav>
     </div>
@@ -310,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Blackboard Ultra: Deploying Quarto Content to Your Course Shell</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Blackboard Ultra: Deploying Quarto Content to Your Course Shell</span></h1>
 </div>
 
 
@@ -327,14 +333,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introduction" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">9.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">10.1</span> Introduction</h2>
 <p>Blackboard Ultra is Boston University’s learning management system. It serves as the hub where students access your course materials, submit assignments, engage in discussions, and check their grades. The power of Blackboard Ultra emerges when you integrate it with your professionally-designed course materials created in Quarto.</p>
 <p>This chapter guides you through the strategic integration of Quarto-generated course content with Blackboard Ultra’s content collection system. Rather than manually creating and updating content in Blackboard, you’ll develop your materials once in Quarto, generate HTML files, and deploy them as a complete package into Blackboard—making updates seamless and maintaining a single source of truth for your course materials.</p>
 <p>By the end of this chapter, you’ll understand: - How Blackboard Ultra manages content and links to external resources - The workflow for packaging Quarto content into Blackboard-ready formats - The initial setup process with BU’s Blackboard team - The specific folder structure that enables seamless content management - How to deploy updates throughout the semester without disrupting your course</p>
 </section>
-<section id="understanding-blackboard-ultras-architecture" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="understanding-blackboard-ultras-architecture"><span class="header-section-number">9.2</span> Understanding Blackboard Ultra’s Architecture</h2>
+<section id="understanding-blackboard-ultras-architecture" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="understanding-blackboard-ultras-architecture"><span class="header-section-number">10.2</span> Understanding Blackboard Ultra’s Architecture</h2>
 <p>Blackboard Ultra is structured around <strong>courses</strong>, <strong>modules</strong>, and <strong>content</strong>. Let’s clarify each:</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -348,16 +354,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="courses-your-course-shell" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="courses-your-course-shell"><span class="header-section-number">9.2.1</span> Courses: Your Course Shell</h3>
+<section id="courses-your-course-shell" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="courses-your-course-shell"><span class="header-section-number">10.2.1</span> Courses: Your Course Shell</h3>
 <p>Your Blackboard course is the container for everything—all materials, assessments, discussions, and grades. Within Blackboard, you organize content into logical sections called modules.</p>
 </section>
-<section id="modules-organizing-content-into-units" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="modules-organizing-content-into-units"><span class="header-section-number">9.2.2</span> Modules: Organizing Content into Units</h3>
+<section id="modules-organizing-content-into-units" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="modules-organizing-content-into-units"><span class="header-section-number">10.2.2</span> Modules: Organizing Content into Units</h3>
 <p>Modules correspond to weeks, units, or thematic sections of your course. Each module typically contains lectures, readings, assignments, and discussions related to a specific topic.</p>
 </section>
-<section id="content-collection-the-file-system" class="level3" data-number="9.2.3">
-<h3 data-number="9.2.3" class="anchored" data-anchor-id="content-collection-the-file-system"><span class="header-section-number">9.2.3</span> Content Collection: The File System</h3>
+<section id="content-collection-the-file-system" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="content-collection-the-file-system"><span class="header-section-number">10.2.3</span> Content Collection: The File System</h3>
 <p>Blackboard maintains a <strong>content collection</strong>—essentially a cloud file system where all your files are stored. Rather than embedding content directly in Blackboard’s interface, you upload files (HTML, PDFs, images) to the content collection and then link to them from various course elements.</p>
 <p>This is where your Quarto-generated HTML files live. Once uploaded to the content collection, Blackboard displays them through its interface, maintaining consistent branding and navigation.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -373,8 +379,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="the-strategic-advantage-quarto-blackboard-integration" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="the-strategic-advantage-quarto-blackboard-integration"><span class="header-section-number">9.3</span> The Strategic Advantage: Quarto + Blackboard Integration</h2>
+<section id="the-strategic-advantage-quarto-blackboard-integration" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="the-strategic-advantage-quarto-blackboard-integration"><span class="header-section-number">10.3</span> The Strategic Advantage: Quarto + Blackboard Integration</h2>
 <p>Rather than creating content in Word or directly in Blackboard’s text editor, you’ll:</p>
 <ol type="1">
 <li><strong>Author in Quarto</strong>: Create your course materials in clean, maintainable Quarto files (<code>.qmd</code>)</li>
@@ -384,8 +390,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Link from Modules</strong>: Create course module structures that point to your HTML content</li>
 <li><strong>Update Seamlessly</strong>: When content changes, regenerate <code>_site.zip</code> and re-upload—Blackboard replaces old files with new versions</li>
 </ol>
-<section id="why-this-approach" class="level3" data-number="9.3.1">
-<h3 data-number="9.3.1" class="anchored" data-anchor-id="why-this-approach"><span class="header-section-number">9.3.1</span> Why This Approach?</h3>
+<section id="why-this-approach" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="why-this-approach"><span class="header-section-number">10.3.1</span> Why This Approach?</h3>
 <p><strong>Single Source of Truth</strong>: Your course materials exist in one place (your Quarto project). Both you and your students work from the same, authoritative version.</p>
 <p><strong>Professional Presentation</strong>: Quarto produces clean, accessible HTML with consistent formatting. Your course looks polished without spending time on Blackboard’s styling.</p>
 <p><strong>Version Control</strong>: Your Quarto files live in Git, creating a complete history of how your course evolved.</p>
@@ -393,10 +399,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Consistency Across Semesters</strong>: Template your course structure, then swap in new content for each term.</p>
 </section>
 </section>
-<section id="initial-setup-before-you-deploy" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="initial-setup-before-you-deploy"><span class="header-section-number">9.4</span> Initial Setup: Before You Deploy</h2>
-<section id="critical-first-step-quarto-course-approval" class="level3" data-number="9.4.1">
-<h3 data-number="9.4.1" class="anchored" data-anchor-id="critical-first-step-quarto-course-approval"><span class="header-section-number">9.4.1</span> Critical First Step: Quarto Course Approval</h3>
+<section id="initial-setup-before-you-deploy" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="initial-setup-before-you-deploy"><span class="header-section-number">10.4</span> Initial Setup: Before You Deploy</h2>
+<section id="critical-first-step-quarto-course-approval" class="level3" data-number="10.4.1">
+<h3 data-number="10.4.1" class="anchored" data-anchor-id="critical-first-step-quarto-course-approval"><span class="header-section-number">10.4.1</span> Critical First Step: Quarto Course Approval</h3>
 <p>Before you can effectively deploy Quarto content to Blackboard, your course structure must be officially approved at Boston University. This ensures compatibility with BU’s Blackboard configuration and technical support can assist if issues arise.</p>
 <p><strong>Process</strong>:</p>
 <ol type="1">
@@ -428,8 +434,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ol>
 </section>
-<section id="second-step-structure-review-with-andy" class="level3" data-number="9.4.2">
-<h3 data-number="9.4.2" class="anchored" data-anchor-id="second-step-structure-review-with-andy"><span class="header-section-number">9.4.2</span> Second Step: Structure Review with Andy</h3>
+<section id="second-step-structure-review-with-andy" class="level3" data-number="10.4.2">
+<h3 data-number="10.4.2" class="anchored" data-anchor-id="second-step-structure-review-with-andy"><span class="header-section-number">10.4.2</span> Second Step: Structure Review with Andy</h3>
 <p>After Kim approves your Quarto approach, you’ll coordinate with Andy on the Blackboard side:</p>
 <p><strong>Process</strong>:</p>
 <ol type="1">
@@ -456,8 +462,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ol>
 </section>
-<section id="knowledge-check-setup-prerequisites" class="level3" data-number="9.4.3">
-<h3 data-number="9.4.3" class="anchored" data-anchor-id="knowledge-check-setup-prerequisites"><span class="header-section-number">9.4.3</span> Knowledge Check: Setup Prerequisites</h3>
+<section id="knowledge-check-setup-prerequisites" class="level3" data-number="10.4.3">
+<h3 data-number="10.4.3" class="anchored" data-anchor-id="knowledge-check-setup-prerequisites"><span class="header-section-number">10.4.3</span> Knowledge Check: Setup Prerequisites</h3>
 <p>Before proceeding, verify you’ve completed the necessary groundwork:</p>
 <ul class="task-list">
 <li><label><input type="checkbox">You’ve created a preliminary Quarto project for your course</label></li>
@@ -473,11 +479,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 </section>
 </section>
-<section id="course-structure-template-the-full-year-model" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="course-structure-template-the-full-year-model"><span class="header-section-number">9.5</span> Course Structure Template: The Full-Year Model</h2>
+<section id="course-structure-template-the-full-year-model" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="course-structure-template-the-full-year-model"><span class="header-section-number">10.5</span> Course Structure Template: The Full-Year Model</h2>
 <p>Now that you understand the setup process, let’s detail the specific structure you’ve developed for your courses. This structure balances content organization with manageable maintenance and clear student navigation.</p>
-<section id="overview-of-your-structure" class="level3" data-number="9.5.1">
-<h3 data-number="9.5.1" class="anchored" data-anchor-id="overview-of-your-structure"><span class="header-section-number">9.5.1</span> Overview of Your Structure</h3>
+<section id="overview-of-your-structure" class="level3" data-number="10.5.1">
+<h3 data-number="10.5.1" class="anchored" data-anchor-id="overview-of-your-structure"><span class="header-section-number">10.5.1</span> Overview of Your Structure</h3>
 <p>Your model organizes each module around a core concept or unit, with distinct folders for content delivery, learning materials, and assignments:</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -509,10 +515,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     ├── Participation 2
     └── Project Step [N]</code></pre>
 </section>
-<section id="understanding-each-component" class="level3" data-number="9.5.2">
-<h3 data-number="9.5.2" class="anchored" data-anchor-id="understanding-each-component"><span class="header-section-number">9.5.2</span> Understanding Each Component</h3>
-<section id="wrap-up-content" class="level4" data-number="9.5.2.1">
-<h4 data-number="9.5.2.1" class="anchored" data-anchor-id="wrap-up-content"><span class="header-section-number">9.5.2.1</span> Wrap-Up Content</h4>
+<section id="understanding-each-component" class="level3" data-number="10.5.2">
+<h3 data-number="10.5.2" class="anchored" data-anchor-id="understanding-each-component"><span class="header-section-number">10.5.2</span> Understanding Each Component</h3>
+<section id="wrap-up-content" class="level4" data-number="10.5.2.1">
+<h4 data-number="10.5.2.1" class="anchored" data-anchor-id="wrap-up-content"><span class="header-section-number">10.5.2.1</span> Wrap-Up Content</h4>
 <p><strong>Purpose</strong>: Provides a module overview, learning objectives, and synthesis of concepts.</p>
 <p><strong>Content Examples</strong>: - Summary of key concepts - Module learning outcomes - Prerequisites - Recommended reading order - Time estimates for completion</p>
 <p><strong>In Quarto</strong>: Create this as a dedicated <code>.qmd</code> file that renders as your module introduction. For example:</p>
@@ -541,8 +547,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="highlight-page" class="level4" data-number="9.5.2.2">
-<h4 data-number="9.5.2.2" class="anchored" data-anchor-id="highlight-page"><span class="header-section-number">9.5.2.2</span> Highlight Page</h4>
+<section id="highlight-page" class="level4" data-number="10.5.2.2">
+<h4 data-number="10.5.2.2" class="anchored" data-anchor-id="highlight-page"><span class="header-section-number">10.5.2.2</span> Highlight Page</h4>
 <p><strong>Purpose</strong>: A special HTML page highlighting a particular concept, real-world application, or student spotlight.</p>
 <p><strong>Examples</strong>: - “Industry Spotlight: How Netflix Uses Data Science” - “Case Study: Successful Project Implementation” - “Student Spotlight: Award-Winning Project” - “Emerging Trends: AI in Healthcare”</p>
 <p><strong>Creation</strong>: This can be a more visually-rich Quarto file, incorporating: - Images and diagrams - Embedded videos - Interactive elements - Special formatting or CSS customization</p>
@@ -559,8 +565,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="lecture-folders-module-x-lecture-1-module-x-lecture-2" class="level4" data-number="9.5.2.3">
-<h4 data-number="9.5.2.3" class="anchored" data-anchor-id="lecture-folders-module-x-lecture-1-module-x-lecture-2"><span class="header-section-number">9.5.2.3</span> Lecture Folders (Module [X] Lecture 1, Module [X] Lecture 2)</h4>
+<section id="lecture-folders-module-x-lecture-1-module-x-lecture-2" class="level4" data-number="10.5.2.3">
+<h4 data-number="10.5.2.3" class="anchored" data-anchor-id="lecture-folders-module-x-lecture-1-module-x-lecture-2"><span class="header-section-number">10.5.2.3</span> Lecture Folders (Module [X] Lecture 1, Module [X] Lecture 2)</h4>
 <p>Your course typically includes two lectures per module. Each lecture folder contains three standardized components:</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -574,8 +580,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="lecture-notes" class="level5" data-number="9.5.2.3.1">
-<h5 data-number="9.5.2.3.1" class="anchored" data-anchor-id="lecture-notes"><span class="header-section-number">9.5.2.3.1</span> Lecture Notes</h5>
+<section id="lecture-notes" class="level5" data-number="10.5.2.3.1">
+<h5 data-number="10.5.2.3.1" class="anchored" data-anchor-id="lecture-notes"><span class="header-section-number">10.5.2.3.1</span> Lecture Notes</h5>
 <p><strong>Format</strong>: Detailed written notes covering all lecture content.</p>
 <p><strong>In Quarto</strong>: Create as a <code>.qmd</code> file with:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lecture 1: Foundational Concepts</span></span>
@@ -602,14 +608,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Point 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Advantage</strong>: Students can review the lecture asynchronously, search for specific content, and have a reference document throughout the course.</p>
 </section>
-<section id="presentation" class="level5" data-number="9.5.2.3.2">
-<h5 data-number="9.5.2.3.2" class="anchored" data-anchor-id="presentation"><span class="header-section-number">9.5.2.3.2</span> Presentation</h5>
+<section id="presentation" class="level5" data-number="10.5.2.3.2">
+<h5 data-number="10.5.2.3.2" class="anchored" data-anchor-id="presentation"><span class="header-section-number">10.5.2.3.2</span> Presentation</h5>
 <p><strong>Format</strong>: The slide presentation from your live lecture or a structured presentation of key concepts.</p>
 <p><strong>In Quarto</strong>: Either: - Export slides as static HTML for viewing in the browser - Include links to PDF versions of presentations - Create interactive HTML presentations using Quarto’s reveal.js integration</p>
 <p><strong>Tip</strong>: Always provide both presentation and notes. Some students learn better from visuals; others prefer reading detailed explanations.</p>
 </section>
-<section id="tutorial" class="level5" data-number="9.5.2.3.3">
-<h5 data-number="9.5.2.3.3" class="anchored" data-anchor-id="tutorial"><span class="header-section-number">9.5.2.3.3</span> Tutorial</h5>
+<section id="tutorial" class="level5" data-number="10.5.2.3.3">
+<h5 data-number="10.5.2.3.3" class="anchored" data-anchor-id="tutorial"><span class="header-section-number">10.5.2.3.3</span> Tutorial</h5>
 <p><strong>Format</strong>: Hands-on, step-by-step guidance for applying the lecture concepts.</p>
 <p><strong>In Quarto</strong>: Create interactive tutorials with: - Code examples (with syntax highlighting) - Expected outputs - Common mistakes to avoid - Practice exercises</p>
 <p>Example structure:</p>
@@ -632,8 +638,8 @@ Now you try! [Exercise prompt]
 [Revealed after students attempt]</code></pre>
 </section>
 </section>
-<section id="deliverables-folder" class="level4" data-number="9.5.2.4">
-<h4 data-number="9.5.2.4" class="anchored" data-anchor-id="deliverables-folder"><span class="header-section-number">9.5.2.4</span> Deliverables Folder</h4>
+<section id="deliverables-folder" class="level4" data-number="10.5.2.4">
+<h4 data-number="10.5.2.4" class="anchored" data-anchor-id="deliverables-folder"><span class="header-section-number">10.5.2.4</span> Deliverables Folder</h4>
 <p>This folder organizes all student assignments, labs, participation activities, and project milestones. Each item has an associated submission window.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -646,8 +652,8 @@ Now you try! [Exercise prompt]
 </div>
 </div>
 </div>
-<section id="assignment" class="level5" data-number="9.5.2.4.1">
-<h5 data-number="9.5.2.4.1" class="anchored" data-anchor-id="assignment"><span class="header-section-number">9.5.2.4.1</span> Assignment</h5>
+<section id="assignment" class="level5" data-number="10.5.2.4.1">
+<h5 data-number="10.5.2.4.1" class="anchored" data-anchor-id="assignment"><span class="header-section-number">10.5.2.4.1</span> Assignment</h5>
 <p><strong>Purpose</strong>: The primary assessment for the module, typically demonstrating mastery of core concepts.</p>
 <p><strong>Structure</strong>: - Prompt or problem statement - Submission requirements - Grading rubric - Due date with submission window - Optional: Example solutions or rubrics</p>
 <p><strong>In Quarto</strong>: Create as a <code>.qmd</code> file with clear sections:</p>
@@ -686,8 +692,8 @@ Now you try! [Exercise prompt]
 </div>
 </div>
 </section>
-<section id="labs-2-per-module" class="level5" data-number="9.5.2.4.2">
-<h5 data-number="9.5.2.4.2" class="anchored" data-anchor-id="labs-2-per-module"><span class="header-section-number">9.5.2.4.2</span> Labs (2 per module)</h5>
+<section id="labs-2-per-module" class="level5" data-number="10.5.2.4.2">
+<h5 data-number="10.5.2.4.2" class="anchored" data-anchor-id="labs-2-per-module"><span class="header-section-number">10.5.2.4.2</span> Labs (2 per module)</h5>
 <p><strong>Purpose</strong>: Shorter, focused practice activities reinforcing specific skills.</p>
 <p><strong>Structure</strong>: - Clear objective - Guided steps - Verification or self-check mechanism</p>
 <p><strong>Example Topics</strong>: - Lab 1: SQL Query Practice - Lab 2: Debugging Common Errors</p>
@@ -704,8 +710,8 @@ Now you try! [Exercise prompt]
 </div>
 </div>
 </section>
-<section id="participation-activities-2-per-module" class="level5" data-number="9.5.2.4.3">
-<h5 data-number="9.5.2.4.3" class="anchored" data-anchor-id="participation-activities-2-per-module"><span class="header-section-number">9.5.2.4.3</span> Participation Activities (2 per module)</h5>
+<section id="participation-activities-2-per-module" class="level5" data-number="10.5.2.4.3">
+<h5 data-number="10.5.2.4.3" class="anchored" data-anchor-id="participation-activities-2-per-module"><span class="header-section-number">10.5.2.4.3</span> Participation Activities (2 per module)</h5>
 <p><strong>Purpose</strong>: Engagement activities that demonstrate attendance and involvement. These might include:</p>
 <p><strong>Types</strong>: - Discussion board posts (peer feedback) - Reflection prompts (metacognitive activities) - Peer review assignments - Quiz-style quick checks - Live session engagement recording</p>
 <p><strong>Structure</strong>: - Clear prompt - Expected participation level (e.g., “1 main post + 2 peer responses”) - Grading criteria - Submission deadline</p>
@@ -723,8 +729,8 @@ Now you try! [Exercise prompt]
 </div>
 </div>
 </section>
-<section id="project-steps-progressive-milestones" class="level5" data-number="9.5.2.4.4">
-<h5 data-number="9.5.2.4.4" class="anchored" data-anchor-id="project-steps-progressive-milestones"><span class="header-section-number">9.5.2.4.4</span> Project Steps (progressive milestones)</h5>
+<section id="project-steps-progressive-milestones" class="level5" data-number="10.5.2.4.4">
+<h5 data-number="10.5.2.4.4" class="anchored" data-anchor-id="project-steps-progressive-milestones"><span class="header-section-number">10.5.2.4.4</span> Project Steps (progressive milestones)</h5>
 <p><strong>Purpose</strong>: For courses with semester-long or multi-module projects, break them into manageable steps with intermediate deadlines.</p>
 <p><strong>Structure</strong>: - Project step number (e.g., “Project Step 1: Proposal”) - What students should submit - Deliverables - Feedback timeline - Submission window</p>
 <p><strong>Example Project Progression</strong>: - Step 1: Project Proposal (Module 1) - Step 2: Data Analysis &amp; Exploration (Module 3) - Step 3: Preliminary Results &amp; Visualization (Module 6) - Step 4: Final Report &amp; Presentation (Module 8)</p>
@@ -743,8 +749,8 @@ Now you try! [Exercise prompt]
 </section>
 </section>
 </section>
-<section id="workbook-exercise-design-your-module-structure" class="level3" data-number="9.5.3">
-<h3 data-number="9.5.3" class="anchored" data-anchor-id="workbook-exercise-design-your-module-structure"><span class="header-section-number">9.5.3</span> Workbook Exercise: Design Your Module Structure</h3>
+<section id="workbook-exercise-design-your-module-structure" class="level3" data-number="10.5.3">
+<h3 data-number="10.5.3" class="anchored" data-anchor-id="workbook-exercise-design-your-module-structure"><span class="header-section-number">10.5.3</span> Workbook Exercise: Design Your Module Structure</h3>
 <p>Take time to plan your course structure before building it in Quarto and Blackboard.</p>
 <p><strong>Task</strong>: Map out your course modules and components.</p>
 <p><strong>Step 1</strong>: Decide how many modules you’ll have and what each covers</p>
@@ -775,11 +781,11 @@ Module 3: _________________________________
 <p><strong>Verification Checklist</strong>: - [ ] All modules have defined content - [ ] Each module follows the consistent structure - [ ] Deliverable count is realistic for your course load - [ ] You have feedback capacity for all assessments - [ ] Project steps align with semester timeline (if applicable)</p>
 </section>
 </section>
-<section id="creating-content-in-quarto-for-blackboard-deployment" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="creating-content-in-quarto-for-blackboard-deployment"><span class="header-section-number">9.6</span> Creating Content in Quarto for Blackboard Deployment</h2>
+<section id="creating-content-in-quarto-for-blackboard-deployment" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="creating-content-in-quarto-for-blackboard-deployment"><span class="header-section-number">10.6</span> Creating Content in Quarto for Blackboard Deployment</h2>
 <p>Now that you have your structure planned, let’s set up your Quarto project to generate deployable content.</p>
-<section id="project-organization-in-quarto" class="level3" data-number="9.6.1">
-<h3 data-number="9.6.1" class="anchored" data-anchor-id="project-organization-in-quarto"><span class="header-section-number">9.6.1</span> Project Organization in Quarto</h3>
+<section id="project-organization-in-quarto" class="level3" data-number="10.6.1">
+<h3 data-number="10.6.1" class="anchored" data-anchor-id="project-organization-in-quarto"><span class="header-section-number">10.6.1</span> Project Organization in Quarto</h3>
 <p>Create a Quarto project with folders that mirror your Blackboard structure:</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -822,8 +828,8 @@ Module 3: _________________________________
     ├── module-02/
     └── [shared images]</code></pre>
 </section>
-<section id="configuration-_quarto.yml" class="level3" data-number="9.6.2">
-<h3 data-number="9.6.2" class="anchored" data-anchor-id="configuration-_quarto.yml"><span class="header-section-number">9.6.2</span> Configuration: <code>_quarto.yml</code></h3>
+<section id="configuration-_quarto.yml" class="level3" data-number="10.6.2">
+<h3 data-number="10.6.2" class="anchored" data-anchor-id="configuration-_quarto.yml"><span class="header-section-number">10.6.2</span> Configuration: <code>_quarto.yml</code></h3>
 <p>Set up your <code>_quarto.yml</code> to generate a website structure compatible with Blackboard:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
@@ -864,8 +870,8 @@ Module 3: _________________________________
 <span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
 <span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-copy</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="rendering-and-packaging-for-blackboard" class="level3" data-number="9.6.3">
-<h3 data-number="9.6.3" class="anchored" data-anchor-id="rendering-and-packaging-for-blackboard"><span class="header-section-number">9.6.3</span> Rendering and Packaging for Blackboard</h3>
+<section id="rendering-and-packaging-for-blackboard" class="level3" data-number="10.6.3">
+<h3 data-number="10.6.3" class="anchored" data-anchor-id="rendering-and-packaging-for-blackboard"><span class="header-section-number">10.6.3</span> Rendering and Packaging for Blackboard</h3>
 <p>When you’re ready to deploy content to Blackboard:</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -890,8 +896,8 @@ Module 3: _________________________________
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># On macOS/Linux</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">zip</span> <span class="at">-r</span> _site.zip _site/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="image-references-why-they-persist" class="level3" data-number="9.6.4">
-<h3 data-number="9.6.4" class="anchored" data-anchor-id="image-references-why-they-persist"><span class="header-section-number">9.6.4</span> Image References: Why They Persist</h3>
+<section id="image-references-why-they-persist" class="level3" data-number="10.6.4">
+<h3 data-number="10.6.4" class="anchored" data-anchor-id="image-references-why-they-persist"><span class="header-section-number">10.6.4</span> Image References: Why They Persist</h3>
 <p>One important note about image links: When you reference images in your Quarto files and they’re included in <code>_site.zip</code>, Blackboard will import them along with the HTML. This means your image links will continue to work because:</p>
 <ol type="1">
 <li><strong>Relative paths</strong>: If your HTML files reference images with relative paths (e.g., <code>../images/diagram.png</code>), the image hierarchy is preserved</li>
@@ -905,10 +911,10 @@ Module 3: _________________________________
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Diagram](../images/diagram.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="uploading-content-to-blackboard" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="uploading-content-to-blackboard"><span class="header-section-number">9.7</span> Uploading Content to Blackboard</h2>
-<section id="initial-setup-first-time-upload" class="level3" data-number="9.7.1">
-<h3 data-number="9.7.1" class="anchored" data-anchor-id="initial-setup-first-time-upload"><span class="header-section-number">9.7.1</span> Initial Setup: First-Time Upload</h3>
+<section id="uploading-content-to-blackboard" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="uploading-content-to-blackboard"><span class="header-section-number">10.7</span> Uploading Content to Blackboard</h2>
+<section id="initial-setup-first-time-upload" class="level3" data-number="10.7.1">
+<h3 data-number="10.7.1" class="anchored" data-anchor-id="initial-setup-first-time-upload"><span class="header-section-number">10.7.1</span> Initial Setup: First-Time Upload</h3>
 <p>For your first deployment (after approval from Kim and orientation from Andy):</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1004,8 +1010,8 @@ Module 3: _________________________________
 </ul></li>
 </ol>
 </section>
-<section id="subsequent-updates-semester-deployment" class="level3" data-number="9.7.2">
-<h3 data-number="9.7.2" class="anchored" data-anchor-id="subsequent-updates-semester-deployment"><span class="header-section-number">9.7.2</span> Subsequent Updates: Semester Deployment</h3>
+<section id="subsequent-updates-semester-deployment" class="level3" data-number="10.7.2">
+<h3 data-number="10.7.2" class="anchored" data-anchor-id="subsequent-updates-semester-deployment"><span class="header-section-number">10.7.2</span> Subsequent Updates: Semester Deployment</h3>
 <p>After your initial setup, updating content becomes straightforward:</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1034,8 +1040,8 @@ Module 3: _________________________________
 </ol>
 <p><strong>Important Caveat</strong>: This replacement process works perfectly for content files (lectures, tutorials, materials). However, if you’re changing your module structure (adding/removing modules, reordering sections), you’ll need to create new links or adjust existing ones in Blackboard. This is why the initial setup with Andy is critical—lock in your structure before the semester starts.</p>
 </section>
-<section id="workbook-exercise-prepare-your-first-deployment" class="level3" data-number="9.7.3">
-<h3 data-number="9.7.3" class="anchored" data-anchor-id="workbook-exercise-prepare-your-first-deployment"><span class="header-section-number">9.7.3</span> Workbook Exercise: Prepare Your First Deployment</h3>
+<section id="workbook-exercise-prepare-your-first-deployment" class="level3" data-number="10.7.3">
+<h3 data-number="10.7.3" class="anchored" data-anchor-id="workbook-exercise-prepare-your-first-deployment"><span class="header-section-number">10.7.3</span> Workbook Exercise: Prepare Your First Deployment</h3>
 <p><strong>Task</strong>: Package your Quarto content for deployment.</p>
 <p><strong>Step 1</strong>: Verify your Quarto project structure</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to your course folder</span></span>
@@ -1071,16 +1077,16 @@ Module 3: _________________________________
 </blockquote>
 </section>
 </section>
-<section id="best-practices-for-quarto-blackboard-integration" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="best-practices-for-quarto-blackboard-integration"><span class="header-section-number">9.8</span> Best Practices for Quarto + Blackboard Integration</h2>
-<section id="file-naming-conventions" class="level3" data-number="9.8.1">
-<h3 data-number="9.8.1" class="anchored" data-anchor-id="file-naming-conventions"><span class="header-section-number">9.8.1</span> File Naming Conventions</h3>
+<section id="best-practices-for-quarto-blackboard-integration" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="best-practices-for-quarto-blackboard-integration"><span class="header-section-number">10.8</span> Best Practices for Quarto + Blackboard Integration</h2>
+<section id="file-naming-conventions" class="level3" data-number="10.8.1">
+<h3 data-number="10.8.1" class="anchored" data-anchor-id="file-naming-conventions"><span class="header-section-number">10.8.1</span> File Naming Conventions</h3>
 <p>Use clear, consistent naming that makes sense in both Quarto file systems and Blackboard:</p>
 <p>✓ <em>Good</em>: - <code>module-01-intro.qmd</code> - <code>lecture-1-foundations.qmd</code> - <code>assignment-project-proposal.qmd</code> - <code>lab-01-sql-basics.qmd</code></p>
 <p>❌ <em>Avoid</em>: - <code>module1.qmd</code> - <code>lecture.qmd</code> - <code>assignment.qmd</code> - <code>lab.qmd</code></p>
 </section>
-<section id="urllink-strategy" class="level3" data-number="9.8.2">
-<h3 data-number="9.8.2" class="anchored" data-anchor-id="urllink-strategy"><span class="header-section-number">9.8.2</span> URL/Link Strategy</h3>
+<section id="urllink-strategy" class="level3" data-number="10.8.2">
+<h3 data-number="10.8.2" class="anchored" data-anchor-id="urllink-strategy"><span class="header-section-number">10.8.2</span> URL/Link Strategy</h3>
 <p>When creating cross-links in your course materials:</p>
 <p><strong>Linking within Blackboard</strong>: Use relative paths that Blackboard can resolve:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>See <span class="co">[</span><span class="ot">this tutorial</span><span class="co">](../lecture-1/tutorial.html)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1089,14 +1095,14 @@ Module 3: _________________________________
 <p><strong>Linking to assignments</strong>: Reference Blackboard assignment links:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>Submit your work via <span class="co">[</span><span class="ot">this Blackboard assignment link</span><span class="co">](https://blackboard.bu.edu/webapps/assignment/...)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="maintenance-during-the-semester" class="level3" data-number="9.8.3">
-<h3 data-number="9.8.3" class="anchored" data-anchor-id="maintenance-during-the-semester"><span class="header-section-number">9.8.3</span> Maintenance During the Semester</h3>
+<section id="maintenance-during-the-semester" class="level3" data-number="10.8.3">
+<h3 data-number="10.8.3" class="anchored" data-anchor-id="maintenance-during-the-semester"><span class="header-section-number">10.8.3</span> Maintenance During the Semester</h3>
 <p><strong>Content Updates Without Redeployment</strong>: - Small text corrections: Fix in Quarto, render, and re-upload <code>_site.zip</code> - Broken links: Test regularly, fix in Quarto, re-render - Typos in assignments: Fix immediately and update within 24 hours</p>
 <p><strong>When NOT to Re-upload <code>_site.zip</code></strong>: - After students have already submitted work on an assignment (the submission date might change if Blackboard refreshes) - If you’re only updating one file (upload it individually instead) - During peak submission periods (upload during off-hours to avoid conflicts)</p>
 <p><strong>Communication with Students</strong>: - If you make significant content changes, post an announcement: “Updated Module 3 lecture notes—please review the latest version” - Include version numbers in assignment prompts: “Submit your response to Assignment 3 (v1.1)”</p>
 </section>
-<section id="disaster-recovery-and-rollback" class="level3" data-number="9.8.4">
-<h3 data-number="9.8.4" class="anchored" data-anchor-id="disaster-recovery-and-rollback"><span class="header-section-number">9.8.4</span> Disaster Recovery and Rollback</h3>
+<section id="disaster-recovery-and-rollback" class="level3" data-number="10.8.4">
+<h3 data-number="10.8.4" class="anchored" data-anchor-id="disaster-recovery-and-rollback"><span class="header-section-number">10.8.4</span> Disaster Recovery and Rollback</h3>
 <p>Because your Quarto files are in version control (Git):</p>
 <ol type="1">
 <li><p><strong>Keep previous deployments</strong>: Don’t delete old <code>_site.zip</code> files</p></li>
@@ -1110,10 +1116,10 @@ Module 3: _________________________________
 </ol>
 </section>
 </section>
-<section id="reference-documentation-official-resources" class="level2" data-number="9.9">
-<h2 data-number="9.9" class="anchored" data-anchor-id="reference-documentation-official-resources"><span class="header-section-number">9.9</span> Reference Documentation: Official Resources</h2>
-<section id="boston-university-blackboard-resources" class="level3" data-number="9.9.1">
-<h3 data-number="9.9.1" class="anchored" data-anchor-id="boston-university-blackboard-resources"><span class="header-section-number">9.9.1</span> Boston University Blackboard Resources</h3>
+<section id="reference-documentation-official-resources" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="reference-documentation-official-resources"><span class="header-section-number">10.9</span> Reference Documentation: Official Resources</h2>
+<section id="boston-university-blackboard-resources" class="level3" data-number="10.9.1">
+<h3 data-number="10.9.1" class="anchored" data-anchor-id="boston-university-blackboard-resources"><span class="header-section-number">10.9.1</span> Boston University Blackboard Resources</h3>
 <ul>
 <li><strong>Blackboard Support at BU</strong>: Contact your school’s IT department or Blackboard support</li>
 <li><strong>For this specific workflow</strong>: Reach out to:
@@ -1123,13 +1129,13 @@ Module 3: _________________________________
 </ul></li>
 </ul>
 </section>
-<section id="external-blackboard-resources" class="level3" data-number="9.9.2">
-<h3 data-number="9.9.2" class="anchored" data-anchor-id="external-blackboard-resources"><span class="header-section-number">9.9.2</span> External Blackboard Resources</h3>
+<section id="external-blackboard-resources" class="level3" data-number="10.9.2">
+<h3 data-number="10.9.2" class="anchored" data-anchor-id="external-blackboard-resources"><span class="header-section-number">10.9.2</span> External Blackboard Resources</h3>
 <p><strong>Syracuse University Module Generation Guide</strong>: - <a href="https://answers.atlassian.syr.edu/wiki/spaces/blackboard01/pages/154387917/Blackboard+Ultra?atlOrigin=eyJpIjoiMmNlNjExNmFjNWM4NGMzMDk3M2MxODQwOTQxYjQzMzgiLCJwIjoiYyJ9">Blackboard Ultra Module Generation</a> - Provides general Blackboard Ultra best practices that apply to BU’s configuration</p>
 <p><strong>Lesley University Blackboard Quick Start</strong>: - <a href="https://support.lesley.edu/support/solutions/articles/4000185843-blackboard-ultra-course-view-faculty-quick-start-guide">Blackboard Ultra Course View Faculty Quick Start Guide</a> - Another institution’s approach to course organization in Blackboard Ultra</p>
 </section>
-<section id="quarto-for-education" class="level3" data-number="9.9.3">
-<h3 data-number="9.9.3" class="anchored" data-anchor-id="quarto-for-education"><span class="header-section-number">9.9.3</span> Quarto for Education</h3>
+<section id="quarto-for-education" class="level3" data-number="10.9.3">
+<h3 data-number="10.9.3" class="anchored" data-anchor-id="quarto-for-education"><span class="header-section-number">10.9.3</span> Quarto for Education</h3>
 <ul>
 <li><a href="https://quarto.org">Quarto Official Documentation</a></li>
 <li><a href="https://quarto.org/docs/websites/publishing.html">Quarto for Teaching</a></li>
@@ -1137,11 +1143,11 @@ Module 3: _________________________________
 </ul>
 </section>
 </section>
-<section id="workbook-checklist-complete-blackboard-ultra-integration" class="level2" data-number="9.10">
-<h2 data-number="9.10" class="anchored" data-anchor-id="workbook-checklist-complete-blackboard-ultra-integration"><span class="header-section-number">9.10</span> Workbook Checklist: Complete Blackboard Ultra Integration</h2>
+<section id="workbook-checklist-complete-blackboard-ultra-integration" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="workbook-checklist-complete-blackboard-ultra-integration"><span class="header-section-number">10.10</span> Workbook Checklist: Complete Blackboard Ultra Integration</h2>
 <p>Use this comprehensive checklist to ensure you’re ready for deployment:</p>
-<section id="phase-1-planning-approval" class="level3" data-number="9.10.1">
-<h3 data-number="9.10.1" class="anchored" data-anchor-id="phase-1-planning-approval"><span class="header-section-number">9.10.1</span> Phase 1: Planning &amp; Approval</h3>
+<section id="phase-1-planning-approval" class="level3" data-number="10.10.1">
+<h3 data-number="10.10.1" class="anchored" data-anchor-id="phase-1-planning-approval"><span class="header-section-number">10.10.1</span> Phase 1: Planning &amp; Approval</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Determined number of modules in your course</label></li>
 <li><label><input type="checkbox">Mapped module structure and components</label></li>
@@ -1152,8 +1158,8 @@ Module 3: _________________________________
 <li><label><input type="checkbox">Completed trial deployment with Andy’s assistance</label></li>
 </ul>
 </section>
-<section id="phase-2-quarto-project-setup" class="level3" data-number="9.10.2">
-<h3 data-number="9.10.2" class="anchored" data-anchor-id="phase-2-quarto-project-setup"><span class="header-section-number">9.10.2</span> Phase 2: Quarto Project Setup</h3>
+<section id="phase-2-quarto-project-setup" class="level3" data-number="10.10.2">
+<h3 data-number="10.10.2" class="anchored" data-anchor-id="phase-2-quarto-project-setup"><span class="header-section-number">10.10.2</span> Phase 2: Quarto Project Setup</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Created Quarto project with folder structure</label></li>
 <li><label><input type="checkbox">Configured <code>_quarto.yml</code> for website output</label></li>
@@ -1165,8 +1171,8 @@ Module 3: _________________________________
 <li><label><input type="checkbox">Spot-checked rendered HTML for formatting</label></li>
 </ul>
 </section>
-<section id="phase-3-content-preparation" class="level3" data-number="9.10.3">
-<h3 data-number="9.10.3" class="anchored" data-anchor-id="phase-3-content-preparation"><span class="header-section-number">9.10.3</span> Phase 3: Content Preparation</h3>
+<section id="phase-3-content-preparation" class="level3" data-number="10.10.3">
+<h3 data-number="10.10.3" class="anchored" data-anchor-id="phase-3-content-preparation"><span class="header-section-number">10.10.3</span> Phase 3: Content Preparation</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Wrote wrap-up content for each module</label></li>
 <li><label><input type="checkbox">Created highlight pages (special content)</label></li>
@@ -1179,8 +1185,8 @@ Module 3: _________________________________
 <li><label><input type="checkbox">Outlined project steps (if applicable)</label></li>
 </ul>
 </section>
-<section id="phase-4-packaging-first-deployment" class="level3" data-number="9.10.4">
-<h3 data-number="9.10.4" class="anchored" data-anchor-id="phase-4-packaging-first-deployment"><span class="header-section-number">9.10.4</span> Phase 4: Packaging &amp; First Deployment</h3>
+<section id="phase-4-packaging-first-deployment" class="level3" data-number="10.10.4">
+<h3 data-number="10.10.4" class="anchored" data-anchor-id="phase-4-packaging-first-deployment"><span class="header-section-number">10.10.4</span> Phase 4: Packaging &amp; First Deployment</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Generated <code>_site.zip</code> from Quarto</label></li>
 <li><label><input type="checkbox">Verified archive contains all files</label></li>
@@ -1194,8 +1200,8 @@ Module 3: _________________________________
 <li><label><input type="checkbox">Received final approval for student access</label></li>
 </ul>
 </section>
-<section id="phase-5-ongoing-management" class="level3" data-number="9.10.5">
-<h3 data-number="9.10.5" class="anchored" data-anchor-id="phase-5-ongoing-management"><span class="header-section-number">9.10.5</span> Phase 5: Ongoing Management</h3>
+<section id="phase-5-ongoing-management" class="level3" data-number="10.10.5">
+<h3 data-number="10.10.5" class="anchored" data-anchor-id="phase-5-ongoing-management"><span class="header-section-number">10.10.5</span> Phase 5: Ongoing Management</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Established schedule for content updates</label></li>
 <li><label><input type="checkbox">Documented version control workflow</label></li>
@@ -1207,8 +1213,8 @@ Module 3: _________________________________
 <li><label><input type="checkbox">Communicated changes to students</label></li>
 </ul>
 </section>
-<section id="documentation" class="level3" data-number="9.10.6">
-<h3 data-number="9.10.6" class="anchored" data-anchor-id="documentation"><span class="header-section-number">9.10.6</span> Documentation</h3>
+<section id="documentation" class="level3" data-number="10.10.6">
+<h3 data-number="10.10.6" class="anchored" data-anchor-id="documentation"><span class="header-section-number">10.10.6</span> Documentation</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Created README explaining course structure</label></li>
 <li><label><input type="checkbox">Documented file naming conventions</label></li>
@@ -1218,36 +1224,36 @@ Module 3: _________________________________
 </ul>
 </section>
 </section>
-<section id="troubleshooting-common-issues" class="level2" data-number="9.11">
-<h2 data-number="9.11" class="anchored" data-anchor-id="troubleshooting-common-issues"><span class="header-section-number">9.11</span> Troubleshooting Common Issues</h2>
-<section id="problem-links-break-after-uploading-to-blackboard" class="level3" data-number="9.11.1">
-<h3 data-number="9.11.1" class="anchored" data-anchor-id="problem-links-break-after-uploading-to-blackboard"><span class="header-section-number">9.11.1</span> Problem: Links Break After Uploading to Blackboard</h3>
+<section id="troubleshooting-common-issues" class="level2" data-number="10.11">
+<h2 data-number="10.11" class="anchored" data-anchor-id="troubleshooting-common-issues"><span class="header-section-number">10.11</span> Troubleshooting Common Issues</h2>
+<section id="problem-links-break-after-uploading-to-blackboard" class="level3" data-number="10.11.1">
+<h3 data-number="10.11.1" class="anchored" data-anchor-id="problem-links-break-after-uploading-to-blackboard"><span class="header-section-number">10.11.1</span> Problem: Links Break After Uploading to Blackboard</h3>
 <p><strong>Cause</strong>: Absolute URLs in Quarto files or incorrect relative paths</p>
 <p><strong>Solution</strong>: - Check all image and link references in your <code>.qmd</code> files - Use relative paths: <code>../images/logo.png</code> not <code>/images/logo.png</code> - Update any absolute URLs to relative paths - Re-render and re-upload</p>
 </section>
-<section id="problem-images-dont-display-in-blackboard" class="level3" data-number="9.11.2">
-<h3 data-number="9.11.2" class="anchored" data-anchor-id="problem-images-dont-display-in-blackboard"><span class="header-section-number">9.11.2</span> Problem: Images Don’t Display in Blackboard</h3>
+<section id="problem-images-dont-display-in-blackboard" class="level3" data-number="10.11.2">
+<h3 data-number="10.11.2" class="anchored" data-anchor-id="problem-images-dont-display-in-blackboard"><span class="header-section-number">10.11.2</span> Problem: Images Don’t Display in Blackboard</h3>
 <p><strong>Cause</strong>: Images not included in <code>_site/</code> folder or path references are wrong</p>
 <p><strong>Solution</strong>: - Ensure images are in a subfolder of your Quarto project (e.g., <code>images/</code>) - Verify Quarto rendering includes images in <code>_site/</code> - Check that <code>_site.zip</code> includes image files - Verify relative paths in HTML match actual image locations</p>
 </section>
-<section id="problem-content-collection-upload-fails" class="level3" data-number="9.11.3">
-<h3 data-number="9.11.3" class="anchored" data-anchor-id="problem-content-collection-upload-fails"><span class="header-section-number">9.11.3</span> Problem: Content Collection Upload Fails</h3>
+<section id="problem-content-collection-upload-fails" class="level3" data-number="10.11.3">
+<h3 data-number="10.11.3" class="anchored" data-anchor-id="problem-content-collection-upload-fails"><span class="header-section-number">10.11.3</span> Problem: Content Collection Upload Fails</h3>
 <p><strong>Cause</strong>: File size too large or connection interrupted</p>
 <p><strong>Solution</strong>: - If <code>_site.zip</code> is very large (&gt;1GB), compress images <code>bash   # Reduce image quality in Quarto with CSS   img { max-width: 100%; height: auto; }</code> - Try uploading individual files instead of <code>_site.zip</code> - Contact Andy if technical issues persist</p>
 </section>
-<section id="problem-students-see-old-content-after-re-upload" class="level3" data-number="9.11.4">
-<h3 data-number="9.11.4" class="anchored" data-anchor-id="problem-students-see-old-content-after-re-upload"><span class="header-section-number">9.11.4</span> Problem: Students See Old Content After Re-upload</h3>
+<section id="problem-students-see-old-content-after-re-upload" class="level3" data-number="10.11.4">
+<h3 data-number="10.11.4" class="anchored" data-anchor-id="problem-students-see-old-content-after-re-upload"><span class="header-section-number">10.11.4</span> Problem: Students See Old Content After Re-upload</h3>
 <p><strong>Cause</strong>: Browser caching</p>
 <p><strong>Solution</strong>: - Instruct students to clear browser cache or use Ctrl+Shift+Delete - Use browser-specific cache-busting in <code>_quarto.yml</code> - Announce updates in course announcements</p>
 </section>
-<section id="problem-module-structure-changes-required-mid-semester" class="level3" data-number="9.11.5">
-<h3 data-number="9.11.5" class="anchored" data-anchor-id="problem-module-structure-changes-required-mid-semester"><span class="header-section-number">9.11.5</span> Problem: Module Structure Changes Required Mid-Semester</h3>
+<section id="problem-module-structure-changes-required-mid-semester" class="level3" data-number="10.11.5">
+<h3 data-number="10.11.5" class="anchored" data-anchor-id="problem-module-structure-changes-required-mid-semester"><span class="header-section-number">10.11.5</span> Problem: Module Structure Changes Required Mid-Semester</h3>
 <p><strong>Cause</strong>: Didn’t lock structure with Andy before launch</p>
 <p><strong>Solution</strong>: - Contact Andy before making structural changes - Update both Quarto and Blackboard simultaneously - Communicate changes to students - Test thoroughly before making live</p>
 </section>
 </section>
-<section id="summary-mastering-quarto-blackboard-integration" class="level2" data-number="9.12">
-<h2 data-number="9.12" class="anchored" data-anchor-id="summary-mastering-quarto-blackboard-integration"><span class="header-section-number">9.12</span> Summary: Mastering Quarto + Blackboard Integration</h2>
+<section id="summary-mastering-quarto-blackboard-integration" class="level2" data-number="10.12">
+<h2 data-number="10.12" class="anchored" data-anchor-id="summary-mastering-quarto-blackboard-integration"><span class="header-section-number">10.12</span> Summary: Mastering Quarto + Blackboard Integration</h2>
 <p>You’ve learned how to:</p>
 <ol type="1">
 <li><strong>Navigate the setup process</strong>: Working with Kim Crosta and Andy before deploying</li>
@@ -1259,8 +1265,8 @@ Module 3: _________________________________
 </ol>
 <p>The power of this approach is that you’re maintaining a professional, version-controlled course that produces beautiful HTML and integrates seamlessly with Blackboard. Your students get a polished experience, you have a single source of truth for your content, and updates become simple batch operations rather than manual file-by-file changes.</p>
 </section>
-<section id="knowledge-check-verify-your-understanding" class="level2" data-number="9.13">
-<h2 data-number="9.13" class="anchored" data-anchor-id="knowledge-check-verify-your-understanding"><span class="header-section-number">9.13</span> Knowledge Check: Verify Your Understanding</h2>
+<section id="knowledge-check-verify-your-understanding" class="level2" data-number="10.13">
+<h2 data-number="10.13" class="anchored" data-anchor-id="knowledge-check-verify-your-understanding"><span class="header-section-number">10.13</span> Knowledge Check: Verify Your Understanding</h2>
 <ol type="1">
 <li><p><strong>Explain the role of the content collection in Blackboard</strong>:</p>
 <blockquote class="blockquote">
@@ -1288,8 +1294,8 @@ Module 3: _________________________________
 </blockquote></li>
 </ol>
 </section>
-<section id="next-steps" class="level2" data-number="9.14">
-<h2 data-number="9.14" class="anchored" data-anchor-id="next-steps"><span class="header-section-number">9.14</span> Next Steps</h2>
+<section id="next-steps" class="level2" data-number="10.14">
+<h2 data-number="10.14" class="anchored" data-anchor-id="next-steps"><span class="header-section-number">10.14</span> Next Steps</h2>
 <p>Ready to implement this workflow?</p>
 <ol type="1">
 <li><strong>Schedule with Kim Crosta</strong> to discuss your Quarto approach</li>
@@ -1708,13 +1714,13 @@ Module 3: _________________________________
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./06_github_classroom.html" class="pagination-link" aria-label="GitHub Classroom">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">GitHub Classroom</span></span>
+      <a href="./10_cloud_analytics_with_aws.html" class="pagination-link" aria-label="Cloud Analytics with AWS">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cloud Analytics with AWS</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./08_automating_with_AI.html" class="pagination-link" aria-label="Automating with AI">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Automating with AI</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Automating with AI</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
