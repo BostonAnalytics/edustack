@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Designing the Course Feeder Workbook – Designing a Course With Quarto</title>
+<title>12&nbsp; Capstone: Build a Course Like AD688 – Designing a Course With Quarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,18 +68,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05_quarto_class_setup.html" rel="next">
-<link href="./03_working_with_quarto.html" rel="prev">
+<link href="./summary.html" rel="next">
+<link href="./11_automating_with_AI.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-335b05e8a25b801437421895acfffdb5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4a2a86f50aa1d1e0d31e1f3b9bf7fc60.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e8407c77b8ba21079291693bee72bac6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_creating_excel.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Creating Excel Files</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12_capstone_build_like_ad688.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -153,67 +153,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_version_control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git and GitHub</span></span></a>
+  <a href="./02_professor_quickstart.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Professor Quickstart</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_professor_quickstart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Professor Quickstart</span></span></a>
+  <a href="./03_tool_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tool Setup</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_tool_setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Tool Setup</span></span></a>
+  <a href="./04_version_control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Git and GitHub</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_working_with_quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="./05_working_with_quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Working with Quarto</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_creating_excel.html" class="sidebar-item-text sidebar-link active">
+  <a href="./06_creating_excel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Creating Excel Files</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_quarto_class_setup.html" class="sidebar-item-text sidebar-link">
+  <a href="./07_quarto_class_setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quarto Class Setup</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_github_classroom.html" class="sidebar-item-text sidebar-link">
+  <a href="./08_github_classroom.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">GitHub Classroom</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_cloud_analytics_with_aws.html" class="sidebar-item-text sidebar-link">
+  <a href="./09_cloud_analytics_with_aws.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cloud Analytics with AWS</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_blackboard_ultra.html" class="sidebar-item-text sidebar-link">
+  <a href="./10_blackboard_ultra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Blackboard Ultra</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_automating_with_AI.html" class="sidebar-item-text sidebar-link">
+  <a href="./11_automating_with_AI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Automating with AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_capstone_build_like_ad688.html" class="sidebar-item-text sidebar-link">
+  <a href="./12_capstone_build_like_ad688.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></span></a>
   </div>
 </li>
@@ -239,40 +239,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#workbook-overview" id="toc-workbook-overview" class="nav-link active" data-scroll-target="#workbook-overview"><span class="header-section-number">6.1</span> Workbook Overview</a></li>
-  <li><a href="#sheet-1-course-details-core-content-sheet" id="toc-sheet-1-course-details-core-content-sheet" class="nav-link" data-scroll-target="#sheet-1-course-details-core-content-sheet"><span class="header-section-number">6.2</span> Sheet 1 — <code>Course Details</code> (Core Content Sheet)</a>
-  <ul class="collapse">
-  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose"><span class="header-section-number">6.2.1</span> Purpose</a></li>
-  <li><a href="#required-columns" id="toc-required-columns" class="nav-link" data-scroll-target="#required-columns"><span class="header-section-number">6.2.2</span> Required Columns</a></li>
-  <li><a href="#example-rows" id="toc-example-rows" class="nav-link" data-scroll-target="#example-rows"><span class="header-section-number">6.2.3</span> Example Rows</a></li>
-  <li><a href="#what-this-sheet-generates" id="toc-what-this-sheet-generates" class="nav-link" data-scroll-target="#what-this-sheet-generates"><span class="header-section-number">6.2.4</span> What This Sheet Generates</a></li>
-  </ul></li>
-  <li><a href="#sheet-2-sections-delivery-logistics" id="toc-sheet-2-sections-delivery-logistics" class="nav-link" data-scroll-target="#sheet-2-sections-delivery-logistics"><span class="header-section-number">6.3</span> Sheet 2 — <code>Sections</code> (Delivery Logistics)</a>
-  <ul class="collapse">
-  <li><a href="#purpose-1" id="toc-purpose-1" class="nav-link" data-scroll-target="#purpose-1"><span class="header-section-number">6.3.1</span> Purpose</a></li>
-  <li><a href="#required-columns-1" id="toc-required-columns-1" class="nav-link" data-scroll-target="#required-columns-1"><span class="header-section-number">6.3.2</span> Required Columns</a></li>
-  <li><a href="#what-this-sheet-generates-1" id="toc-what-this-sheet-generates-1" class="nav-link" data-scroll-target="#what-this-sheet-generates-1"><span class="header-section-number">6.3.3</span> What This Sheet Generates</a></li>
-  </ul></li>
-  <li><a href="#sheet-3-grade-evaluation-structure" id="toc-sheet-3-grade-evaluation-structure" class="nav-link" data-scroll-target="#sheet-3-grade-evaluation-structure"><span class="header-section-number">6.4</span> Sheet 3 — <code>Grade</code> (Evaluation Structure)</a>
-  <ul class="collapse">
-  <li><a href="#purpose-2" id="toc-purpose-2" class="nav-link" data-scroll-target="#purpose-2"><span class="header-section-number">6.4.1</span> Purpose</a></li>
-  <li><a href="#required-columns-key-elements" id="toc-required-columns-key-elements" class="nav-link" data-scroll-target="#required-columns-key-elements"><span class="header-section-number">6.4.2</span> Required Columns (Key Elements)</a></li>
-  <li><a href="#what-this-sheet-generates-2" id="toc-what-this-sheet-generates-2" class="nav-link" data-scroll-target="#what-this-sheet-generates-2"><span class="header-section-number">6.4.3</span> What This Sheet Generates</a></li>
-  </ul></li>
-  <li><a href="#sheet-4-deliverables-student-submission-map" id="toc-sheet-4-deliverables-student-submission-map" class="nav-link" data-scroll-target="#sheet-4-deliverables-student-submission-map"><span class="header-section-number">6.5</span> Sheet 4 — <code>Deliverables</code> (Student Submission Map)</a>
-  <ul class="collapse">
-  <li><a href="#purpose-3" id="toc-purpose-3" class="nav-link" data-scroll-target="#purpose-3"><span class="header-section-number">6.5.1</span> Purpose</a></li>
-  <li><a href="#required-columns-2" id="toc-required-columns-2" class="nav-link" data-scroll-target="#required-columns-2"><span class="header-section-number">6.5.2</span> Required Columns</a></li>
-  <li><a href="#example-rows-1" id="toc-example-rows-1" class="nav-link" data-scroll-target="#example-rows-1"><span class="header-section-number">6.5.3</span> Example Rows</a></li>
-  <li><a href="#what-this-sheet-generates-3" id="toc-what-this-sheet-generates-3" class="nav-link" data-scroll-target="#what-this-sheet-generates-3"><span class="header-section-number">6.5.4</span> What This Sheet Generates</a></li>
-  </ul></li>
-  <li><a href="#validation-rules" id="toc-validation-rules" class="nav-link" data-scroll-target="#validation-rules"><span class="header-section-number">6.6</span> Validation Rules</a></li>
-  <li><a href="#automating-the-workbook-generation" id="toc-automating-the-workbook-generation" class="nav-link" data-scroll-target="#automating-the-workbook-generation"><span class="header-section-number">6.7</span> Automating the Workbook Generation</a>
-  <ul class="collapse">
-  <li><a href="#workbook-generator-script" id="toc-workbook-generator-script" class="nav-link" data-scroll-target="#workbook-generator-script"><span class="header-section-number">6.7.1</span> Workbook Generator Script</a></li>
-  </ul></li>
-  <li><a href="#generating-a-draft-schedule" id="toc-generating-a-draft-schedule" class="nav-link" data-scroll-target="#generating-a-draft-schedule"><span class="header-section-number">6.8</span> Generating a Draft Schedule</a></li>
-  <li><a href="#ai-automation-optional" id="toc-ai-automation-optional" class="nav-link" data-scroll-target="#ai-automation-optional"><span class="header-section-number">6.9</span> AI Automation (Optional)</a></li>
+  <li><a href="#capstone-goal" id="toc-capstone-goal" class="nav-link active" data-scroll-target="#capstone-goal"><span class="header-section-number">12.1</span> Capstone Goal</a></li>
+  <li><a href="#repository-shape" id="toc-repository-shape" class="nav-link" data-scroll-target="#repository-shape"><span class="header-section-number">12.2</span> Repository Shape</a></li>
+  <li><a href="#step-1-start-from-github" id="toc-step-1-start-from-github" class="nav-link" data-scroll-target="#step-1-start-from-github"><span class="header-section-number">12.3</span> Step 1: Start From GitHub</a></li>
+  <li><a href="#step-2-add-the-workbook" id="toc-step-2-add-the-workbook" class="nav-link" data-scroll-target="#step-2-add-the-workbook"><span class="header-section-number">12.4</span> Step 2: Add the Workbook</a></li>
+  <li><a href="#step-3-generate-the-course-structure" id="toc-step-3-generate-the-course-structure" class="nav-link" data-scroll-target="#step-3-generate-the-course-structure"><span class="header-section-number">12.5</span> Step 3: Generate the Course Structure</a></li>
+  <li><a href="#step-4-create-the-three-course-pages" id="toc-step-4-create-the-three-course-pages" class="nav-link" data-scroll-target="#step-4-create-the-three-course-pages"><span class="header-section-number">12.6</span> Step 4: Create the Three Course Pages</a></li>
+  <li><a href="#step-5-build-one-complete-module" id="toc-step-5-build-one-complete-module" class="nav-link" data-scroll-target="#step-5-build-one-complete-module"><span class="header-section-number">12.7</span> Step 5: Build One Complete Module</a></li>
+  <li><a href="#step-6-add-blackboard-mapping" id="toc-step-6-add-blackboard-mapping" class="nav-link" data-scroll-target="#step-6-add-blackboard-mapping"><span class="header-section-number">12.8</span> Step 6: Add Blackboard Mapping</a></li>
+  <li><a href="#step-7-render-review-package" id="toc-step-7-render-review-package" class="nav-link" data-scroll-target="#step-7-render-review-package"><span class="header-section-number">12.9</span> Step 7: Render, Review, Package</a></li>
+  <li><a href="#step-8-maintain-the-course" id="toc-step-8-maintain-the-course" class="nav-link" data-scroll-target="#step-8-maintain-the-course"><span class="header-section-number">12.10</span> Step 8: Maintain the Course</a></li>
+  <li><a href="#capstone-completion-checklist" id="toc-capstone-completion-checklist" class="nav-link" data-scroll-target="#capstone-completion-checklist"><span class="header-section-number">12.11</span> Capstone Completion Checklist</a></li>
   </ul>
 </nav>
     </div>
@@ -281,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Designing the Course Feeder Workbook</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Capstone: Build a Course Like AD688</span></h1>
 </div>
 
 
@@ -298,411 +275,247 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This chapter defines the <strong>standard feeder Excel workbook</strong> used to generate a complete Quarto-based course website. The workbook separates <strong>course content</strong>, <strong>delivery logistics</strong>, and <strong>grading structure</strong> into clearly defined sheets.</p>
-<p>This separation is intentional: * It mirrors how universities think about courses. * It allows partial automation with AI. * It prevents accidental coupling between pedagogy and logistics.</p>
-<section id="workbook-overview" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="workbook-overview"><span class="header-section-number">6.1</span> Workbook Overview</h2>
-<p>Based on the official benchmark (<code>Course-Schedule.xlsx</code>), the feeder workbook contains several essential sheets. The primary ones you will interact with are:</p>
+<p>This capstone turns the individual skills in the book into one complete course-building workflow. The goal is to create a small but realistic course repository that has the same operating model as AD688: a syllabus, schedule, deliverables, modules, labs, projects, presentations, Blackboard packaging, and an update workflow.</p>
+<section id="capstone-goal" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="capstone-goal"><span class="header-section-number">12.1</span> Capstone Goal</h2>
+<p>Build a miniature course with:</p>
+<ul>
+<li>one syllabus page</li>
+<li>one schedule page</li>
+<li>one deliverables page</li>
+<li>one complete module folder</li>
+<li>one lecture notes page</li>
+<li>one presentation page</li>
+<li>one lab</li>
+<li>one assignment</li>
+<li>one project milestone</li>
+<li>one participation activity</li>
+<li>one Blackboard deployment checklist</li>
+</ul>
+<p>This small course is the proof of concept. Once it works, repeat the pattern for the rest of the course.</p>
+</section>
+<section id="repository-shape" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="repository-shape"><span class="header-section-number">12.2</span> Repository Shape</h2>
+<p>Use this structure as the target:</p>
+<pre class="text"><code>mini-course/
+  _quarto.yml
+  index.qmd
+  schedule.qmd
+  deliverables.qmd
+  references.bib
+  data/
+    Course-Schedule.xlsx
+    generated_schedule.csv
+  M01/
+    M01_LN1.qmd
+    M01_P1.qmd
+    M01_Lab1.qmd
+    M01_A.qmd
+    M01_Proj.qmd
+    M01_Participation1.qmd
+  classroom-organization/
+    blackboard-map.md
+  announcements/
+    week-01.md</code></pre>
+</section>
+<section id="step-1-start-from-github" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="step-1-start-from-github"><span class="header-section-number">12.3</span> Step 1: Start From GitHub</h2>
+<p>Create the GitHub repository first, then clone it locally:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/your-org/mini-course.git</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> mini-course</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Initialize Quarto inside the cloned repository:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> create project website .</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initialize Quarto course site"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This sequence keeps the course source of truth on GitHub from the beginning.</p>
+</section>
+<section id="step-2-add-the-workbook" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="step-2-add-the-workbook"><span class="header-section-number">12.4</span> Step 2: Add the Workbook</h2>
+<p>Create and fill the workbook first. The workbook is the planning layer for the course.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_course_workbook.py data/Course-Schedule.xlsx</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/validate_course_workbook.py data/Course-Schedule.xlsx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use the <code>Course Details</code> sheet to define the academic flow:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 56%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Sheet Name</th>
-<th>Purpose</th>
-<th>What It Generates</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>Course Details</code></td>
-<td>What is taught (modules, lectures, topics)</td>
-<td>lecture notes, presentations, module pages, schedule rows</td>
-</tr>
-<tr class="even">
-<td><code>Sections</code></td>
-<td>How and when it is taught</td>
-<td>syllabus section table, schedule anchors</td>
-</tr>
-<tr class="odd">
-<td><code>Grade</code></td>
-<td>How students are evaluated</td>
-<td>grading table, deliverables summary</td>
-</tr>
-<tr class="even">
-<td><code>Deliverables</code></td>
-<td>What students submit</td>
-<td>Blackboard assignment map, due-date planning</td>
-</tr>
-</tbody>
-</table>
-<p>Older course workbooks may also include supplementary sheets such as <code>Calendar</code> or <code>Day List</code> for institution-specific term mapping.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Treat the workbook as the planning database for the course. Quarto files are the authoring layer; Blackboard is the delivery layer; the workbook is the structure that keeps them aligned.</p>
-</div>
-</div>
-</section>
-<section id="sheet-1-course-details-core-content-sheet" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="sheet-1-course-details-core-content-sheet"><span class="header-section-number">6.2</span> Sheet 1 — <code>Course Details</code> (Core Content Sheet)</h2>
-<section id="purpose" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="purpose"><span class="header-section-number">6.2.1</span> Purpose</h3>
-<p>This sheet defines the <strong>academic structure of the course</strong>. It is the only sheet required to generate Lecture Notes, Presentations, Labs, and Assignments using our Quarto workflow.</p>
-</section>
-<section id="required-columns" class="level3" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="required-columns"><span class="header-section-number">6.2.2</span> Required Columns</h3>
-<p>The <code>Course Details</code> sheet should contain these columns:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 28%">
-<col style="width: 71%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>Module</code></td>
-<td>Module identifier (e.g.&nbsp;<code>Module 1</code>)</td>
-</tr>
-<tr class="even">
-<td><code>Lecture</code></td>
-<td>Lecture identifier (e.g.&nbsp;<code>L0.1</code>, <code>L1.1</code>)</td>
-</tr>
-<tr class="odd">
-<td><code>Title</code></td>
-<td>Lecture title</td>
-</tr>
-<tr class="even">
-<td><code>Description</code></td>
-<td>One–two paragraph description</td>
-</tr>
-<tr class="odd">
-<td><code>Mode</code></td>
-<td>Delivery mode, such as <code>Online</code>, <code>On-Campus</code>, or both</td>
-</tr>
-<tr class="even">
-<td><code>Source File</code></td>
-<td>Quarto file that should hold the content</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="example-rows" class="level3" data-number="6.2.3">
-<h3 data-number="6.2.3" class="anchored" data-anchor-id="example-rows"><span class="header-section-number">6.2.3</span> Example Rows</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 11%">
-<col style="width: 24%">
-<col style="width: 8%">
-<col style="width: 24%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Module</th>
 <th>Lecture</th>
 <th>Title</th>
-<th>Description</th>
-<th>Mode</th>
-<th>Source File</th>
+<th>What It Drives</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Module 1</td>
 <td>L1.1</td>
-<td>Course Foundations</td>
-<td>Introduce the course workflow, tools, and first applied example.</td>
-<td>Online; On-Campus</td>
-<td><code>M01/M01_LN1.qmd</code></td>
+<td>First lecture topic</td>
+<td><code>M01_LN1.qmd</code>, <code>M01_P1.qmd</code>, <code>M01_Lab1.qmd</code></td>
 </tr>
 <tr class="even">
 <td>Module 1</td>
 <td>L1.2</td>
-<td>Applied Workflow</td>
-<td>Extend the first example into a lab, assignment, and project step.</td>
-<td>Online; On-Campus</td>
-<td><code>M01/M01_LN2.qmd</code></td>
+<td>Second lecture topic</td>
+<td><code>M01_LN2.qmd</code>, <code>M01_P2.qmd</code>, <code>M01_Lab2.qmd</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="what-this-sheet-generates" class="level3" data-number="6.2.4">
-<h3 data-number="6.2.4" class="anchored" data-anchor-id="what-this-sheet-generates"><span class="header-section-number">6.2.4</span> What This Sheet Generates</h3>
-<p>The <code>Course Details</code> sheet drives:</p>
-<ul>
-<li>module folder planning</li>
-<li>lecture note metadata</li>
-<li>presentation titles</li>
-<li>schedule rows</li>
-<li>Blackboard module labels</li>
-<li>AI-assisted summaries and keywords</li>
-</ul>
+<section id="step-3-generate-the-course-structure" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="step-3-generate-the-course-structure"><span class="header-section-number">12.5</span> Step 3: Generate the Course Structure</h2>
+<p>Generate the standard folders and files:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_modules.py . <span class="at">--start</span> 1 <span class="at">--end</span> 1</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/validate_course_structure.py . <span class="at">--start</span> 1 <span class="at">--end</span> 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The generated files are intentionally small. Their job is to give each professor a consistent place to write.</p>
 </section>
+<section id="step-4-create-the-three-course-pages" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="step-4-create-the-three-course-pages"><span class="header-section-number">12.6</span> Step 4: Create the Three Course Pages</h2>
+<p>Create the root-level pages that students and Blackboard will reference most:</p>
+<pre class="text"><code>index.qmd          syllabus and course overview
+schedule.qmd       weekly schedule and class rhythm
+deliverables.qmd   assignments, labs, project milestones, and grading</code></pre>
+<p>These pages should be concise, stable, and easy to update before each semester.</p>
 </section>
-<section id="sheet-2-sections-delivery-logistics" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="sheet-2-sections-delivery-logistics"><span class="header-section-number">6.3</span> Sheet 2 — <code>Sections</code> (Delivery Logistics)</h2>
-<section id="purpose-1" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="purpose-1"><span class="header-section-number">6.3.1</span> Purpose</h3>
-<p>This sheet captures <strong>when and by whom</strong> the course is delivered. It is used for syllabus generation and schedule pages.</p>
-</section>
-<section id="required-columns-1" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="required-columns-1"><span class="header-section-number">6.3.2</span> Required Columns</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>Section</code></td>
-<td>Section identifier (e.g., A1, B1)</td>
-</tr>
-<tr class="even">
-<td><code>Modality</code></td>
-<td>Online, On-Campus, Hybrid, or other local label</td>
-</tr>
-<tr class="odd">
-<td><code>Location</code></td>
-<td>Classroom or Zoom link</td>
-</tr>
-<tr class="even">
-<td><code>Instructor</code></td>
-<td>Instructor name</td>
-</tr>
-<tr class="odd">
-<td><code>Email</code></td>
-<td>Instructor email</td>
-</tr>
-<tr class="even">
-<td><code>Start Date</code></td>
-<td>First class date in <code>YYYY-MM-DD</code> format</td>
-</tr>
-<tr class="odd">
-<td><code>Meeting Days</code></td>
-<td>Day or days of week</td>
-</tr>
-<tr class="even">
-<td><code>Meeting Time</code></td>
-<td>Start and end time</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="what-this-sheet-generates-1" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="what-this-sheet-generates-1"><span class="header-section-number">6.3.3</span> What This Sheet Generates</h3>
-<p>The <code>Sections</code> sheet drives:</p>
-<ul>
-<li>syllabus instructor tables</li>
-<li>schedule start dates</li>
-<li>online/on-campus variants</li>
-<li>Blackboard section-specific reminders</li>
-</ul>
-</section>
-</section>
-<section id="sheet-3-grade-evaluation-structure" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="sheet-3-grade-evaluation-structure"><span class="header-section-number">6.4</span> Sheet 3 — <code>Grade</code> (Evaluation Structure)</h2>
-<section id="purpose-2" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="purpose-2"><span class="header-section-number">6.4.1</span> Purpose</h3>
-<p>This sheet defines the <strong>grading logic</strong> independently of content. It supports automatic syllabus grading tables.</p>
-</section>
-<section id="required-columns-key-elements" class="level3" data-number="6.4.2">
-<h3 data-number="6.4.2" class="anchored" data-anchor-id="required-columns-key-elements"><span class="header-section-number">6.4.2</span> Required Columns (Key Elements)</h3>
+<section id="step-5-build-one-complete-module" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="step-5-build-one-complete-module"><span class="header-section-number">12.7</span> Step 5: Build One Complete Module</h2>
+<p>For <code>M01</code>, fill in at least these files:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 38%">
-<col style="width: 61%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Column</th>
-<th>Description</th>
+<th>File</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>Category</code></td>
-<td>Category name, such as Labs, Assignments, Project, Participation</td>
+<td><code>M01_LN1.qmd</code></td>
+<td>lecture notes with concepts, examples, and references</td>
 </tr>
 <tr class="even">
-<td><code>Count</code></td>
-<td>Number of items</td>
+<td><code>M01_P1.qmd</code></td>
+<td>presentation or reveal.js slide content</td>
 </tr>
 <tr class="odd">
-<td><code>Points Each</code></td>
-<td>Points per item</td>
+<td><code>M01_Lab1.qmd</code></td>
+<td>guided practice with data, code, or analysis</td>
 </tr>
 <tr class="even">
-<td><code>Total Points</code></td>
-<td>Total category points</td>
+<td><code>M01_A.qmd</code></td>
+<td>graded assignment instructions</td>
 </tr>
 <tr class="odd">
-<td><code>Weight</code></td>
-<td>Syllabus weight, if used</td>
+<td><code>M01_Proj.qmd</code></td>
+<td>project milestone or running case step</td>
+</tr>
+<tr class="even">
+<td><code>M01_Participation1.qmd</code></td>
+<td>discussion, reflection, or in-class activity</td>
 </tr>
 </tbody>
 </table>
+<p>Keep the module complete before scaling. A complete module is more valuable than seven empty folders.</p>
 </section>
-<section id="what-this-sheet-generates-2" class="level3" data-number="6.4.3">
-<h3 data-number="6.4.3" class="anchored" data-anchor-id="what-this-sheet-generates-2"><span class="header-section-number">6.4.3</span> What This Sheet Generates</h3>
-<p>The <code>Grade</code> sheet drives:</p>
-<ul>
-<li>syllabus grading tables</li>
-<li>points summaries</li>
-<li>Blackboard category planning</li>
-<li>assignment weighting checks</li>
-</ul>
-</section>
-</section>
-<section id="sheet-4-deliverables-student-submission-map" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="sheet-4-deliverables-student-submission-map"><span class="header-section-number">6.5</span> Sheet 4 — <code>Deliverables</code> (Student Submission Map)</h2>
-<section id="purpose-3" class="level3" data-number="6.5.1">
-<h3 data-number="6.5.1" class="anchored" data-anchor-id="purpose-3"><span class="header-section-number">6.5.1</span> Purpose</h3>
-<p>This sheet connects the academic plan to student-facing submissions.</p>
-</section>
-<section id="required-columns-2" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored" data-anchor-id="required-columns-2"><span class="header-section-number">6.5.2</span> Required Columns</h3>
+<section id="step-6-add-blackboard-mapping" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="step-6-add-blackboard-mapping"><span class="header-section-number">12.8</span> Step 6: Add Blackboard Mapping</h2>
+<p>Create <code>classroom-organization/blackboard-map.md</code> and map the Quarto files to Blackboard Ultra content areas:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Column</th>
-<th>Description</th>
+<th>Blackboard Area</th>
+<th>Quarto Source</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>Module</code></td>
-<td>Module associated with the deliverable</td>
+<td>Module 1 Overview</td>
+<td><code>M01/M01_LN1.qmd</code> or module landing page</td>
 </tr>
 <tr class="even">
-<td><code>Deliverable</code></td>
-<td>Student-facing name</td>
+<td>Lecture 1 Slides</td>
+<td><code>M01/M01_P1.qmd</code></td>
 </tr>
 <tr class="odd">
-<td><code>Type</code></td>
-<td>Lab, Assignment, Project, Participation, Quiz, or Exam</td>
-</tr>
-<tr class="even">
-<td><code>Source File</code></td>
-<td>Quarto source file</td>
-</tr>
-<tr class="odd">
-<td><code>Due Offset Days</code></td>
-<td>Days after the module start date</td>
-</tr>
-<tr class="even">
-<td><code>Points</code></td>
-<td>Points attached to the deliverable</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="example-rows-1" class="level3" data-number="6.5.3">
-<h3 data-number="6.5.3" class="anchored" data-anchor-id="example-rows-1"><span class="header-section-number">6.5.3</span> Example Rows</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Module</th>
-<th>Deliverable</th>
-<th>Type</th>
-<th>Source File</th>
-<th>Due Offset Days</th>
-<th>Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Module 1</td>
 <td>Lab 1</td>
-<td>Lab</td>
 <td><code>M01/M01_Lab1.qmd</code></td>
-<td>5</td>
-<td>10</td>
 </tr>
 <tr class="even">
-<td>Module 1</td>
-<td>Assignment</td>
 <td>Assignment</td>
 <td><code>M01/M01_A.qmd</code></td>
-<td>7</td>
-<td>30</td>
 </tr>
 <tr class="odd">
-<td>Module 1</td>
 <td>Project Step</td>
-<td>Project</td>
 <td><code>M01/M01_Proj.qmd</code></td>
-<td>10</td>
-<td>40</td>
 </tr>
 </tbody>
 </table>
+<p>This map prevents the course website and LMS from drifting apart.</p>
 </section>
-<section id="what-this-sheet-generates-3" class="level3" data-number="6.5.4">
-<h3 data-number="6.5.4" class="anchored" data-anchor-id="what-this-sheet-generates-3"><span class="header-section-number">6.5.4</span> What This Sheet Generates</h3>
-<p>The <code>Deliverables</code> sheet drives:</p>
+<section id="step-7-render-review-package" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="step-7-render-review-package"><span class="header-section-number">12.9</span> Step 7: Render, Review, Package</h2>
+<p>Render the course:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Review:</p>
 <ul>
-<li>Blackboard assignment setup</li>
-<li>due-date planning</li>
-<li>deliverables pages</li>
-<li>project milestone tracking</li>
-<li>grading workload estimates</li>
+<li>navigation</li>
+<li>images</li>
+<li>links</li>
+<li>code output</li>
+<li>assignment instructions</li>
+<li>due dates</li>
+<li>Blackboard alignment</li>
+</ul>
+<p>If the course is being uploaded as static HTML, zip the rendered site output and upload it through the process approved for your institution.</p>
+</section>
+<section id="step-8-maintain-the-course" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="step-8-maintain-the-course"><span class="header-section-number">12.10</span> Step 8: Maintain the Course</h2>
+<p>Use a predictable update loop:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Update module 1 materials"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For each semester:</p>
+<ul>
+<li>update the workbook</li>
+<li>regenerate the draft schedule</li>
+<li>check module filenames</li>
+<li>render locally</li>
+<li>review Blackboard links</li>
+<li>archive old term-specific files</li>
 </ul>
 </section>
-</section>
-<section id="validation-rules" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="validation-rules"><span class="header-section-number">6.6</span> Validation Rules</h2>
-<p>Before using the workbook downstream, check these rules:</p>
-<ul>
-<li>Every required sheet exists.</li>
-<li>Every required column exists.</li>
-<li><code>Source File</code> values use the canonical <code>M01_*</code> convention.</li>
-<li>Every deliverable has a type, source file, due offset, and points value.</li>
-<li>Section start dates use <code>YYYY-MM-DD</code>.</li>
-<li>Grade category totals are internally consistent.</li>
-<li>Module labels in <code>Course Details</code> and <code>Deliverables</code> match.</li>
+<section id="capstone-completion-checklist" class="level2" data-number="12.11">
+<h2 data-number="12.11" class="anchored" data-anchor-id="capstone-completion-checklist"><span class="header-section-number">12.11</span> Capstone Completion Checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">GitHub repository exists</label></li>
+<li><label><input type="checkbox">Repository is cloned locally</label></li>
+<li><label><input type="checkbox">Quarto was initialized inside the cloned repository</label></li>
+<li><label><input type="checkbox">Workbook exists and validates</label></li>
+<li><label><input type="checkbox">One module exists and validates</label></li>
+<li><label><input type="checkbox">Syllabus page exists</label></li>
+<li><label><input type="checkbox">Schedule page exists</label></li>
+<li><label><input type="checkbox">Deliverables page exists</label></li>
+<li><label><input type="checkbox">One lecture notes page is complete</label></li>
+<li><label><input type="checkbox">One presentation page is complete</label></li>
+<li><label><input type="checkbox">One lab is complete</label></li>
+<li><label><input type="checkbox">One assignment is complete</label></li>
+<li><label><input type="checkbox">One project milestone is complete</label></li>
+<li><label><input type="checkbox">Blackboard map exists</label></li>
+<li><label><input type="checkbox">Site renders cleanly</label></li>
+<li><label><input type="checkbox">Git workflow is active</label></li>
 </ul>
-<p>Run the validator:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/validate_course_workbook.py data/Course-Schedule.xlsx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Validation is deliberately strict about sheet and column names because small spreadsheet inconsistencies become broken automation later.</p>
-</section>
-<section id="automating-the-workbook-generation" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="automating-the-workbook-generation"><span class="header-section-number">6.7</span> Automating the Workbook Generation</h2>
-<p>Instead of creating this Excel file by hand, use the included script to generate a template populated with the exact sheets, columns, and starter rows:</p>
-<section id="workbook-generator-script" class="level3" data-number="6.7.1">
-<h3 data-number="6.7.1" class="anchored" data-anchor-id="workbook-generator-script"><span class="header-section-number">6.7.1</span> Workbook Generator Script</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_course_workbook.py data/Course-Schedule.xlsx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If you need to replace an existing workbook:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_course_workbook.py data/Course-Schedule.xlsx <span class="at">--overwrite</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="generating-a-draft-schedule" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="generating-a-draft-schedule"><span class="header-section-number">6.8</span> Generating a Draft Schedule</h2>
-<p>Once <code>Course Details</code> and <code>Sections</code> are filled, generate a draft schedule CSV:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/generate_course_schedule.py data/Course-Schedule.xlsx data/generated_schedule.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This first schedule is intentionally simple. It gives you a clean table that can be refined into <code>schedule.qmd</code>, copied into Blackboard planning materials, or used as a quality-control view of the workbook.</p>
-</section>
-<section id="ai-automation-optional" class="level2" data-number="6.9">
-<h2 data-number="6.9" class="anchored" data-anchor-id="ai-automation-optional"><span class="header-section-number">6.9</span> AI Automation (Optional)</h2>
-<p>Once your <code>Course Details</code> sheet is generated, and you have filled in the <code>Module</code>, <code>Lecture</code>, <code>Title</code>, <code>Description</code>, and <code>Source File</code> columns, you can use the metadata script discussed in <strong>Chapter 8 (Automating with AI)</strong> to populate YAML front matter in the generated Quarto files.</p>
 
 
 </section>
@@ -1110,13 +923,13 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03_working_with_quarto.html" class="pagination-link" aria-label="Working with Quarto">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Working with Quarto</span></span>
+      <a href="./11_automating_with_AI.html" class="pagination-link" aria-label="Automating with AI">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Automating with AI</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05_quarto_class_setup.html" class="pagination-link" aria-label="Quarto Class Setup">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quarto Class Setup</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
