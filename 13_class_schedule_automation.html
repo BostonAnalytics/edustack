@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – Designing a Course With Quarto</title>
+<title>13&nbsp; Class Schedule Automation – Designing a Course With Quarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,26 +26,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -55,7 +71,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="prev">
+<link href="./summary.html" rel="next">
+<link href="./12_capstone_build_like_ad688.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -106,7 +123,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13_class_schedule_automation.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Class Schedule Automation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -205,7 +222,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_class_schedule_automation.html" class="sidebar-item-text sidebar-link">
+  <a href="./13_class_schedule_automation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Class Schedule Automation</span></span></a>
   </div>
 </li>
@@ -217,7 +234,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -226,15 +243,29 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-the-package-owns" id="toc-what-the-package-owns" class="nav-link active" data-scroll-target="#what-the-package-owns"><span class="header-section-number">13.1</span> What the Package Owns</a></li>
+  <li><a href="#install-the-package-locally" id="toc-install-the-package-locally" class="nav-link" data-scroll-target="#install-the-package-locally"><span class="header-section-number">13.2</span> Install the Package Locally</a></li>
+  <li><a href="#keep-course-configuration-in-the-course-repository" id="toc-keep-course-configuration-in-the-course-repository" class="nav-link" data-scroll-target="#keep-course-configuration-in-the-course-repository"><span class="header-section-number">13.3</span> Keep Course Configuration in the Course Repository</a></li>
+  <li><a href="#install-compatibility-wrappers" id="toc-install-compatibility-wrappers" class="nav-link" data-scroll-target="#install-compatibility-wrappers"><span class="header-section-number">13.4</span> Install Compatibility Wrappers</a></li>
+  <li><a href="#generate-the-schedule-workbook" id="toc-generate-the-schedule-workbook" class="nav-link" data-scroll-target="#generate-the-schedule-workbook"><span class="header-section-number">13.5</span> Generate the Schedule Workbook</a></li>
+  <li><a href="#connect-quarto-pages-to-the-generated-workbook" id="toc-connect-quarto-pages-to-the-generated-workbook" class="nav-link" data-scroll-target="#connect-quarto-pages-to-the-generated-workbook"><span class="header-section-number">13.6</span> Connect Quarto Pages to the Generated Workbook</a></li>
+  <li><a href="#semester-update-checklist" id="toc-semester-update-checklist" class="nav-link" data-scroll-target="#semester-update-checklist"><span class="header-section-number">13.7</span> Semester Update Checklist</a></li>
+  <li><a href="#common-checks" id="toc-common-checks" class="nav-link" data-scroll-target="#common-checks"><span class="header-section-number">13.8</span> Common Checks</a></li>
+  <li><a href="#design-principle" id="toc-design-principle" class="nav-link" data-scroll-target="#design-principle"><span class="header-section-number">13.9</span> Design Principle</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Class Schedule Automation</span></h1>
 </div>
 
 
@@ -251,11 +282,188 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" role="list" style="display: none">
+<p>Course schedules change every semester, but the logic for building them should not have to be rewritten each time. A useful course repository separates three things:</p>
+<ul>
+<li>the university calendar, such as official class start dates and recesses</li>
+<li>the course section plan, such as A1 meeting Mondays or O1 opening Thursdays</li>
+<li>the course content plan, such as lectures, labs, assignments, and project milestones</li>
+</ul>
+<p>The <code>edustack-schedule</code> package provides the reusable scheduling layer for this workflow. It reads the Boston University semester calendar, applies course section rules, and writes a generated workbook that the syllabus, schedule, and deliverables pages can all read.</p>
+<p>The result is a repeatable semester update:</p>
+<pre class="text"><code>BU calendar + course section config + course workbook
+        ↓
+generated schedule workbook
+        ↓
+index.qmd, schedule.qmd, deliverables.qmd</code></pre>
+<section id="what-the-package-owns" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="what-the-package-owns"><span class="header-section-number">13.1</span> What the Package Owns</h2>
+<p>The package owns the behavior that should be consistent across courses:</p>
+<ul>
+<li>resolving the active semester from the render date</li>
+<li>downloading and caching BU semester calendar rows</li>
+<li>parsing recesses, class suspensions, and substitute class days</li>
+<li>generating on-campus lecture dates from official calendar rules</li>
+<li>generating online weekly dates from explicit section starts</li>
+<li>pairing online dates when a course has two online lectures per week</li>
+<li>checking that configured section start dates match the target year</li>
+<li>writing a generated schedule workbook with standard sheets</li>
+</ul>
+<p>The course repository still owns the course-specific decisions:</p>
+<ul>
+<li>the source workbook name</li>
+<li>active sections for the semester</li>
+<li>section modalities</li>
+<li>first meeting dates</li>
+<li>number of lectures or online weeks</li>
+<li>assignment, lab, project, and participation rules</li>
+<li>the wording and layout of the Quarto pages</li>
+</ul>
+<p>This division keeps the package stable while leaving each professor free to adapt a course.</p>
+</section>
+<section id="install-the-package-locally" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="install-the-package-locally"><span class="header-section-number">13.2</span> Install the Package Locally</h2>
+<p>During development, install the package from the EduStack checkout:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m pip install <span class="op">-</span>e <span class="op">&lt;</span>path-to-edustack<span class="op">&gt;</span>\packages\edustack-schedule</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Later, when the package is published, the command can become:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m pip install edustack-schedule</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The package installs a command named <code>edustack-schedule</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>edustack-schedule <span class="op">--</span>help</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="keep-course-configuration-in-the-course-repository" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="keep-course-configuration-in-the-course-repository"><span class="header-section-number">13.3</span> Keep Course Configuration in the Course Repository</h2>
+<p>Each course should keep a small schedule configuration file at <code>schedules/config.py</code>. This file is the semester control panel. It should be plain Python data so it is easy to review before each term.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># schedules/config.py</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>semester <span class="op">=</span> <span class="st">"Fall"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> <span class="dv">2026</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>source_workbook <span class="op">=</span> <span class="st">"data/Course-Schedule.xlsx"</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>section_configs_by_semester <span class="op">=</span> {</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fall"</span>: [</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"section"</span>: <span class="st">"A1"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"modality"</span>: <span class="st">"oncampus"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"start_date"</span>: <span class="st">"2026-09-14"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"class_days"</span>: [<span class="st">"Mon"</span>],</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"lecture_count"</span>: <span class="dv">12</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"section"</span>: <span class="st">"O1"</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"modality"</span>: <span class="st">"online"</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"start_date"</span>: <span class="st">"2026-09-17"</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"class_days"</span>: [<span class="st">"Thu"</span>],</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"weeks"</span>: <span class="dv">6</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"lectures_per_week"</span>: <span class="dv">2</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Set <code>semester</code> and <code>year</code> to <code>None</code> only when the course should follow the render date automatically. For active production courses, pinning the semester and year is often safer while the syllabus is being prepared.</p>
+<p>The <code>source_workbook</code> value may differ by course. One course may use <code>data/Course-Schedule.xlsx</code>; another may use a course-specific workbook name such as <code>data/AD698-Schedule.xlsx</code>.</p>
+</section>
+<section id="install-compatibility-wrappers" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="install-compatibility-wrappers"><span class="header-section-number">13.4</span> Install Compatibility Wrappers</h2>
+<p>Existing course repositories may already import modules such as <code>schedules.build_schedule</code>, <code>schedules.term_resolver</code>, or <code>bu_calendar.bu_calendar_cache</code>. The installer can add thin wrappers so those imports continue to work while the shared behavior comes from the package.</p>
+<p>Always preview the operation first:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>edustack-schedule install <span class="op">&lt;</span>path-to-course-repo<span class="op">&gt;</span> <span class="op">--</span>dry-run</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the preview looks right, install the wrappers:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>edustack-schedule install <span class="op">&lt;</span>path-to-course-repo<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>By default, existing files are skipped. Use <code>--force</code> only after reviewing the course repository and confirming that the package wrappers should replace the current schedule modules.</p>
+</section>
+<section id="generate-the-schedule-workbook" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="generate-the-schedule-workbook"><span class="header-section-number">13.5</span> Generate the Schedule Workbook</h2>
+<p>From the course repository, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>edustack-schedule generate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The command reads <code>schedules/config.py</code>, loads the course source workbook, and writes a generated workbook in <code>data/</code>. The default output name follows this pattern:</p>
+<pre class="text"><code>data/fall26_generated_schedule.xlsx</code></pre>
+<p>The generated workbook contains standard sheets:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sheet</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Summary</code></td>
+<td>section, modality, term start, term end, class days, and lecture counts</td>
+</tr>
+<tr class="even">
+<td><code>Module0 Catalog</code></td>
+<td>pre-course or orientation rows from the source workbook</td>
+</tr>
+<tr class="odd">
+<td><code>Schedule</code></td>
+<td>lecture titles with section-specific dates</td>
+</tr>
+<tr class="even">
+<td><code>Online Deliverables</code></td>
+<td>online assignment, lab, project, and participation dates when configured</td>
+</tr>
+<tr class="odd">
+<td><code>OnCampus Deliverables</code></td>
+<td>on-campus assignment, lab, project, and participation dates when configured</td>
+</tr>
+</tbody>
+</table>
+<p>To generate a specific term explicitly:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>edustack-schedule generate <span class="op">--</span>semester Fall <span class="op">--</span>year <span class="dv">2026</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To generate only selected sections:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>edustack-schedule generate <span class="op">--</span>sections A1 O1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="connect-quarto-pages-to-the-generated-workbook" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="connect-quarto-pages-to-the-generated-workbook"><span class="header-section-number">13.6</span> Connect Quarto Pages to the Generated Workbook</h2>
+<p>The same generated workbook should feed the three public course pages:</p>
+<pre class="text"><code>index.qmd          course overview and high-level schedule
+schedule.qmd       full lecture sequence and meeting dates
+deliverables.qmd   due dates and graded work</code></pre>
+<p>A page can load a sheet like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> schedules.config <span class="im">import</span> semester, year</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> schedules.generated_schedule <span class="im">import</span> load_generated_schedule</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>schedule <span class="op">=</span> load_generated_schedule(<span class="st">"schedule"</span>, semester<span class="op">=</span>semester, year<span class="op">=</span>year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then render the table with the same display style used elsewhere in the course:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown, display</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>display(Markdown(schedule.to_markdown(index<span class="op">=</span><span class="va">False</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The important rule is that the pages should read the generated workbook instead of recalculating dates independently. If <code>index.qmd</code>, <code>schedule.qmd</code>, and <code>deliverables.qmd</code> each compute dates in their own cells, they can drift apart.</p>
+</section>
+<section id="semester-update-checklist" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="semester-update-checklist"><span class="header-section-number">13.7</span> Semester Update Checklist</h2>
+<p>Before each semester:</p>
+<ol type="1">
+<li>Update <code>schedules/config.py</code>.</li>
+<li>Confirm every active section has the correct <code>start_date</code>, <code>class_days</code>, and modality.</li>
+<li>Confirm the <code>source_workbook</code> value points to the course workbook.</li>
+<li>Run <code>edustack-schedule generate</code>.</li>
+<li>Open the generated workbook and inspect the <code>Summary</code> and <code>Schedule</code> sheets.</li>
+<li>Render <code>index.qmd</code>, <code>schedule.qmd</code>, and <code>deliverables.qmd</code> serially.</li>
+<li>Inspect the rendered dates, not just the command success.</li>
+<li>Commit the config, generated workbook, and page changes together.</li>
+</ol>
+<p>Serial rendering matters when several Quarto pages share the same output folder. Rendering them at the same time can cause file-copy races on Windows.</p>
+</section>
+<section id="common-checks" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="common-checks"><span class="header-section-number">13.8</span> Common Checks</h2>
+<p>If the workbook is missing, generate it again:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>edustack-schedule generate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the package reports that a section start date uses the wrong year, update the full ISO date in <code>schedules/config.py</code>. Automatic term resolution can move from December into the next Spring term, but section start dates are still explicit dates.</p>
+<p>If online sections have the wrong number of rows, check both values:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">"weeks"</span>: <span class="dv">6</span>,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">"lectures_per_week"</span>: <span class="dv">2</span>,</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Six weekly dates with two lectures per week should produce twelve online lecture rows.</p>
+<p>If a course uses its own deliverable rules, keep those rules in the course repository and let the generated workbook call them through the wrapper layer. The shared package should know how to place dates; the course should know what students are asked to submit.</p>
+</section>
+<section id="design-principle" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="design-principle"><span class="header-section-number">13.9</span> Design Principle</h2>
+<p>The package should make the semester mechanics boring. Professors should update one configuration file, generate one workbook, and render the same three pages. When every date comes from the same generated source, the syllabus, schedule, and deliverables page stay aligned.</p>
 
-</div>
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -660,11 +868,14 @@ div.csl-indent {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summary</span></span>
+      <a href="./12_capstone_build_like_ad688.html" class="pagination-link" aria-label="Build a Course Like AD688">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Build a Course Like AD688</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

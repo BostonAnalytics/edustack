@@ -1860,13 +1860,113 @@
     ]
   },
   {
+    "objectID": "13_class_schedule_automation.html",
+    "href": "13_class_schedule_automation.html",
+    "title": "13  Class Schedule Automation",
+    "section": "",
+    "text": "13.1 What the Package Owns\nCourse schedules change every semester, but the logic for building them should not have to be rewritten each time. A useful course repository separates three things:\nThe edustack-schedule package provides the reusable scheduling layer for this workflow. It reads the Boston University semester calendar, applies course section rules, and writes a generated workbook that the syllabus, schedule, and deliverables pages can all read.\nThe result is a repeatable semester update:\nThe package owns the behavior that should be consistent across courses:\nThe course repository still owns the course-specific decisions:\nThis division keeps the package stable while leaving each professor free to adapt a course.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#what-the-package-owns",
+    "href": "13_class_schedule_automation.html#what-the-package-owns",
+    "title": "13  Class Schedule Automation",
+    "section": "",
+    "text": "resolving the active semester from the render date\ndownloading and caching BU semester calendar rows\nparsing recesses, class suspensions, and substitute class days\ngenerating on-campus lecture dates from official calendar rules\ngenerating online weekly dates from explicit section starts\npairing online dates when a course has two online lectures per week\nchecking that configured section start dates match the target year\nwriting a generated schedule workbook with standard sheets\n\n\n\nthe source workbook name\nactive sections for the semester\nsection modalities\nfirst meeting dates\nnumber of lectures or online weeks\nassignment, lab, project, and participation rules\nthe wording and layout of the Quarto pages",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#install-the-package-locally",
+    "href": "13_class_schedule_automation.html#install-the-package-locally",
+    "title": "13  Class Schedule Automation",
+    "section": "13.2 Install the Package Locally",
+    "text": "13.2 Install the Package Locally\nDuring development, install the package from the EduStack checkout:\npython -m pip install -e &lt;path-to-edustack&gt;\\packages\\edustack-schedule\nLater, when the package is published, the command can become:\npython -m pip install edustack-schedule\nThe package installs a command named edustack-schedule:\nedustack-schedule --help",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#keep-course-configuration-in-the-course-repository",
+    "href": "13_class_schedule_automation.html#keep-course-configuration-in-the-course-repository",
+    "title": "13  Class Schedule Automation",
+    "section": "13.3 Keep Course Configuration in the Course Repository",
+    "text": "13.3 Keep Course Configuration in the Course Repository\nEach course should keep a small schedule configuration file at schedules/config.py. This file is the semester control panel. It should be plain Python data so it is easy to review before each term.\n# schedules/config.py\n\nsemester = \"Fall\"\nyear = 2026\nsource_workbook = \"data/Course-Schedule.xlsx\"\n\nsection_configs_by_semester = {\n    \"Fall\": [\n        {\n            \"section\": \"A1\",\n            \"modality\": \"oncampus\",\n            \"start_date\": \"2026-09-14\",\n            \"class_days\": [\"Mon\"],\n            \"lecture_count\": 12,\n        },\n        {\n            \"section\": \"O1\",\n            \"modality\": \"online\",\n            \"start_date\": \"2026-09-17\",\n            \"class_days\": [\"Thu\"],\n            \"weeks\": 6,\n            \"lectures_per_week\": 2,\n        },\n    ],\n}\nSet semester and year to None only when the course should follow the render date automatically. For active production courses, pinning the semester and year is often safer while the syllabus is being prepared.\nThe source_workbook value may differ by course. One course may use data/Course-Schedule.xlsx; another may use a course-specific workbook name such as data/AD698-Schedule.xlsx.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#install-compatibility-wrappers",
+    "href": "13_class_schedule_automation.html#install-compatibility-wrappers",
+    "title": "13  Class Schedule Automation",
+    "section": "13.4 Install Compatibility Wrappers",
+    "text": "13.4 Install Compatibility Wrappers\nExisting course repositories may already import modules such as schedules.build_schedule, schedules.term_resolver, or bu_calendar.bu_calendar_cache. The installer can add thin wrappers so those imports continue to work while the shared behavior comes from the package.\nAlways preview the operation first:\nedustack-schedule install &lt;path-to-course-repo&gt; --dry-run\nIf the preview looks right, install the wrappers:\nedustack-schedule install &lt;path-to-course-repo&gt;\nBy default, existing files are skipped. Use --force only after reviewing the course repository and confirming that the package wrappers should replace the current schedule modules.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#generate-the-schedule-workbook",
+    "href": "13_class_schedule_automation.html#generate-the-schedule-workbook",
+    "title": "13  Class Schedule Automation",
+    "section": "13.5 Generate the Schedule Workbook",
+    "text": "13.5 Generate the Schedule Workbook\nFrom the course repository, run:\nedustack-schedule generate\nThe command reads schedules/config.py, loads the course source workbook, and writes a generated workbook in data/. The default output name follows this pattern:\ndata/fall26_generated_schedule.xlsx\nThe generated workbook contains standard sheets:\n\n\n\n\n\n\n\nSheet\nPurpose\n\n\n\n\nSummary\nsection, modality, term start, term end, class days, and lecture counts\n\n\nModule0 Catalog\npre-course or orientation rows from the source workbook\n\n\nSchedule\nlecture titles with section-specific dates\n\n\nOnline Deliverables\nonline assignment, lab, project, and participation dates when configured\n\n\nOnCampus Deliverables\non-campus assignment, lab, project, and participation dates when configured\n\n\n\nTo generate a specific term explicitly:\nedustack-schedule generate --semester Fall --year 2026\nTo generate only selected sections:\nedustack-schedule generate --sections A1 O1",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#connect-quarto-pages-to-the-generated-workbook",
+    "href": "13_class_schedule_automation.html#connect-quarto-pages-to-the-generated-workbook",
+    "title": "13  Class Schedule Automation",
+    "section": "13.6 Connect Quarto Pages to the Generated Workbook",
+    "text": "13.6 Connect Quarto Pages to the Generated Workbook\nThe same generated workbook should feed the three public course pages:\nindex.qmd          course overview and high-level schedule\nschedule.qmd       full lecture sequence and meeting dates\ndeliverables.qmd   due dates and graded work\nA page can load a sheet like this:\nfrom schedules.config import semester, year\nfrom schedules.generated_schedule import load_generated_schedule\n\nschedule = load_generated_schedule(\"schedule\", semester=semester, year=year)\nThen render the table with the same display style used elsewhere in the course:\nfrom IPython.display import Markdown, display\n\ndisplay(Markdown(schedule.to_markdown(index=False)))\nThe important rule is that the pages should read the generated workbook instead of recalculating dates independently. If index.qmd, schedule.qmd, and deliverables.qmd each compute dates in their own cells, they can drift apart.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#semester-update-checklist",
+    "href": "13_class_schedule_automation.html#semester-update-checklist",
+    "title": "13  Class Schedule Automation",
+    "section": "13.7 Semester Update Checklist",
+    "text": "13.7 Semester Update Checklist\nBefore each semester:\n\nUpdate schedules/config.py.\nConfirm every active section has the correct start_date, class_days, and modality.\nConfirm the source_workbook value points to the course workbook.\nRun edustack-schedule generate.\nOpen the generated workbook and inspect the Summary and Schedule sheets.\nRender index.qmd, schedule.qmd, and deliverables.qmd serially.\nInspect the rendered dates, not just the command success.\nCommit the config, generated workbook, and page changes together.\n\nSerial rendering matters when several Quarto pages share the same output folder. Rendering them at the same time can cause file-copy races on Windows.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#common-checks",
+    "href": "13_class_schedule_automation.html#common-checks",
+    "title": "13  Class Schedule Automation",
+    "section": "13.8 Common Checks",
+    "text": "13.8 Common Checks\nIf the workbook is missing, generate it again:\nedustack-schedule generate\nIf the package reports that a section start date uses the wrong year, update the full ISO date in schedules/config.py. Automatic term resolution can move from December into the next Spring term, but section start dates are still explicit dates.\nIf online sections have the wrong number of rows, check both values:\n\"weeks\": 6,\n\"lectures_per_week\": 2,\nSix weekly dates with two lectures per week should produce twelve online lecture rows.\nIf a course uses its own deliverable rules, keep those rules in the course repository and let the generated workbook call them through the wrapper layer. The shared package should know how to place dates; the course should know what students are asked to submit.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#design-principle",
+    "href": "13_class_schedule_automation.html#design-principle",
+    "title": "13  Class Schedule Automation",
+    "section": "13.9 Design Principle",
+    "text": "13.9 Design Principle\nThe package should make the semester mechanics boring. Professors should update one configuration file, generate one workbook, and render the same three pages. When every date comes from the same generated source, the syllabus, schedule, and deliverables page stay aligned.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "13  Summary",
+    "title": "14  Summary",
     "section": "",
     "text": "This book has walked through the full course-production workflow:\n\nsetting up the authoring environment\nmanaging course materials with Git and GitHub\nwriting reproducible documents with Quarto\ndesigning the course feeder workbook\nbuilding a Quarto microsite with a consistent M01_* module structure\nusing GitHub Classroom for code-based coursework\npreparing content for Blackboard Ultra\nautomating repetitive course-building tasks with scripts and AI-assisted tools\n\nThe goal is not just to create one attractive course website. The goal is to give professors a repeatable system they can reuse across semesters, sections, and courses.\nThe recommended next step is to build a small pilot course using the same structure: one syllabus page, one schedule page, one deliverables page, and one complete module folder. Once that pilot renders cleanly and maps into Blackboard Ultra, the same pattern can scale to the full course.",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Summary</span>"
     ]
   }
 ]
