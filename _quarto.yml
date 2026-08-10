@@ -34,6 +34,8 @@ book:
       text: "Automating with AI"
     - href: 12_capstone_build_like_ad688.qmd
       text: "Build a Course Like AD688"
+    - href: 13_class_schedule_automation.qmd
+      text: "Class Schedule Automation"
     - summary.qmd
     - references.qmd
 

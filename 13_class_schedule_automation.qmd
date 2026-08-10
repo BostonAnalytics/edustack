@@ -1,0 +1,257 @@
+# Class Schedule Automation
+
+Course schedules change every semester, but the logic for building them should
+not have to be rewritten each time. A useful course repository separates three
+things:
+
+- the university calendar, such as official class start dates and recesses
+- the course section plan, such as A1 meeting Mondays or O1 opening Thursdays
+- the course content plan, such as lectures, labs, assignments, and project
+  milestones
+
+The `edustack-schedule` package provides the reusable scheduling layer for this
+workflow. It reads the Boston University semester calendar, applies course
+section rules, and writes a generated workbook that the syllabus, schedule, and
+deliverables pages can all read.
+
+The result is a repeatable semester update:
+
+```text
+BU calendar + course section config + course workbook
+        ↓
+generated schedule workbook
+        ↓
+index.qmd, schedule.qmd, deliverables.qmd
+```
+
+## What the Package Owns
+
+The package owns the behavior that should be consistent across courses:
+
+- resolving the active semester from the render date
+- downloading and caching BU semester calendar rows
+- parsing recesses, class suspensions, and substitute class days
+- generating on-campus lecture dates from official calendar rules
+- generating online weekly dates from explicit section starts
+- pairing online dates when a course has two online lectures per week
+- checking that configured section start dates match the target year
+- writing a generated schedule workbook with standard sheets
+
+The course repository still owns the course-specific decisions:
+
+- the source workbook name
+- active sections for the semester
+- section modalities
+- first meeting dates
+- number of lectures or online weeks
+- assignment, lab, project, and participation rules
+- the wording and layout of the Quarto pages
+
+This division keeps the package stable while leaving each professor free to
+adapt a course.
+
+## Install the Package Locally
+
+During development, install the package from the EduStack checkout:
+
+```powershell
+python -m pip install -e <path-to-edustack>\packages\edustack-schedule
+```
+
+Later, when the package is published, the command can become:
+
+```powershell
+python -m pip install edustack-schedule
+```
+
+The package installs a command named `edustack-schedule`:
+
+```powershell
+edustack-schedule --help
+```
+
+## Keep Course Configuration in the Course Repository
+
+Each course should keep a small schedule configuration file at
+`schedules/config.py`. This file is the semester control panel. It should be
+plain Python data so it is easy to review before each term.
+
+```python
+# schedules/config.py
+
+semester = "Fall"
+year = 2026
+source_workbook = "data/Course-Schedule.xlsx"
+
+section_configs_by_semester = {
+    "Fall": [
+        {
+            "section": "A1",
+            "modality": "oncampus",
+            "start_date": "2026-09-14",
+            "class_days": ["Mon"],
+            "lecture_count": 12,
+        },
+        {
+            "section": "O1",
+            "modality": "online",
+            "start_date": "2026-09-17",
+            "class_days": ["Thu"],
+            "weeks": 6,
+            "lectures_per_week": 2,
+        },
+    ],
+}
+```
+
+Set `semester` and `year` to `None` only when the course should follow the
+render date automatically. For active production courses, pinning the semester
+and year is often safer while the syllabus is being prepared.
+
+The `source_workbook` value may differ by course. One course may use
+`data/Course-Schedule.xlsx`; another may use a course-specific workbook name
+such as `data/AD698-Schedule.xlsx`.
+
+## Install Compatibility Wrappers
+
+Existing course repositories may already import modules such as
+`schedules.build_schedule`, `schedules.term_resolver`, or
+`bu_calendar.bu_calendar_cache`. The installer can add thin wrappers so those
+imports continue to work while the shared behavior comes from the package.
+
+Always preview the operation first:
+
+```powershell
+edustack-schedule install <path-to-course-repo> --dry-run
+```
+
+If the preview looks right, install the wrappers:
+
+```powershell
+edustack-schedule install <path-to-course-repo>
+```
+
+By default, existing files are skipped. Use `--force` only after reviewing the
+course repository and confirming that the package wrappers should replace the
+current schedule modules.
+
+## Generate the Schedule Workbook
+
+From the course repository, run:
+
+```powershell
+edustack-schedule generate
+```
+
+The command reads `schedules/config.py`, loads the course source workbook, and
+writes a generated workbook in `data/`. The default output name follows this
+pattern:
+
+```text
+data/fall26_generated_schedule.xlsx
+```
+
+The generated workbook contains standard sheets:
+
+| Sheet | Purpose |
+|---|---|
+| `Summary` | section, modality, term start, term end, class days, and lecture counts |
+| `Module0 Catalog` | pre-course or orientation rows from the source workbook |
+| `Schedule` | lecture titles with section-specific dates |
+| `Online Deliverables` | online assignment, lab, project, and participation dates when configured |
+| `OnCampus Deliverables` | on-campus assignment, lab, project, and participation dates when configured |
+
+To generate a specific term explicitly:
+
+```powershell
+edustack-schedule generate --semester Fall --year 2026
+```
+
+To generate only selected sections:
+
+```powershell
+edustack-schedule generate --sections A1 O1
+```
+
+## Connect Quarto Pages to the Generated Workbook
+
+The same generated workbook should feed the three public course pages:
+
+```text
+index.qmd          course overview and high-level schedule
+schedule.qmd       full lecture sequence and meeting dates
+deliverables.qmd   due dates and graded work
+```
+
+A page can load a sheet like this:
+
+```python
+from schedules.config import semester, year
+from schedules.generated_schedule import load_generated_schedule
+
+schedule = load_generated_schedule("schedule", semester=semester, year=year)
+```
+
+Then render the table with the same display style used elsewhere in the course:
+
+```python
+from IPython.display import Markdown, display
+
+display(Markdown(schedule.to_markdown(index=False)))
+```
+
+The important rule is that the pages should read the generated workbook instead
+of recalculating dates independently. If `index.qmd`, `schedule.qmd`, and
+`deliverables.qmd` each compute dates in their own cells, they can drift apart.
+
+## Semester Update Checklist
+
+Before each semester:
+
+1. Update `schedules/config.py`.
+2. Confirm every active section has the correct `start_date`, `class_days`, and
+   modality.
+3. Confirm the `source_workbook` value points to the course workbook.
+4. Run `edustack-schedule generate`.
+5. Open the generated workbook and inspect the `Summary` and `Schedule` sheets.
+6. Render `index.qmd`, `schedule.qmd`, and `deliverables.qmd` serially.
+7. Inspect the rendered dates, not just the command success.
+8. Commit the config, generated workbook, and page changes together.
+
+Serial rendering matters when several Quarto pages share the same output
+folder. Rendering them at the same time can cause file-copy races on Windows.
+
+## Common Checks
+
+If the workbook is missing, generate it again:
+
+```powershell
+edustack-schedule generate
+```
+
+If the package reports that a section start date uses the wrong year, update the
+full ISO date in `schedules/config.py`. Automatic term resolution can move from
+December into the next Spring term, but section start dates are still explicit
+dates.
+
+If online sections have the wrong number of rows, check both values:
+
+```python
+"weeks": 6,
+"lectures_per_week": 2,
+```
+
+Six weekly dates with two lectures per week should produce twelve online
+lecture rows.
+
+If a course uses its own deliverable rules, keep those rules in the course
+repository and let the generated workbook call them through the wrapper layer.
+The shared package should know how to place dates; the course should know what
+students are asked to submit.
+
+## Design Principle
+
+The package should make the semester mechanics boring. Professors should update
+one configuration file, generate one workbook, and render the same three pages.
+When every date comes from the same generated source, the syllabus, schedule,
+and deliverables page stay aligned.
