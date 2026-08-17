@@ -52,7 +52,13 @@ adapt a course.
 
 ## Install the Package Locally
 
-During development, install the package from the EduStack checkout:
+During development, you can sync the packages in your Python virtual environment using `uv` workspace integration. Add the package to your root project's `pyproject.toml` workspace configuration and run:
+
+```powershell
+uv sync
+```
+
+Alternatively, you can install the package manually using pip:
 
 ```powershell
 python -m pip install -e <path-to-edustack>\packages\edustack-schedule
@@ -64,7 +70,7 @@ Later, when the package is published, the command can become:
 python -m pip install edustack-schedule
 ```
 
-The package installs a command named `edustack-schedule`:
+The package installs a CLI tool named `edustack-schedule`:
 
 ```powershell
 edustack-schedule --help
@@ -248,6 +254,43 @@ If a course uses its own deliverable rules, keep those rules in the course
 repository and let the generated workbook call them through the wrapper layer.
 The shared package should know how to place dates; the course should know what
 students are asked to submit.
+
+## Classroom Organization & GitHub Automation (edustack-classroom)
+
+EduStack also provides the `edustack-classroom` package under `packages/edustack-classroom`. This package consolidates tools for administrative and organization tasks that occur before and during the semester.
+
+To use the tools, install the package locally:
+```powershell
+uv sync
+```
+This installs the `edustack-classroom` CLI:
+```powershell
+edustack-classroom --help
+```
+
+### Batch Generating Announcements
+You can automatically generate `.docx` weekly announcements for your LMS (like Blackboard) from the course schedule Excel workbook. The tool extracts deliverables, weekly review descriptions, and open/due dates for all active sections:
+```powershell
+edustack-classroom announcements --excel-file data/Course-Schedule.xlsx --output-dir Announcements
+```
+
+### Managing Student Invitations
+If you have pending repository invitations in your GitHub organization that students haven't accepted, you can revoke and re-invite them batchwise to keep access clean:
+```powershell
+edustack-classroom reinvite --org ad688-SP26 --prefix a02-sp26- --permission write
+```
+
+### Batch Creating Lab Starter Repositories
+You can batch create templated lab repositories within your target organization:
+```powershell
+edustack-classroom create-labs --org ad688-SP26 --repo-prefix Lab --start-num 1 --end-num 12
+```
+
+### Batch Setting up Classroom Assignments
+You can automatically create GitHub starter repositories and create their matching assignments on GitHub Classroom based on a config file:
+```powershell
+edustack-classroom setup-classroom --classroom-org ad688-SP26 --template-org met-ad-688 --classroom-name "My Classroom" --config-file labs_config.json
+```
 
 ## Design Principle
 
