@@ -1884,7 +1884,7 @@
     "href": "13_class_schedule_automation.html#install-the-package-locally",
     "title": "13  Class Schedule Automation",
     "section": "13.2 Install the Package Locally",
-    "text": "13.2 Install the Package Locally\nDuring development, install the package from the EduStack checkout:\npython -m pip install -e &lt;path-to-edustack&gt;\\packages\\edustack-schedule\nLater, when the package is published, the command can become:\npython -m pip install edustack-schedule\nThe package installs a command named edustack-schedule:\nedustack-schedule --help",
+    "text": "13.2 Install the Package Locally\nDuring development, you can sync the packages in your Python virtual environment using uv workspace integration. Add the package to your root project’s pyproject.toml workspace configuration and run:\nuv sync\nAlternatively, you can install the package manually using pip:\npython -m pip install -e &lt;path-to-edustack&gt;\\packages\\edustack-schedule\nLater, when the package is published, the command can become:\npython -m pip install edustack-schedule\nThe package installs a CLI tool named edustack-schedule:\nedustack-schedule --help",
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
     ]
@@ -1950,11 +1950,21 @@
     ]
   },
   {
+    "objectID": "13_class_schedule_automation.html#classroom-organization-github-automation-edustack-classroom",
+    "href": "13_class_schedule_automation.html#classroom-organization-github-automation-edustack-classroom",
+    "title": "13  Class Schedule Automation",
+    "section": "13.9 Classroom Organization & GitHub Automation (edustack-classroom)",
+    "text": "13.9 Classroom Organization & GitHub Automation (edustack-classroom)\nEduStack also provides the edustack-classroom package under packages/edustack-classroom. This package consolidates tools for administrative and organization tasks that occur before and during the semester.\nTo use the tools, install the package locally:\nuv sync\nThis installs the edustack-classroom CLI:\nedustack-classroom --help\n\n13.9.1 Batch Generating Announcements\nYou can automatically generate .docx weekly announcements for your LMS (like Blackboard) from the course schedule Excel workbook. The tool extracts deliverables, weekly review descriptions, and open/due dates for all active sections:\nedustack-classroom announcements --excel-file data/Course-Schedule.xlsx --output-dir Announcements\n\n\n13.9.2 Managing Student Invitations\nIf you have pending repository invitations in your GitHub organization that students haven’t accepted, you can revoke and re-invite them batchwise to keep access clean:\nedustack-classroom reinvite --org ad688-SP26 --prefix a02-sp26- --permission write\n\n\n13.9.3 Batch Creating Lab Starter Repositories\nYou can batch create templated lab repositories within your target organization:\nedustack-classroom create-labs --org ad688-SP26 --repo-prefix Lab --start-num 1 --end-num 12\n\n\n13.9.4 Batch Setting up Classroom Assignments\nYou can automatically create GitHub starter repositories and create their matching assignments on GitHub Classroom based on a config file:\nedustack-classroom setup-classroom --classroom-org ad688-SP26 --template-org met-ad-688 --classroom-name \"My Classroom\" --config-file labs_config.json",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
     "objectID": "13_class_schedule_automation.html#design-principle",
     "href": "13_class_schedule_automation.html#design-principle",
     "title": "13  Class Schedule Automation",
-    "section": "13.9 Design Principle",
-    "text": "13.9 Design Principle\nThe package should make the semester mechanics boring. Professors should update one configuration file, generate one workbook, and render the same three pages. When every date comes from the same generated source, the syllabus, schedule, and deliverables page stay aligned.",
+    "section": "13.10 Design Principle",
+    "text": "13.10 Design Principle\nThe package should make the semester mechanics boring. Professors should update one configuration file, generate one workbook, and render the same three pages. When every date comes from the same generated source, the syllabus, schedule, and deliverables page stay aligned.",
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
     ]
