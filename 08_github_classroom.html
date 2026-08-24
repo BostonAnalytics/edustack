@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; GitHub Classroom – Designing a Course With Quarto</title>
+<title>8&nbsp; Classroom 50 – Designing a Course With Quarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -88,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08_github_classroom.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">GitHub Classroom</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08_github_classroom.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Classroom 50</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -158,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_github_classroom.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">GitHub Classroom</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Classroom 50</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -213,17 +248,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#administering-coursework-with-github-classroom" id="toc-administering-coursework-with-github-classroom" class="nav-link active" data-scroll-target="#administering-coursework-with-github-classroom"><span class="header-section-number">9</span> Administering Coursework with GitHub Classroom</a>
+  <li><a href="#administering-coursework-with-classroom-50" id="toc-administering-coursework-with-classroom-50" class="nav-link active" data-scroll-target="#administering-coursework-with-classroom-50"><span class="header-section-number">9</span> Administering Coursework with Classroom 50</a>
   <ul class="collapse">
-  <li><a href="#core-features-for-educators" id="toc-core-features-for-educators" class="nav-link" data-scroll-target="#core-features-for-educators"><span class="header-section-number">9.1</span> Core Features for Educators</a>
-  <ul class="collapse">
-  <li><a href="#template-repositories" id="toc-template-repositories" class="nav-link" data-scroll-target="#template-repositories"><span class="header-section-number">9.1.1</span> Template Repositories</a></li>
-  <li><a href="#autograding" id="toc-autograding" class="nav-link" data-scroll-target="#autograding"><span class="header-section-number">9.1.2</span> Autograding</a></li>
-  <li><a href="#feedback-pull-requests" id="toc-feedback-pull-requests" class="nav-link" data-scroll-target="#feedback-pull-requests"><span class="header-section-number">9.1.3</span> Feedback Pull Requests</a></li>
-  <li><a href="#lms-integration" id="toc-lms-integration" class="nav-link" data-scroll-target="#lms-integration"><span class="header-section-number">9.1.4</span> LMS Integration</a></li>
-  </ul></li>
-  <li><a href="#integrating-classroom-with-your-quarto-workflow" id="toc-integrating-classroom-with-your-quarto-workflow" class="nav-link" data-scroll-target="#integrating-classroom-with-your-quarto-workflow"><span class="header-section-number">9.2</span> Integrating Classroom with Your Quarto Workflow</a></li>
-  <li><a href="#integrating-github-classroom-in-an-analytics-class" id="toc-integrating-github-classroom-in-an-analytics-class" class="nav-link" data-scroll-target="#integrating-github-classroom-in-an-analytics-class"><span class="header-section-number">9.3</span> Integrating GitHub Classroom in an Analytics Class</a></li>
+  <li><a href="#why-classroom-50-fits-this-workflow" id="toc-why-classroom-50-fits-this-workflow" class="nav-link" data-scroll-target="#why-classroom-50-fits-this-workflow"><span class="header-section-number">9.1</span> Why Classroom 50 Fits This Workflow</a></li>
+  <li><a href="#install-the-cli-extensions" id="toc-install-the-cli-extensions" class="nav-link" data-scroll-target="#install-the-cli-extensions"><span class="header-section-number">9.2</span> Install the CLI Extensions</a></li>
+  <li><a href="#one-time-organization-setup" id="toc-one-time-organization-setup" class="nav-link" data-scroll-target="#one-time-organization-setup"><span class="header-section-number">9.3</span> One-Time Organization Setup</a></li>
+  <li><a href="#add-a-classroom" id="toc-add-a-classroom" class="nav-link" data-scroll-target="#add-a-classroom"><span class="header-section-number">9.4</span> Add a Classroom</a></li>
+  <li><a href="#import-the-roster" id="toc-import-the-roster" class="nav-link" data-scroll-target="#import-the-roster"><span class="header-section-number">9.5</span> Import the Roster</a></li>
+  <li><a href="#prepare-quarto-assignment-templates" id="toc-prepare-quarto-assignment-templates" class="nav-link" data-scroll-target="#prepare-quarto-assignment-templates"><span class="header-section-number">9.6</span> Prepare Quarto Assignment Templates</a></li>
+  <li><a href="#add-assignments" id="toc-add-assignments" class="nav-link" data-scroll-target="#add-assignments"><span class="header-section-number">9.7</span> Add Assignments</a></li>
+  <li><a href="#connect-assignments-to-blackboard-ultra" id="toc-connect-assignments-to-blackboard-ultra" class="nav-link" data-scroll-target="#connect-assignments-to-blackboard-ultra"><span class="header-section-number">9.8</span> Connect Assignments to Blackboard Ultra</a></li>
+  <li><a href="#collect-scores-and-download-work" id="toc-collect-scores-and-download-work" class="nav-link" data-scroll-target="#collect-scores-and-download-work"><span class="header-section-number">9.9</span> Collect Scores and Download Work</a></li>
+  <li><a href="#migration-pattern-from-github-classroom" id="toc-migration-pattern-from-github-classroom" class="nav-link" data-scroll-target="#migration-pattern-from-github-classroom"><span class="header-section-number">9.10</span> Migration Pattern from GitHub Classroom</a></li>
+  <li><a href="#troubleshooting-references" id="toc-troubleshooting-references" class="nav-link" data-scroll-target="#troubleshooting-references"><span class="header-section-number">9.11</span> Troubleshooting References</a></li>
+  <li><a href="#semester-checklist" id="toc-semester-checklist" class="nav-link" data-scroll-target="#semester-checklist"><span class="header-section-number">9.12</span> Semester Checklist</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -233,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">GitHub Classroom</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Classroom 50</span></h1>
 </div>
 
 
@@ -250,48 +288,227 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="administering-coursework-with-github-classroom" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Administering Coursework with GitHub Classroom</h1>
-<p>As you transition to a reproducible, version-controlled authoring workflow using Quarto and GitHub, managing student assignments becomes the next logical challenge. Traditional Learning Management Systems (LMS) like Blackboard are excellent for delivering content, but they can be cumbersome when distributing code templates, grading programming assignments, or managing student collaboration.</p>
-<p>This is where <strong>GitHub Classroom</strong> shines. GitHub Classroom is a teaching tool designed to bridge the gap between professional version control and academic assignment management. By integrating GitHub Classroom into your course workflow, you can automate repository creation, distribute starter code seamlessly, and even implement autograding.</p>
-<section id="core-features-for-educators" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="core-features-for-educators"><span class="header-section-number">9.1</span> Core Features for Educators</h2>
-<p>GitHub Classroom offers several powerful features that simplify the teaching and learning experience, making it the perfect companion for a Quarto-based course.</p>
-<section id="template-repositories" class="level3" data-number="9.1.1">
-<h3 data-number="9.1.1" class="anchored" data-anchor-id="template-repositories"><span class="header-section-number">9.1.1</span> Template Repositories</h3>
-<p>The Quarto framework we established earlier involves generating a specific directory structure (<code>M01</code>, <code>M02</code>) with predefined lecture notes, labs, assignments, projects, presentations, and participation files (<code>M01_A.qmd</code>, <code>M01_Proj.qmd</code>, <code>M01_Lab1.qmd</code>). With GitHub Classroom, you can turn these generated directories into <strong>template repositories</strong>.</p>
-<p>When you create an assignment, you can link it to your template repository. GitHub Classroom will then automatically generate a private, boilerplate repository for every student (or group) who accepts the assignment. This ensures every student starts with the exact same file structure and Quarto configurations.</p>
+<section id="administering-coursework-with-classroom-50" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Administering Coursework with Classroom 50</h1>
+<p>GitHub Classroom has historically been the easiest way to distribute coding assignments from a template repository, collect student work, and support autograding. Because the legacy GitHub Classroom service is expected to stop being a reliable path after August 2026, this workflow now uses <strong>Classroom 50</strong> as the assignment-management layer.</p>
+<p>Classroom 50 keeps the parts that work well for technical courses: GitHub repositories, starter templates, GitHub Actions autograding, roster-based collection, and downloadable submissions. The main difference is operational: teachers manage the classroom through the GitHub CLI instead of a hosted Classroom dashboard.</p>
+<p>The command sequence in this chapter follows the upstream <a href="https://github.com/foundation50/classroom50/wiki/CLI-Teacher-Guide">Classroom 50 CLI Teacher Guide</a>. Keep the upstream wiki nearby for the full command reference: <a href="https://github.com/foundation50/classroom50/wiki/Installation">Installation</a>, <a href="https://github.com/foundation50/classroom50/wiki/CLI-Student-Guide">CLI Student Guide</a>, <a href="https://github.com/foundation50/classroom50/wiki/Assignment-Templates">Assignment Templates</a>, <a href="https://github.com/foundation50/classroom50/wiki/Autograders">Autograders</a>, <a href="https://github.com/foundation50/classroom50/wiki/GitHub-Integration">GitHub Integration</a>, <a href="https://github.com/foundation50/classroom50/wiki/gh-teacher"><code>gh teacher</code> command reference</a>, <a href="https://github.com/foundation50/classroom50/wiki/gh-student"><code>gh student</code> command reference</a>, and <a href="https://github.com/foundation50/classroom50/wiki/Troubleshooting">Troubleshooting</a>.</p>
+<section id="why-classroom-50-fits-this-workflow" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="why-classroom-50-fits-this-workflow"><span class="header-section-number">9.1</span> Why Classroom 50 Fits This Workflow</h2>
+<p>The Quarto workflow established earlier generates predictable module folders such as <code>M01</code>, <code>M02</code>, and <code>M03</code>, each with files like <code>M01_A.qmd</code>, <code>M01_Proj.qmd</code>, and <code>M01_Lab1.qmd</code>. Those folders can become starter material for individual or group repositories.</p>
+<p>Classroom 50 adds four pieces around that Quarto source:</p>
+<ul>
+<li>a private <code>&lt;org&gt;/classroom50</code> configuration repository</li>
+<li>one directory per classroom, with <code>classroom.json</code>, <code>assignments.json</code>, <code>students.csv</code>, and <code>scores.json</code></li>
+<li>GitHub teams and org settings that keep student repositories private and limited</li>
+<li>teacher and student CLI commands for accepting, submitting, collecting, and downloading work</li>
+</ul>
+<p>In practice, Blackboard Ultra remains the student-facing course shell, Quarto remains the source of truth for instructional material, GitHub remains the code workspace, and Classroom 50 manages the assignment repositories.</p>
 </section>
-<section id="autograding" class="level3" data-number="9.1.2">
-<h3 data-number="9.1.2" class="anchored" data-anchor-id="autograding"><span class="header-section-number">9.1.2</span> Autograding</h3>
-<p>For courses that involve programming or reproducible data analysis, grading can be incredibly time-consuming. GitHub Classroom allows you to configure automated tests that run every time a student pushes a commit to their assignment repository.</p>
-<p>Using GitHub Actions under the hood, these autograding scripts can check for syntax errors, verify that a Quarto document compiles correctly, or validate the output of a data analysis script.</p>
+<section id="install-the-cli-extensions" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="install-the-cli-extensions"><span class="header-section-number">9.2</span> Install the CLI Extensions</h2>
+<p>Classroom 50 is delivered as two GitHub CLI extensions: <code>gh teacher</code> for instructors and <code>gh student</code> for students.</p>
+<p>Install both extensions:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> extension install foundation50/gh-teacher</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> extension install foundation50/gh-student</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Verify that the commands are available:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher <span class="at">--help</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> student <span class="at">--help</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Update them before each semester:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> extension upgrade gh-teacher</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> extension upgrade gh-student</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then authenticate with the scopes Classroom 50 needs:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher login</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gh_teacher_auth.gif" class="img-fluid figure-img"></p>
+<figcaption>Demo: gh teacher login</figcaption>
+</figure>
+</div>
+<p>This is different from a plain <code>gh auth login</code>; the teacher command requests the organization and workflow scopes needed for roster invitations, classroom setup, and the config repository workflows.</p>
 </section>
-<section id="feedback-pull-requests" class="level3" data-number="9.1.3">
-<h3 data-number="9.1.3" class="anchored" data-anchor-id="feedback-pull-requests"><span class="header-section-number">9.1.3</span> Feedback Pull Requests</h3>
-<p>Instead of downloading zipped folders of student code from Blackboard, GitHub Classroom can automatically open a <strong>Feedback Pull Request</strong> in every student’s assignment repository. This allows you, or your teaching assistants, to leave line-by-line comments directly on the student’s code, mimicking a professional code review process.</p>
+<section id="one-time-organization-setup" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="one-time-organization-setup"><span class="header-section-number">9.3</span> One-Time Organization Setup</h2>
+<p>Create a dedicated teaching organization on GitHub before running the CLI. The CLI does not create the organization for you.</p>
+<p>Recommended organization pattern:</p>
+<ul>
+<li>one GitHub organization per course, program, or teaching term</li>
+<li>a short, stable org name such as <code>ad688-fall-2026</code></li>
+<li>private assignment repositories for students</li>
+<li>public or in-org private template repositories for starter code</li>
+</ul>
+<p>Bootstrap the Classroom 50 config repository:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher init <span class="op">&lt;</span>org<span class="op">&gt;</span> --dry-run</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher init <span class="op">&lt;</span>org<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The dry run is worth doing first. It checks org access, ownership, scopes, plan constraints, and service-token readiness before the command changes the org.</p>
+<p>During setup, Classroom 50 creates the private <code>&lt;org&gt;/classroom50</code> repository, adds workflows for publishing assignment metadata and collecting scores, and applies least-privilege organization settings. It also requires a <code>CLASSROOM50_SERVICE_TOKEN</code> so the score-collection workflow can read student submissions.</p>
+<p>After setup, audit the organization:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher audit <span class="op">&lt;</span>org<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Some GitHub member-privilege settings still need to be confirmed in the web UI because GitHub does not expose every setting through the REST API. Treat the audit output as the final setup checklist.</p>
+<p>The <a href="https://github.com/foundation50/classroom50/wiki/GitHub-Integration">GitHub Integration</a> page is the best reference for the fine-grained PAT, GitHub Pages, Actions, and REST API details behind this setup.</p>
 </section>
-<section id="lms-integration" class="level3" data-number="9.1.4">
-<h3 data-number="9.1.4" class="anchored" data-anchor-id="lms-integration"><span class="header-section-number">9.1.4</span> LMS Integration</h3>
-<p>While we are using Blackboard Ultra as the primary content delivery platform, GitHub Classroom can connect directly to your LMS. By linking your Blackboard course to your GitHub Classroom, you can import your student roster directly. This ensures that every GitHub account is mapped to a specific student ID, preventing the common headache of figuring out which anonymous GitHub handle belongs to which student.</p>
+<section id="add-a-classroom" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="add-a-classroom"><span class="header-section-number">9.4</span> Add a Classroom</h2>
+<p>Create one Classroom 50 classroom for each course section, course shell, or term-level teaching group.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher classroom add <span class="op">&lt;</span>org<span class="op">&gt;</span> <span class="op">&lt;</span>short-name<span class="op">&gt;</span> --name <span class="st">"&lt;full name&gt;"</span> <span class="at">--term</span> <span class="op">&lt;</span>term<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher classroom add ad688-fall-2026 web-analytics <span class="at">--name</span> <span class="st">"Web Analytics"</span> <span class="at">--term</span> Fall-2026</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>&lt;short-name&gt;</code> becomes part of every student repository name, so keep it short, lowercase, and stable. A repository for a student named <code>alice</code> accepting an assignment named <code>module-01-lab</code> would use a name like:</p>
+<pre class="text"><code>web-analytics-module-01-lab-alice</code></pre>
+<p>List classrooms when you need to confirm what has been registered:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher classroom list <span class="op">&lt;</span>org<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="import-the-roster" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="import-the-roster"><span class="header-section-number">9.5</span> Import the Roster</h2>
+<p>Classroom 50 stores the intended roster in <code>&lt;org&gt;/classroom50/&lt;classroom&gt;/students.csv</code>. Manage it with the CLI rather than editing the file by hand.</p>
+<p>Add one student:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher roster add <span class="op">&lt;</span>org<span class="op">&gt;</span> <span class="op">&lt;</span>classroom<span class="op">&gt;</span> <span class="op">&lt;</span>username<span class="op">&gt;</span> --first-name <span class="op">&lt;</span>name<span class="op">&gt;</span> --last-name <span class="op">&lt;</span>name<span class="op">&gt;</span> --email <span class="op">&lt;</span>email<span class="op">&gt;</span> --section <span class="op">&lt;</span>section<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For ad-hoc organization invitations, the lower-level command is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher invite <span class="op">&lt;</span>org<span class="op">&gt;</span> <span class="op">&lt;</span>username<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gh_teacher_invite.gif" class="img-fluid figure-img"></p>
+<figcaption>Demo: gh teacher invite</figcaption>
+</figure>
+</div>
+<p>Bulk import a roster:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher roster import <span class="op">&lt;</span>org<span class="op">&gt;</span> <span class="op">&lt;</span>classroom<span class="op">&gt;</span> data/classroom50-roster.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use a CSV with this header:</p>
+<pre class="csv"><code>username,first_name,last_name,email,section</code></pre>
+<p>List the roster:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher roster list <span class="op">&lt;</span>org<span class="op">&gt;</span> <span class="op">&lt;</span>classroom<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Roster import also sends organization invitations to new students. Students can accept the org invitation directly, or Classroom 50 can handle the pending invitation when they accept their first assignment.</p>
 </section>
-<section id="integrating-classroom-with-your-quarto-workflow" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="integrating-classroom-with-your-quarto-workflow"><span class="header-section-number">9.2</span> Integrating Classroom with Your Quarto Workflow</h2>
-<p>To implement GitHub Classroom effectively in this framework, consider the following workflow for each module:</p>
+<section id="prepare-quarto-assignment-templates" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="prepare-quarto-assignment-templates"><span class="header-section-number">9.6</span> Prepare Quarto Assignment Templates</h2>
+<p>For each module assignment, start from the same module structure used throughout the course:</p>
+<pre class="text"><code>M01/
+  M01_A.qmd
+  M01_Lab1.qmd
+  M01_Lab2.qmd
+  M01_Proj.qmd
+  data/
+  output/</code></pre>
+<p>Recommended template workflow:</p>
 <ol type="1">
-<li><strong>Generate the Module</strong>: Use <code>scripts/generate_modules.py</code> to create the <code>M01</code> folder and its <code>M01_Lab1.qmd</code>, <code>M01_A.qmd</code>, or <code>M01_Proj.qmd</code> files.</li>
-<li><strong>Author the Assignment</strong>: Write the assignment instructions and provide any starter data inside the <code>data/</code> folder.</li>
-<li><strong>Create the Template</strong>: Push this module folder to a dedicated GitHub repository and mark it as a “Template Repository” in the repository settings.</li>
-<li><strong>Publish the Assignment</strong>: In GitHub Classroom, create a new assignment, select your template repository, and generate an invitation link.</li>
-<li><strong>Post to Blackboard</strong>: Finally, take the GitHub Classroom invitation link and embed it directly into your Blackboard Ultra learning module.</li>
+<li>Generate or update the module files with <code>scripts/generate_modules.py</code>.</li>
+<li>Remove instructor-only files, solutions, keys, hidden notes, and private datasets.</li>
+<li>Keep the student-facing <code>.qmd</code> instructions, starter code, lightweight data, and any required environment files.</li>
+<li>Push the starter files to a dedicated GitHub repository.</li>
+<li>Mark that repository as a template repository in GitHub settings.</li>
 </ol>
-<p>When students click the link in Blackboard, they will be taken to GitHub Classroom, where their personal, version-controlled Quarto workspace will be instantly generated. This workflow completely eliminates the friction of file distribution and empowers students to work in the same professional environments they will use in their careers.</p>
+<p>Private templates should live inside the teaching organization. Classroom 50 can grant the classroom team read access to in-org private templates when the assignment is registered. Public templates can live anywhere.</p>
+<p>For template repositories, keep the upstream <a href="https://github.com/foundation50/classroom50/wiki/Assignment-Templates">Assignment Templates</a> contract in mind:</p>
+<ul>
+<li><code>README.md</code> is the student-facing assignment brief.</li>
+<li><code>.gitignore</code> is optional and is re-fetched by <code>gh student submit</code>.</li>
+<li><code>.github/</code> is optional and is re-fetched by <code>gh student submit</code> for non-autograde workflows.</li>
+<li><code>.github/workflows/autograde.yaml</code> should not live in the template; Classroom 50 writes the autograde shim when the student accepts the assignment.</li>
+<li>starter code can be a single file, a Quarto module folder, or a complete project skeleton.</li>
+</ul>
 </section>
-<section id="integrating-github-classroom-in-an-analytics-class" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="integrating-github-classroom-in-an-analytics-class"><span class="header-section-number">9.3</span> Integrating GitHub Classroom in an Analytics Class</h2>
-<p>In an analytics class, GitHub Classroom can serve as the distribution and collection layer for coding work. It can be used to create private repositories for each student or group, share starter Quarto, Python, or notebook files, and keep the assignment structure consistent across sections.</p>
-<p>It also makes feedback easier. Students submit work through GitHub, and the instructor can review commits, compare revisions, and leave comments directly on files instead of managing multiple uploaded document versions through the LMS.</p>
+<section id="add-assignments" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="add-assignments"><span class="header-section-number">9.7</span> Add Assignments</h2>
+<p>Register each assignment in Classroom 50 with a short slug, display name, optional template repository, and due date.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher assignment add <span class="op">&lt;</span>org<span class="op">&gt;</span> <span class="op">&lt;</span>classroom<span class="op">&gt;</span> <span class="op">&lt;</span>slug<span class="op">&gt;</span> --name <span class="st">"&lt;name&gt;"</span> <span class="at">--template</span> <span class="op">&lt;</span>owner<span class="op">&gt;</span>/<span class="op">&lt;</span>repo<span class="op">&gt;</span> --due <span class="op">&lt;</span>ISO-8601<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Example for an individual lab:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher assignment add ad688-fall-2026 web-analytics module-01-lab <span class="at">--name</span> <span class="st">"Module 1 Lab"</span> <span class="at">--template</span> ad688-fall-2026/module-01-lab-template <span class="at">--due</span> 2026-09-15T23:59:00-04:00</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Template-less assignments are also allowed:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher assignment add ad688-fall-2026 web-analytics reflection-01 <span class="at">--name</span> <span class="st">"Reflection 1"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For group work, register the assignment as a group assignment and include a maximum group size:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher assignment add ad688-fall-2026 web-analytics project-01 <span class="at">--name</span> <span class="st">"Project 1"</span> <span class="at">--template</span> ad688-fall-2026/project-01-template <span class="at">--mode</span> group <span class="at">--max-group-size</span> 4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>List registered assignments:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher assignment list <span class="op">&lt;</span>org<span class="op">&gt;</span> <span class="op">&lt;</span>classroom<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Autograding is configured in the Classroom 50 config repository, not inside the starter template. Use the <a href="https://github.com/foundation50/classroom50/wiki/Autograders">Autograders</a> reference when you need a classroom default autograder, a per-assignment <code>autograder.py</code>, declarative tests, runtime settings, allowed-file checks, or feedback pull requests.</p>
+</section>
+<section id="connect-assignments-to-blackboard-ultra" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="connect-assignments-to-blackboard-ultra"><span class="header-section-number">9.8</span> Connect Assignments to Blackboard Ultra</h2>
+<p>Blackboard Ultra should point students to the assignment workflow, not replace it.</p>
+<p>For each Blackboard assignment item, include:</p>
+<ul>
+<li>the assignment name and due date</li>
+<li>the Classroom 50 classroom and assignment slug</li>
+<li>the template or starter repository purpose</li>
+<li>the required student commands</li>
+<li>the final LMS submission artifact, usually the GitHub repository URL or a short confirmation note</li>
+</ul>
+<p>A simple student command block looks like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> student login</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> student accept <span class="op">&lt;</span>org<span class="op">&gt;</span> <span class="op">&lt;</span>classroom<span class="op">&gt;</span> <span class="op">&lt;</span>assignment<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gh_student_auth.gif" class="img-fluid figure-img"></p>
+<figcaption>Demo: gh student login</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gh_student_accept.gif" class="img-fluid figure-img"></p>
+<figcaption>Demo: gh student accept</figcaption>
+</figure>
+</div>
+<p>Students complete the work in the generated repository, commit normally, push, and then submit with the Classroom 50 student command required by your assignment instructions.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Complete assignment"</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> student submit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gh_student_submit.gif" class="img-fluid figure-img"></p>
+<figcaption>Demo: gh student submit</figcaption>
+</figure>
+</div>
+<p>The <a href="https://github.com/foundation50/classroom50/wiki/CLI-Student-Guide">CLI Student Guide</a> is the student-facing source to link from Blackboard when students need the full accept, clone, group assignment, and submit workflow.</p>
+</section>
+<section id="collect-scores-and-download-work" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="collect-scores-and-download-work"><span class="header-section-number">9.9</span> Collect Scores and Download Work</h2>
+<p>Classroom 50 submissions publish release artifacts in each student repository. The <code>&lt;org&gt;/classroom50</code> config repository includes a <code>collect-scores.yaml</code> workflow that aggregates those release results into <code>scores.json</code>.</p>
+<p>Trigger score collection from the shell:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> workflow run collect-scores.yaml <span class="at">--repo</span> <span class="op">&lt;</span>org<span class="op">&gt;</span>/classroom50</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Collect for one classroom only:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> workflow run collect-scores.yaml <span class="at">--repo</span> <span class="op">&lt;</span>org<span class="op">&gt;</span>/classroom50 <span class="at">-f</span> classroom=<span class="op">&lt;</span>classroom<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Download the latest submissions for grading, review, or archiving:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher download <span class="op">&lt;</span>org<span class="op">&gt;</span> <span class="op">&lt;</span>classroom<span class="op">&gt;</span> <span class="op">&lt;</span>assignment<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gh_teacher_download.gif" class="img-fluid figure-img"></p>
+<figcaption>Demo: gh teacher download</figcaption>
+</figure>
+</div>
+<p>The download command creates a timestamped folder, clones each rostered student’s assignment repository when present, refreshes <code>result.json</code> and <code>results.json</code>, and writes a <code>scores.csv</code> summary.</p>
+</section>
+<section id="migration-pattern-from-github-classroom" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="migration-pattern-from-github-classroom"><span class="header-section-number">9.10</span> Migration Pattern from GitHub Classroom</h2>
+<p>If you already have a legacy GitHub Classroom course, do not rebuild every template by hand. Use the Classroom 50 migration command as the starting point:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher classroom migrate <span class="at">--source</span> <span class="op">&lt;</span>id-or-org<span class="op">&gt;</span> --target <span class="op">&lt;</span>org<span class="op">&gt;</span> --dry-run</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher classroom migrate <span class="at">--source</span> <span class="op">&lt;</span>id-or-org<span class="op">&gt;</span> --target <span class="op">&lt;</span>org<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The migration path copies starter repositories into the target organization as new templates and commits the classroom configuration. Rosters and historical scores should be treated as separate records: export what you need from the old system, keep an archive, and onboard students into Classroom 50 for the new term.</p>
+</section>
+<section id="troubleshooting-references" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="troubleshooting-references"><span class="header-section-number">9.11</span> Troubleshooting References</h2>
+<p>When something fails, start with verbose output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> student submit <span class="at">-v</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> teacher download <span class="at">-v</span> <span class="op">&lt;</span>org<span class="op">&gt;</span> <span class="op">&lt;</span>classroom<span class="op">&gt;</span> <span class="op">&lt;</span>assignment<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <a href="https://github.com/foundation50/classroom50/wiki/Troubleshooting">Troubleshooting</a> for the common cases: missing OAuth scopes, <code>workflow</code>-scope 404s during <code>gh teacher init</code>, private templates that students cannot read, missing <code>.classroom50.yaml</code>, unpublished autograder YAML, empty teacher downloads, and <code>collect-scores</code> runs that report zero readable submissions.</p>
+</section>
+<section id="semester-checklist" class="level2" data-number="9.12">
+<h2 data-number="9.12" class="anchored" data-anchor-id="semester-checklist"><span class="header-section-number">9.12</span> Semester Checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Install or upgrade <code>gh-teacher</code> and <code>gh-student</code></label></li>
+<li><label><input type="checkbox">Run <code>gh teacher login</code></label></li>
+<li><label><input type="checkbox">Create or confirm the teaching organization</label></li>
+<li><label><input type="checkbox">Run <code>gh teacher init &lt;org&gt; --dry-run</code></label></li>
+<li><label><input type="checkbox">Run <code>gh teacher init &lt;org&gt;</code></label></li>
+<li><label><input type="checkbox">Complete the manual organization hardening items from <code>gh teacher audit</code></label></li>
+<li><label><input type="checkbox">Add the classroom with <code>gh teacher classroom add</code></label></li>
+<li><label><input type="checkbox">Import the roster with <code>gh teacher roster import</code></label></li>
+<li><label><input type="checkbox">Prepare Quarto starter repositories and mark them as templates</label></li>
+<li><label><input type="checkbox">Register assignments with <code>gh teacher assignment add</code></label></li>
+<li><label><input type="checkbox">Add Classroom 50 commands and repository expectations to Blackboard Ultra</label></li>
+<li><label><input type="checkbox">Test one assignment with a student-style account before publishing</label></li>
+<li><label><input type="checkbox">Trigger <code>collect-scores.yaml</code> after submissions begin</label></li>
+<li><label><input type="checkbox">Download submissions with <code>gh teacher download</code></label></li>
+</ul>
 
 
 </section>
