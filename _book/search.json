@@ -74,7 +74,7 @@
     "href": "02_professor_quickstart.html",
     "title": "2  Professor Quickstart",
     "section": "",
-    "text": "2.1 What You Are Building\nThis chapter is the shortest path from an empty folder to a course structure that can become a Quarto site, a GitHub Classroom template, and a Blackboard Ultra course package.\nUse this chapter when you already understand the goal and want the build order. The later chapters explain each tool in more detail.\nBy the end of this quickstart, you will have:\nThe course project should eventually resemble this structure:",
+    "text": "2.1 What You Are Building\nThis chapter is the shortest path from an empty folder to a course structure that can become a Quarto site, a Classroom 50 assignment template, and a Blackboard Ultra course package.\nUse this chapter when you already understand the goal and want the build order. The later chapters explain each tool in more detail.\nBy the end of this quickstart, you will have:\nThe course project should eventually resemble this structure:",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Professor Quickstart</span>"
     ]
@@ -434,7 +434,7 @@
     "href": "04_version_control.html#github-taking-your-repository-to-the-cloud",
     "title": "4  Version Control: Mastering the Foundation of Collaborative Development",
     "section": "4.10 GitHub: Taking Your Repository to the Cloud",
-    "text": "4.10 GitHub: Taking Your Repository to the Cloud\nGitHub is a web-based platform that hosts Git repositories. It adds collaboration, sharing, and visibility on top of Git’s core functionality.\n\n4.10.1 Why GitHub for Education\nGitHub provides several features that enhance teaching:\n\nVisibility: Share course materials with students, colleagues, or the public\nCollaboration: Students and colleagues can contribute directly to projects\nIssues and Discussions: Organize feedback, bugs, and feature requests\nGitHub Classroom: Automated assignment distribution and collection for students\n\n\n\n4.10.2 Creating a GitHub Account and Repository\n\nVisit github.com and create a free account\nAfter signing in, click the “+” icon in the top right and select “New repository”\nName your repository (e.g., spring-2026-course-materials)\nAdd a description\nChoose to make it public or private\nInitialize with a README\nAdd a Python .gitignore\nClick “Create repository”\n\n\n\n\nCreate the repository on GitHub first so the remote source of truth exists before students add course files.\n\n\n\n\n4.10.3 Cloning Your GitHub Repository Locally\nAfter creating the repository on GitHub, clone it before adding Quarto files:\ngit clone https://github.com/your-username/repository-name.git\ncd repository-name\ngit pull\nNow your local course folder is already connected to GitHub. Add the Quarto structure here, then commit and push.\n\n\n4.10.4 AD688-Style First Repository Pattern\nIn AD688, the first repository is not treated as a throwaway Git exercise. It is the student’s durable workspace for the course. That changes the emphasis: students configure their identity, connect their editor, verify authentication, make a small README change, commit, push, and submit the repository link.\nUse this pattern when introducing GitHub to students:\n\nCreate a GitHub account with a name and email the instructor can recognize.\nEnable two-factor authentication.\nCreate a course repository using the required naming convention.\nClone the repository in VS Code or from the terminal.\nAdd or edit README.md.\nCommit with a meaningful message.\nPush to GitHub.\nRefresh the GitHub page and verify the commit appears.\nSubmit the repository URL through the LMS.\n\nThe point is to make GitHub feel like the normal place where course work lives, not an extra upload step at the end.\n\n\n\n\n\n\nA new empty repository is ready for its first files.\n\n\n\n\n\n\n\nAfter students push, GitHub shows the repository contents.\n\n\n\n\n\n\n\nThe push step confirms the local work reached GitHub.\n\n\n\n\n\n\n\n4.10.5 GitHub Pages as a Course Publishing Target\nFor portfolio-style assignments or small public course sites, GitHub Pages can publish a repository directly. In an education workflow, this works best after students already understand commits and pushes.\nTwo common patterns are:\n\na user site repository named yourusername.github.io\na project site that publishes from a docs/ folder or configured branch\n\n\n\n\n\n\n\nA GitHub Pages user site repository follows the username.github.io convention.\n\n\n\n\n\n\n\nA project site can publish from a configured folder such as docs/.\n\n\n\n\n\n\n\n4.10.6 SSH Keys for GitHub\nHTTPS cloning is often enough for a first course repository. SSH becomes useful when students are working repeatedly across a local computer, VS Code, and a cloud machine such as AWS EC2.\nStudents should understand the difference between the two key files:\n\n\n\nFile\nMeaning\nShare?\n\n\n\n\nid_ed25519\nprivate key\nNever share or upload\n\n\nid_ed25519.pub\npublic key\nAdd to GitHub\n\n\n\nGenerate a key:\nssh-keygen -t ed25519 -C \"your.email@example.com\"\nDisplay the public key:\ncat ~/.ssh/id_ed25519.pub\nThen add the public key to GitHub under SSH keys and test:\nssh -T git@github.com\n\n\n\nThe SSH key-generation step creates a private key and a public key. Only the public key goes to GitHub.\n\n\nIf students later work on EC2, remind them not to place private keys in a Git repository or cloud-synced folder. Authentication files are part of the environment, not part of the assignment.\n\n\n4.10.7 Connecting an Existing Local Repository\nIf you already created a local repository with git init, you can still connect it to GitHub:\ngit remote add origin https://github.com/your-username/repository-name.git\ngit branch -M main\ngit push -u origin main\nFor new courses, cloning first is usually cleaner.\n\n\n4.10.8 Workbook Exercise: Create, Clone, and Push\nLet’s create the GitHub repository first and then add work locally.\nTask: Create and clone a GitHub repository\n\nGo to github.com and log in\nCreate a new repository named my-course-materials\nChoose “Public” so others can see your work\nInitialize it with a README\nAdd a Python .gitignore\nClick “Create repository”\n\nThen in your terminal:\n# Clone the repository\ngit clone https://github.com/YOUR-USERNAME/my-course-materials.git\n\n# Enter the local repository\ncd my-course-materials\n\n# Pull before adding course files\ngit pull\n\n# Confirm the remote connection\ngit remote -v\nVerification Checklist: - [ ] GitHub account created - [ ] Repository created on GitHub - [ ] Repository cloned locally - [ ] git pull runs cleanly - [ ] Local repository connected to GitHub - [ ] Files pushed successfully - [ ] Able to see files on github.com in your browser\nYour GitHub repository URL:\n\nhttps://github.com/YOUR-USERNAME/my-course-materials",
+    "text": "4.10 GitHub: Taking Your Repository to the Cloud\nGitHub is a web-based platform that hosts Git repositories. It adds collaboration, sharing, and visibility on top of Git’s core functionality.\n\n4.10.1 Why GitHub for Education\nGitHub provides several features that enhance teaching:\n\nVisibility: Share course materials with students, colleagues, or the public\nCollaboration: Students and colleagues can contribute directly to projects\nIssues and Discussions: Organize feedback, bugs, and feature requests\nClassroom 50: CLI-based assignment distribution and collection for students\n\n\n\n4.10.2 Creating a GitHub Account and Repository\n\nVisit github.com and create a free account\nAfter signing in, click the “+” icon in the top right and select “New repository”\nName your repository (e.g., spring-2026-course-materials)\nAdd a description\nChoose to make it public or private\nInitialize with a README\nAdd a Python .gitignore\nClick “Create repository”\n\n\n\n\nCreate the repository on GitHub first so the remote source of truth exists before students add course files.\n\n\n\n\n4.10.3 Cloning Your GitHub Repository Locally\nAfter creating the repository on GitHub, clone it before adding Quarto files:\ngit clone https://github.com/your-username/repository-name.git\ncd repository-name\ngit pull\nNow your local course folder is already connected to GitHub. Add the Quarto structure here, then commit and push.\n\n\n4.10.4 AD688-Style First Repository Pattern\nIn AD688, the first repository is not treated as a throwaway Git exercise. It is the student’s durable workspace for the course. That changes the emphasis: students configure their identity, connect their editor, verify authentication, make a small README change, commit, push, and submit the repository link.\nUse this pattern when introducing GitHub to students:\n\nCreate a GitHub account with a name and email the instructor can recognize.\nEnable two-factor authentication.\nCreate a course repository using the required naming convention.\nClone the repository in VS Code or from the terminal.\nAdd or edit README.md.\nCommit with a meaningful message.\nPush to GitHub.\nRefresh the GitHub page and verify the commit appears.\nSubmit the repository URL through the LMS.\n\nThe point is to make GitHub feel like the normal place where course work lives, not an extra upload step at the end.\n\n\n\n\n\n\nA new empty repository is ready for its first files.\n\n\n\n\n\n\n\nAfter students push, GitHub shows the repository contents.\n\n\n\n\n\n\n\nThe push step confirms the local work reached GitHub.\n\n\n\n\n\n\n\n4.10.5 GitHub Pages as a Course Publishing Target\nFor portfolio-style assignments or small public course sites, GitHub Pages can publish a repository directly. In an education workflow, this works best after students already understand commits and pushes.\nTwo common patterns are:\n\na user site repository named yourusername.github.io\na project site that publishes from a docs/ folder or configured branch\n\n\n\n\n\n\n\nA GitHub Pages user site repository follows the username.github.io convention.\n\n\n\n\n\n\n\nA project site can publish from a configured folder such as docs/.\n\n\n\n\n\n\n\n4.10.6 SSH Keys for GitHub\nHTTPS cloning is often enough for a first course repository. SSH becomes useful when students are working repeatedly across a local computer, VS Code, and a cloud machine such as AWS EC2.\nStudents should understand the difference between the two key files:\n\n\n\nFile\nMeaning\nShare?\n\n\n\n\nid_ed25519\nprivate key\nNever share or upload\n\n\nid_ed25519.pub\npublic key\nAdd to GitHub\n\n\n\nGenerate a key:\nssh-keygen -t ed25519 -C \"your.email@example.com\"\nDisplay the public key:\ncat ~/.ssh/id_ed25519.pub\nThen add the public key to GitHub under SSH keys and test:\nssh -T git@github.com\n\n\n\nThe SSH key-generation step creates a private key and a public key. Only the public key goes to GitHub.\n\n\nIf students later work on EC2, remind them not to place private keys in a Git repository or cloud-synced folder. Authentication files are part of the environment, not part of the assignment.\n\n\n4.10.7 Connecting an Existing Local Repository\nIf you already created a local repository with git init, you can still connect it to GitHub:\ngit remote add origin https://github.com/your-username/repository-name.git\ngit branch -M main\ngit push -u origin main\nFor new courses, cloning first is usually cleaner.\n\n\n4.10.8 Workbook Exercise: Create, Clone, and Push\nLet’s create the GitHub repository first and then add work locally.\nTask: Create and clone a GitHub repository\n\nGo to github.com and log in\nCreate a new repository named my-course-materials\nChoose “Public” so others can see your work\nInitialize it with a README\nAdd a Python .gitignore\nClick “Create repository”\n\nThen in your terminal:\n# Clone the repository\ngit clone https://github.com/YOUR-USERNAME/my-course-materials.git\n\n# Enter the local repository\ncd my-course-materials\n\n# Pull before adding course files\ngit pull\n\n# Confirm the remote connection\ngit remote -v\nVerification Checklist: - [ ] GitHub account created - [ ] Repository created on GitHub - [ ] Repository cloned locally - [ ] git pull runs cleanly - [ ] Local repository connected to GitHub - [ ] Files pushed successfully - [ ] Able to see files on github.com in your browser\nYour GitHub repository URL:\n\nhttps://github.com/YOUR-USERNAME/my-course-materials",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Git and GitHub</span>"
     ]
@@ -484,7 +484,7 @@
     "href": "04_version_control.html#next-steps",
     "title": "4  Version Control: Mastering the Foundation of Collaborative Development",
     "section": "4.15 Next Steps",
-    "text": "4.15 Next Steps\nNow that you understand version control, you’re ready to:\n\nSet up your course repository (see Phase 1-4 checklist above)\nLearn about GitHub Classroom for managing student assignments\nExplore advanced Git features like rebasing, cherry-picking, and hooks\nTeach your students version control as part of your curriculum\n\nConsider dedicating time this week to implementing what you’ve learned. Start with one course or project, get comfortable with the daily workflow, and then expand to other courses.",
+    "text": "4.15 Next Steps\nNow that you understand version control, you’re ready to:\n\nSet up your course repository (see Phase 1-4 checklist above)\nLearn about Classroom 50 for managing student assignments\nExplore advanced Git features like rebasing, cherry-picking, and hooks\nTeach your students version control as part of your curriculum\n\nConsider dedicating time this week to implementing what you’ve learned. Start with one course or project, get comfortable with the daily workflow, and then expand to other courses.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Git and GitHub</span>"
     ]
@@ -494,7 +494,7 @@
     "href": "05_working_with_quarto.html",
     "title": "5  Reproducible Documents with Quarto",
     "section": "",
-    "text": "5.1 Overview & definitions\nHere is a cleaned, consolidated version written as notes + instructions, with redundant headings merged, flow improved, and intent made clearer for students. All existing images/embeds and their locations are preserved exactly.\nA reproducible document is a file (or a small collection of files) that combines written content—text, tables, figures, equations—with the code or instructions required to generate that content. The goal is simple but powerful: given the same data and the same code, the document can be regenerated with identical results.\nReproducible documents are foundational to transparent and verifiable research. They allow others (including your future self) to inspect how results were produced, verify claims, and extend the work without guesswork or manual reconstruction. In applied analytics, this also means fewer copy–paste errors and a clearer audit trail from data to insight.\nClosely related is the idea of literate programming, a way of writing programs where code and explanation live together. Instead of treating documentation as an afterthought, literate programming treats explanation as a first-class component of the work. Code is embedded alongside human-readable text that explains why something is done, not just how.\nThe modern reproducible workflow blends these two ideas: you write explanations in natural language, embed executable code, and generate polished outputs from a single source.",
+    "text": "5.1 Overview & definitions\nA reproducible document is a file (or a small collection of files) that combines written content—text, tables, figures, equations—with the code or instructions required to generate that content. The goal is simple but powerful: given the same data and the same code, the document can be regenerated with identical results.\nReproducible documents are foundational to transparent and verifiable research. They allow others (including your future self) to inspect how results were produced, verify claims, and extend the work without guesswork or manual reconstruction. In applied analytics, this also means fewer copy–paste errors and a clearer audit trail from data to insight.\nClosely related is the idea of literate programming, a way of writing programs where code and explanation live together. Instead of treating documentation as an afterthought, literate programming treats explanation as a first-class component of the work. Code is embedded alongside human-readable text that explains why something is done, not just how.\nThe modern reproducible workflow blends these two ideas: you write explanations in natural language, embed executable code, and generate polished outputs from a single source.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -523,8 +523,8 @@
     "objectID": "05_working_with_quarto.html#literate-programming-in-practice",
     "href": "05_working_with_quarto.html#literate-programming-in-practice",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.2 Literate programming in practice",
-    "text": "5.2 Literate programming in practice\nLiterate programming follows a simple pattern:\n\nWrite explanations in a natural language\nInterleave those explanations with short, meaningful code snippets\nTreat the document itself as the primary artifact\n\nFrom this single source file, two key operations are possible:\n\nWeaving: producing a finished document that includes code, outputs, figures, and narrative\nTangling: extracting the code into a standalone script that can be run independently\n\nHistorically, this approach appeared in the R ecosystem as Sweave, which combined LaTeX for text and mathematics with embedded R code. This was later generalized and simplified through knitr and R Markdown.\nToday, Quarto supersedes these tools across both R and Python ecosystems. It supports:\n\nMultiple programming languages\nMultiple output formats\nIntegration with Jupyter notebooks\nPolyglot documents that mix languages in a single file\n\nFor this course, Quarto is the unifying layer that connects analysis, writing, and publishing.\n\n\n\nQuarto coordinates authoring, execution, conversion, and publishing across the analytics workflow.",
+    "section": "5.4 Literate programming in practice",
+    "text": "5.4 Literate programming in practice\nLiterate programming follows a simple pattern:\n\nWrite explanations in a natural language\nInterleave those explanations with short, meaningful code snippets\nTreat the document itself as the primary artifact\n\nFrom this single source file, two key operations are possible:\n\nWeaving: producing a finished document that includes code, outputs, figures, and narrative\nTangling: extracting the code into a standalone script that can be run independently\n\nHistorically, this approach appeared in the R ecosystem as Sweave, which combined LaTeX for text and mathematics with embedded R code. This was later generalized and simplified through knitr and R Markdown.\nToday, Quarto supersedes these tools across both R and Python ecosystems. It supports:\n\nMultiple programming languages\nMultiple output formats\nIntegration with Jupyter notebooks\nPolyglot documents that mix languages in a single file\n\nFor this course, Quarto is the unifying layer that connects analysis, writing, and publishing.\n\n\n\nQuarto coordinates authoring, execution, conversion, and publishing across the analytics workflow.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -533,8 +533,8 @@
     "objectID": "05_working_with_quarto.html#reproducible-documents",
     "href": "05_working_with_quarto.html#reproducible-documents",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.3 Reproducible documents",
-    "text": "5.3 Reproducible documents\nReproducible documents are the practical application of literate programming to analytics, research, and communication.\nThe workflow looks like this:\n\nPlace text and code in the same document\nEnsure the code has access to the data it needs\nRender (weave) the document so results appear inline\nRegenerate the document whenever data or assumptions change\n\nIf the inputs do not change, the output does not change. That is reproducibility.\nBecause the source file contains both logic and explanation, readers can always trace results back to their origin. The same source can also be reused to create multiple outputs—for example, a report, a slide deck, and a website—without rewriting the analysis.\n\nThe primary goal is not to document code. The goal is to produce documents: reports, slides, websites, blogs, books.\nCode exists to serve the output, not the other way around.",
+    "section": "5.5 Reproducible documents",
+    "text": "5.5 Reproducible documents\nReproducible documents are the practical application of literate programming to analytics, research, and communication.\nThe workflow looks like this:\n\nPlace text and code in the same document\nEnsure the code has access to the data it needs\nRender (weave) the document so results appear inline\nRegenerate the document whenever data or assumptions change\n\nIf the inputs do not change, the output does not change. That is reproducibility.\nBecause the source file contains both logic and explanation, readers can always trace results back to their origin. The same source can also be reused to create multiple outputs—for example, a report, a slide deck, and a website—without rewriting the analysis.\n\nThe primary goal is not to document code. The goal is to produce documents: reports, slides, websites, blogs, books.\nCode exists to serve the output, not the other way around.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -543,8 +543,8 @@
     "objectID": "05_working_with_quarto.html#tool-sets",
     "href": "05_working_with_quarto.html#tool-sets",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.4 Tool-sets",
-    "text": "5.4 Tool-sets\nReproducible documents combine two components:\n\nNatural language text (with a lightweight markup)\nA scripting or programming language\n\nCommon toolsets include:\n\n\n\n\n\n\n\n\n\nToolset\nNatural language text\nScripting language\nRequirement\n\n\n\n\nSweave\nLaTeX\nR\n\n\n\nJupyter notebooks\nMarkdown\nPython and other kernels\n\n\n\nR Markdown\nMarkdown\nR (plus Python, shell, others)\n\n\n\nQuarto\nMarkdown\nR, Python, Julia, JavaScript, others\nIndependent\n\n\n\nMany other literate programming systems exist, but Quarto provides the broadest and most modern foundation for analytics-focused work.",
+    "section": "5.6 Tool-sets",
+    "text": "5.6 Tool-sets\nReproducible documents combine two components:\n\nNatural language text (with a lightweight markup)\nA scripting or programming language\n\nCommon toolsets include:\n\n\n\n\n\n\n\n\n\nToolset\nNatural language text\nScripting language\nRequirement\n\n\n\n\nSweave\nLaTeX\nR\n\n\n\nJupyter notebooks\nMarkdown\nPython and other kernels\n\n\n\nR Markdown\nMarkdown\nR (plus Python, shell, others)\n\n\n\nQuarto\nMarkdown\nR, Python, Julia, JavaScript, others\nIndependent\n\n\n\nMany other literate programming systems exist, but Quarto provides the broadest and most modern foundation for analytics-focused work.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -553,8 +553,8 @@
     "objectID": "05_working_with_quarto.html#programming-languages-and-environment",
     "href": "05_working_with_quarto.html#programming-languages-and-environment",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.5 Programming languages and environment",
-    "text": "5.5 Programming languages and environment\nThis chapter assumes you already have a basic analytics environment available. You do not need to master every tool immediately, but you should ensure the following are installed and accessible:\n\nPython (or Anaconda)\nR\nJupyter\nQuarto\nAn editor such as RStudio, VS Code, or Antigravity\n\nCloud-based tools such as Google Colab can be used as alternatives in some cases, but local installation is preferred for reproducibility and long-term projects.\nIf you encounter installation issues, MET IT can assist with setting up the required software for the course.",
+    "section": "5.7 Programming languages and environment",
+    "text": "5.7 Programming languages and environment\nThis chapter assumes you already have a basic analytics environment available. You do not need to master every tool immediately, but you should ensure the following are installed and accessible:\n\nPython (or Anaconda)\nR\nJupyter\nQuarto\nAn editor such as RStudio, VS Code, or Antigravity\n\nCloud-based tools such as Google Colab can be used as alternatives in some cases, but local installation is preferred for reproducibility and long-term projects.\nIf you encounter installation issues, MET IT can assist with setting up the required software for the course.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -563,8 +563,8 @@
     "objectID": "05_working_with_quarto.html#markdown",
     "href": "05_working_with_quarto.html#markdown",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.6 Markdown",
-    "text": "5.6 Markdown\nOptional content\nThis section can be covered briefly in class. Students can review and practice at their own pace.\nMarkdown is a lightweight markup language that allows you to format plain text using simple, readable syntax. It is widely used for documentation, reports, and web content because it is easy to write and easy to convert into formats such as HTML, PDF, and Word.\nMarkdown matters because it sits at the center of modern reproducible workflows.\n\n5.6.1 Why Markdown is used in analytics\nMarkdown supports:\n\nDocumentation: clear explanations alongside code\nReadability: structured text without visual clutter\nCollaboration: easy review and editing by teams\nVersion control: clean diffs in Git compared to binary formats\nPresentation: seamless integration of text, code, and visuals\nReproducibility: concise pairing of explanation and execution\nPortability: platform-independent plain text files\nEfficiency: minimal syntax, focus on content rather than formatting\n\nFiles such as README.md, .qmd, .rmd, and even Jupyter notebooks rely heavily on Markdown.\n\n\n5.6.2 Learning Markdown\nMarkdown is intentionally simple. You do not need to memorize everything at once.\nCommon uses in data science include:\n\nWriting README.md files\nCreating reports and assignments\nDocumenting code and analysis notebooks\n\nA concise reference is available here: Markdown cheat-sheet\n\n\n5.6.3 Common Markdown commands\n\nHeaders: #, ##, ### for section headings\nEmphasis: *italic*, **bold**\nLists: ordered (1.) and unordered (-)\nLinks: [text](URL)\nImages: ![alt text](image URL)\nBlockquotes: &gt;\nInline code: `code`\nCode blocks: triple backticks\nHorizontal rules: --- or ___\nTables: | and - syntax\nEscaping characters: \\\n\nYou will gradually use these throughout the course as they appear naturally in assignments and projects.",
+    "section": "5.8 Markdown",
+    "text": "5.8 Markdown\nOptional content\nThis section can be covered briefly in class. Students can review and practice at their own pace.\nMarkdown is a lightweight markup language that allows you to format plain text using simple, readable syntax. It is widely used for documentation, reports, and web content because it is easy to write and easy to convert into formats such as HTML, PDF, and Word.\nMarkdown matters because it sits at the center of modern reproducible workflows.\n\n5.8.1 Why Markdown is used in analytics\nMarkdown supports:\n\nDocumentation: clear explanations alongside code\nReadability: structured text without visual clutter\nCollaboration: easy review and editing by teams\nVersion control: clean diffs in Git compared to binary formats\nPresentation: seamless integration of text, code, and visuals\nReproducibility: concise pairing of explanation and execution\nPortability: platform-independent plain text files\nEfficiency: minimal syntax, focus on content rather than formatting\n\nFiles such as README.md, .qmd, .rmd, and even Jupyter notebooks rely heavily on Markdown.\n\n\n5.8.2 Learning Markdown\nMarkdown is intentionally simple. You do not need to memorize everything at once.\nCommon uses in data science include:\n\nWriting README.md files\nCreating reports and assignments\nDocumenting code and analysis notebooks\n\nA concise reference is available here: Markdown cheat-sheet\n\n\n5.8.3 Common Markdown commands\n\nHeaders: #, ##, ### for section headings\nEmphasis: *italic*, **bold**\nLists: ordered (1.) and unordered (-)\nLinks: [text](URL)\nImages: ![alt text](image URL)\nBlockquotes: &gt;\nInline code: `code`\nCode blocks: triple backticks\nHorizontal rules: --- or ___\nTables: | and - syntax\nEscaping characters: \\\n\nYou will gradually use these throughout the course as they appear naturally in assignments and projects.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -573,8 +573,8 @@
     "objectID": "05_working_with_quarto.html#latex",
     "href": "05_working_with_quarto.html#latex",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.7 LaTeX",
-    "text": "5.7 LaTeX\nOptional content This section can be covered briefly in class. Students can return to it when writing mathematical expressions, proofs, or formal reports.\nLaTeX is not required for everyday writing in this course. However, basic familiarity with LaTeX-style mathematics is essential, especially for equations, models, and formal notation used in analytics, statistics, and machine learning.",
+    "section": "5.9 LaTeX",
+    "text": "5.9 LaTeX\nOptional content This section can be covered briefly in class. Students can return to it when writing mathematical expressions, proofs, or formal reports.\nLaTeX is not required for everyday writing in this course. However, basic familiarity with LaTeX-style mathematics is essential, especially for equations, models, and formal notation used in analytics, statistics, and machine learning.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -583,8 +583,8 @@
     "objectID": "05_working_with_quarto.html#what-latex-is-and-why-it-matters",
     "href": "05_working_with_quarto.html#what-latex-is-and-why-it-matters",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.8 What LaTeX is (and why it matters)",
-    "text": "5.8 What LaTeX is (and why it matters)\nLaTeX is a typesetting system designed for producing high-quality documents with complex structure, especially those containing mathematics, equations, references, and formal layouts.\nKey ideas to understand:\n\nLaTeX uses plain text with markup commands to describe structure and meaning\nContent and presentation are deliberately separated\nFormatting decisions are handled by document classes and templates\nMathematical notation is a first-class citizen\n\nBecause of this, LaTeX has become the standard for:\n\nAcademic papers\nTheses and dissertations\nJournal submissions\nTechnical and scientific documentation\n\nDocuments written in LaTeX are typically compiled into PDF files using engines such as pdflatex or xelatex.\nFor this course:\n\nYou will mostly write in Markdown\nYou are not expected to be a LaTeX expert\nYou are expected to understand and use LaTeX math syntax when writing equations\n\nMarkdown-based tools (R Markdown, Quarto, Jupyter) all rely on LaTeX under the hood for math rendering.",
+    "section": "5.10 What LaTeX is (and why it matters)",
+    "text": "5.10 What LaTeX is (and why it matters)\nLaTeX is a typesetting system designed for producing high-quality documents with complex structure, especially those containing mathematics, equations, references, and formal layouts.\nKey ideas to understand:\n\nLaTeX uses plain text with markup commands to describe structure and meaning\nContent and presentation are deliberately separated\nFormatting decisions are handled by document classes and templates\nMathematical notation is a first-class citizen\n\nBecause of this, LaTeX has become the standard for:\n\nAcademic papers\nTheses and dissertations\nJournal submissions\nTechnical and scientific documentation\n\nDocuments written in LaTeX are typically compiled into PDF files using engines such as pdflatex or xelatex.\nFor this course:\n\nYou will mostly write in Markdown\nYou are not expected to be a LaTeX expert\nYou are expected to understand and use LaTeX math syntax when writing equations\n\nMarkdown-based tools (R Markdown, Quarto, Jupyter) all rely on LaTeX under the hood for math rendering.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -593,8 +593,8 @@
     "objectID": "05_working_with_quarto.html#when-you-actually-need-latex",
     "href": "05_working_with_quarto.html#when-you-actually-need-latex",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.9 When you actually need LaTeX",
-    "text": "5.9 When you actually need LaTeX\nYou will encounter LaTeX most often in three situations:\n\nMathematical expressions\n\nEquations\nModels\nConstraints\nOptimization problems\n\nFormal reasoning\n\nProof sketches\nTheorems and propositions\nDefinitions and assumptions\n\nPublishing constraints\n\nJournals and conferences often provide LaTeX templates\nUniversities commonly distribute LaTeX thesis classes\n\n\nEven when writing Markdown or Quarto documents, math is still written using LaTeX syntax.",
+    "section": "5.11 When you actually need LaTeX",
+    "text": "5.11 When you actually need LaTeX\nYou will encounter LaTeX most often in three situations:\n\nMathematical expressions\n\nEquations\nModels\nConstraints\nOptimization problems\n\nFormal reasoning\n\nProof sketches\nTheorems and propositions\nDefinitions and assumptions\n\nPublishing constraints\n\nJournals and conferences often provide LaTeX templates\nUniversities commonly distribute LaTeX thesis classes\n\n\nEven when writing Markdown or Quarto documents, math is still written using LaTeX syntax.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -603,8 +603,8 @@
     "objectID": "05_working_with_quarto.html#strengths-of-latex",
     "href": "05_working_with_quarto.html#strengths-of-latex",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.10 Strengths of LaTeX",
-    "text": "5.10 Strengths of LaTeX\nThe main strength of LaTeX is its semantic clarity:\n\nYou describe what something is, not how it should look\nEquations scale correctly across formats\nMathematical notation is precise and unambiguous\nDocuments remain readable and editable as plain text\n\nThis is why LaTeX remains dominant in STEM disciplines.\n\n\n\n\n\nLaTex math for undergrads\n\n\n\n\n\n\nLaTex math for undergrads",
+    "section": "5.12 Strengths of LaTeX",
+    "text": "5.12 Strengths of LaTeX\nThe main strength of LaTeX is its semantic clarity:\n\nYou describe what something is, not how it should look\nEquations scale correctly across formats\nMathematical notation is precise and unambiguous\nDocuments remain readable and editable as plain text\n\nThis is why LaTeX remains dominant in STEM disciplines.\n\n\n\n\n\nLaTex math for undergrads\n\n\n\n\n\n\nLaTex math for undergrads",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -613,8 +613,8 @@
     "objectID": "05_working_with_quarto.html#writing-mathematics-with-latex",
     "href": "05_working_with_quarto.html#writing-mathematics-with-latex",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.11 Writing mathematics with LaTeX",
-    "text": "5.11 Writing mathematics with LaTeX\nYou will most often use LaTeX inside Markdown or Quarto, not in standalone .tex files.\n\n5.11.1 Math modes\n\n$ ... $ - Inline math, used within sentences\n$$ ... $$ - Display math, centered and on its own line\n\\begin{equation} ... \\end{equation} - Numbered equations with labels\n\\begin{align} ... \\end{align} - Aligned, multi-line equations with numbering\n\nUse inline math for symbols and short expressions, and display math for models and derivations.",
+    "section": "5.13 Writing mathematics with LaTeX",
+    "text": "5.13 Writing mathematics with LaTeX\nYou will most often use LaTeX inside Markdown or Quarto, not in standalone .tex files.\n\n5.13.1 Math modes\n\n$ ... $ - Inline math, used within sentences\n$$ ... $$ - Display math, centered and on its own line\n\\begin{equation} ... \\end{equation} - Numbered equations with labels\n\\begin{align} ... \\end{align} - Aligned, multi-line equations with numbering\n\nUse inline math for symbols and short expressions, and display math for models and derivations.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -623,8 +623,8 @@
     "objectID": "05_working_with_quarto.html#core-latex-math-commands",
     "href": "05_working_with_quarto.html#core-latex-math-commands",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.12 Core LaTeX math commands",
-    "text": "5.12 Core LaTeX math commands\nThese commands cover most equations you will write in this course.\n\n\n\n$ $ - Inline mathematical expressions\n$$ $$ - Display mathematical expressions\n\\begin{equation} ... \\end{equation} - Numbered equations\n\\begin{align} ... \\end{align} - Multi-line aligned equations\n\\frac{a}{b} - Fractions\n\\sqrt{x} - Square roots\n\\sum, \\prod - Summations and products\n\\int - Integrals\n\n\n\n\\frac{d}{dx} - Derivatives\n\\frac{\\partial}{\\partial x} - Partial derivatives\n\\lim - Limits\n\\infty - Infinity\n\\pm, \\mp - Plus/minus symbols\n\\cdot, \\times - Multiplication\n\\left( \\right) - Auto-sized brackets\n\\alpha, \\beta, … - Greek letters\n^, _ - Superscripts and subscripts\n\n\n\nExample-\n\nx^2 → (\\(x^2\\))\na_{ij} → (\\(a_{ij}\\))",
+    "section": "5.14 Core LaTeX math commands",
+    "text": "5.14 Core LaTeX math commands\nThese commands cover most equations you will write in this course.\n\n\n\n$ $ - Inline mathematical expressions\n$$ $$ - Display mathematical expressions\n\\begin{equation} ... \\end{equation} - Numbered equations\n\\begin{align} ... \\end{align} - Multi-line aligned equations\n\\frac{a}{b} - Fractions\n\\sqrt{x} - Square roots\n\\sum, \\prod - Summations and products\n\\int - Integrals\n\n\n\n\\frac{d}{dx} - Derivatives\n\\frac{\\partial}{\\partial x} - Partial derivatives\n\\lim - Limits\n\\infty - Infinity\n\\pm, \\mp - Plus/minus symbols\n\\cdot, \\times - Multiplication\n\\left( \\right) - Auto-sized brackets\n\\alpha, \\beta, … - Greek letters\n^, _ - Superscripts and subscripts\n\n\n\nExample-\n\nx^2 → (\\(x^2\\))\na_{ij} → (\\(a_{ij}\\))",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -633,8 +633,8 @@
     "objectID": "05_working_with_quarto.html#proofs-definitions-and-theorems-conceptual",
     "href": "05_working_with_quarto.html#proofs-definitions-and-theorems-conceptual",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.13 Proofs, definitions, and theorems (conceptual)",
-    "text": "5.13 Proofs, definitions, and theorems (conceptual)\nWhile you will not write full formal proofs in this course, LaTeX provides standard structures for:\n\nDefinitions\nAssumptions\nPropositions\nTheorems\nProof sketches\n\nIn Markdown and Quarto, these are often expressed using headings and math blocks, rather than full LaTeX environments. The emphasis is on clarity of reasoning, not rigid formalism.",
+    "section": "5.15 Proofs, definitions, and theorems (conceptual)",
+    "text": "5.15 Proofs, definitions, and theorems (conceptual)\nWhile you will not write full formal proofs in this course, LaTeX provides standard structures for:\n\nDefinitions\nAssumptions\nPropositions\nTheorems\nProof sketches\n\nIn Markdown and Quarto, these are often expressed using headings and math blocks, rather than full LaTeX environments. The emphasis is on clarity of reasoning, not rigid formalism.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -643,8 +643,8 @@
     "objectID": "05_working_with_quarto.html#sec-latex",
     "href": "05_working_with_quarto.html#sec-latex",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.14 Installing LaTeX for PDF output",
-    "text": "5.14 Installing LaTeX for PDF output\nTo generate PDFs from Quarto or R Markdown, a LaTeX installation is required.\nInstead of installing a full LaTeX distribution, we recommend using TinyTeX, a lightweight setup managed directly by Quarto.\nInstall TinyTeX with:\nquarto install tinytex\nThis installs LaTeX locally for Quarto only and does not interfere with other software.\nTo make TinyTeX available system-wide:\nquarto install tinytex --update-path\nFor reference:\n\nQuarto PDF engines: https://quarto.org/docs/output-formats/pdf-engine.html\nOther Quarto tools: see Section #sec-tools",
+    "section": "5.16 Installing LaTeX for PDF output",
+    "text": "5.16 Installing LaTeX for PDF output\nTo generate PDFs from Quarto or R Markdown, a LaTeX installation is required.\nInstead of installing a full LaTeX distribution, we recommend using TinyTeX, a lightweight setup managed directly by Quarto.\nInstall TinyTeX with:\nquarto install tinytex\nThis installs LaTeX locally for Quarto only and does not interfere with other software.\nTo make TinyTeX available system-wide:\nquarto install tinytex --update-path\nFor reference:\n\nQuarto PDF engines: https://quarto.org/docs/output-formats/pdf-engine.html\nOther Quarto tools: see Section #sec-tools",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -653,8 +653,8 @@
     "objectID": "05_working_with_quarto.html#learning-resources",
     "href": "05_working_with_quarto.html#learning-resources",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.15 Learning resources",
-    "text": "5.15 Learning resources\nYou do not need to memorize LaTeX. Use references as needed.\nRecommended resources:\n\nLaTeX Math for Undergraduates http://tug.ctan.org/info/undergradmath/undergradmath.pdf\nLearn LaTeX in 30 Minutes https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes\nLaTeX Tutorial https://latex-tutorial.com/tutorials/",
+    "section": "5.17 Learning resources",
+    "text": "5.17 Learning resources\nYou do not need to memorize LaTeX. Use references as needed.\nRecommended resources:\n\nLaTeX Math for Undergraduates http://tug.ctan.org/info/undergradmath/undergradmath.pdf\nLearn LaTeX in 30 Minutes https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes\nLaTeX Tutorial https://latex-tutorial.com/tutorials/",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -663,8 +663,8 @@
     "objectID": "05_working_with_quarto.html#mathpix-a-practical-helper",
     "href": "05_working_with_quarto.html#mathpix-a-practical-helper",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.16 Mathpix: a practical helper",
-    "text": "5.16 Mathpix: a practical helper\n\nMathpix: https://mathpix.com/\n\nMathpix converts images of handwritten or printed equations into LaTeX, Markdown, or MathML. It is especially useful when:\n\nTranscribing equations from slides or papers\nConverting handwritten notes into clean math\nAvoiding manual typing errors",
+    "section": "5.18 Mathpix: a practical helper",
+    "text": "5.18 Mathpix: a practical helper\n\nMathpix: https://mathpix.com/\n\nMathpix converts images of handwritten or printed equations into LaTeX, Markdown, or MathML. It is especially useful when:\n\nTranscribing equations from slides or papers\nConverting handwritten notes into clean math\nAvoiding manual typing errors",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -673,8 +673,8 @@
     "objectID": "05_working_with_quarto.html#markdown-with-code-execution-r-markdown",
     "href": "05_working_with_quarto.html#markdown-with-code-execution-r-markdown",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.17 Markdown with code execution (R Markdown)",
-    "text": "5.17 Markdown with code execution (R Markdown)\nOptional content This section provides historical and conceptual grounding. Students do not need to master R Markdown, but understanding it helps explain how modern reproducible tools evolved.\nMarkdown on its own is a lightweight way to write structured text. What made it transformative for data science was the ability to execute code inside Markdown documents and embed the results directly into the output.\nThat idea is what R Markdown introduced.",
+    "section": "5.19 Markdown with code execution (R Markdown)",
+    "text": "5.19 Markdown with code execution (R Markdown)\nOptional content This section provides historical and conceptual grounding. Students do not need to master R Markdown, but understanding it helps explain how modern reproducible tools evolved.\nMarkdown on its own is a lightweight way to write structured text. What made it transformative for data science was the ability to execute code inside Markdown documents and embed the results directly into the output.\nThat idea is what R Markdown introduced.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -683,8 +683,8 @@
     "objectID": "05_working_with_quarto.html#what-r-markdown-adds-to-markdown",
     "href": "05_working_with_quarto.html#what-r-markdown-adds-to-markdown",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.18 What R Markdown adds to Markdown",
-    "text": "5.18 What R Markdown adds to Markdown\nAt its core, R Markdown extends Markdown by allowing you to:\n\nWrite narrative text in Markdown\nEmbed executable R code chunks\nAutomatically insert tables, figures, and results\nRender everything into a polished document\n\nMathematics written using LaTeX syntax works seamlessly inside R Markdown documents, which is why it became widely adopted in statistics, analytics, and academic research.\nConceptually, R Markdown sits between:\n\nliterate programming (Sweave)\nand modern multi-language publishing tools (Quarto)",
+    "section": "5.20 What R Markdown adds to Markdown",
+    "text": "5.20 What R Markdown adds to Markdown\nAt its core, R Markdown extends Markdown by allowing you to:\n\nWrite narrative text in Markdown\nEmbed executable R code chunks\nAutomatically insert tables, figures, and results\nRender everything into a polished document\n\nMathematics written using LaTeX syntax works seamlessly inside R Markdown documents, which is why it became widely adopted in statistics, analytics, and academic research.\nConceptually, R Markdown sits between:\n\nliterate programming (Sweave)\nand modern multi-language publishing tools (Quarto)",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -693,8 +693,8 @@
     "objectID": "05_working_with_quarto.html#historical-context",
     "href": "05_working_with_quarto.html#historical-context",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.19 Historical context",
-    "text": "5.19 Historical context\nMarkdown was originally created as a text-to-HTML tool so writers could produce web pages without writing raw HTML.\nR Markdown builds on this idea by creating a noweb-style system for analytics:\n\nText is written using Markdown\nCode is embedded in fenced code blocks\nOutputs are inserted during rendering\n\nR Markdown was built on top of Yihui Xie’s knitr package and inherited most of its capabilities.\n\n\n\n\nThis design was inspired by Sweave.\n\nNarrative text uses Markdown syntax\nCode chunks are delimited using ```{r}\nChunk options control execution, visibility, and formatting\nResults are automatically woven into the document",
+    "section": "5.21 Historical context",
+    "text": "5.21 Historical context\nMarkdown was originally created as a text-to-HTML tool so writers could produce web pages without writing raw HTML.\nR Markdown builds on this idea by creating a noweb-style system for analytics:\n\nText is written using Markdown\nCode is embedded in fenced code blocks\nOutputs are inserted during rendering\n\nR Markdown was built on top of Yihui Xie’s knitr package and inherited most of its capabilities.\n\n\n\n\nThis design was inspired by Sweave.\n\nNarrative text uses Markdown syntax\nCode chunks are delimited using ```{r}\nChunk options control execution, visibility, and formatting\nResults are automatically woven into the document",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -703,8 +703,8 @@
     "objectID": "05_working_with_quarto.html#code-chunks-conceptual",
     "href": "05_working_with_quarto.html#code-chunks-conceptual",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.20 Code chunks (conceptual)",
-    "text": "5.20 Code chunks (conceptual)\nIn R Markdown, executable code is written inside code chunks. Each chunk:\n\nHas a language (most commonly R)\nCan be executed during rendering\nCan show or hide code, output, warnings, or messages\n\nYou do not need to memorize chunk options now. The key idea is that code and explanation live in the same document, and the document itself becomes reproducible.",
+    "section": "5.22 Code chunks (conceptual)",
+    "text": "5.22 Code chunks (conceptual)\nIn R Markdown, executable code is written inside code chunks. Each chunk:\n\nHas a language (most commonly R)\nCan be executed during rendering\nCan show or hide code, output, warnings, or messages\n\nYou do not need to memorize chunk options now. The key idea is that code and explanation live in the same document, and the document itself becomes reproducible.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -713,8 +713,8 @@
     "objectID": "05_working_with_quarto.html#pandoc-the-publishing-engine-underneath",
     "href": "05_working_with_quarto.html#pandoc-the-publishing-engine-underneath",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.21 Pandoc: the publishing engine underneath",
-    "text": "5.21 Pandoc: the publishing engine underneath\nR Markdown relies on Pandoc, a universal document converter that makes Markdown-based publishing powerful and flexible.\nPandoc allows a single source document to be converted into many output formats without rewriting content.\n\nPandoc supports a wide range of formats.\nFor this course, the most relevant are:\n\nHTML\nPDF\nWord\nPowerPoint\n\nThis capability is what enables “single source, many outputs.”",
+    "section": "5.23 Pandoc: the publishing engine underneath",
+    "text": "5.23 Pandoc: the publishing engine underneath\nR Markdown relies on Pandoc, a universal document converter that makes Markdown-based publishing powerful and flexible.\nPandoc allows a single source document to be converted into many output formats without rewriting content.\n\nPandoc supports a wide range of formats.\nFor this course, the most relevant are:\n\nHTML\nPDF\nWord\nPowerPoint\n\nThis capability is what enables “single source, many outputs.”",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -723,8 +723,8 @@
     "objectID": "05_working_with_quarto.html#what-an-r-markdown-document-looks-like",
     "href": "05_working_with_quarto.html#what-an-r-markdown-document-looks-like",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.22 What an R Markdown document looks like",
-    "text": "5.22 What an R Markdown document looks like\nThe structure of an R Markdown document typically includes:\n\nA small metadata header (YAML)\nMarkdown text\nCode chunks\nEmbedded outputs (tables, figures, equations)\n\nThe image below shows how code, output, and narrative coexist naturally in a single document.\n\n\n\nAndrew Bray, rstudio::conf(2022)",
+    "section": "5.24 What an R Markdown document looks like",
+    "text": "5.24 What an R Markdown document looks like\nThe structure of an R Markdown document typically includes:\n\nA small metadata header (YAML)\nMarkdown text\nCode chunks\nEmbedded outputs (tables, figures, equations)\n\nThe image below shows how code, output, and narrative coexist naturally in a single document.\n\n\n\nAndrew Bray, rstudio::conf(2022)",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -733,8 +733,8 @@
     "objectID": "05_working_with_quarto.html#the-r-markdown-ecosystem",
     "href": "05_working_with_quarto.html#the-r-markdown-ecosystem",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.23 The R Markdown ecosystem",
-    "text": "5.23 The R Markdown ecosystem\nR Markdown developed a large ecosystem due to its extensibility. It has been used to create:\n\nReports and documents\nInteractive documents and dashboards\nPresentations\nBooks (via bookdown)\nWebsites\nJournal-ready manuscripts (via rticles)\n\nThis ecosystem is one reason R Markdown became the dominant reproducible reporting tool in statistics and analytics for many years.",
+    "section": "5.25 The R Markdown ecosystem",
+    "text": "5.25 The R Markdown ecosystem\nR Markdown developed a large ecosystem due to its extensibility. It has been used to create:\n\nReports and documents\nInteractive documents and dashboards\nPresentations\nBooks (via bookdown)\nWebsites\nJournal-ready manuscripts (via rticles)\n\nThis ecosystem is one reason R Markdown became the dominant reproducible reporting tool in statistics and analytics for many years.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -743,8 +743,8 @@
     "objectID": "05_working_with_quarto.html#why-we-do-not-focus-on-r-markdown-directly",
     "href": "05_working_with_quarto.html#why-we-do-not-focus-on-r-markdown-directly",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.24 Why we do not focus on R Markdown directly",
-    "text": "5.24 Why we do not focus on R Markdown directly\nWhile R Markdown is still widely used, it is no longer the recommended end point for new projects.\nIts ideas live on—and are expanded—in Quarto, which:\n\nSupports multiple programming languages\nUses the same Markdown foundation\nBuilds on Pandoc\nUnifies workflows across R, Python, and Jupyter\n\nFor students, the takeaway is:\n\nLearn Markdown well. Understand how code execution works inside documents. Use Quarto as the modern, language-agnostic successor.",
+    "section": "5.26 Why we do not focus on R Markdown directly",
+    "text": "5.26 Why we do not focus on R Markdown directly\nWhile R Markdown is still widely used, it is no longer the recommended end point for new projects.\nIts ideas live on—and are expanded—in Quarto, which:\n\nSupports multiple programming languages\nUses the same Markdown foundation\nBuilds on Pandoc\nUnifies workflows across R, Python, and Jupyter\n\nFor students, the takeaway is:\n\nLearn Markdown well. Understand how code execution works inside documents. Use Quarto as the modern, language-agnostic successor.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -753,8 +753,8 @@
     "objectID": "05_working_with_quarto.html#jupyter",
     "href": "05_working_with_quarto.html#jupyter",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.25 Jupyter",
-    "text": "5.25 Jupyter\nOptional content This section provides context. Jupyter is widely used and worth understanding, but it is not the final workflow we emphasize.\nJupyter introduced many students to literate, interactive computing. It combines code, text, and output in a single document and remains one of the most popular tools in data science.",
+    "section": "5.27 Jupyter",
+    "text": "5.27 Jupyter\nOptional content This section provides context. Jupyter is widely used and worth understanding, but it is not the final workflow we emphasize.\nJupyter introduced many students to literate, interactive computing. It combines code, text, and output in a single document and remains one of the most popular tools in data science.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -763,8 +763,8 @@
     "objectID": "05_working_with_quarto.html#jupyterlab-and-jupyter-notebooks",
     "href": "05_working_with_quarto.html#jupyterlab-and-jupyter-notebooks",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.26 JupyterLab and Jupyter Notebooks",
-    "text": "5.26 JupyterLab and Jupyter Notebooks\n\n\nJupyterLab is a web-based interactive development environment. It evolved from the original Jupyter Notebook interface and provides a more flexible workspace.\nCore ideas:\n\nA kernel provides the computational engine\nEach notebook connects to exactly one kernel\nMany kernels are available beyond Python\n\nSupported kernels include:\n\nPython\nR\nJulia\nSAS\nMATLAB\nJavaScript (Node.js)\nand many others (full list)\n\nText inside notebooks is written using Markdown, while executable code is organized into cells.\nJupyter outputs can be exported using the nbconvert tool into:\n\nHTML\nLaTeX\nPDF\nMarkdown\nand other static formats\n\nEntire collections of notebooks can be published as books using Jupyter Book:\n\nhttps://jupyterbook.org/en/stable/intro.html\nExamples: https://executablebooks.org/en/latest/gallery.html\n\n\n\n\n\nSource: jupyter.org",
+    "section": "5.28 JupyterLab and Jupyter Notebooks",
+    "text": "5.28 JupyterLab and Jupyter Notebooks\n\n\nJupyterLab is a web-based interactive development environment. It evolved from the original Jupyter Notebook interface and provides a more flexible workspace.\nCore ideas:\n\nA kernel provides the computational engine\nEach notebook connects to exactly one kernel\nMany kernels are available beyond Python\n\nSupported kernels include:\n\nPython\nR\nJulia\nSAS\nMATLAB\nJavaScript (Node.js)\nand many others (full list)\n\nText inside notebooks is written using Markdown, while executable code is organized into cells.\nJupyter outputs can be exported using the nbconvert tool into:\n\nHTML\nLaTeX\nPDF\nMarkdown\nand other static formats\n\nEntire collections of notebooks can be published as books using Jupyter Book:\n\nhttps://jupyterbook.org/en/stable/intro.html\nExamples: https://executablebooks.org/en/latest/gallery.html\n\n\n\n\n\nSource: jupyter.org",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -773,8 +773,8 @@
     "objectID": "05_working_with_quarto.html#why-jupyter-is-so-popular",
     "href": "05_working_with_quarto.html#why-jupyter-is-so-popular",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.27 Why Jupyter is so popular",
-    "text": "5.27 Why Jupyter is so popular\nJupyter notebooks are widely adopted because they are:\n\nCommon in Kaggle competitions and exploratory analysis\nIntegrated into cloud platforms such as:\n\nGoogle Colab\nDatabricks\nAWS SageMaker\n\nUsable directly inside VS Code and PyCharm\nFriendly for experimentation and rapid iteration\n\nFor many learners, Jupyter is the first exposure to combining code, explanation, and output.",
+    "section": "5.29 Why Jupyter is so popular",
+    "text": "5.29 Why Jupyter is so popular\nJupyter notebooks are widely adopted because they are:\n\nCommon in Kaggle competitions and exploratory analysis\nIntegrated into cloud platforms such as:\n\nGoogle Colab\nDatabricks\nAWS SageMaker\n\nUsable directly inside VS Code and PyCharm\nFriendly for experimentation and rapid iteration\n\nFor many learners, Jupyter is the first exposure to combining code, explanation, and output.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -783,8 +783,8 @@
     "objectID": "05_working_with_quarto.html#a-structural-limitation",
     "href": "05_working_with_quarto.html#a-structural-limitation",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.28 A structural limitation",
-    "text": "5.28 A structural limitation\n… But\n\n\n\n\n\nJupyter notebooks are order-dependent.\n\nCells can be run in arbitrary order, which means:\n\nThe visible code may not reflect execution order\nHidden state can accumulate\nReproducibility can suffer if notebooks are not carefully managed\n\nWhile one can always “Run all cells” to restore order, this places responsibility on the user rather than the tool.\nThis limitation is not fatal, but it matters when moving from exploration to communication and publication.",
+    "section": "5.30 A structural limitation",
+    "text": "5.30 A structural limitation\n… But\n\n\n\n\n\nJupyter notebooks are order-dependent.\n\nCells can be run in arbitrary order, which means:\n\nThe visible code may not reflect execution order\nHidden state can accumulate\nReproducibility can suffer if notebooks are not carefully managed\n\nWhile one can always “Run all cells” to restore order, this places responsibility on the user rather than the tool.\nThis limitation is not fatal, but it matters when moving from exploration to communication and publication.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -793,8 +793,8 @@
     "objectID": "05_working_with_quarto.html#quarto",
     "href": "05_working_with_quarto.html#quarto",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.29 Quarto",
-    "text": "5.29 Quarto\nQuarto is the next generation of reproducible publishing tools, developed by Posit. It generalizes the ideas behind R Markdown and Jupyter into a single, consistent system.",
+    "section": "5.31 Quarto",
+    "text": "5.31 Quarto\nQuarto is the next generation of reproducible publishing tools, developed by Posit. It generalizes the ideas behind R Markdown and Jupyter into a single, consistent system.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -803,8 +803,8 @@
     "objectID": "05_working_with_quarto.html#quarto-overview",
     "href": "05_working_with_quarto.html#quarto-overview",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.30 Quarto overview",
-    "text": "5.30 Quarto overview\nQuarto is a publishing framework designed for data science and technical communication.\nKey characteristics:\n\nMarkdown-based Write content using Markdown, including code and math.\nLanguage-agnostic Supports R, Python, Julia, JavaScript, and any Jupyter kernel.\nReproducible by design Documents are rendered top-to-bottom with controlled execution.\nMultiple outputs HTML, PDF, Word, PowerPoint, and more.\nInteractive Supports interactive tables, charts, and widgets.\nExtensible Plugins, filters, and custom layouts are supported.\n\nQuarto treats documents as products, not notebooks or scripts.",
+    "section": "5.32 Quarto overview",
+    "text": "5.32 Quarto overview\nQuarto is a publishing framework designed for data science and technical communication.\nKey characteristics:\n\nMarkdown-based Write content using Markdown, including code and math.\nLanguage-agnostic Supports R, Python, Julia, JavaScript, and any Jupyter kernel.\nReproducible by design Documents are rendered top-to-bottom with controlled execution.\nMultiple outputs HTML, PDF, Word, PowerPoint, and more.\nInteractive Supports interactive tables, charts, and widgets.\nExtensible Plugins, filters, and custom layouts are supported.\n\nQuarto treats documents as products, not notebooks or scripts.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -813,8 +813,8 @@
     "objectID": "05_working_with_quarto.html#ides-languages-and-quarto-clarifying-roles",
     "href": "05_working_with_quarto.html#ides-languages-and-quarto-clarifying-roles",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.31 IDEs, languages, and Quarto (clarifying roles)",
-    "text": "5.31 IDEs, languages, and Quarto (clarifying roles)\n\n\n\n\n\n\nNoteIDEs and programming languages\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIDE commonly used with R\nRuns code chunks inside .qmd files\n\n\n\n\n\n\n\nNote\n\n\n\nR language \n\nProgramming language\nCan be run as scripts (Rscript file.R)\n\n\n\n\n\n5.31.1 +\n\n\n\n\n\n\n\n\nIDE commonly used with Python\nRuns cells inside .ipynb notebooks\n\n\n\n\n\n\n\nNote\n\n\n\nPython \n\nProgramming language\nCan be run as scripts (python file.py)\n\n\n\n\n\nQuarto sits above these tools and languages. It does not replace them; it coordinates them.",
+    "section": "5.33 IDEs, languages, and Quarto (clarifying roles)",
+    "text": "5.33 IDEs, languages, and Quarto (clarifying roles)\n\n\n\n\n\n\nNoteIDEs and programming languages\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIDE commonly used with R\nRuns code chunks inside .qmd files\n\n\n\n\n\n\n\nNote\n\n\n\nR language \n\nProgramming language\nCan be run as scripts (Rscript file.R)\n\n\n\n\n\n5.33.1 +\n\n\n\n\n\n\n\n\nIDE commonly used with Python\nRuns cells inside .ipynb notebooks\n\n\n\n\n\n\n\nNote\n\n\n\nPython \n\nProgramming language\nCan be run as scripts (python file.py)\n\n\n\n\n\nQuarto sits above these tools and languages. It does not replace them; it coordinates them.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -823,8 +823,8 @@
     "objectID": "05_working_with_quarto.html#r-markdown-and-quarto",
     "href": "05_working_with_quarto.html#r-markdown-and-quarto",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.32 R Markdown and Quarto",
-    "text": "5.32 R Markdown and Quarto\nQuarto builds on many ideas from R Markdown while expanding their scope.\n\n\n\n\n\n\n\nrmarkdown\nquarto\n\n\n\n\nRequires R\nLanguage-agnostic\n\n\nMature ecosystem\nModern, unified system\n\n\nUses knitr\nUses knitr or Jupyter\n\n\nMultiple rendering engines\nUses Pandoc exclusively\n\n\nBasic Markdown\nExtended Markdown (callouts, tabsets, layouts)\n\n\n\nAdditional notes:\n\nMost Pandoc-based R Markdown documents render in Quarto\nSome legacy tools (e.g., xaringan) are not compatible\nJupyter notebooks can be used directly as Quarto sources\nAny Jupyter kernel can be used, not just Python",
+    "section": "5.34 R Markdown and Quarto",
+    "text": "5.34 R Markdown and Quarto\nQuarto builds on many ideas from R Markdown while expanding their scope.\n\n\n\n\n\n\n\nrmarkdown\nquarto\n\n\n\n\nRequires R\nLanguage-agnostic\n\n\nMature ecosystem\nModern, unified system\n\n\nUses knitr\nUses knitr or Jupyter\n\n\nMultiple rendering engines\nUses Pandoc exclusively\n\n\nBasic Markdown\nExtended Markdown (callouts, tabsets, layouts)\n\n\n\nAdditional notes:\n\nMost Pandoc-based R Markdown documents render in Quarto\nSome legacy tools (e.g., xaringan) are not compatible\nJupyter notebooks can be used directly as Quarto sources\nAny Jupyter kernel can be used, not just Python",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -833,8 +833,8 @@
     "objectID": "05_working_with_quarto.html#rmarkdown-quarto",
     "href": "05_working_with_quarto.html#rmarkdown-quarto",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.33 RMarkdown & Quarto",
-    "text": "5.33 RMarkdown & Quarto",
+    "section": "5.35 RMarkdown & Quarto",
+    "text": "5.35 RMarkdown & Quarto",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -843,8 +843,8 @@
     "objectID": "05_working_with_quarto.html#single-source-many-outputs",
     "href": "05_working_with_quarto.html#single-source-many-outputs",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.34 Single source, many outputs",
-    "text": "5.34 Single source, many outputs\nA central idea behind Quarto is single source publishing.\nFrom one source document containing:\n\nText\nCode\nResults\nFigures\n\nYou can generate:\n\n\n\nDocuments\n\nHTML\nWord\nPDF\n\nPresentations\n\nHTML\nPowerPoint\n\n\n\n\nWebsites and blogs\nBooks\nDashboards\nInteractive reports\nJournal-ready articles\n\n\n\nMost R Markdown documents already follow this philosophy; Quarto makes it consistent across languages.",
+    "section": "5.36 Single source, many outputs",
+    "text": "5.36 Single source, many outputs\nA central idea behind Quarto is single source publishing.\nFrom one source document containing:\n\nText\nCode\nResults\nFigures\n\nYou can generate:\n\n\n\nDocuments\n\nHTML\nWord\nPDF\n\nPresentations\n\nHTML\nPowerPoint\n\n\n\n\nWebsites and blogs\nBooks\nDashboards\nInteractive reports\nJournal-ready articles\n\n\n\nMost R Markdown documents already follow this philosophy; Quarto makes it consistent across languages.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -853,8 +853,8 @@
     "objectID": "05_working_with_quarto.html#installation",
     "href": "05_working_with_quarto.html#installation",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.35 Installation",
-    "text": "5.35 Installation\nQuarto is a standalone application, not an R or Python package.\nInstallation instructions:\n\nhttps://quarto.org/docs/get-started/",
+    "section": "5.37 Installation",
+    "text": "5.37 Installation\nQuarto is a standalone application, not an R or Python package.\nInstallation instructions:\n\nhttps://quarto.org/docs/get-started/",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -863,8 +863,8 @@
     "objectID": "05_working_with_quarto.html#so-do-we-like-quarto",
     "href": "05_working_with_quarto.html#so-do-we-like-quarto",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.36 So, do we like Quarto?",
-    "text": "5.36 So, do we like Quarto?\nYes — with nuance.\n\nR Markdown continues to work well and remains widely used\nJupyter is excellent for exploration and teaching\nQuarto unifies both approaches and adds:\n\nBetter structure\nBetter publishing\nFirst-class Python support\nStrong presentation tools\n\n\n\nThere is nothing “wrong” with R Markdown or Jupyter.\nQuarto extends their ideas and gives Python an equivalent of what R users have long had: a serious, reproducible publishing workflow.\nIts strongest advantage is not computation, but communication.\n\nGreat choice — this works very well as a capstone framing for the chapter. Below is a clean, student-facing decision guide that is concise, principled, and aligned with how you actually want them to work in the course. It avoids tool evangelism and focuses on intent.",
+    "section": "5.38 So, do we like Quarto?",
+    "text": "5.38 So, do we like Quarto?\nYes — with nuance.\n\nR Markdown continues to work well and remains widely used\nJupyter is excellent for exploration and teaching\nQuarto unifies both approaches and adds:\n\nBetter structure\nBetter publishing\nFirst-class Python support\nStrong presentation tools\n\n\n\nThere is nothing “wrong” with R Markdown or Jupyter.\nQuarto extends their ideas and gives Python an equivalent of what R users have long had: a serious, reproducible publishing workflow.\nIts strongest advantage is not computation, but communication.\n\nGreat choice — this works very well as a capstone framing for the chapter. Below is a clean, student-facing decision guide that is concise, principled, and aligned with how you actually want them to work in the course. It avoids tool evangelism and focuses on intent.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -873,8 +873,8 @@
     "objectID": "05_working_with_quarto.html#choosing-the-right-tool-a-practical-guide",
     "href": "05_working_with_quarto.html#choosing-the-right-tool-a-practical-guide",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.37 Choosing the right tool: a practical guide",
-    "text": "5.37 Choosing the right tool: a practical guide\nThis course exposes you to multiple tools not because you must use all of them, but because different stages of analytical work call for different environments.\nThe goal is not tool loyalty. The goal is clarity, reproducibility, and communication.\n\nJupyterR MarkdownQuarto\n\n\nJupyter is best suited for exploration and experimentation.\nChoose Jupyter if you are:\n\nExploring a new dataset\nTesting ideas interactively\nPrototyping models or visualizations\nLearning a new library or API\nWorking in cloud environments (Colab, Databricks, SageMaker)\nIterating rapidly without worrying about final presentation\n\nJupyter shines when you want immediate feedback and flexibility.\nCaution: Before sharing or submitting a notebook, always:\n\nRestart the kernel\nRun all cells top-to-bottom\nVerify that results are reproducible\n\n\n\nR Markdown is best for R-centered analytical reporting.\nChoose R Markdown if you are:\n\nWorking primarily in R\nCreating structured reports or homework assignments\nWriting statistical analyses with embedded math\nUsing an existing R Markdown template or journal format\nBuilding documents that rely heavily on the R ecosystem\n\nR Markdown remains a strong and mature option, especially in R-heavy workflows.\n\n\nQuarto is best for final products and public-facing work.\nChoose Quarto if you are:\n\nWorking primarily in R\nCreating structured reports or homework assignments\nWriting statistical analyses with embedded math\nUsing an existing R Markdown template or journal format\nBuilding documents that rely heavily on the R ecosystem\n\nR Markdown remains a strong and mature option, especially in R-heavy workflows.\nQuarto is best for final products and public-facing work.\nChoose Quarto if you are:\n\nWriting reproducible reports meant to be read by others\nCreating course deliverables (reports, slides, websites)\nWorking across R and Python in the same project\nPublishing content to HTML, PDF, or Word\nBuilding presentations or course websites\nPlanning to reuse the same content in multiple formats\n\nQuarto emphasizes structure, consistency, and polish.",
+    "section": "5.39 Choosing the right tool: a practical guide",
+    "text": "5.39 Choosing the right tool: a practical guide\nThis course exposes you to multiple tools not because you must use all of them, but because different stages of analytical work call for different environments.\nThe goal is not tool loyalty. The goal is clarity, reproducibility, and communication.\n\nJupyterR MarkdownQuarto\n\n\nJupyter is best suited for exploration and experimentation.\nChoose Jupyter if you are:\n\nExploring a new dataset\nTesting ideas interactively\nPrototyping models or visualizations\nLearning a new library or API\nWorking in cloud environments (Colab, Databricks, SageMaker)\nIterating rapidly without worrying about final presentation\n\nJupyter shines when you want immediate feedback and flexibility.\nCaution: Before sharing or submitting a notebook, always:\n\nRestart the kernel\nRun all cells top-to-bottom\nVerify that results are reproducible\n\n\n\nR Markdown is best for R-centered analytical reporting.\nChoose R Markdown if you are:\n\nWorking primarily in R\nCreating structured reports or homework assignments\nWriting statistical analyses with embedded math\nUsing an existing R Markdown template or journal format\nBuilding documents that rely heavily on the R ecosystem\n\nR Markdown remains a strong and mature option, especially in R-heavy workflows.\n\n\nQuarto is best for final products and public-facing work.\nChoose Quarto if you are:\n\nWorking primarily in R\nCreating structured reports or homework assignments\nWriting statistical analyses with embedded math\nUsing an existing R Markdown template or journal format\nBuilding documents that rely heavily on the R ecosystem\n\nR Markdown remains a strong and mature option, especially in R-heavy workflows.\nQuarto is best for final products and public-facing work.\nChoose Quarto if you are:\n\nWriting reproducible reports meant to be read by others\nCreating course deliverables (reports, slides, websites)\nWorking across R and Python in the same project\nPublishing content to HTML, PDF, or Word\nBuilding presentations or course websites\nPlanning to reuse the same content in multiple formats\n\nQuarto emphasizes structure, consistency, and polish.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -883,8 +883,8 @@
     "objectID": "05_working_with_quarto.html#a-typical-workflow-in-this-course",
     "href": "05_working_with_quarto.html#a-typical-workflow-in-this-course",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.38 A typical workflow in this course",
-    "text": "5.38 A typical workflow in this course\nMost projects will naturally follow this pattern:\n\nExplore in Jupyter\n\nLoad data\nExperiment\nDebug\nPrototype\n\nFormalize in Quarto\n\nClean the analysis\nAdd narrative and interpretation\nInsert equations and figures\nEnsure reproducibility\n\nPublish using Quarto\n\nRender to HTML, PDF, or slides\nShare with instructors or peers\nArchive for future reference\n\n\nYou are encouraged to move between tools, not choose one forever.",
+    "section": "5.40 A typical workflow in this course",
+    "text": "5.40 A typical workflow in this course\nMost projects will naturally follow this pattern:\n\nExplore in Jupyter\n\nLoad data\nExperiment\nDebug\nPrototype\n\nFormalize in Quarto\n\nClean the analysis\nAdd narrative and interpretation\nInsert equations and figures\nEnsure reproducibility\n\nPublish using Quarto\n\nRender to HTML, PDF, or slides\nShare with instructors or peers\nArchive for future reference\n\n\nYou are encouraged to move between tools, not choose one forever.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -893,8 +893,8 @@
     "objectID": "05_working_with_quarto.html#a-course-module-pattern",
     "href": "05_working_with_quarto.html#a-course-module-pattern",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.39 A Course Module Pattern",
-    "text": "5.39 A Course Module Pattern\nAD688 uses Quarto not only for individual reports, but as the organizing system for a whole course. A module is a small publishing unit: lecture notes, presentation material, labs, assignments, participation activities, project milestones, and wrap-up notes all live together.\nA compact module might look like this:\nM01/\n  M01_highlights.qmd\n  M01_LN1.qmd\n  M01_P1.qmd\n  M01_Lab1.qmd\n  M01_A.qmd\n  M01_Proj.qmd\n  M01_Wrapup.qmd\nThe filenames are intentionally boring. That is a feature. Students and instructors can predict where each piece belongs, and the LMS map can point to stable source files.\n\n\n\nFile\nPurpose\n\n\n\n\nM01_highlights.qmd\nshort module overview and learning objectives\n\n\nM01_LN1.qmd\nlecture notes or reading material\n\n\nM01_P1.qmd\npresentation or reveal.js slides\n\n\nM01_Lab1.qmd\nguided practice\n\n\nM01_A.qmd\ngraded assignment\n\n\nM01_Proj.qmd\nproject milestone\n\n\nM01_Wrapup.qmd\nreflection, reminders, and next steps\n\n\n\nFor a new course, build one complete module before scaling to the rest of the semester. One finished module teaches you more than seven empty folders.\n\n5.39.1 Rendering the Module\nRender early, especially after adding images, citations, code, or cross references:\nquarto render\nPreview while editing:\nquarto preview\nThen commit the source files, not just the rendered output:\ngit status\ngit add M01 _quarto.yml\ngit commit -m \"Add module 1 Quarto materials\"\ngit push\nThis is the core course-building loop: write in Quarto, render to check, commit the source, and push to GitHub.\n\n\n\nA course website workflow connects source files, rendering, review, and publication.\n\n\n\n\n\nA rendered Quarto site gives instructors a concrete artifact to inspect before publishing.",
+    "section": "5.41 A Course Module Pattern",
+    "text": "5.41 A Course Module Pattern\nAD688 uses Quarto not only for individual reports, but as the organizing system for a whole course. A module is a small publishing unit: lecture notes, presentation material, labs, assignments, participation activities, project milestones, and wrap-up notes all live together.\nA compact module might look like this:\nM01/\n  M01_highlights.qmd\n  M01_LN1.qmd\n  M01_P1.qmd\n  M01_Lab1.qmd\n  M01_A.qmd\n  M01_Proj.qmd\n  M01_Wrapup.qmd\nThe filenames are intentionally boring. That is a feature. Students and instructors can predict where each piece belongs, and the LMS map can point to stable source files.\n\n\n\nFile\nPurpose\n\n\n\n\nM01_highlights.qmd\nshort module overview and learning objectives\n\n\nM01_LN1.qmd\nlecture notes or reading material\n\n\nM01_P1.qmd\npresentation or reveal.js slides\n\n\nM01_Lab1.qmd\nguided practice\n\n\nM01_A.qmd\ngraded assignment\n\n\nM01_Proj.qmd\nproject milestone\n\n\nM01_Wrapup.qmd\nreflection, reminders, and next steps\n\n\n\nFor a new course, build one complete module before scaling to the rest of the semester. One finished module teaches you more than seven empty folders.\n\n5.41.1 Rendering the Module\nRender early, especially after adding images, citations, code, or cross references:\nquarto render\nPreview while editing:\nquarto preview\nThen commit the source files, not just the rendered output:\ngit status\ngit add M01 _quarto.yml\ngit commit -m \"Add module 1 Quarto materials\"\ngit push\nThis is the core course-building loop: write in Quarto, render to check, commit the source, and push to GitHub.\n\n\n\nA course website workflow connects source files, rendering, review, and publication.\n\n\n\n\n\nA rendered Quarto site gives instructors a concrete artifact to inspect before publishing.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -903,8 +903,8 @@
     "objectID": "05_working_with_quarto.html#summary-table",
     "href": "05_working_with_quarto.html#summary-table",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.40 Summary table",
-    "text": "5.40 Summary table\n\n\n\nTask\nRecommended tool\n\n\n\n\nRapid experimentation\nJupyter\n\n\nLearning and prototyping\nJupyter\n\n\nR-based reporting\nR Markdown\n\n\nReproducible assignments\nQuarto\n\n\nFinal reports and papers\nQuarto\n\n\nPresentations\nQuarto\n\n\nWebsites and portfolios\nQuarto\n\n\nMixed R + Python projects\nQuarto",
+    "section": "5.42 Summary table",
+    "text": "5.42 Summary table\n\n\n\nTask\nRecommended tool\n\n\n\n\nRapid experimentation\nJupyter\n\n\nLearning and prototyping\nJupyter\n\n\nR-based reporting\nR Markdown\n\n\nReproducible assignments\nQuarto\n\n\nFinal reports and papers\nQuarto\n\n\nPresentations\nQuarto\n\n\nWebsites and portfolios\nQuarto\n\n\nMixed R + Python projects\nQuarto",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -913,8 +913,8 @@
     "objectID": "05_working_with_quarto.html#final-takeaway",
     "href": "05_working_with_quarto.html#final-takeaway",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.41 Final takeaway",
-    "text": "5.41 Final takeaway\nThink in terms of intent, not software.\n\nJupyter helps you think\nR Markdown helps you analyze\nQuarto helps you communicate\n\nThe most important skill you will develop is not proficiency with a tool, but the ability to move cleanly from exploration to explanation.",
+    "section": "5.43 Final takeaway",
+    "text": "5.43 Final takeaway\nThink in terms of intent, not software.\n\nJupyter helps you think\nR Markdown helps you analyze\nQuarto helps you communicate\n\nThe most important skill you will develop is not proficiency with a tool, but the ability to move cleanly from exploration to explanation.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -923,8 +923,8 @@
     "objectID": "05_working_with_quarto.html#course-requirements-and-practical-quarto-usage",
     "href": "05_working_with_quarto.html#course-requirements-and-practical-quarto-usage",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.42 Course requirements and practical Quarto usage",
-    "text": "5.42 Course requirements and practical Quarto usage\nThis course uses Quarto as the standard publishing system for websites, reports, and presentations.\n\n5.42.1 Course requirements\n\nAll project websites and presentations must be built using Quarto\nYou are strongly encouraged to use .qmd files, not .ipynb, for published content\nJupyter notebooks are fine for exploration, but Quarto is required for final deliverables\n\nFunctionally, .qmd and .ipynb files are similar: both are Markdown + executable code.\nThe key difference is execution behavior:\n\n.ipynb stores outputs inside the file\n.qmd re-runs code during rendering\n\nThis improves reproducibility\nCaching options exist for expensive computations\n\n\nIf a .qmd file contains no code, it behaves like a standard Markdown file.",
+    "section": "5.44 Course requirements and practical Quarto usage",
+    "text": "5.44 Course requirements and practical Quarto usage\nThis course uses Quarto as the standard publishing system for websites, reports, and presentations.\n\n5.44.1 Course requirements\n\nAll project websites and presentations must be built using Quarto\nYou are strongly encouraged to use .qmd files, not .ipynb, for published content\nJupyter notebooks are fine for exploration, but Quarto is required for final deliverables\n\nFunctionally, .qmd and .ipynb files are similar: both are Markdown + executable code.\nThe key difference is execution behavior:\n\n.ipynb stores outputs inside the file\n.qmd re-runs code during rendering\n\nThis improves reproducibility\nCaching options exist for expensive computations\n\n\nIf a .qmd file contains no code, it behaves like a standard Markdown file.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -933,8 +933,8 @@
     "objectID": "05_working_with_quarto.html#what-quarto-gives-you-at-a-glance",
     "href": "05_working_with_quarto.html#what-quarto-gives-you-at-a-glance",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.43 What Quarto gives you (at a glance)",
-    "text": "5.43 What Quarto gives you (at a glance)\nQuarto allows you to combine, in one source file:\n\nNarrative text (Markdown)\nMathematical notation (LaTeX-style math)\nCode (R, Python, or other kernels)\nFigures, tables, and diagrams\nInteractive and static outputs\n\nFrom that single source, you can generate:\n\nHTML documents and websites\nPDF reports\nWord or PowerPoint files\nPresentations\nBooks and blogs\n\nThis is the “single source, many outputs” principle.",
+    "section": "5.45 What Quarto gives you (at a glance)",
+    "text": "5.45 What Quarto gives you (at a glance)\nQuarto allows you to combine, in one source file:\n\nNarrative text (Markdown)\nMathematical notation (LaTeX-style math)\nCode (R, Python, or other kernels)\nFigures, tables, and diagrams\nInteractive and static outputs\n\nFrom that single source, you can generate:\n\nHTML documents and websites\nPDF reports\nWord or PowerPoint files\nPresentations\nBooks and blogs\n\nThis is the “single source, many outputs” principle.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -943,8 +943,8 @@
     "objectID": "05_working_with_quarto.html#a-minimal-quarto-example",
     "href": "05_working_with_quarto.html#a-minimal-quarto-example",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.44 A minimal Quarto example",
-    "text": "5.44 A minimal Quarto example\n- Inline math example: $f(x)=\\frac{e^{x^2}}{2}$\n\n$$\n\\begin{align}\ng(x) &= x^n \\\\\n\\frac{\\partial g}{\\partial x} &= n x^{n-1}\n\\end{align}\n$$\nIf you understand this, you already understand the core of Quarto authoring.",
+    "section": "5.46 A minimal Quarto example",
+    "text": "5.46 A minimal Quarto example\n- Inline math example: $f(x)=\\frac{e^{x^2}}{2}$\n\n$$\n\\begin{align}\ng(x) &= x^n \\\\\n\\frac{\\partial g}{\\partial x} &= n x^{n-1}\n\\end{align}\n$$\nIf you understand this, you already understand the core of Quarto authoring.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -953,8 +953,8 @@
     "objectID": "05_working_with_quarto.html#beyond-the-basics",
     "href": "05_working_with_quarto.html#beyond-the-basics",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.45 Beyond the basics",
-    "text": "5.45 Beyond the basics\nQuarto also supports:\n\nMulti-column layouts\nFigure grids\nDiagrams (Mermaid, Graphviz)\nEmbedded video\nRich document metadata via YAML\n\nYou will learn these incrementally through labs and examples. You are not expected to memorize syntax at this stage.",
+    "section": "5.47 Beyond the basics",
+    "text": "5.47 Beyond the basics\nQuarto also supports:\n\nMulti-column layouts\nFigure grids\nDiagrams (Mermaid, Graphviz)\nEmbedded video\nRich document metadata via YAML\n\nYou will learn these incrementally through labs and examples. You are not expected to memorize syntax at this stage.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -963,8 +963,8 @@
     "objectID": "05_working_with_quarto.html#key-takeaway",
     "href": "05_working_with_quarto.html#key-takeaway",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.46 Key takeaway",
-    "text": "5.46 Key takeaway\n\nUse Jupyter to explore Use Quarto to communicate\n\nYour goal is not to master every feature immediately, but to develop a clean, reproducible publishing habit that scales from homework to research to professional work.",
+    "section": "5.48 Key takeaway",
+    "text": "5.48 Key takeaway\n\nUse Jupyter to explore Use Quarto to communicate\n\nYour goal is not to master every feature immediately, but to develop a clean, reproducible publishing habit that scales from homework to research to professional work.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -973,8 +973,8 @@
     "objectID": "05_working_with_quarto.html#citations-and-bibliographies",
     "href": "05_working_with_quarto.html#citations-and-bibliographies",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.47 Citations and bibliographies",
-    "text": "5.47 Citations and bibliographies\nCorrect citation and attribution are non-negotiable in academic and professional work.\nThis is not only about avoiding plagiarism; it is about:\n\nintellectual honesty\nreproducibility\ntraceability of ideas and evidence\n\nIn analytics and research, managing citations early saves significant time later.",
+    "section": "5.49 Citations and bibliographies",
+    "text": "5.49 Citations and bibliographies\nCorrect citation and attribution are non-negotiable in academic and professional work.\nThis is not only about avoiding plagiarism; it is about:\n\nintellectual honesty\nreproducibility\ntraceability of ideas and evidence\n\nIn analytics and research, managing citations early saves significant time later.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -983,8 +983,8 @@
     "objectID": "05_working_with_quarto.html#how-citations-work-in-modern-workflows",
     "href": "05_working_with_quarto.html#how-citations-work-in-modern-workflows",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.48 How citations work in modern workflows",
-    "text": "5.48 How citations work in modern workflows\nIn Quarto (and other Pandoc-based systems), citations are data, not formatting.\nThe workflow is:\n\nStore references in a reference manager\nExport them to a citation file (usually .bib)\nCite sources using short citation keys\nLet Quarto generate the bibliography automatically\n\nYou never format references by hand.",
+    "section": "5.50 How citations work in modern workflows",
+    "text": "5.50 How citations work in modern workflows\nIn Quarto (and other Pandoc-based systems), citations are data, not formatting.\nThe workflow is:\n\nStore references in a reference manager\nExport them to a citation file (usually .bib)\nCite sources using short citation keys\nLet Quarto generate the bibliography automatically\n\nYou never format references by hand.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -993,8 +993,8 @@
     "objectID": "05_working_with_quarto.html#reference-management-tools",
     "href": "05_working_with_quarto.html#reference-management-tools",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.49 Reference management tools",
-    "text": "5.49 Reference management tools\nA reference manager stores, organizes, and exports citations.\nMost reference managers can:\n\nsearch online databases\nimport PDFs and metadata\nannotate and organize papers\ngenerate citation files\ninsert citations into documents\n\nTwo widely used free options are:\n\nZotero — https://www.zotero.org\nMendeley — https://www.mendeley.com\n\nBoth:\n\nstore references in a single library\nattach PDFs and notes\nprovide browser extensions for one-click import\nexport .bib files compatible with Quarto\nautomatically generate citation keys\n\n\n\n\n\n\n\nZotero is one of the citation tools recommended by many university libraries.",
+    "section": "5.51 Reference management tools",
+    "text": "5.51 Reference management tools\nA reference manager stores, organizes, and exports citations.\nMost reference managers can:\n\nsearch online databases\nimport PDFs and metadata\nannotate and organize papers\ngenerate citation files\ninsert citations into documents\n\nTwo widely used free options are:\n\nZotero — https://www.zotero.org\nMendeley — https://www.mendeley.com\n\nBoth:\n\nstore references in a single library\nattach PDFs and notes\nprovide browser extensions for one-click import\nexport .bib files compatible with Quarto\nautomatically generate citation keys\n\n\n\n\n\n\n\nZotero is one of the citation tools recommended by many university libraries.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1003,8 +1003,8 @@
     "objectID": "05_working_with_quarto.html#bibtex-what-you-need-to-know",
     "href": "05_working_with_quarto.html#bibtex-what-you-need-to-know",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.50 BibTeX (what you need to know)",
-    "text": "5.50 BibTeX (what you need to know)\nBibTeX is a reference file format originally developed with LaTeX and now widely used across Markdown and Pandoc workflows.\nYou do not need to write BibTeX entries by hand, but you should understand their structure.\nA typical entry looks like this:\n\n\n@article{article_key,\n  author  = {Peter Adams}, \n  title   = {The title of the work},\n  journal = {The name of the journal},\n  year    = 1993,\n  volume  = 4,\n  number  = 2,\n  pages   = {201--213}\n}\n\n\nThe most important part is the citation key (article_key)\nThis is what you use to cite the work in your document\nCommon entry types include:\n\n@article\n@book\n@unpublished\n\n\n\n\n\n\n\n\n\n\nYou should generate these entries using a reference manager, not manually.",
+    "section": "5.52 BibTeX (what you need to know)",
+    "text": "5.52 BibTeX (what you need to know)\nBibTeX is a reference file format originally developed with LaTeX and now widely used across Markdown and Pandoc workflows.\nYou do not need to write BibTeX entries by hand, but you should understand their structure.\nA typical entry looks like this:\n\n\n@article{article_key,\n  author  = {Peter Adams}, \n  title   = {The title of the work},\n  journal = {The name of the journal},\n  year    = 1993,\n  volume  = 4,\n  number  = 2,\n  pages   = {201--213}\n}\n\n\nThe most important part is the citation key (article_key)\nThis is what you use to cite the work in your document\nCommon entry types include:\n\n@article\n@book\n@unpublished\n\n\n\n\n\n\n\n\n\n\nYou should generate these entries using a reference manager, not manually.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1013,8 +1013,8 @@
     "objectID": "05_working_with_quarto.html#citations-in-quarto",
     "href": "05_working_with_quarto.html#citations-in-quarto",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.51 Citations in Quarto",
-    "text": "5.51 Citations in Quarto\nQuarto supports multiple citation file formats via Pandoc.\n\n\n\nFormat\nFile extension\n\n\n\n\nBibTeX\n.bib\n\n\nBibLaTeX\n.bibtex\n\n\nCSL JSON\n.json\n\n\nCSL YAML\n.yaml\n\n\nRIS\n.ris\n\n\n\nMost students will use BibTeX (.bib).",
+    "section": "5.53 Citations in Quarto",
+    "text": "5.53 Citations in Quarto\nQuarto supports multiple citation file formats via Pandoc.\n\n\n\nFormat\nFile extension\n\n\n\n\nBibTeX\n.bib\n\n\nBibLaTeX\n.bibtex\n\n\nCSL JSON\n.json\n\n\nCSL YAML\n.yaml\n\n\nRIS\n.ris\n\n\n\nMost students will use BibTeX (.bib).",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1023,8 +1023,8 @@
     "objectID": "05_working_with_quarto.html#adding-citations-to-a-quarto-document",
     "href": "05_working_with_quarto.html#adding-citations-to-a-quarto-document",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.52 Adding citations to a Quarto document",
-    "text": "5.52 Adding citations to a Quarto document\n\n5.52.1 Step 1: Point to your bibliography file\nIn the YAML header of your .qmd file:\n---\nbibliography: references.bib\n---\n\n\n5.52.2 Step 2: (Optional) Specify a citation style\nCitation styles are defined using CSL (Citation Style Language) files.\nStyles can be downloaded from:\n\nhttps://www.zotero.org/styles\n\nAdd the style to your YAML:\n---\ncsl: nature.csl\n---\nPlace the .csl file in the same folder as your document.",
+    "section": "5.54 Adding citations to a Quarto document",
+    "text": "5.54 Adding citations to a Quarto document\n\n5.54.1 Step 1: Point to your bibliography file\nIn the YAML header of your .qmd file:\n---\nbibliography: references.bib\n---\n\n\n5.54.2 Step 2: (Optional) Specify a citation style\nCitation styles are defined using CSL (Citation Style Language) files.\nStyles can be downloaded from:\n\nhttps://www.zotero.org/styles\n\nAdd the style to your YAML:\n---\ncsl: nature.csl\n---\nPlace the .csl file in the same folder as your document.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1033,8 +1033,8 @@
     "objectID": "05_working_with_quarto.html#citing-sources-in-the-text",
     "href": "05_working_with_quarto.html#citing-sources-in-the-text",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.53 Citing sources in the text",
-    "text": "5.53 Citing sources in the text\nCitations are written using Pandoc syntax:\n\nSingle citation: [@citation_key]\nMultiple citations: [@key1; @key2]\n\nExample:\n\nQuarto automatically:\n\nformats in-text citations\ngenerates the bibliography\napplies the selected citation style",
+    "section": "5.55 Citing sources in the text",
+    "text": "5.55 Citing sources in the text\nCitations are written using Pandoc syntax:\n\nSingle citation: [@citation_key]\nMultiple citations: [@key1; @key2]\n\nExample:\n\nQuarto automatically:\n\nformats in-text citations\ngenerates the bibliography\napplies the selected citation style",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1043,8 +1043,8 @@
     "objectID": "05_working_with_quarto.html#where-the-bibliography-appears",
     "href": "05_working_with_quarto.html#where-the-bibliography-appears",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.54 Where the bibliography appears",
-    "text": "5.54 Where the bibliography appears\nPandoc places the bibliography:\n\ninside a div with id refs if it exists\notherwise at the end of the document\n\nTo control placement:\n### References\n\n::: {#refs}\n:::",
+    "section": "5.56 Where the bibliography appears",
+    "text": "5.56 Where the bibliography appears\nPandoc places the bibliography:\n\ninside a div with id refs if it exists\notherwise at the end of the document\n\nTo control placement:\n### References\n\n::: {#refs}\n:::",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1053,8 +1053,8 @@
     "objectID": "05_working_with_quarto.html#citation-styles",
     "href": "05_working_with_quarto.html#citation-styles",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.55 Citation styles",
-    "text": "5.55 Citation styles\nDifferent fields require different citation styles.\nExamples:\n\n\n\n\n\n\nAmerican Statistical Association\n\n\n\n\n\n\n\nNature\n\n\n\n\n\n\n\nChicago\n\n\n\n\n\nThe same source file can be rendered in different styles simply by switching the .csl file.",
+    "section": "5.57 Citation styles",
+    "text": "5.57 Citation styles\nDifferent fields require different citation styles.\nExamples:\n\n\n\n\n\n\nAmerican Statistical Association\n\n\n\n\n\n\n\nNature\n\n\n\n\n\n\n\nChicago\n\n\n\n\n\nThe same source file can be rendered in different styles simply by switching the .csl file.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1063,8 +1063,8 @@
     "objectID": "05_working_with_quarto.html#key-takeaway-1",
     "href": "05_working_with_quarto.html#key-takeaway-1",
     "title": "5  Reproducible Documents with Quarto",
-    "section": "5.56 Key takeaway",
-    "text": "5.56 Key takeaway\n\nWrite once. Cite with keys. Let the system format everything.\n\nIf you maintain a clean reference library and a single .bib file, citations become infrastructure, not overhead.",
+    "section": "5.58 Key takeaway",
+    "text": "5.58 Key takeaway\n\nWrite once. Cite with keys. Let the system format everything.\n\nIf you maintain a clean reference library and a single .bib file, citations become infrastructure, not overhead.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Working with Quarto</span>"
     ]
@@ -1194,7 +1194,7 @@
     "href": "07_quarto_class_setup.html#create-the-microsite-folder-structure",
     "title": "7  Building Your First Quarto Microsite",
     "section": "7.2 Create the Microsite Folder Structure",
-    "text": "7.2 Create the Microsite Folder Structure\nThe cleanest workflow is to create the GitHub repository first, clone it locally, and then add the Quarto structure inside that cloned repository. This avoids the common problem of building a local course folder and later trying to connect it to GitHub after files already exist.\n\nCreate a new GitHub repository for the course.\nAdd a README.md and a Python .gitignore.\nClone the repository locally:\ngit clone https://github.com/your-org/my-course.git\ncd my-course\nPull before adding files:\ngit pull\nInitialize Quarto inside the cloned repository:\nquarto create project website .\nCommit and push the starter site:\ngit add .\ngit commit -m \"Initialize Quarto course site\"\ngit push\n\nYou may still work entirely on a local drive or cloud-synced folder, but the GitHub-first workflow is preferred for course development because it gives you backup, history, collaboration, and a cleaner path to GitHub Classroom.",
+    "text": "7.2 Create the Microsite Folder Structure\nThe cleanest workflow is to create the GitHub repository first, clone it locally, and then add the Quarto structure inside that cloned repository. This avoids the common problem of building a local course folder and later trying to connect it to GitHub after files already exist.\n\nCreate a new GitHub repository for the course.\nAdd a README.md and a Python .gitignore.\nClone the repository locally:\ngit clone https://github.com/your-org/my-course.git\ncd my-course\nPull before adding files:\ngit pull\nInitialize Quarto inside the cloned repository:\nquarto create project website .\nCommit and push the starter site:\ngit add .\ngit commit -m \"Initialize Quarto course site\"\ngit push\n\nYou may still work entirely on a local drive or cloud-synced folder, but the GitHub-first workflow is preferred for course development because it gives you backup, history, collaboration, and a cleaner path to Classroom 50.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Quarto Class Setup</span>"
     ]
@@ -1292,41 +1292,131 @@
   {
     "objectID": "08_github_classroom.html",
     "href": "08_github_classroom.html",
-    "title": "8  GitHub Classroom",
+    "title": "8  Classroom 50",
     "section": "",
-    "text": "9 Administering Coursework with GitHub Classroom\nAs you transition to a reproducible, version-controlled authoring workflow using Quarto and GitHub, managing student assignments becomes the next logical challenge. Traditional Learning Management Systems (LMS) like Blackboard are excellent for delivering content, but they can be cumbersome when distributing code templates, grading programming assignments, or managing student collaboration.\nThis is where GitHub Classroom shines. GitHub Classroom is a teaching tool designed to bridge the gap between professional version control and academic assignment management. By integrating GitHub Classroom into your course workflow, you can automate repository creation, distribute starter code seamlessly, and even implement autograding.",
+    "text": "9 Administering Coursework with Classroom 50\nGitHub Classroom has historically been the easiest way to distribute coding assignments from a template repository, collect student work, and support autograding. Because the legacy GitHub Classroom service is expected to stop being a reliable path after August 2026, this workflow now uses Classroom 50 as the assignment-management layer.\nClassroom 50 keeps the parts that work well for technical courses: GitHub repositories, starter templates, GitHub Actions autograding, roster-based collection, and downloadable submissions. The main difference is operational: teachers manage the classroom through the GitHub CLI instead of a hosted Classroom dashboard.\nThe command sequence in this chapter follows the upstream Classroom 50 CLI Teacher Guide. Keep the upstream wiki nearby for the full command reference: Installation, CLI Student Guide, Assignment Templates, Autograders, GitHub Integration, gh teacher command reference, gh student command reference, and Troubleshooting.",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>GitHub Classroom</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
     ]
   },
   {
-    "objectID": "08_github_classroom.html#core-features-for-educators",
-    "href": "08_github_classroom.html#core-features-for-educators",
-    "title": "8  GitHub Classroom",
-    "section": "9.1 Core Features for Educators",
-    "text": "9.1 Core Features for Educators\nGitHub Classroom offers several powerful features that simplify the teaching and learning experience, making it the perfect companion for a Quarto-based course.\n\n9.1.1 Template Repositories\nThe Quarto framework we established earlier involves generating a specific directory structure (M01, M02) with predefined lecture notes, labs, assignments, projects, presentations, and participation files (M01_A.qmd, M01_Proj.qmd, M01_Lab1.qmd). With GitHub Classroom, you can turn these generated directories into template repositories.\nWhen you create an assignment, you can link it to your template repository. GitHub Classroom will then automatically generate a private, boilerplate repository for every student (or group) who accepts the assignment. This ensures every student starts with the exact same file structure and Quarto configurations.\n\n\n9.1.2 Autograding\nFor courses that involve programming or reproducible data analysis, grading can be incredibly time-consuming. GitHub Classroom allows you to configure automated tests that run every time a student pushes a commit to their assignment repository.\nUsing GitHub Actions under the hood, these autograding scripts can check for syntax errors, verify that a Quarto document compiles correctly, or validate the output of a data analysis script.\n\n\n9.1.3 Feedback Pull Requests\nInstead of downloading zipped folders of student code from Blackboard, GitHub Classroom can automatically open a Feedback Pull Request in every student’s assignment repository. This allows you, or your teaching assistants, to leave line-by-line comments directly on the student’s code, mimicking a professional code review process.\n\n\n9.1.4 LMS Integration\nWhile we are using Blackboard Ultra as the primary content delivery platform, GitHub Classroom can connect directly to your LMS. By linking your Blackboard course to your GitHub Classroom, you can import your student roster directly. This ensures that every GitHub account is mapped to a specific student ID, preventing the common headache of figuring out which anonymous GitHub handle belongs to which student.",
+    "objectID": "08_github_classroom.html#why-classroom-50-fits-this-workflow",
+    "href": "08_github_classroom.html#why-classroom-50-fits-this-workflow",
+    "title": "8  Classroom 50",
+    "section": "9.1 Why Classroom 50 Fits This Workflow",
+    "text": "9.1 Why Classroom 50 Fits This Workflow\nThe Quarto workflow established earlier generates predictable module folders such as M01, M02, and M03, each with files like M01_A.qmd, M01_Proj.qmd, and M01_Lab1.qmd. Those folders can become starter material for individual or group repositories.\nClassroom 50 adds four pieces around that Quarto source:\n\na private &lt;org&gt;/classroom50 configuration repository\none directory per classroom, with classroom.json, assignments.json, students.csv, and scores.json\nGitHub teams and org settings that keep student repositories private and limited\nteacher and student CLI commands for accepting, submitting, collecting, and downloading work\n\nIn practice, Blackboard Ultra remains the student-facing course shell, Quarto remains the source of truth for instructional material, GitHub remains the code workspace, and Classroom 50 manages the assignment repositories.",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>GitHub Classroom</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
     ]
   },
   {
-    "objectID": "08_github_classroom.html#integrating-classroom-with-your-quarto-workflow",
-    "href": "08_github_classroom.html#integrating-classroom-with-your-quarto-workflow",
-    "title": "8  GitHub Classroom",
-    "section": "9.2 Integrating Classroom with Your Quarto Workflow",
-    "text": "9.2 Integrating Classroom with Your Quarto Workflow\nTo implement GitHub Classroom effectively in this framework, consider the following workflow for each module:\n\nGenerate the Module: Use scripts/generate_modules.py to create the M01 folder and its M01_Lab1.qmd, M01_A.qmd, or M01_Proj.qmd files.\nAuthor the Assignment: Write the assignment instructions and provide any starter data inside the data/ folder.\nCreate the Template: Push this module folder to a dedicated GitHub repository and mark it as a “Template Repository” in the repository settings.\nPublish the Assignment: In GitHub Classroom, create a new assignment, select your template repository, and generate an invitation link.\nPost to Blackboard: Finally, take the GitHub Classroom invitation link and embed it directly into your Blackboard Ultra learning module.\n\nWhen students click the link in Blackboard, they will be taken to GitHub Classroom, where their personal, version-controlled Quarto workspace will be instantly generated. This workflow completely eliminates the friction of file distribution and empowers students to work in the same professional environments they will use in their careers.",
+    "objectID": "08_github_classroom.html#install-the-cli-extensions",
+    "href": "08_github_classroom.html#install-the-cli-extensions",
+    "title": "8  Classroom 50",
+    "section": "9.2 Install the CLI Extensions",
+    "text": "9.2 Install the CLI Extensions\nClassroom 50 is delivered as two GitHub CLI extensions: gh teacher for instructors and gh student for students.\nInstall both extensions:\ngh extension install foundation50/gh-teacher\ngh extension install foundation50/gh-student\nVerify that the commands are available:\ngh teacher --help\ngh student --help\nUpdate them before each semester:\ngh extension upgrade gh-teacher\ngh extension upgrade gh-student\nThen authenticate with the scopes Classroom 50 needs:\ngh teacher login\n\n\n\nDemo: gh teacher login\n\n\nThis is different from a plain gh auth login; the teacher command requests the organization and workflow scopes needed for roster invitations, classroom setup, and the config repository workflows.",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>GitHub Classroom</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
     ]
   },
   {
-    "objectID": "08_github_classroom.html#integrating-github-classroom-in-an-analytics-class",
-    "href": "08_github_classroom.html#integrating-github-classroom-in-an-analytics-class",
-    "title": "8  GitHub Classroom",
-    "section": "9.3 Integrating GitHub Classroom in an Analytics Class",
-    "text": "9.3 Integrating GitHub Classroom in an Analytics Class\nIn an analytics class, GitHub Classroom can serve as the distribution and collection layer for coding work. It can be used to create private repositories for each student or group, share starter Quarto, Python, or notebook files, and keep the assignment structure consistent across sections.\nIt also makes feedback easier. Students submit work through GitHub, and the instructor can review commits, compare revisions, and leave comments directly on files instead of managing multiple uploaded document versions through the LMS.",
+    "objectID": "08_github_classroom.html#one-time-organization-setup",
+    "href": "08_github_classroom.html#one-time-organization-setup",
+    "title": "8  Classroom 50",
+    "section": "9.3 One-Time Organization Setup",
+    "text": "9.3 One-Time Organization Setup\nCreate a dedicated teaching organization on GitHub before running the CLI. The CLI does not create the organization for you.\nRecommended organization pattern:\n\none GitHub organization per course, program, or teaching term\na short, stable org name such as ad688-fall-2026\nprivate assignment repositories for students\npublic or in-org private template repositories for starter code\n\nBootstrap the Classroom 50 config repository:\ngh teacher init &lt;org&gt; --dry-run\ngh teacher init &lt;org&gt;\nThe dry run is worth doing first. It checks org access, ownership, scopes, plan constraints, and service-token readiness before the command changes the org.\nDuring setup, Classroom 50 creates the private &lt;org&gt;/classroom50 repository, adds workflows for publishing assignment metadata and collecting scores, and applies least-privilege organization settings. It also requires a CLASSROOM50_SERVICE_TOKEN so the score-collection workflow can read student submissions.\nAfter setup, audit the organization:\ngh teacher audit &lt;org&gt;\nSome GitHub member-privilege settings still need to be confirmed in the web UI because GitHub does not expose every setting through the REST API. Treat the audit output as the final setup checklist.\nThe GitHub Integration page is the best reference for the fine-grained PAT, GitHub Pages, Actions, and REST API details behind this setup.",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>GitHub Classroom</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
+    ]
+  },
+  {
+    "objectID": "08_github_classroom.html#add-a-classroom",
+    "href": "08_github_classroom.html#add-a-classroom",
+    "title": "8  Classroom 50",
+    "section": "9.4 Add a Classroom",
+    "text": "9.4 Add a Classroom\nCreate one Classroom 50 classroom for each course section, course shell, or term-level teaching group.\ngh teacher classroom add &lt;org&gt; &lt;short-name&gt; --name \"&lt;full name&gt;\" --term &lt;term&gt;\nExample:\ngh teacher classroom add ad688-fall-2026 web-analytics --name \"Web Analytics\" --term Fall-2026\nThe &lt;short-name&gt; becomes part of every student repository name, so keep it short, lowercase, and stable. A repository for a student named alice accepting an assignment named module-01-lab would use a name like:\nweb-analytics-module-01-lab-alice\nList classrooms when you need to confirm what has been registered:\ngh teacher classroom list &lt;org&gt;",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
+    ]
+  },
+  {
+    "objectID": "08_github_classroom.html#import-the-roster",
+    "href": "08_github_classroom.html#import-the-roster",
+    "title": "8  Classroom 50",
+    "section": "9.5 Import the Roster",
+    "text": "9.5 Import the Roster\nClassroom 50 stores the intended roster in &lt;org&gt;/classroom50/&lt;classroom&gt;/students.csv. Manage it with the CLI rather than editing the file by hand.\nAdd one student:\ngh teacher roster add &lt;org&gt; &lt;classroom&gt; &lt;username&gt; --first-name &lt;name&gt; --last-name &lt;name&gt; --email &lt;email&gt; --section &lt;section&gt;\nFor ad-hoc organization invitations, the lower-level command is:\ngh teacher invite &lt;org&gt; &lt;username&gt;\n\n\n\nDemo: gh teacher invite\n\n\nBulk import a roster:\ngh teacher roster import &lt;org&gt; &lt;classroom&gt; data/classroom50-roster.csv\nUse a CSV with this header:\nusername,first_name,last_name,email,section\nList the roster:\ngh teacher roster list &lt;org&gt; &lt;classroom&gt;\nRoster import also sends organization invitations to new students. Students can accept the org invitation directly, or Classroom 50 can handle the pending invitation when they accept their first assignment.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
+    ]
+  },
+  {
+    "objectID": "08_github_classroom.html#prepare-quarto-assignment-templates",
+    "href": "08_github_classroom.html#prepare-quarto-assignment-templates",
+    "title": "8  Classroom 50",
+    "section": "9.6 Prepare Quarto Assignment Templates",
+    "text": "9.6 Prepare Quarto Assignment Templates\nFor each module assignment, start from the same module structure used throughout the course:\nM01/\n  M01_A.qmd\n  M01_Lab1.qmd\n  M01_Lab2.qmd\n  M01_Proj.qmd\n  data/\n  output/\nRecommended template workflow:\n\nGenerate or update the module files with scripts/generate_modules.py.\nRemove instructor-only files, solutions, keys, hidden notes, and private datasets.\nKeep the student-facing .qmd instructions, starter code, lightweight data, and any required environment files.\nPush the starter files to a dedicated GitHub repository.\nMark that repository as a template repository in GitHub settings.\n\nPrivate templates should live inside the teaching organization. Classroom 50 can grant the classroom team read access to in-org private templates when the assignment is registered. Public templates can live anywhere.\nFor template repositories, keep the upstream Assignment Templates contract in mind:\n\nREADME.md is the student-facing assignment brief.\n.gitignore is optional and is re-fetched by gh student submit.\n.github/ is optional and is re-fetched by gh student submit for non-autograde workflows.\n.github/workflows/autograde.yaml should not live in the template; Classroom 50 writes the autograde shim when the student accepts the assignment.\nstarter code can be a single file, a Quarto module folder, or a complete project skeleton.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
+    ]
+  },
+  {
+    "objectID": "08_github_classroom.html#add-assignments",
+    "href": "08_github_classroom.html#add-assignments",
+    "title": "8  Classroom 50",
+    "section": "9.7 Add Assignments",
+    "text": "9.7 Add Assignments\nRegister each assignment in Classroom 50 with a short slug, display name, optional template repository, and due date.\ngh teacher assignment add &lt;org&gt; &lt;classroom&gt; &lt;slug&gt; --name \"&lt;name&gt;\" --template &lt;owner&gt;/&lt;repo&gt; --due &lt;ISO-8601&gt;\nExample for an individual lab:\ngh teacher assignment add ad688-fall-2026 web-analytics module-01-lab --name \"Module 1 Lab\" --template ad688-fall-2026/module-01-lab-template --due 2026-09-15T23:59:00-04:00\nTemplate-less assignments are also allowed:\ngh teacher assignment add ad688-fall-2026 web-analytics reflection-01 --name \"Reflection 1\"\nFor group work, register the assignment as a group assignment and include a maximum group size:\ngh teacher assignment add ad688-fall-2026 web-analytics project-01 --name \"Project 1\" --template ad688-fall-2026/project-01-template --mode group --max-group-size 4\nList registered assignments:\ngh teacher assignment list &lt;org&gt; &lt;classroom&gt;\nAutograding is configured in the Classroom 50 config repository, not inside the starter template. Use the Autograders reference when you need a classroom default autograder, a per-assignment autograder.py, declarative tests, runtime settings, allowed-file checks, or feedback pull requests.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
+    ]
+  },
+  {
+    "objectID": "08_github_classroom.html#connect-assignments-to-blackboard-ultra",
+    "href": "08_github_classroom.html#connect-assignments-to-blackboard-ultra",
+    "title": "8  Classroom 50",
+    "section": "9.8 Connect Assignments to Blackboard Ultra",
+    "text": "9.8 Connect Assignments to Blackboard Ultra\nBlackboard Ultra should point students to the assignment workflow, not replace it.\nFor each Blackboard assignment item, include:\n\nthe assignment name and due date\nthe Classroom 50 classroom and assignment slug\nthe template or starter repository purpose\nthe required student commands\nthe final LMS submission artifact, usually the GitHub repository URL or a short confirmation note\n\nA simple student command block looks like this:\ngh student login\ngh student accept &lt;org&gt; &lt;classroom&gt; &lt;assignment&gt;\n\n\n\nDemo: gh student login\n\n\n\n\n\nDemo: gh student accept\n\n\nStudents complete the work in the generated repository, commit normally, push, and then submit with the Classroom 50 student command required by your assignment instructions.\ngit add .\ngit commit -m \"Complete assignment\"\ngit push\ngh student submit\n\n\n\nDemo: gh student submit\n\n\nThe CLI Student Guide is the student-facing source to link from Blackboard when students need the full accept, clone, group assignment, and submit workflow.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
+    ]
+  },
+  {
+    "objectID": "08_github_classroom.html#collect-scores-and-download-work",
+    "href": "08_github_classroom.html#collect-scores-and-download-work",
+    "title": "8  Classroom 50",
+    "section": "9.9 Collect Scores and Download Work",
+    "text": "9.9 Collect Scores and Download Work\nClassroom 50 submissions publish release artifacts in each student repository. The &lt;org&gt;/classroom50 config repository includes a collect-scores.yaml workflow that aggregates those release results into scores.json.\nTrigger score collection from the shell:\ngh workflow run collect-scores.yaml --repo &lt;org&gt;/classroom50\nCollect for one classroom only:\ngh workflow run collect-scores.yaml --repo &lt;org&gt;/classroom50 -f classroom=&lt;classroom&gt;\nDownload the latest submissions for grading, review, or archiving:\ngh teacher download &lt;org&gt; &lt;classroom&gt; &lt;assignment&gt;\n\n\n\nDemo: gh teacher download\n\n\nThe download command creates a timestamped folder, clones each rostered student’s assignment repository when present, refreshes result.json and results.json, and writes a scores.csv summary.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
+    ]
+  },
+  {
+    "objectID": "08_github_classroom.html#migration-pattern-from-github-classroom",
+    "href": "08_github_classroom.html#migration-pattern-from-github-classroom",
+    "title": "8  Classroom 50",
+    "section": "9.10 Migration Pattern from GitHub Classroom",
+    "text": "9.10 Migration Pattern from GitHub Classroom\nIf you already have a legacy GitHub Classroom course, do not rebuild every template by hand. Use the Classroom 50 migration command as the starting point:\ngh teacher classroom migrate --source &lt;id-or-org&gt; --target &lt;org&gt; --dry-run\ngh teacher classroom migrate --source &lt;id-or-org&gt; --target &lt;org&gt;\nThe migration path copies starter repositories into the target organization as new templates and commits the classroom configuration. Rosters and historical scores should be treated as separate records: export what you need from the old system, keep an archive, and onboard students into Classroom 50 for the new term.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
+    ]
+  },
+  {
+    "objectID": "08_github_classroom.html#troubleshooting-references",
+    "href": "08_github_classroom.html#troubleshooting-references",
+    "title": "8  Classroom 50",
+    "section": "9.11 Troubleshooting References",
+    "text": "9.11 Troubleshooting References\nWhen something fails, start with verbose output:\ngh student submit -v\ngh teacher download -v &lt;org&gt; &lt;classroom&gt; &lt;assignment&gt;\nUse Troubleshooting for the common cases: missing OAuth scopes, workflow-scope 404s during gh teacher init, private templates that students cannot read, missing .classroom50.yaml, unpublished autograder YAML, empty teacher downloads, and collect-scores runs that report zero readable submissions.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
+    ]
+  },
+  {
+    "objectID": "08_github_classroom.html#semester-checklist",
+    "href": "08_github_classroom.html#semester-checklist",
+    "title": "8  Classroom 50",
+    "section": "9.12 Semester Checklist",
+    "text": "9.12 Semester Checklist\n\nInstall or upgrade gh-teacher and gh-student\nRun gh teacher login\nCreate or confirm the teaching organization\nRun gh teacher init &lt;org&gt; --dry-run\nRun gh teacher init &lt;org&gt;\nComplete the manual organization hardening items from gh teacher audit\nAdd the classroom with gh teacher classroom add\nImport the roster with gh teacher roster import\nPrepare Quarto starter repositories and mark them as templates\nRegister assignments with gh teacher assignment add\nAdd Classroom 50 commands and repository expectations to Blackboard Ultra\nTest one assignment with a student-style account before publishing\nTrigger collect-scores.yaml after submissions begin\nDownload submissions with gh teacher download",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Classroom 50</span>"
     ]
   },
   {
@@ -1664,7 +1754,7 @@
     "href": "11_automating_with_AI.html#the-ai-editor-stack",
     "title": "11  Automating with AI",
     "section": "12.1 The AI Editor Stack",
-    "text": "12.1 The AI Editor Stack\nFor day-to-day course production, the most practical setup is a combination of:\n\nGitHub for repositories, version history, and publishing\nGitHub Copilot for inline suggestions and chat support while writing code or Quarto\nGitHub Classroom for distributing coding assignments and collecting student work\nVS Code or Antigravity when using ChatGPT-connected coding tools for drafting scripts, revising content, and debugging\nCursor when project-wide AI editing and rapid refactoring are useful\nGemini and OpenAI APIs when you want scripts to generate metadata, summaries, or structured course assets at scale\n\nUsed together, these tools reduce setup time, help standardize materials, and make it easier to maintain course content across semesters.",
+    "text": "12.1 The AI Editor Stack\nFor day-to-day course production, the most practical setup is a combination of:\n\nGitHub for repositories, version history, and publishing\nGitHub Copilot for inline suggestions and chat support while writing code or Quarto\nClassroom 50 for distributing coding assignments and collecting student work\nVS Code or Antigravity when using ChatGPT-connected coding tools for drafting scripts, revising content, and debugging\nCursor when project-wide AI editing and rapid refactoring are useful\nGemini and OpenAI APIs when you want scripts to generate metadata, summaries, or structured course assets at scale\n\nUsed together, these tools reduce setup time, help standardize materials, and make it easier to maintain course content across semesters.",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
@@ -1724,7 +1814,7 @@
     "href": "11_automating_with_AI.html#responsible-ai-use-in-education",
     "title": "11  Automating with AI",
     "section": "12.7 Responsible AI Use in Education",
-    "text": "12.7 Responsible AI Use in Education\nWhile GitHub Copilot is a powerful authoring assistant for you as an educator, it also introduces important discussions regarding responsible use in the classroom.\nIf you are using GitHub Classroom (discussed in Chapter 6), your students may also have access to Copilot through GitHub Education. Verified students can get free access to GitHub Copilot, and Copilot Chat can be used with repository context to answer questions about the codebase. It is critical to establish a clear policy in your syllabus regarding the acceptable use of Generative AI.\n\n\n\n\n\n\nTip\n\n\n\nUse Copilot to help you generate boilerplate code, format markdown, and troubleshoot errors. However, always review the generated content critically before publishing it to your Blackboard course shell to ensure pedagogical accuracy.\n\n\nIntegrating AI into your workflow does not replace your expertise; it simply accelerates the mechanics of course production, giving you more time to focus on teaching.",
+    "text": "12.7 Responsible AI Use in Education\nWhile GitHub Copilot is a powerful authoring assistant for you as an educator, it also introduces important discussions regarding responsible use in the classroom.\nIf students are working in GitHub repositories managed through Classroom 50, they may also have access to Copilot through GitHub Education. Verified students can get free access to GitHub Copilot, and Copilot Chat can be used with repository context to answer questions about the codebase. It is critical to establish a clear policy in your syllabus regarding the acceptable use of Generative AI.\n\n\n\n\n\n\nTip\n\n\n\nUse Copilot to help you generate boilerplate code, format markdown, and troubleshoot errors. However, always review the generated content critically before publishing it to your Blackboard course shell to ensure pedagogical accuracy.\n\n\nIntegrating AI into your workflow does not replace your expertise; it simply accelerates the mechanics of course production, giving you more time to focus on teaching.",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
@@ -1734,7 +1824,7 @@
     "href": "11_automating_with_AI.html#integrating-these-tools-in-an-analytics-class",
     "title": "11  Automating with AI",
     "section": "12.8 Integrating These Tools in an Analytics Class",
-    "text": "12.8 Integrating These Tools in an Analytics Class\nIn an analytics class, these tools can speed up the parts of course design that are repetitive but still technical. GitHub and GitHub Classroom help organize materials, distribute assignments, and keep submissions structured. GitHub Copilot, Cursor, and ChatGPT-connected coding tools help draft scripts, clean up Quarto files, troubleshoot issues, and generate boilerplate more quickly.\nFor larger automation tasks, OpenAI or Gemini APIs can be used from Python scripts to generate metadata, summaries, or other structured content. Remotion and Manim can support technical video creation, while Hugging Face can support model experimentation or institution-scale AI workflows. The main value is not replacing instructional judgment, but reducing the time spent on setup, formatting, and iteration.",
+    "text": "12.8 Integrating These Tools in an Analytics Class\nIn an analytics class, these tools can speed up the parts of course design that are repetitive but still technical. GitHub and Classroom 50 help organize materials, distribute assignments, and keep submissions structured. GitHub Copilot, Cursor, and ChatGPT-connected coding tools help draft scripts, clean up Quarto files, troubleshoot issues, and generate boilerplate more quickly.\nFor larger automation tasks, OpenAI or Gemini APIs can be used from Python scripts to generate metadata, summaries, or other structured content. Remotion and Manim can support technical video creation, while Hugging Face can support model experimentation or institution-scale AI workflows. The main value is not replacing instructional judgment, but reducing the time spent on setup, formatting, and iteration.",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automating with AI</span>"
     ]
@@ -1864,9 +1954,109 @@
     "href": "summary.html",
     "title": "13  Summary",
     "section": "",
-    "text": "This book has walked through the full course-production workflow:\n\nsetting up the authoring environment\nmanaging course materials with Git and GitHub\nwriting reproducible documents with Quarto\ndesigning the course feeder workbook\nbuilding a Quarto microsite with a consistent M01_* module structure\nusing GitHub Classroom for code-based coursework\npreparing content for Blackboard Ultra\nautomating repetitive course-building tasks with scripts and AI-assisted tools\n\nThe goal is not just to create one attractive course website. The goal is to give professors a repeatable system they can reuse across semesters, sections, and courses.\nThe recommended next step is to build a small pilot course using the same structure: one syllabus page, one schedule page, one deliverables page, and one complete module folder. Once that pilot renders cleanly and maps into Blackboard Ultra, the same pattern can scale to the full course.",
+    "text": "This book has walked through the full course-production workflow:\n\nsetting up the authoring environment\nmanaging course materials with Git and GitHub\nwriting reproducible documents with Quarto\ndesigning the course feeder workbook\nbuilding a Quarto microsite with a consistent M01_* module structure\nusing Classroom 50 for code-based coursework\npreparing content for Blackboard Ultra\nautomating repetitive course-building tasks with scripts and AI-assisted tools\n\nThe goal is not just to create one attractive course website. The goal is to give professors a repeatable system they can reuse across semesters, sections, and courses.\nThe recommended next step is to build a small pilot course using the same structure: one syllabus page, one schedule page, one deliverables page, and one complete module folder. Once that pilot renders cleanly and maps into Blackboard Ultra, the same pattern can scale to the full course.",
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html",
+    "href": "13_class_schedule_automation.html",
+    "title": "13  Class Schedule Automation",
+    "section": "",
+    "text": "13.1 What the Package Owns\nCourse schedules change every semester, but the logic for building them should not have to be rewritten each time. A useful course repository separates three things:\nThe edustack-schedule package provides the reusable scheduling layer for this workflow. It reads the Boston University semester calendar, applies course section rules, and writes a generated workbook that the syllabus, schedule, and deliverables pages can all read.\nThe result is a repeatable semester update:\nThe package owns the behavior that should be consistent across courses:\nThe course repository still owns the course-specific decisions:\nThis division keeps the package stable while leaving each professor free to adapt a course.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#what-the-package-owns",
+    "href": "13_class_schedule_automation.html#what-the-package-owns",
+    "title": "13  Class Schedule Automation",
+    "section": "",
+    "text": "resolving the active semester from the render date\ndownloading and caching BU semester calendar rows\nparsing recesses, class suspensions, and substitute class days\ngenerating on-campus lecture dates from official calendar rules\ngenerating online weekly dates from explicit section starts\npairing online dates when a course has two online lectures per week\nchecking that configured section start dates match the target year\nwriting a generated schedule workbook with standard sheets\n\n\n\nthe source workbook name\nactive sections for the semester\nsection modalities\nfirst meeting dates\nnumber of lectures or online weeks\nassignment, lab, project, and participation rules\nthe wording and layout of the Quarto pages",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#install-the-package-locally",
+    "href": "13_class_schedule_automation.html#install-the-package-locally",
+    "title": "13  Class Schedule Automation",
+    "section": "13.2 Install the Package Locally",
+    "text": "13.2 Install the Package Locally\nDuring development, install the package from the EduStack checkout:\npython -m pip install -e &lt;path-to-edustack&gt;\\packages\\edustack-schedule\nLater, when the package is published, the command can become:\npython -m pip install edustack-schedule\nThe package installs a command named edustack-schedule:\nedustack-schedule --help",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#keep-course-configuration-in-the-course-repository",
+    "href": "13_class_schedule_automation.html#keep-course-configuration-in-the-course-repository",
+    "title": "13  Class Schedule Automation",
+    "section": "13.3 Keep Course Configuration in the Course Repository",
+    "text": "13.3 Keep Course Configuration in the Course Repository\nEach course should keep a small schedule configuration file at schedules/config.py. This file is the semester control panel. It should be plain Python data so it is easy to review before each term.\n# schedules/config.py\n\nsemester = \"Fall\"\nyear = 2026\nsource_workbook = \"data/Course-Schedule.xlsx\"\n\nsection_configs_by_semester = {\n    \"Fall\": [\n        {\n            \"section\": \"A1\",\n            \"modality\": \"oncampus\",\n            \"start_date\": \"2026-09-14\",\n            \"class_days\": [\"Mon\"],\n            \"lecture_count\": 12,\n        },\n        {\n            \"section\": \"O1\",\n            \"modality\": \"online\",\n            \"start_date\": \"2026-09-17\",\n            \"class_days\": [\"Thu\"],\n            \"weeks\": 6,\n            \"lectures_per_week\": 2,\n        },\n    ],\n}\nSet semester and year to None only when the course should follow the render date automatically. For active production courses, pinning the semester and year is often safer while the syllabus is being prepared.\nThe source_workbook value may differ by course. One course may use data/Course-Schedule.xlsx; another may use a course-specific workbook name such as data/AD698-Schedule.xlsx.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#install-compatibility-wrappers",
+    "href": "13_class_schedule_automation.html#install-compatibility-wrappers",
+    "title": "13  Class Schedule Automation",
+    "section": "13.4 Install Compatibility Wrappers",
+    "text": "13.4 Install Compatibility Wrappers\nExisting course repositories may already import modules such as schedules.build_schedule, schedules.term_resolver, or bu_calendar.bu_calendar_cache. The installer can add thin wrappers so those imports continue to work while the shared behavior comes from the package.\nAlways preview the operation first:\nedustack-schedule install &lt;path-to-course-repo&gt; --dry-run\nIf the preview looks right, install the wrappers:\nedustack-schedule install &lt;path-to-course-repo&gt;\nBy default, existing files are skipped. Use --force only after reviewing the course repository and confirming that the package wrappers should replace the current schedule modules.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#generate-the-schedule-workbook",
+    "href": "13_class_schedule_automation.html#generate-the-schedule-workbook",
+    "title": "13  Class Schedule Automation",
+    "section": "13.5 Generate the Schedule Workbook",
+    "text": "13.5 Generate the Schedule Workbook\nFrom the course repository, run:\nedustack-schedule generate\nThe command reads schedules/config.py, loads the course source workbook, and writes a generated workbook in data/. The default output name follows this pattern:\ndata/fall26_generated_schedule.xlsx\nThe generated workbook contains standard sheets:\n\n\n\n\n\n\n\nSheet\nPurpose\n\n\n\n\nSummary\nsection, modality, term start, term end, class days, and lecture counts\n\n\nModule0 Catalog\npre-course or orientation rows from the source workbook\n\n\nSchedule\nlecture titles with section-specific dates\n\n\nOnline Deliverables\nonline assignment, lab, project, and participation dates when configured\n\n\nOnCampus Deliverables\non-campus assignment, lab, project, and participation dates when configured\n\n\n\nTo generate a specific term explicitly:\nedustack-schedule generate --semester Fall --year 2026\nTo generate only selected sections:\nedustack-schedule generate --sections A1 O1",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#connect-quarto-pages-to-the-generated-workbook",
+    "href": "13_class_schedule_automation.html#connect-quarto-pages-to-the-generated-workbook",
+    "title": "13  Class Schedule Automation",
+    "section": "13.6 Connect Quarto Pages to the Generated Workbook",
+    "text": "13.6 Connect Quarto Pages to the Generated Workbook\nThe same generated workbook should feed the three public course pages:\nindex.qmd          course overview and high-level schedule\nschedule.qmd       full lecture sequence and meeting dates\ndeliverables.qmd   due dates and graded work\nA page can load a sheet like this:\nfrom schedules.config import semester, year\nfrom schedules.generated_schedule import load_generated_schedule\n\nschedule = load_generated_schedule(\"schedule\", semester=semester, year=year)\nThen render the table with the same display style used elsewhere in the course:\nfrom IPython.display import Markdown, display\n\ndisplay(Markdown(schedule.to_markdown(index=False)))\nThe important rule is that the pages should read the generated workbook instead of recalculating dates independently. If index.qmd, schedule.qmd, and deliverables.qmd each compute dates in their own cells, they can drift apart.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#semester-update-checklist",
+    "href": "13_class_schedule_automation.html#semester-update-checklist",
+    "title": "13  Class Schedule Automation",
+    "section": "13.7 Semester Update Checklist",
+    "text": "13.7 Semester Update Checklist\nBefore each semester:\n\nUpdate schedules/config.py.\nConfirm every active section has the correct start_date, class_days, and modality.\nConfirm the source_workbook value points to the course workbook.\nRun edustack-schedule generate.\nOpen the generated workbook and inspect the Summary and Schedule sheets.\nRender index.qmd, schedule.qmd, and deliverables.qmd serially.\nInspect the rendered dates, not just the command success.\nCommit the config, generated workbook, and page changes together.\n\nSerial rendering matters when several Quarto pages share the same output folder. Rendering them at the same time can cause file-copy races on Windows.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#common-checks",
+    "href": "13_class_schedule_automation.html#common-checks",
+    "title": "13  Class Schedule Automation",
+    "section": "13.8 Common Checks",
+    "text": "13.8 Common Checks\nIf the workbook is missing, generate it again:\nedustack-schedule generate\nIf the package reports that a section start date uses the wrong year, update the full ISO date in schedules/config.py. Automatic term resolution can move from December into the next Spring term, but section start dates are still explicit dates.\nIf online sections have the wrong number of rows, check both values:\n\"weeks\": 6,\n\"lectures_per_week\": 2,\nSix weekly dates with two lectures per week should produce twelve online lecture rows.\nIf a course uses its own deliverable rules, keep those rules in the course repository and let the generated workbook call them through the wrapper layer. The shared package should know how to place dates; the course should know what students are asked to submit.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
+    ]
+  },
+  {
+    "objectID": "13_class_schedule_automation.html#design-principle",
+    "href": "13_class_schedule_automation.html#design-principle",
+    "title": "13  Class Schedule Automation",
+    "section": "13.9 Design Principle",
+    "text": "13.9 Design Principle\nThe package should make the semester mechanics boring. Professors should update one configuration file, generate one workbook, and render the same three pages. When every date comes from the same generated source, the syllabus, schedule, and deliverables page stay aligned.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Class Schedule Automation</span>"
     ]
   }
 ]

@@ -1,6 +1,6 @@
 [project]
 name = "edustack-schedule"
-version = "0.1.0"
+version = "0.1.1"
 description = "Reusable BU course schedule and assignment calendar generator."
 readme = "README.md"
 requires-python = ">=3.12"

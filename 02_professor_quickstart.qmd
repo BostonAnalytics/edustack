@@ -1,7 +1,7 @@
 # Professor Quickstart
 
 This chapter is the shortest path from an empty folder to a course structure that
-can become a Quarto site, a GitHub Classroom template, and a Blackboard Ultra
+can become a Quarto site, a Classroom 50 assignment template, and a Blackboard Ultra
 course package.
 
 Use this chapter when you already understand the goal and want the build order.

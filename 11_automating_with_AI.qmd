@@ -14,7 +14,7 @@ For day-to-day course production, the most practical setup is a combination of:
 
 - **GitHub** for repositories, version history, and publishing
 - **GitHub Copilot** for inline suggestions and chat support while writing code or Quarto
-- **GitHub Classroom** for distributing coding assignments and collecting student work
+- **Classroom 50** for distributing coding assignments and collecting student work
 - **VS Code** or **Antigravity** when using ChatGPT-connected coding tools for drafting scripts, revising content, and debugging
 - **Cursor** when project-wide AI editing and rapid refactoring are useful
 - **Gemini and OpenAI APIs** when you want scripts to generate metadata, summaries, or structured course assets at scale
@@ -156,7 +156,7 @@ Copilot is not just for Python scripts. Because Quarto is a text-based format (`
 
 While GitHub Copilot is a powerful authoring assistant for you as an educator, it also introduces important discussions regarding responsible use in the classroom.
 
-If you are using GitHub Classroom (discussed in Chapter 6), your students may also have access to Copilot through GitHub Education. Verified students can get free access to GitHub Copilot, and Copilot Chat can be used with repository context to answer questions about the codebase. It is critical to establish a clear policy in your syllabus regarding the acceptable use of Generative AI.
+If students are working in GitHub repositories managed through Classroom 50, they may also have access to Copilot through GitHub Education. Verified students can get free access to GitHub Copilot, and Copilot Chat can be used with repository context to answer questions about the codebase. It is critical to establish a clear policy in your syllabus regarding the acceptable use of Generative AI.
 
 :::{.callout-tip}
 Use Copilot to help you generate boilerplate code, format markdown, and troubleshoot errors. However, always review the generated content critically before publishing it to your Blackboard course shell to ensure pedagogical accuracy.
@@ -166,6 +166,6 @@ Integrating AI into your workflow does not replace your expertise; it simply acc
 
 ## Integrating These Tools in an Analytics Class
 
-In an analytics class, these tools can speed up the parts of course design that are repetitive but still technical. GitHub and GitHub Classroom help organize materials, distribute assignments, and keep submissions structured. GitHub Copilot, Cursor, and ChatGPT-connected coding tools help draft scripts, clean up Quarto files, troubleshoot issues, and generate boilerplate more quickly.
+In an analytics class, these tools can speed up the parts of course design that are repetitive but still technical. GitHub and Classroom 50 help organize materials, distribute assignments, and keep submissions structured. GitHub Copilot, Cursor, and ChatGPT-connected coding tools help draft scripts, clean up Quarto files, troubleshoot issues, and generate boilerplate more quickly.
 
 For larger automation tasks, OpenAI or Gemini APIs can be used from Python scripts to generate metadata, summaries, or other structured content. Remotion and Manim can support technical video creation, while Hugging Face can support model experimentation or institution-scale AI workflows. The main value is not replacing instructional judgment, but reducing the time spent on setup, formatting, and iteration.

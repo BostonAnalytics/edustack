@@ -505,7 +505,7 @@ GitHub provides several features that enhance teaching:
 1. **Visibility**: Share course materials with students, colleagues, or the public
 2. **Collaboration**: Students and colleagues can contribute directly to projects
 3. **Issues and Discussions**: Organize feedback, bugs, and feature requests
-4. **GitHub Classroom**: Automated assignment distribution and collection for students
+4. **Classroom 50**: CLI-based assignment distribution and collection for students
 
 ### Creating a GitHub Account and Repository
 
@@ -935,7 +935,7 @@ Review what you've learned in this chapter:
 Now that you understand version control, you're ready to:
 
 - Set up your course repository (see Phase 1-4 checklist above)
-- Learn about GitHub Classroom for managing student assignments
+- Learn about Classroom 50 for managing student assignments
 - Explore advanced Git features like rebasing, cherry-picking, and hooks
 - Teach your students version control as part of your curriculum
 

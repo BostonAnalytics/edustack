@@ -25,7 +25,7 @@ book:
     - href: 07_quarto_class_setup.qmd
       text: "Quarto Class Setup"
     - href: 08_github_classroom.qmd
-      text: "GitHub Classroom"
+      text: "Classroom 50"
     - href: 09_cloud_analytics_with_aws.qmd
       text: "Cloud Analytics with AWS"
     - href: 10_blackboard_ultra.qmd

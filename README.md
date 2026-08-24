@@ -2,7 +2,7 @@
 
 This repository contains a Quarto book for professors, instructional designers,
 and academic technologists who want to build maintainable course materials with
-Quarto, GitHub, GitHub Classroom, and Blackboard Ultra.
+Quarto, GitHub, Classroom 50, and Blackboard Ultra.
 
 The book is designed as a practical course-building workflow rather than a
 general Quarto reference. It explains the tools, then shows how to turn a course
@@ -18,7 +18,7 @@ HTML.
 - Build a Quarto course microsite.
 - Use a feeder workbook to organize course structure.
 - Generate canonical `M01_*` module folders and files.
-- Prepare materials for GitHub Classroom and Blackboard Ultra.
+- Prepare materials for Classroom 50 and Blackboard Ultra.
 - Use AI-assisted scripts to reduce repetitive course production work.
 - Complete a capstone mini-course modeled after AD688.
 

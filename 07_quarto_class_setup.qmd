@@ -67,7 +67,7 @@ to GitHub after files already exist.
    git push
    ```
 
-You may still work entirely on a local drive or cloud-synced folder, but the GitHub-first workflow is preferred for course development because it gives you backup, history, collaboration, and a cleaner path to GitHub Classroom.
+You may still work entirely on a local drive or cloud-synced folder, but the GitHub-first workflow is preferred for course development because it gives you backup, history, collaboration, and a cleaner path to Classroom 50.
 
 ## Set Up the Core Quarto Configuration File
 

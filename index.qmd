@@ -111,7 +111,7 @@ By progressing through the chapters, you will develop the ability to:
 
 * Build, maintain, and publish an entire course website
 * Use version control confidently and professionally
-* Use GitHub Classroom to distribute and review coding assignments
+* Use Classroom 50 to distribute and review coding assignments
 * Use GitHub Copilot and editor-based AI tools to speed up course preparation
 * Write reproducible, portable instructional materials
 * Integrate your website into a university LMS
